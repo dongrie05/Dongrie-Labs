@@ -1,0 +1,324 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "pricing": "Pricing",
+    "recursos": "Resources",
+    "contact": "Contact",
+    "privacy": "Privacy"
+  },
+  "cookieConsent": {
+    "message": "We use cookies for analytics and to improve your experience. By continuing you accept our",
+    "privacyPolicy": "Privacy Policy",
+    "learnMore": "Learn more",
+    "accept": "Accept"
+  },
+  "common": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "brandName": "Dongrie Labs",
+    "contactWhatsApp": "Contact on WhatsApp"
+  },
+  "footer": {
+    "tagline": "AI-powered software studio. Building mobile apps, AI systems and automations. Fast. Premium.",
+    "navigationLabel": "Navigation",
+    "contactLabel": "Contact",
+    "copyright": "All rights reserved.",
+    "designedBy": "Designed & built by Gonçalo Dongrie"
+  },
+  "hero": {
+    "scroll": "Scroll",
+    "metaTitle": "Dongrie Labs - Fast AI-Powered Software Studio",
+    "title": "I build apps and AI systems in weeks, not months.",
+    "subtitle": "A solo AI-powered software studio. Agency-quality results at startup-friendly prices. Founder-led, fast execution.",
+    "ctaBookCall": "Book a Call",
+    "ctaSeeWork": "See My Work",
+    "badge": "7 apps launched in 3 months"
+  },
+  "preloader": {
+    "buildingComment": "// Dongrie Labs — building your app",
+    "readyComment": "// Ready. Opening site..."
+  },
+  "credibility": {
+    "appsLaunched": "Apps Launched",
+    "months": "Months",
+    "platforms": "iOS + Android",
+    "projectRange": "Project Range"
+  },
+  "services": {
+    "sectionLabel": "Services",
+    "overviewTitle": "What I Build",
+    "overviewSubtitle": "From mobile apps to AI integrations and business automation. Fast delivery, clear scope.",
+    "exploreAll": "Explore All Services",
+    "pageTitle": "What I Build",
+    "pageSubtitle": "Full-stack development with AI at the core. Every project is scoped, delivered on time, and built to last.",
+    "comingSoon": "Coming Soon",
+    "ctaTitle": "Let's discuss your project",
+    "ctaSubtitle": "Tell me about your idea. I'll respond within 24 hours.",
+    "learnMore": "Learn more",
+    "modalWhat": "What it is",
+    "modalHow": "How it works",
+    "modalCost": "Average cost",
+    "modalTime": "Average time",
+    "modalCta": "Discuss this project",
+    "mobileApps": {
+      "title": "Mobile App Development",
+      "shortDesc": "iOS and Android apps with React Native. One codebase, two stores.",
+      "description": "Native-feel mobile apps for iOS and Android from a single codebase. From MVPs to production-ready apps with push notifications, in-app purchases, and smooth performance.",
+      "howItWorks": "We define scope and screens, then build in React Native so one codebase runs on iOS and Android. You get regular builds to test; at the end we prepare store listings and help with submission.",
+      "averageCost": "€3k – €8k",
+      "averageTime": "3–6 weeks"
+    },
+    "aiIntegration": {
+      "title": "AI Integration",
+      "shortDesc": "Integrate LLMs, vision, and automation into your product or workflows.",
+      "description": "Bring AI into your product or internal tools. Custom integrations with OpenAI, Claude, or open-source models. Chatbots, document processing, and intelligent automation.",
+      "howItWorks": "We choose the right model and API for your use case, then build the integration (chat, embeddings, or automation). You get a working feature plus clear documentation and maintenance notes.",
+      "averageCost": "€2k – €6k",
+      "averageTime": "2–4 weeks"
+    },
+    "businessAutomation": {
+      "title": "Business Automation",
+      "shortDesc": "Workflows, scripts, and tools that save hours every week.",
+      "description": "Automate repetitive tasks and connect your tools. Custom scripts, no-code/low-code pipelines, and integrations that scale with your business.",
+      "howItWorks": "We map the tasks you want to automate and the tools you use, then build scripts or pipelines (e.g. Python, Zapier-style flows) that run on a schedule or trigger. You get something you can run and adjust.",
+      "averageCost": "€2k – €5k",
+      "averageTime": "2–4 weeks"
+    },
+    "mvpDevelopment": {
+      "title": "MVP Development",
+      "shortDesc": "Get a working product in weeks so you can validate and iterate.",
+      "description": "Ship a minimal viable product fast. Clear scope, fixed timeline, and a foundation you can build on. Perfect for founders and early-stage startups.",
+      "howItWorks": "We lock a small set of core features and a timeline, then build in short cycles so you can test with real users. You receive a deployable product and a clear path to add features later.",
+      "averageCost": "€2.5k – €7k",
+      "averageTime": "2–5 weeks"
+    },
+    "apiIntegration": {
+      "title": "API Integrations",
+      "shortDesc": "Connect your app to payment, CRM, or any third-party API.",
+      "description": "Stripe, Twilio, Slack, or custom APIs. Reliable integrations with proper error handling and documentation.",
+      "howItWorks": "We integrate the APIs you need (payments, messaging, CRM, etc.) with proper auth, error handling, and retries. You get working endpoints and docs so your team can maintain or extend them.",
+      "averageCost": "€1.5k – €5k",
+      "averageTime": "1–3 weeks"
+    },
+    "customSoftware": {
+      "title": "Custom Software Tools",
+      "shortDesc": "Bespoke web or desktop tools tailored to your workflow.",
+      "description": "Internal dashboards, admin panels, or niche tools. Built for your team and your process.",
+      "howItWorks": "We design and build a tool around your workflow (web or desktop). You get something your team can use daily, with clear ownership and optional tweaks later.",
+      "averageCost": "€2.5k – €8k",
+      "averageTime": "3–6 weeks"
+    },
+    "future": {
+      "localAi": "Local AI Setups",
+      "openClaw": "OpenClaw Systems",
+      "miniSaaS": "Mini SaaS Development"
+    }
+  },
+  "portfolio": {
+    "sectionLabel": "Work",
+    "title": "Portfolio",
+    "subtitle": "Real projects, real results. 7 apps shipped in 3 months.",
+    "viewFull": "View Full Portfolio",
+    "viewProject": "View Project",
+    "all": "All",
+    "mobile": "Mobile",
+    "ai": "AI",
+    "automation": "Automation",
+    "metricsApps": "Apps",
+    "metricsPlatforms": "Platforms",
+    "metricsDelivery": "Delivery"
+  },
+  "process": {
+    "sectionLabel": "Process",
+    "title": "How I Work",
+    "subtitle": "Simple, transparent process. No surprises.",
+    "step1Title": "Discovery Call",
+    "step1Desc": "We discuss your goals, timeline, and budget. I ask questions to scope the project clearly.",
+    "step2Title": "Scope & Quote",
+    "step2Desc": "You get a fixed scope and price. No hidden fees. We align on deliverables and milestones.",
+    "step3Title": "Design & Build",
+    "step3Desc": "I design and develop in iterations. You see progress regularly and can give feedback.",
+    "step4Title": "Launch & Support",
+    "step4Desc": "We launch. I provide handover docs and optional support so you can run it yourself.",
+    "ctaQuote": "Request a Quote"
+  },
+  "why": {
+    "sectionLabel": "Why us",
+    "title": "Why Dongrie Labs",
+    "subtitle": "Solo studio, agency-level execution.",
+    "tabAccountability": "Accountability",
+    "tabAiPowered": "AI-Powered",
+    "tabWeeksNotMonths": "Speed",
+    "tabPricing": "Pricing",
+    "accountability": {
+      "title": "Solo Founder, Full Accountability",
+      "desc": "No account managers or handoffs. You work directly with the person building your product."
+    },
+    "aiPowered": {
+      "title": "AI-Powered Development",
+      "desc": "AI is built into my workflow. That means faster delivery without sacrificing quality."
+    },
+    "weeksNotMonths": {
+      "title": "Weeks, Not Months",
+      "desc": "Proven track record: 7 apps in 3 months. Clear scope and focused execution."
+    },
+    "pricing": {
+      "title": "Startup-Friendly Pricing",
+      "desc": "Projects typically €2k–€10k. Transparent quotes, no surprises."
+    }
+  },
+  "founder": {
+    "sectionLabel": "Founder",
+    "title": "The person behind the code",
+    "subtitle": "Gonçalo Dongrie. Solo founder, builder, and AI enthusiast.",
+    "bio": "My life goal is to simplify people's lives—day-to-day and in business—and to reduce the time and cost of software in Portugal. I think about your product as if it were my own, and I reply within 30 minutes on weekdays so you always feel heard.",
+    "moreAbout": "More About Me"
+  },
+  "proofStrip": {
+    "label": "Real results",
+    "stat": "SmartMeal: 3,000+ downloads in 3 months",
+    "quote": "Users say my apps actually help them.",
+    "cta": "See the apps"
+  },
+  "whoIHelp": {
+    "label": "Who I work with",
+    "text": "Founders, startups and SMEs who want apps, automations or AI—without agency prices or long waits. If you have an idea and a clear goal, we can make it happen."
+  },
+  "cta": {
+    "sectionLabel": "Let's work together",
+    "headline": "Ready to build something great?",
+    "subtitle": "Book a call, send a message, or request a quote. I typically respond within 30 minutes on weekdays.",
+    "noCommitment": "No commitment. Tell me your idea and I'll reply in 30 minutes.",
+    "bookCall": "Book a Call",
+    "whatsApp": "WhatsApp",
+    "requestQuote": "Request a Quote"
+  },
+  "about": {
+    "title": "About",
+    "heroTitle": "Hi, I'm Gonçalo",
+    "heroSubtitle": "Founder of Dongrie Labs. I build software and AI systems that ship.",
+    "mission": "My life goal—what I live for—is to simplify people's lives, both day-to-day and in their businesses. I created Dongrie Labs to reduce the time and cost of software in Portugal.",
+    "storyTitle": "Why I do this",
+    "story": "I'm motivated by knowing I've helped people simplify their lives. I want to help everyone who asks—not only because I want to build software for everyone, but because I believe we all deserve access to the best tools. You shouldn't miss out just because you don't know how to get started.",
+    "proofTitle": "Real impact",
+    "proof": "SmartMeal passed 3,000 downloads in its first three months. Users tell me my apps actually help them. That's what drives me.",
+    "commitmentTitle": "How I work with you",
+    "commitment": "Availability matters to me. I promise that on weekdays, except in extreme cases, I'll reply to your messages within 30 minutes—because I want you to feel heard and understood. I'm flexible so we can shape the project in a way that works for both of us.",
+    "howIWorkTitle": "My approach",
+    "howIWork": "I think about your product as if it were my own. My aim is that after our first call, you feel I understood exactly what you want.",
+    "philosophyTitle": "What you can expect",
+    "philosophy": "Speed and price without cutting corners. I'm not afraid to use AI where it makes sense. Clear scope, transparent pricing, and a single point of contact so nothing gets lost.",
+    "values": {
+      "speed": "Speed",
+      "quality": "Quality",
+      "transparency": "Transparency",
+      "aiFirst": "AI when it matters"
+    },
+    "personalTitle": "Beyond code",
+    "personal": "I was a competitive athlete and I'm finishing my degree. Those experiences taught me to manage time better and to see things from a different angle—which I bring to every project.",
+    "techTitle": "Tech & tools",
+    "techSubtitle": "Stack I use day-to-day for apps, automations and AI.",
+    "techLanguages": "Languages",
+    "techFrameworks": "Frameworks",
+    "techAi": "AI & LLMs",
+    "techData": "Data & backend",
+    "techOther": "Tools & deploy",
+    "vision": "I want people in Portugal to think of me when they need apps, automation, or AI. That's the standard I'm building towards.",
+    "ctaTitle": "Let's work together",
+    "ctaSubtitle": "Budget tight? Let's talk. Projects start from €2k and we can find an option that works for you.",
+    "ctaButton": "Get in touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch. I typically respond within 30 minutes on weekdays.",
+    "trustStrip": "I reply within 30 minutes on weekdays. Projects from €2k—we can find an option that works for you.",
+    "whatsAppDefaultMessage": "Hi! I found Dongrie Labs and would like to discuss a project.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "projectType": "Project type",
+      "budget": "Estimated budget",
+      "message": "Tell me about your project",
+      "submit": "Open in WhatsApp",
+      "sending": "Opening...",
+      "success": "WhatsApp is opening with your message. Send it from there.",
+      "whatsAppIntro": "New contact from website",
+      "error": "Something went wrong. Please try the WhatsApp button below."
+    },
+    "projectTypes": {
+      "mobile": "Mobile App",
+      "ai": "AI Integration",
+      "automation": "Business Automation",
+      "mvp": "MVP Development",
+      "other": "Other"
+    },
+    "budgetOptions": {
+      "under2k": "Under €2k",
+      "2k5k": "€2k – €5k",
+      "5k10k": "€5k – €10k",
+      "over10k": "Over €10k"
+    },
+    "info": {
+      "email": "Email",
+      "whatsApp": "WhatsApp",
+      "bookCall": "Book a Call",
+      "responseTime": "I typically respond within 30 min on weekdays"
+    }
+  },
+  "project": {
+    "notFoundTitle": "Project",
+    "backToPortfolio": "Back to Portfolio",
+    "wantSimilar": "Want something similar? Let's talk.",
+    "techStack": "Tech stack",
+    "features": "Features",
+    "results": "Results",
+    "links": "Links",
+    "gallery": "Gallery"
+  },
+  "pricing": {
+    "title": "How much does it cost?",
+    "subtitle": "Transparent ranges by project type. You get a fixed quote after our discovery call.",
+    "from": "From",
+    "mobileApps": "Mobile app (iOS + Android)",
+    "aiIntegration": "AI integration & automation",
+    "businessAutomation": "Business automation & scripts",
+    "budgetTightTitle": "Tight budget?",
+    "budgetTightSubtitle": "We can often scope a first version or MVP that fits. Tell me what you have in mind.",
+    "ctaBudget": "Let's talk"
+  },
+  "recursos": {
+    "title": "Resources",
+    "subtitle": "Practical guides on app costs, AI, and building MVPs.",
+    "readMore": "Read more",
+    "backToRecursos": "Back to Resources",
+    "sources": "Sources & further reading"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "intro": "This policy describes how Dongrie Labs collects and uses information when you use this website.",
+    "cookiesTitle": "Cookies and analytics",
+    "cookiesBody": "We may use cookies and similar technologies for analytics only after you accept our cookie banner. You can withdraw consent by clearing site data or contacting us.",
+    "cookiesBodyDetail": "If analytics are enabled, we may use: Google Analytics 4 (see Google's privacy policy: https://policies.google.com/privacy) and/or Plausible Analytics (privacy-friendly, no cookies; see https://plausible.io/data-policy). We use them solely to understand how the site is used (e.g. page views, referrers) and to improve the service. No personal data is sold or shared with third parties for marketing.",
+    "dataTitle": "Data we collect",
+    "dataBody": "When you contact us (e.g. via the contact form or WhatsApp), we receive the information you provide (name, email, message). We use it only to respond and do not sell or share it with third parties for marketing.",
+    "rightsTitle": "Your rights",
+    "rightsBody": "Under GDPR you may request access, correction, or deletion of your data. Contact us at the email below to exercise these rights.",
+    "contactTitle": "Contact",
+    "contactBody": "For privacy requests or questions: goncalo.dongrie05@gmail.com."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "How long does a typical project take?",
+    "a1": "Most projects are delivered in 2–6 weeks, depending on scope. We agree on a timeline before starting.",
+    "q2": "What does a project cost?",
+    "a2": "Typical range is €2k–€10k. You get a fixed quote after our discovery call—no surprises.",
+    "q3": "Do you work with startups only?",
+    "a3": "I work with startups, SMEs, and anyone who needs fast, high-quality software. If you have a clear goal and a reasonable budget, we can talk.",
+    "q4": "What happens after launch?",
+    "a4": "I hand over the code and docs. Optional support and iterations can be agreed separately."
+  }
+}

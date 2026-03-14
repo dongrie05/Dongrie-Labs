@@ -1,0 +1,324 @@
+{
+  "nav": {
+    "home": "Início",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "about": "Sobre",
+    "pricing": "Preços",
+    "recursos": "Recursos",
+    "contact": "Contacto",
+    "privacy": "Privacidade"
+  },
+  "cookieConsent": {
+    "message": "Usamos cookies para análise e para melhorar a tua experiência. Ao continuar aceitas a nossa",
+    "privacyPolicy": "Política de Privacidade",
+    "learnMore": "Saber mais",
+    "accept": "Aceitar"
+  },
+  "common": {
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "brandName": "Dongrie Labs",
+    "contactWhatsApp": "Contactar no WhatsApp"
+  },
+  "footer": {
+    "tagline": "Estúdio de software com IA. Apps móveis, sistemas de IA e automações. Rápido. Premium.",
+    "navigationLabel": "Navegação",
+    "contactLabel": "Contacto",
+    "copyright": "Todos os direitos reservados.",
+    "designedBy": "Desenhado e desenvolvido por Gonçalo Dongrie"
+  },
+  "hero": {
+    "scroll": "Deslizar",
+    "metaTitle": "Dongrie Labs - Estúdio de Software com IA",
+    "title": "Construo apps e sistemas de IA em semanas, não meses.",
+    "subtitle": "Um estúdio solo de software com IA. Resultados de agência a preços acessíveis. Desenvolvimento liderado pelo fundador, execução rápida.",
+    "ctaBookCall": "Agendar Chamada",
+    "ctaSeeWork": "Ver o Meu Trabalho",
+    "badge": "7 apps lançados em 3 meses"
+  },
+  "preloader": {
+    "buildingComment": "// Dongrie Labs — a construir o teu projeto",
+    "readyComment": "// Pronto. A abrir o site..."
+  },
+  "credibility": {
+    "appsLaunched": "Apps Lançados",
+    "months": "Meses",
+    "platforms": "iOS + Android",
+    "projectRange": "Faixa de Projetos"
+  },
+  "services": {
+    "sectionLabel": "Serviços",
+    "overviewTitle": "O Que Construo",
+    "overviewSubtitle": "De apps móveis a integrações de IA e automação empresarial. Entrega rápida, âmbito claro.",
+    "exploreAll": "Ver Todos os Serviços",
+    "pageTitle": "O Que Construo",
+    "pageSubtitle": "Desenvolvimento full-stack com IA no centro. Cada projeto tem âmbito definido, é entregue a tempo e feito para durar.",
+    "comingSoon": "Em Breve",
+    "ctaTitle": "Vamos falar do teu projeto",
+    "ctaSubtitle": "Conta-me a tua ideia. Respondo em até 24 horas.",
+    "learnMore": "Saber mais",
+    "modalWhat": "O que é",
+    "modalHow": "Como funciona",
+    "modalCost": "Custo médio",
+    "modalTime": "Tempo médio",
+    "modalCta": "Falar deste projeto",
+    "mobileApps": {
+      "title": "Desenvolvimento de Apps Móveis",
+      "shortDesc": "Apps iOS e Android com React Native. Um código, duas lojas.",
+      "description": "Apps móveis com experiência nativa para iOS e Android a partir de um único código. De MVPs a apps prontas para produção com notificações, compras in-app e desempenho fluido.",
+      "howItWorks": "Definimos âmbito e ecrãs e construímos em React Native para um único código em iOS e Android. Recebes builds regulares para testar; no fim preparamos as listagens nas lojas e apoio na submissão.",
+      "averageCost": "€3k – €8k",
+      "averageTime": "3–6 semanas"
+    },
+    "aiIntegration": {
+      "title": "Integração de IA",
+      "shortDesc": "Integrar LLMs, visão e automação no teu produto ou fluxos de trabalho.",
+      "description": "Levar IA ao teu produto ou ferramentas internas. Integrações à medida com OpenAI, Claude ou modelos open-source. Chatbots, processamento de documentos e automação inteligente.",
+      "howItWorks": "Escolhemos o modelo e API adequados e construímos a integração (chat, embeddings ou automação). Ficas com a funcionalidade a funcionar, documentação e notas de manutenção.",
+      "averageCost": "€2k – €6k",
+      "averageTime": "2–4 semanas"
+    },
+    "businessAutomation": {
+      "title": "Automação Empresarial",
+      "shortDesc": "Fluxos de trabalho, scripts e ferramentas que poupam horas por semana.",
+      "description": "Automatizar tarefas repetitivas e ligar as tuas ferramentas. Scripts personalizados, pipelines low-code e integrações que escalam com o negócio.",
+      "howItWorks": "Mapeamos as tarefas a automatizar e as ferramentas que usas e construímos scripts ou pipelines (ex.: Python, fluxos tipo Zapier) que correm em agendamento ou por trigger. Ficas com algo que podes operar e ajustar.",
+      "averageCost": "€2k – €5k",
+      "averageTime": "2–4 semanas"
+    },
+    "mvpDevelopment": {
+      "title": "Desenvolvimento de MVP",
+      "shortDesc": "Ter um produto funcional em semanas para validar e iterar.",
+      "description": "Lançar um produto mínimo viável depressa. Âmbito claro, prazo fixo e base sólida para evoluir. Ideal para fundadores e startups em fase inicial.",
+      "howItWorks": "Fechamos um conjunto pequeno de funcionalidades e um prazo e construímos em ciclos curtos para testares com utilizadores reais. Recebes um produto deployável e um caminho claro para evoluir.",
+      "averageCost": "€2,5k – €7k",
+      "averageTime": "2–5 semanas"
+    },
+    "apiIntegration": {
+      "title": "Integrações de API",
+      "shortDesc": "Ligar a tua app a pagamentos, CRM ou qualquer API de terceiros.",
+      "description": "Stripe, Twilio, Slack ou APIs custom. Integrações fiáveis com tratamento de erros e documentação.",
+      "howItWorks": "Integramos as APIs que precisas (pagamentos, mensagens, CRM, etc.) com autenticação, tratamento de erros e retries. Ficas com endpoints a funcionar e documentação para a equipa manter ou estender.",
+      "averageCost": "€1,5k – €5k",
+      "averageTime": "1–3 semanas"
+    },
+    "customSoftware": {
+      "title": "Ferramentas de Software à Medida",
+      "shortDesc": "Ferramentas web ou desktop adaptadas ao teu fluxo.",
+      "description": "Dashboards internos, painéis de administração ou ferramentas de nicho. Feitas para a tua equipa e o teu processo.",
+      "howItWorks": "Desenhamos e construímos uma ferramenta à volta do teu fluxo (web ou desktop). Ficas com algo que a equipa pode usar no dia a dia, com responsabilidade clara e ajustes opcionais depois.",
+      "averageCost": "€2,5k – €8k",
+      "averageTime": "3–6 semanas"
+    },
+    "future": {
+      "localAi": "Configurações de IA Local",
+      "openClaw": "Sistemas OpenClaw",
+      "miniSaaS": "Desenvolvimento Mini SaaS"
+    }
+  },
+  "portfolio": {
+    "sectionLabel": "Trabalho",
+    "title": "Portfólio",
+    "subtitle": "Projetos reais, resultados reais. 7 apps em 3 meses.",
+    "viewFull": "Ver Portfólio Completo",
+    "viewProject": "Ver Projeto",
+    "all": "Todos",
+    "mobile": "Mobile",
+    "ai": "IA",
+    "automation": "Automação",
+    "metricsApps": "Apps",
+    "metricsPlatforms": "Plataformas",
+    "metricsDelivery": "Entrega"
+  },
+  "process": {
+    "sectionLabel": "Processo",
+    "title": "Como Trabalho",
+    "subtitle": "Processo simples e transparente. Sem surpresas.",
+    "step1Title": "Chamada de Descoberta",
+    "step1Desc": "Falamos dos teus objetivos, prazo e orçamento. Faço perguntas para definir o âmbito do projeto.",
+    "step2Title": "Âmbito e Orçamento",
+    "step2Desc": "Recebes um âmbito e preço fixos. Sem custos ocultos. Alinhamos entregas e marcos.",
+    "step3Title": "Design e Desenvolvimento",
+    "step3Desc": "Desenho e desenvolvo em iterações. Vês o progresso regularmente e podes dar feedback.",
+    "step4Title": "Lançamento e Suporte",
+    "step4Desc": "Lançamos. Entrego documentação e suporte opcional para conseguires gerir sozinho.",
+    "ctaQuote": "Pedir Orçamento"
+  },
+  "why": {
+    "sectionLabel": "Porquê nós",
+    "title": "Porquê Dongrie Labs",
+    "subtitle": "Estúdio solo, execução de agência.",
+    "tabAccountability": "Responsabilidade",
+    "tabAiPowered": "Com IA",
+    "tabWeeksNotMonths": "Velocidade",
+    "tabPricing": "Preços",
+    "accountability": {
+      "title": "Fundador Solo, Total Responsabilidade",
+      "desc": "Sem gestores de conta ou passagens de testemunho. Trabalhas diretamente com quem constrói o produto."
+    },
+    "aiPowered": {
+      "title": "Desenvolvimento com IA",
+      "desc": "A IA faz parte do meu fluxo. Isso significa entrega mais rápida sem perder qualidade."
+    },
+    "weeksNotMonths": {
+      "title": "Semanas, Não Meses",
+      "desc": "Historial comprovado: 7 apps em 3 meses. Âmbito claro e execução focada."
+    },
+    "pricing": {
+      "title": "Preços para Startups",
+      "desc": "Projetos tipicamente entre €2k–€10k. Orçamentos transparentes, sem surpresas."
+    }
+  },
+  "founder": {
+    "sectionLabel": "Fundador",
+    "title": "A pessoa por trás do código",
+    "subtitle": "Gonçalo Dongrie. Fundador solo, construtor e entusiasta de IA.",
+    "bio": "O meu objetivo de vida é simplificar a vida das pessoas—no dia a dia e nos negócios—e reduzir o tempo e o preço do software em Portugal. Penso no teu produto como se fosse meu e respondo em até 30 minutos em dias úteis para te sentires sempre ouvido.",
+    "moreAbout": "Mais Sobre Mim"
+  },
+  "proofStrip": {
+    "label": "Resultados reais",
+    "stat": "SmartMeal: mais de 3.000 downloads em 3 meses",
+    "quote": "Os utilizadores dizem que as minhas apps realmente os ajudam.",
+    "cta": "Ver as apps"
+  },
+  "whoIHelp": {
+    "label": "Com quem trabalho",
+    "text": "Fundadores, startups e PMEs que querem apps, automações ou IA—sem preços de agência nem esperas longas. Se tens uma ideia e um objetivo claro, podemos concretizar."
+  },
+  "cta": {
+    "sectionLabel": "Vamos trabalhar juntos",
+    "headline": "Pronto para construir algo incrível?",
+    "subtitle": "Agenda uma chamada, envia mensagem ou pede orçamento. Normalmente respondo em até 30 minutos em dias úteis.",
+    "noCommitment": "Sem compromisso. Conta-me a tua ideia e respondo em 30 minutos.",
+    "bookCall": "Agendar Chamada",
+    "whatsApp": "WhatsApp",
+    "requestQuote": "Pedir Orçamento"
+  },
+  "about": {
+    "title": "Sobre",
+    "heroTitle": "Olá, sou o Gonçalo",
+    "heroSubtitle": "Fundador da Dongrie Labs. Construo software e sistemas de IA que chegam ao mercado.",
+    "mission": "O meu objetivo de vida—aquilo para que vivo—é simplificar a vida das pessoas, no dia a dia e nos seus negócios. Criei a Dongrie Labs para reduzir o tempo e o preço do software em Portugal.",
+    "storyTitle": "Porque faço isto",
+    "story": "Motivo-me por saber que consegui ajudar pessoas a simplificar a sua vida. Quero ajudar toda a gente que queira—não só porque quero criar software para todos, mas porque acredito que todos merecemos ter acesso às melhores ferramentas. Não deves ficar de fora só porque não sabes por onde começar.",
+    "proofTitle": "Impacto real",
+    "proof": "A SmartMeal passou os 3.000 downloads nos primeiros três meses. Os utilizadores dizem que as minhas apps realmente os ajudam. É isso que me move.",
+    "commitmentTitle": "Como trabalho contigo",
+    "commitment": "A disponibilidade para mim é super importante. Posso prometer que, em dias úteis, exceto em casos extremos, respondo às mensagens em até 30 minutos—porque gosto que as pessoas se sintam ouvidas e percebidas. Estou disponível com bastante flexibilidade para o projeto ficar ótimo para ambos.",
+    "howIWorkTitle": "A minha abordagem",
+    "howIWork": "Penso no produto como se fosse meu. O meu objetivo é que, depois da primeira chamada, sintas que percebi exatamente o que queres.",
+    "philosophyTitle": "O que podes esperar",
+    "philosophy": "Velocidade e preço sem cortar cantos. Não tenho medo de usar IA nos momentos certos. Âmbito claro, preços transparentes e um único ponto de contacto para nada se perder.",
+    "values": {
+      "speed": "Velocidade",
+      "quality": "Qualidade",
+      "transparency": "Transparência",
+      "aiFirst": "IA nos momentos certos"
+    },
+    "personalTitle": "Para além do código",
+    "personal": "Fui atleta de competição e estou a acabar o meu curso. Essas experiências ajudaram-me a gerir melhor o tempo e a ter uma visão diferente das coisas—algo que trago para cada projeto.",
+    "techTitle": "Tecnologias e ferramentas",
+    "techSubtitle": "Stack que uso no dia a dia para apps, automações e IA.",
+    "techLanguages": "Linguagens",
+    "techFrameworks": "Frameworks",
+    "techAi": "IA e LLMs",
+    "techData": "Dados e backend",
+    "techOther": "Ferramentas e deploy",
+    "vision": "Quero que, quando as pessoas em Portugal pensem em apps, automações e IA, pensem em mim para as ajudar. É esse o nível que estou a construir.",
+    "ctaTitle": "Vamos trabalhar juntos",
+    "ctaSubtitle": "Orçamento apertado? Fala comigo. Os projetos começam a partir de €2k e podemos encontrar uma opção que funcione para ti.",
+    "ctaButton": "Entrar em contacto"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Entra em contacto. Normalmente respondo em até 30 minutos em dias úteis.",
+    "trustStrip": "Respondo em até 30 minutos em dias úteis. Projetos a partir de €2k—podemos encontrar uma opção que funcione para ti.",
+    "whatsAppDefaultMessage": "Olá! Encontrei a Dongrie Labs e gostaria de falar sobre um projeto.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "projectType": "Tipo de projeto",
+      "budget": "Orçamento estimado",
+      "message": "Fala-me do teu projeto",
+      "submit": "Abrir no WhatsApp",
+      "sending": "A abrir...",
+      "success": "O WhatsApp vai abrir com a tua mensagem. Envia a partir daí.",
+      "whatsAppIntro": "Novo contacto do site",
+      "error": "Algo correu mal. Usa o botão WhatsApp em baixo."
+    },
+    "projectTypes": {
+      "mobile": "App Móvel",
+      "ai": "Integração de IA",
+      "automation": "Automação Empresarial",
+      "mvp": "Desenvolvimento MVP",
+      "other": "Outro"
+    },
+    "budgetOptions": {
+      "under2k": "Abaixo de €2k",
+      "2k5k": "€2k – €5k",
+      "5k10k": "€5k – €10k",
+      "over10k": "Acima de €10k"
+    },
+    "info": {
+      "email": "Email",
+      "whatsApp": "WhatsApp",
+      "bookCall": "Agendar Chamada",
+      "responseTime": "Normalmente respondo em até 30 min em dias úteis"
+    }
+  },
+  "project": {
+    "notFoundTitle": "Projeto",
+    "backToPortfolio": "Voltar ao Portfólio",
+    "wantSimilar": "Queres algo parecido? Fala comigo.",
+    "techStack": "Stack tecnológica",
+    "features": "Funcionalidades",
+    "results": "Resultados",
+    "links": "Links",
+    "gallery": "Galeria"
+  },
+  "pricing": {
+    "title": "Quanto custa?",
+    "subtitle": "Faixas transparentes por tipo de projeto. Recebes um orçamento fixo após a nossa chamada de descoberta.",
+    "from": "A partir de",
+    "mobileApps": "App móvel (iOS + Android)",
+    "aiIntegration": "Integração de IA e automação",
+    "businessAutomation": "Automação empresarial e scripts",
+    "budgetTightTitle": "Orçamento apertado?",
+    "budgetTightSubtitle": "Muitas vezes consigo definir uma primeira versão ou MVP que se encaixe. Diz-me o que tens em mente.",
+    "ctaBudget": "Fala comigo"
+  },
+  "recursos": {
+    "title": "Recursos",
+    "subtitle": "Guias práticos sobre custos de apps, IA e construção de MVPs.",
+    "readMore": "Ler mais",
+    "backToRecursos": "Voltar aos Recursos",
+    "sources": "Fontes e leituras"
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "lastUpdated": "Última atualização",
+    "intro": "Esta política descreve como a Dongrie Labs recolhe e utiliza informação quando utilizas este site.",
+    "cookiesTitle": "Cookies e análise",
+    "cookiesBody": "Podemos usar cookies e tecnologias semelhantes para análise apenas após aceitares o nosso aviso de cookies. Podes retirar o consentimento limpando os dados do site ou contactando-nos.",
+    "cookiesBodyDetail": "Se a análise estiver ativa, podemos usar: Google Analytics 4 (consulta a política de privacidade do Google: https://policies.google.com/privacy) e/ou Plausible Analytics (respeitador da privacidade, sem cookies; consulta https://plausible.io/data-policy). Usamo-los apenas para perceber como o site é utilizado (ex.: visualizações, origens de tráfego) e para melhorar o serviço. Nenhum dado pessoal é vendido ou partilhado com terceiros para marketing.",
+    "dataTitle": "Dados que recolhemos",
+    "dataBody": "Quando nos contactas (ex.: pelo formulário ou WhatsApp), recebemos a informação que nos envias (nome, email, mensagem). Usamo-la apenas para responder e não a vendemos nem partilhamos com terceiros para marketing.",
+    "rightsTitle": "Os teus direitos",
+    "rightsBody": "Ao abrigo do RGPD podes pedir acesso, retificação ou eliminação dos teus dados. Contacta-nos pelo email abaixo para exercer estes direitos.",
+    "contactTitle": "Contacto",
+    "contactBody": "Para pedidos ou dúvidas sobre privacidade: goncalo.dongrie05@gmail.com."
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "q1": "Quanto tempo demora um projeto típico?",
+    "a1": "A maioria dos projetos é entregue em 2–6 semanas, consoante o âmbito. Definimos o prazo antes de começar.",
+    "q2": "Quanto custa um projeto?",
+    "a2": "A faixa típica é €2k–€10k. Recebes um orçamento fixo após a chamada de descoberta—sem surpresas.",
+    "q3": "Trabalhas só com startups?",
+    "a3": "Trabalho com startups, PMEs e quem precisar de software rápido e de qualidade. Se tens um objetivo claro e orçamento razoável, podemos falar.",
+    "q4": "O que acontece após o lançamento?",
+    "a4": "Entrego o código e a documentação. Suporte e iterações opcionais podem ser acordados à parte."
+  }
+}
