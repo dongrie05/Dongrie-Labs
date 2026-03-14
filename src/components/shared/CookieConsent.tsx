@@ -34,10 +34,10 @@ export function CookieConsent() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="fixed bottom-0 left-0 right-0 z-[9997] border-t border-white/[0.06] bg-navy-950/95 backdrop-blur-xl p-4 sm:p-5"
+        className="fixed bottom-0 left-0 right-0 z-[9997] border-t border-white/[0.06] bg-navy-950/95 backdrop-blur-xl p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:p-5"
       >
         <div className="mx-auto flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-slate-300">
+          <p className="text-sm text-slate-300 leading-relaxed">
             {t('message')}{' '}
             <Link href="/privacy" className="text-blue-400 underline hover:text-blue-300">
               {t('privacyPolicy')}
@@ -47,14 +47,14 @@ export function CookieConsent() {
           <div className="flex shrink-0 gap-3">
             <Link
               href="/privacy"
-              className="rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+              className="flex min-h-[44px] items-center justify-center rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
             >
               {t('learnMore')}
             </Link>
             <button
               type="button"
               onClick={accept}
-              className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-400"
+              className="flex min-h-[44px] items-center justify-center rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 active:bg-blue-600"
             >
               {t('accept')}
             </button>

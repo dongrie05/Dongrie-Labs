@@ -61,17 +61,17 @@ export function CredibilityBar() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.key}
               variants={itemVariants}
-              className="group relative flex flex-col items-center py-10 px-6 text-center"
+              className="group relative flex flex-col items-center py-8 px-4 text-center sm:py-10 sm:px-6"
             >
               {i > 0 && (
                 <div className="absolute left-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-white/[0.08] to-transparent lg:block" />
               )}
-              <p className="font-heading text-5xl font-bold tracking-tight md:text-7xl">
+              <p className="font-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl">
                 {stat.isNumber && typeof stat.value === 'number' ? (
                   <span className="text-gradient-strong">
                     <StatsCounter value={stat.value} />

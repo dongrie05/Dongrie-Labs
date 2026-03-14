@@ -103,12 +103,12 @@ export function Navbar() {
           </MagneticButton>
         </div>
 
-        <div className="flex md:hidden items-center gap-2">
-          <LanguageToggle className="!p-0.5" />
+        <div className="flex md:hidden items-center gap-1">
+          <LanguageToggle className="!p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-white/5" />
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative z-50 rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+            className="relative z-50 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-3 text-slate-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? tCommon('closeMenu') : tCommon('openMenu')}
           >
@@ -142,7 +142,7 @@ export function Navbar() {
                   <Link
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center rounded-xl px-4 py-3.5 text-lg font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                    className="flex min-h-[48px] items-center rounded-xl px-4 py-3.5 text-lg font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
                   >
                     {t(key)}
                   </Link>

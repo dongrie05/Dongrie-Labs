@@ -73,7 +73,7 @@ export function CTASection() {
           </motion.p>
 
           <motion.div
-            className="mt-12 flex flex-wrap items-center justify-center gap-4"
+            className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function CTASection() {
                 href={CALENDLY_URL}
                 target={CALENDLY_URL.startsWith('http') ? '_blank' : undefined}
                 rel={CALENDLY_URL.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-blue-500 px-8 py-4 text-base font-medium text-white shadow-xl shadow-blue-500/25 transition-all hover:shadow-blue-400/40"
+                className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-500 px-8 py-4 text-base font-medium text-white shadow-xl shadow-blue-500/25 transition-all hover:shadow-blue-400/40 active:scale-[0.98] sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t('bookCall')}
@@ -98,7 +98,7 @@ export function CTASection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-8 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300"
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-8 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300 active:scale-[0.98] sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t('whatsApp')}
@@ -107,7 +107,7 @@ export function CTASection() {
             <MagneticButton strength={0.15}>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-8 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/[0.15] hover:bg-white/[0.06]"
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-8 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/[0.15] hover:bg-white/[0.06] active:scale-[0.98] sm:w-auto"
               >
                 <FileText className="h-5 w-5" />
                 {t('requestQuote')}

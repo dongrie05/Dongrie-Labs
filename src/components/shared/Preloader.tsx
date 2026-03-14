@@ -133,7 +133,7 @@ export function Preloader() {
               <span className="ml-2 text-xs text-slate-500 font-medium">boot.js</span>
             </div>
 
-            <div className="p-5 font-mono text-sm sm:text-base min-h-[280px]">
+            <div className="p-4 font-mono text-sm min-h-[220px] sm:p-5 sm:text-base sm:min-h-[280px]">
               {displayLines.map((line, i) => (
                 <div key={i} className="flex">
                   {line.type === 'comment' && (

@@ -106,7 +106,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -116,7 +116,7 @@ export function HeroSection() {
                 href={CALENDLY_URL}
                 target={CALENDLY_URL.startsWith('http') ? '_blank' : undefined}
                 rel={CALENDLY_URL.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-blue-500 px-7 py-4 text-base font-medium text-white shadow-xl shadow-blue-500/25 transition-all hover:shadow-blue-400/40"
+                className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-500 px-7 py-4 text-base font-medium text-white shadow-xl shadow-blue-500/25 transition-all hover:shadow-blue-400/40 active:scale-[0.98] sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t('ctaBookCall')}
@@ -130,7 +130,7 @@ export function HeroSection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-7 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300"
+                className="group inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-7 py-4 text-base font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300 active:scale-[0.98] sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp

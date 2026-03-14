@@ -37,7 +37,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-xl border border-navy-700 bg-navy-900 px-4 py-3 text-white transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none bg-[length:20px] bg-[right_12px_center] bg-no-repeat [color-scheme:dark]',
+            'w-full min-h-[48px] rounded-xl border border-navy-700 bg-navy-900 px-4 py-3 text-base text-white transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none bg-[length:20px] bg-[right_12px_center] bg-no-repeat [color-scheme:dark]',
             error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
             className
           )}
