@@ -1,7 +1,10 @@
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+
+const FOUNDER_IMAGE = '/images/portfolio/founder.JPG';
 
 const TECH_GROUPS: Array<{ category: 'techLanguages' | 'techFrameworks' | 'techAi' | 'techData' | 'techOther'; items: string[] }> = [
   { category: 'techLanguages', items: ['TypeScript', 'Swift', 'Dart', 'Python', 'JavaScript', 'Kotlin'] },
@@ -35,15 +38,22 @@ export default async function AboutPage() {
         {/* Hero: name + mission */}
         <section className="flex flex-col gap-12 md:flex-row md:items-start">
           <AnimateOnScroll variant="slideLeft">
-            <div className="relative flex aspect-square w-full max-w-sm items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-800/50">
+            <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-800/50">
+              <Image
+                src={FOUNDER_IMAGE}
+                alt={t('heroTitle')}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 384px"
+                priority
+              />
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    'radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 60%)',
+                    'radial-gradient(circle at 50% 50%, rgba(59,130,246,0.06) 0%, transparent 60%)',
                 }}
               />
-              <span className="relative z-10 text-9xl">👋</span>
             </div>
           </AnimateOnScroll>
           <div className="flex-1">

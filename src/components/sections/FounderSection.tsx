@@ -1,10 +1,13 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from '@/navigation';
+
+const FOUNDER_IMAGE = '/images/portfolio/founder.JPG';
 
 export function FounderSection() {
   const t = useTranslations('founder');
@@ -48,10 +51,17 @@ export function FounderSection() {
               />
 
               <motion.div
-                className="relative flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-blue-500/20 text-6xl font-heading font-bold text-gradient select-none"
+                className="relative h-40 w-40 overflow-hidden rounded-full border border-blue-500/20 shadow-xl"
                 style={{ rotate: avatarRotate, scale: avatarScale }}
               >
-                GD
+                <Image
+                  src={FOUNDER_IMAGE}
+                  alt={t('title')}
+                  fill
+                  className="object-cover"
+                  sizes="160px"
+                  priority
+                />
               </motion.div>
             </div>
 
