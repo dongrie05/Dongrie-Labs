@@ -18,9 +18,9 @@ export async function generateMetadata({
 }
 
 const PRICES = [
-  { key: 'mobileApps' as const, range: '€3k – €8k' },
-  { key: 'aiIntegration' as const, range: '€2k – €6k' },
-  { key: 'businessAutomation' as const, range: '€2k – €5k' },
+  { key: 'mobileApps' as const, range: '€2k – €8k' },
+  { key: 'aiIntegration' as const, range: '€1.5k – €6k' },
+  { key: 'businessAutomation' as const, range: '€1.5k – €5k' },
 ] as const;
 
 export default async function PricingPage() {
