@@ -31,7 +31,7 @@ export function FounderSection() {
           transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
           <div className="grid gap-0 lg:grid-cols-2">
-            <div className="relative flex h-full min-h-[320px] items-center justify-center overflow-hidden bg-navy-800/20 p-12">
+            <div className="relative flex h-full min-h-[320px] items-center justify-center overflow-hidden bg-navy-800/20 p-8 sm:p-12">
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
@@ -51,7 +51,7 @@ export function FounderSection() {
               />
 
               <motion.div
-                className="relative h-40 w-40 overflow-hidden rounded-full border border-blue-500/20 shadow-xl"
+                className="relative h-52 w-52 overflow-hidden rounded-full border border-blue-500/20 shadow-xl sm:h-56 sm:w-56 md:h-64 md:w-64"
                 style={{ rotate: avatarRotate, scale: avatarScale }}
               >
                 <Image
@@ -59,7 +59,7 @@ export function FounderSection() {
                   alt={t('title')}
                   fill
                   className="object-cover"
-                  sizes="160px"
+                  sizes="(max-width: 640px) 208px, (max-width: 768px) 224px, 256px"
                   priority
                 />
               </motion.div>

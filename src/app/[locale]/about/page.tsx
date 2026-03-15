@@ -38,13 +38,13 @@ export default async function AboutPage() {
         {/* Hero: name + mission */}
         <section className="flex flex-col gap-12 md:flex-row md:items-start">
           <AnimateOnScroll variant="slideLeft">
-            <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-800/50">
+            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-800/50 sm:max-w-lg">
               <Image
                 src={FOUNDER_IMAGE}
                 alt={t('heroTitle')}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 384px"
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 512px"
                 priority
               />
               <div

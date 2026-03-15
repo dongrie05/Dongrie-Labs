@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -59,9 +60,19 @@ export function PortfolioHighlights() {
           <Link href={`/portfolio/${project.slug}`} className="block">
             <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-900/60 transition-all duration-300 active:scale-[0.99] md:hover:border-white/[0.12] md:hover:-translate-y-2 md:hover:shadow-2xl md:hover:shadow-blue-500/[0.06]">
               <div className="relative flex h-56 items-center justify-center overflow-hidden bg-navy-800/40 sm:h-64">
-                <span className="text-7xl text-navy-700/60 select-none transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                  📱
-                </span>
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 300px, 340px"
+                  />
+                ) : (
+                  <span className="text-7xl text-navy-700/60 select-none transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    📱
+                  </span>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center bg-blue-500/10 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 md:group-hover:opacity-100">
                   <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
