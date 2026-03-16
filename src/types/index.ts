@@ -27,6 +27,7 @@ export interface Project {
   };
   appStoreUrl?: string;
   playStoreUrl?: string;
+  productUrl?: string;
   highlighted?: boolean;
 }
 

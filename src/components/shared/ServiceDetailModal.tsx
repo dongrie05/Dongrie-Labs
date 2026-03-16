@@ -13,6 +13,7 @@ const serviceMsgKeys: Record<string, string> = {
   mvp: 'mvpDevelopment',
   api: 'apiIntegration',
   custom: 'customSoftware',
+  smeAutomation: 'smeAutomation',
 };
 
 interface ServiceDetailModalProps {
@@ -123,14 +124,33 @@ export function ServiceDetailModal({
           </div>
         </div>
 
-        <div className="mt-8">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-400"
-            onClick={onClose}
-          >
-            {t('modalCta')}
-          </Link>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {msgKey === 'smeAutomation' ? (
+            <>
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-400"
+                onClick={onClose}
+              >
+                {t('smeAutomation.ctaLinea')}
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                onClick={onClose}
+              >
+                {t('smeAutomation.ctaCustom')}
+              </Link>
+            </>
+          ) : (
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-400"
+              onClick={onClose}
+            >
+              {t('modalCta')}
+            </Link>
+          )}
         </div>
           </motion.div>
         </div>

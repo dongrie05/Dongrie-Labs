@@ -3,11 +3,17 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "products": "Products",
     "about": "About",
     "pricing": "Pricing",
     "recursos": "Resources",
     "contact": "Contact",
     "privacy": "Privacy"
+  },
+  "products": {
+    "title": "Products",
+    "subtitle": "We build and run our own products. Not just a studio—we ship SaaS too.",
+    "byStudio": "By Dongrie Labs"
   },
   "cookieConsent": {
     "message": "We use cookies for analytics and to improve your experience. By continuing you accept our",
@@ -110,6 +116,16 @@
       "howItWorks": "We design and build a tool around your workflow (web or desktop). You get something your team can use daily, with clear ownership and optional tweaks later.",
       "averageCost": "€2.5k – €8k",
       "averageTime": "3–6 weeks"
+    },
+    "smeAutomation": {
+      "title": "AI Automation for SMEs",
+      "shortDesc": "AI phone answering and workflow automation for traditional SMEs.",
+      "description": "Never miss a call—Linea answers your business phone with AI, 24/7, in Portuguese or English. We also build custom automations: lead capture, scheduling, and back-office tasks so you focus on your business.",
+      "howItWorks": "For phone answering: try Linea (our own product)—setup in minutes. For custom solutions (CRM, workflows, integrations): we scope your needs and build a tailored automation. You get either a ready product or a bespoke system.",
+      "averageCost": "From €1.5k (custom) or Linea subscription",
+      "averageTime": "1–2 weeks (Linea) or 2–4 weeks (custom)",
+      "ctaLinea": "Try Linea (calls)",
+      "ctaCustom": "Custom solution"
     },
     "future": {
       "localAi": "Local AI Setups",
@@ -276,6 +292,7 @@
     "features": "Features",
     "results": "Results",
     "links": "Links",
+    "visitProduct": "Visit product",
     "gallery": "Gallery"
   },
   "pricing": {

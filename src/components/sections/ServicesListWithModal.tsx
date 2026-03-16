@@ -9,6 +9,7 @@ import {
   Rocket,
   Plug,
   Code2,
+  Phone,
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react';
@@ -25,6 +26,7 @@ const iconMap: Record<string, LucideIcon> = {
   Rocket,
   Plug,
   Code2,
+  Phone,
 };
 
 const serviceMsgKeys: Record<string, string> = {
@@ -34,6 +36,7 @@ const serviceMsgKeys: Record<string, string> = {
   mvp: 'mvpDevelopment',
   api: 'apiIntegration',
   custom: 'customSoftware',
+  smeAutomation: 'smeAutomation',
 };
 
 export function ServicesListWithModal() {

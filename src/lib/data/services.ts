@@ -43,4 +43,11 @@ export const services: Service[] = [
     description:
       'Bespoke web or desktop tools tailored to your workflow. Dashboards, admin panels, niche tools.',
   },
+  {
+    id: 'smeAutomation',
+    icon: 'Phone',
+    title: 'AI Automation for SMEs',
+    description:
+      'AI phone answering and workflow automation for traditional SMEs. Never miss a call; automate back-office tasks.',
+  },
 ];

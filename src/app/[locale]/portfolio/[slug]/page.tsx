@@ -43,6 +43,8 @@ export default async function ProjectPage({ params }: PageProps) {
   const name = locale === 'pt' && project.namePt ? project.namePt : project.name;
   const overview =
     locale === 'pt' && project.overviewPt ? project.overviewPt : project.overview ?? project.description;
+  const features =
+    (locale === 'pt' && project.featuresPt?.length ? project.featuresPt : project.features) ?? [];
 
   const breadcrumbItems = [
     { label: tNav('home'), href: '/' },
@@ -132,13 +134,13 @@ export default async function ProjectPage({ params }: PageProps) {
           </section>
         )}
 
-        {project.features && project.features.length > 0 && (
+        {features.length > 0 && (
           <section className="mt-12">
             <h2 className="font-heading text-xl font-semibold text-white">
               {t('features')}
             </h2>
             <ul className="mt-4 space-y-2 text-slate-300">
-              {project.features.map((f, i) => (
+              {features.map((f, i) => (
                 <li key={i} className="flex gap-2">
                   <span className="text-cyan-400">·</span>
                   {f}
@@ -169,12 +171,22 @@ export default async function ProjectPage({ params }: PageProps) {
           </section>
         )}
 
-        {(project.appStoreUrl || project.playStoreUrl) && (
+        {(project.appStoreUrl || project.playStoreUrl || project.productUrl) && (
           <section className="mt-12">
             <h2 className="font-heading text-xl font-semibold text-white">
               {t('links')}
             </h2>
-            <div className="mt-4 flex gap-4">
+            <div className="mt-4 flex flex-wrap gap-4">
+              {project.productUrl && (
+                <a
+                  href={project.productUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:underline"
+                >
+                  {t('visitProduct')}
+                </a>
+              )}
               {project.appStoreUrl && (
                 <a
                   href={project.appStoreUrl}

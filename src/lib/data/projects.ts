@@ -1,6 +1,41 @@
 import type { Project } from '@/types';
 
+const LINEA_URL = process.env.NEXT_PUBLIC_LINEA_URL || 'https://uselinea.com';
+
 export const projects: Project[] = [
+  {
+    slug: 'linea',
+    name: 'Linea',
+    namePt: 'Linea',
+    type: 'SaaS',
+    typePt: 'SaaS',
+    category: 'ai',
+    platform: ['web'],
+    techStack: ['AI', 'Voice', 'Twilio'],
+    description:
+      'Built an AI phone answering SaaS serving dozens of businesses in Portugal. Never miss a call—24/7, in Portuguese or English.',
+    descriptionPt:
+      'SaaS de atendimento telefónico por IA ao serviço de dezenas de empresas em Portugal. Nunca perdas uma chamada—24/7, em português ou inglês.',
+    overview:
+      'Linea is our own product: an AI that answers your business phone, qualifies leads, and books appointments. SMEs, clinics, and local businesses use it to stop losing calls and capture every opportunity.',
+    overviewPt:
+      'A Linea é o nosso próprio produto: uma IA que atende o teu telefone profissional, qualifica leads e marca consultas. PMEs, clínicas e negócios locais usam-na para não perder chamadas e captar cada oportunidade.',
+    features: [
+      'AI answers calls 24/7 in Portuguese or English',
+      'Lead qualification and appointment booking',
+      'Serving dozens of businesses in Portugal',
+      'Setup in minutes, no code',
+    ],
+    featuresPt: [
+      'IA atende chamadas 24/7 em português ou inglês',
+      'Qualificação de leads e marcação de consultas',
+      'Ao serviço de dezenas de empresas em Portugal',
+      'Configuração em minutos, sem código',
+    ],
+    launchDate: '2025',
+    highlighted: true,
+    productUrl: LINEA_URL,
+  },
   {
     slug: 'smartmeal',
     name: 'SmartMeal',

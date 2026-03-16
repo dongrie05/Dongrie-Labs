@@ -3,11 +3,17 @@
     "home": "Início",
     "services": "Serviços",
     "portfolio": "Portfólio",
+    "products": "Produtos",
     "about": "Sobre",
     "pricing": "Preços",
     "recursos": "Recursos",
     "contact": "Contacto",
     "privacy": "Privacidade"
+  },
+  "products": {
+    "title": "Produtos",
+    "subtitle": "Construímos e operamos os nossos próprios produtos. Não somos só um estúdio—também lançamos SaaS.",
+    "byStudio": "Por Dongrie Labs"
   },
   "cookieConsent": {
     "message": "Usamos cookies para análise e para melhorar a tua experiência. Ao continuar aceitas a nossa",
@@ -110,6 +116,16 @@
       "howItWorks": "Desenhamos e construímos uma ferramenta à volta do teu fluxo (web ou desktop). Ficas com algo que a equipa pode usar no dia a dia, com responsabilidade clara e ajustes opcionais depois.",
       "averageCost": "€2,5k – €8k",
       "averageTime": "3–6 semanas"
+    },
+    "smeAutomation": {
+      "title": "Automação com IA para PMEs",
+      "shortDesc": "Atendimento telefónico por IA e automação de processos para PMEs tradicionais.",
+      "description": "Nunca perdas uma chamada—a Linea atende o teu telefone com IA, 24/7, em português ou inglês. Também construímos automações à medida: captação de leads, agendamentos e tarefas de back-office para te focares no negócio.",
+      "howItWorks": "Para atendimento telefónico: experimenta a Linea (o nosso produto)—configuração em minutos. Para soluções à medida (CRM, fluxos, integrações): definimos o âmbito e construímos uma automação adaptada. Ficas com um produto pronto ou um sistema sob medida.",
+      "averageCost": "A partir de €1,5k (à medida) ou subscrição Linea",
+      "averageTime": "1–2 semanas (Linea) ou 2–4 semanas (à medida)",
+      "ctaLinea": "Experimentar Linea (chamadas)",
+      "ctaCustom": "Solução à medida"
     },
     "future": {
       "localAi": "Configurações de IA Local",
@@ -276,6 +292,7 @@
     "features": "Funcionalidades",
     "results": "Resultados",
     "links": "Links",
+    "visitProduct": "Visitar produto",
     "gallery": "Galeria"
   },
   "pricing": {

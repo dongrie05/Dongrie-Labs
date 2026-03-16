@@ -5,7 +5,7 @@ import { recursosArticles } from '@/lib/data/recursos';
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dongrielabs.com';
 
 const locales = ['en', 'pt'] as const;
-const staticPaths = ['', '/services', '/portfolio', '/about', '/pricing', '/recursos', '/privacy', '/contact'];
+const staticPaths = ['', '/services', '/portfolio', '/products', '/about', '/pricing', '/recursos', '/privacy', '/contact'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
