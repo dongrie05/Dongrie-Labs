@@ -16,14 +16,14 @@ export const products: Product[] = [
     id: 'linea',
     name: 'Linea',
     namePt: 'Linea',
-    tagline: 'AI phone answering for your business',
-    taglinePt: 'Atendimento telefónico por IA para o teu negócio',
+    tagline: 'AI phone answering for your business (in development)',
+    taglinePt: 'Atendimento telefónico por IA para o teu negócio (em desenvolvimento)',
     description:
-      'Never miss a call. Linea answers your business phone with AI—24/7, in Portuguese or English. Perfect for SMEs, clinics, and local businesses who can\'t afford to lose leads.',
+      'Linea is our product in development: an AI that answers your business phone 24/7, in Portuguese or English. We\'re currently closing our first clients—if you\'re an SME, clinic, or local business and want to be among the first to try it, get in touch.',
     descriptionPt:
-      'Nunca perdas uma chamada. A Linea atende o teu telefone com IA—24/7, em português ou inglês. Ideal para PMEs, clínicas e negócios locais que não podem perder oportunidades.',
+      'A Linea é o nosso produto em desenvolvimento: uma IA que atende o teu telefone 24/7, em português ou inglês. Estamos a fechar os primeiros clientes—se és uma PME, clínica ou negócio local e queres ser dos primeiros a experimentar, fala connosco.',
     url: process.env.NEXT_PUBLIC_LINEA_URL || 'https://uselinea.com',
-    cta: 'Try Linea',
-    ctaPt: 'Experimentar Linea',
+    cta: 'Get in touch',
+    ctaPt: 'Falar connosco',
   },
 ];

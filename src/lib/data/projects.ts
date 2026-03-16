@@ -13,23 +13,23 @@ export const projects: Project[] = [
     platform: ['web'],
     techStack: ['AI', 'Voice', 'Twilio'],
     description:
-      'Built an AI phone answering SaaS serving dozens of businesses in Portugal. Never miss a call—24/7, in Portuguese or English.',
+      'AI phone answering SaaS we\'re building at Dongrie Labs. Currently in development—we\'re closing our first clients in Portugal. Never miss a call, 24/7, in Portuguese or English.',
     descriptionPt:
-      'SaaS de atendimento telefónico por IA ao serviço de dezenas de empresas em Portugal. Nunca perdas uma chamada—24/7, em português ou inglês.',
+      'SaaS de atendimento telefónico por IA que estamos a construir na Dongrie Labs. Em desenvolvimento—estamos a fechar os primeiros clientes em Portugal. Nunca perdas uma chamada, 24/7, em português ou inglês.',
     overview:
-      'Linea is our own product: an AI that answers your business phone, qualifies leads, and books appointments. SMEs, clinics, and local businesses use it to stop losing calls and capture every opportunity.',
+      'Linea is our own product in development: an AI that answers your business phone, qualifies leads, and books appointments. We\'re currently onboarding our first clients—SMEs, clinics, and local businesses who want to stop losing calls. If that\'s you, get in touch.',
     overviewPt:
-      'A Linea é o nosso próprio produto: uma IA que atende o teu telefone profissional, qualifica leads e marca consultas. PMEs, clínicas e negócios locais usam-na para não perder chamadas e captar cada oportunidade.',
+      'A Linea é o nosso próprio produto em desenvolvimento: uma IA que atende o teu telefone profissional, qualifica leads e marca consultas. Estamos a integrar os primeiros clientes—PMEs, clínicas e negócios locais que querem deixar de perder chamadas. Se és um deles, fala connosco.',
     features: [
       'AI answers calls 24/7 in Portuguese or English',
       'Lead qualification and appointment booking',
-      'Serving dozens of businesses in Portugal',
+      'Product in development—closing first clients now',
       'Setup in minutes, no code',
     ],
     featuresPt: [
       'IA atende chamadas 24/7 em português ou inglês',
       'Qualificação de leads e marcação de consultas',
-      'Ao serviço de dezenas de empresas em Portugal',
+      'Produto em desenvolvimento—a fechar os primeiros clientes',
       'Configuração em minutos, sem código',
     ],
     launchDate: '2025',

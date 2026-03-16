@@ -120,11 +120,11 @@
     "smeAutomation": {
       "title": "Automação com IA para PMEs",
       "shortDesc": "Atendimento telefónico por IA e automação de processos para PMEs tradicionais.",
-      "description": "Nunca perdas uma chamada—a Linea atende o teu telefone com IA, 24/7, em português ou inglês. Também construímos automações à medida: captação de leads, agendamentos e tarefas de back-office para te focares no negócio.",
-      "howItWorks": "Para atendimento telefónico: experimenta a Linea (o nosso produto)—configuração em minutos. Para soluções à medida (CRM, fluxos, integrações): definimos o âmbito e construímos uma automação adaptada. Ficas com um produto pronto ou um sistema sob medida.",
-      "averageCost": "A partir de €1,5k (à medida) ou subscrição Linea",
-      "averageTime": "1–2 semanas (Linea) ou 2–4 semanas (à medida)",
-      "ctaLinea": "Experimentar Linea (chamadas)",
+      "description": "A Linea (o nosso produto em desenvolvimento) atende o teu telefone com IA, 24/7, em português ou inglês—estamos a fechar os primeiros clientes. Também construímos automações à medida: captação de leads, agendamentos e tarefas de back-office para te focares no negócio.",
+      "howItWorks": "Para atendimento telefónico: a Linea está em desenvolvimento—estamos a integrar os primeiros clientes; fala connosco se quiseres ser um deles. Para soluções à medida (CRM, fluxos, integrações): definimos o âmbito e construímos uma automação adaptada.",
+      "averageCost": "A partir de €1,5k (à medida) ou Linea quando disponível",
+      "averageTime": "Em curso (acesso antecipado Linea) ou 2–4 semanas (à medida)",
+      "ctaLinea": "Falar sobre a Linea (chamadas)",
       "ctaCustom": "Solução à medida"
     },
     "future": {
@@ -287,6 +287,7 @@
   "project": {
     "notFoundTitle": "Projeto",
     "backToPortfolio": "Voltar ao Portfólio",
+    "overviewTitle": "Visão geral",
     "wantSimilar": "Queres algo parecido? Fala comigo.",
     "techStack": "Stack tecnológica",
     "features": "Funcionalidades",

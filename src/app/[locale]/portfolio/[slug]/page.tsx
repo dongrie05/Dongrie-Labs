@@ -114,7 +114,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
         <section className="mt-12">
           <h2 className="font-heading text-xl font-semibold text-white">
-            Overview
+            {t('overviewTitle')}
           </h2>
           <p className="mt-4 text-slate-300">{overview}</p>
         </section>
