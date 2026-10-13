@@ -35,15 +35,29 @@ Assim que esta variável estiver definida, **todos** os botões de agendar chama
 
 ---
 
-## 2. Formulário de contacto → WhatsApp
+## 2. Formulário de contacto
 
-O formulário de contacto **não envia email**. Ao clicar em "Abrir no WhatsApp":
+O botão principal **grava o lead** (`POST /api/contact`) e envia-te um email. O WhatsApp fica como botão secundário: se a base de dados ou o email não estiverem configurados, o formulário mostra um erro e a pessoa pode abrir o WhatsApp com a mensagem já preenchida.
 
-- Os dados (nome, email, tipo de projeto, orçamento, mensagem) são formatados num texto.
-- Abre-se o WhatsApp (web ou app) com esse texto já preenchido para o teu número (**+351 927 699 882**).
-- O visitante só tem de carregar em "Enviar" no WhatsApp.
+Variáveis (em `.env.local` e na Vercel):
 
-Não precisas de configurar nada: não há API, nem email, nem variáveis de ambiente para o formulário.
+| Variável | Obrigatória | Uso |
+| --- | --- | --- |
+| `SUPABASE_URL` | sim | URL do projeto Supabase |
+| `SUPABASE_SERVICE_ROLE_KEY` | sim | Chave `service_role` (só no servidor; nunca `NEXT_PUBLIC_`) |
+| `RESEND_API_KEY` | sim | API key do Resend |
+| `CONTACT_FROM_EMAIL` | sim | Remetente aceite pelo Resend |
+| `CONTACT_TO_EMAIL` | não | Destino do aviso. Por omissão: `goncalo.dongrie05@gmail.com` |
+
+### Base de dados
+
+No SQL editor do Supabase, corre uma vez o ficheiro `supabase/contact_leads.sql`.
+
+### Email (Resend)
+
+1. Cria uma API key em [resend.com](https://resend.com) e cola em `RESEND_API_KEY`.
+2. Enquanto o domínio não estiver verificado, usa `CONTACT_FROM_EMAIL="Dongrie Labs <onboarding@resend.dev>"`. Esse remetente só entrega no email da conta Resend — põe esse email em `CONTACT_TO_EMAIL` para testar.
+3. Em produção: Resend → Domains → adiciona o domínio, publica os registos DNS (SPF e DKIM) e espera pelo estado verificado. Depois usa um endereço desse domínio, por exemplo `CONTACT_FROM_EMAIL="Dongrie Labs <hello@dongrielabs.com>"`.
 
 ---
 
@@ -55,6 +69,11 @@ Para produção (ex.: Vercel) convém ter:
 |----------|-----|---------|
 | `NEXT_PUBLIC_SITE_URL` | Sitemap, robots, meta tags | `https://dongrielabs.com` |
 | `NEXT_PUBLIC_CALENDLY_URL` | Link "Agendar chamada" | O teu link do Calendly |
+| `SUPABASE_URL` | Gravar leads do formulário | URL do projeto |
+| `SUPABASE_SERVICE_ROLE_KEY` | Gravar leads do formulário | Chave `service_role` |
+| `RESEND_API_KEY` | Email de aviso | API key do Resend |
+| `CONTACT_FROM_EMAIL` | Remetente do aviso | `Dongrie Labs <hello@dongrielabs.com>` |
+| `CONTACT_TO_EMAIL` | Destino do aviso (opcional) | `goncalo.dongrie05@gmail.com` |
 
 Cria `.env.local` em desenvolvimento e, na Vercel, **Settings** → **Environment Variables**.
 
@@ -85,7 +104,7 @@ Para cada app, envia por exemplo:
 | Item | O que fazer |
 |------|-------------|
 | **Calendly** | Conta no Calendly → criar Event Type → copiar link → colar em `NEXT_PUBLIC_CALENDLY_URL` no `.env.local` e na Vercel. |
-| **Formulário** | Nada. Já abre o WhatsApp com a mensagem preenchida. |
+| **Formulário** | Correr o SQL no Supabase, criar a API key no Resend, verificar o domínio e definir as variáveis da secção 2. |
 | **URL do site** | Definir `NEXT_PUBLIC_SITE_URL` em produção. |
 | **Apps no portfólio** | Enviar por app: link da loja + nome + uma frase; eu preencho o `projects.ts`. |
 

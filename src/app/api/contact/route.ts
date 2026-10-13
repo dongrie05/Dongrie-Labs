@@ -1,31 +1,15 @@
-import { NextResponse } from 'next/server';
+import { contactDepsFromEnv, handleContact } from '@/lib/contact/handle-contact';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
+  let body: unknown;
   try {
-    const body = await request.json();
-    const { name, email, projectType, budget, message } = body;
-
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
-    }
-
-    // Placeholder: log or send email via Resend/SendGrid later
-    console.log('Contact form submission:', {
-      name,
-      email,
-      projectType,
-      budget,
-      message,
-    });
-
-    return NextResponse.json({ success: true });
+    body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    body = null;
   }
+
+  return handleContact(body, contactDepsFromEnv(request));
 }
