@@ -1,9 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/navigation';
-import { SectionHeading } from '@/components/shared/SectionHeading';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
-import { Card } from '@/components/ui/Card';
-import { ArrowRight } from 'lucide-react';
 import { recursosArticles } from '@/lib/data/recursos';
 
 export async function generateMetadata({
@@ -13,7 +9,6 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'recursos' });
-  const tCommon = await getTranslations({ locale, namespace: 'common' });
   return {
     title: t('title'),
     description: t('subtitle'),
@@ -30,41 +25,32 @@ export default async function RecursosPage({
   const isPt = locale === 'pt';
 
   return (
-    <div className="relative px-4 py-16 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
-      <div className="relative mx-auto max-w-4xl">
-        <SectionHeading
-          title={t('title')}
-          subtitle={t('subtitle')}
-          align="center"
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {recursosArticles.map((article, i) => (
-            <AnimateOnScroll key={article.slug} variant="fadeUp" delay={i * 0.08}>
-              <Link href={`/recursos/${article.slug}`}>
-                <Card className="h-full flex flex-col group">
-                  <time className="text-xs text-slate-500">
-                    {new Date(article.date).toLocaleDateString(isPt ? 'pt-PT' : 'en-GB', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <h2 className="mt-2 font-heading text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
-                    {isPt ? article.titlePt : article.titleEn}
-                  </h2>
-                  <p className="mt-2 text-sm text-slate-400 line-clamp-3">
-                    {isPt ? article.excerptPt : article.excerptEn}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-400 group-hover:gap-2 transition-all">
-                    {t('readMore')}
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
+    <div className="section-pad">
+      <div className="wrap max-w-3xl">
+        <h1 className="headline">{t('title')}</h1>
+        <p className="lede">{t('subtitle')}</p>
+        <ul className="mt-14 border-t border-line">
+          {recursosArticles.map((article) => (
+            <li key={article.slug} className="border-b border-line">
+              <Link href={`/recursos/${article.slug}`} className="block py-8">
+                <time className="text-[15px] text-muted">
+                  {new Date(article.date).toLocaleDateString(isPt ? 'pt-PT' : 'en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <h2 className="mt-2 text-[22px] font-semibold tracking-[-0.02em]">
+                  {isPt ? article.titlePt : article.titleEn}
+                </h2>
+                <p className="mt-2 max-w-prose text-[17px] leading-relaxed text-muted">
+                  {isPt ? article.excerptPt : article.excerptEn}
+                </p>
+                <span className="mt-4 inline-flex text-[17px] text-link">{t('readMore')}</span>
               </Link>
-            </AnimateOnScroll>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

@@ -1,10 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import type { Project, ProjectCategory } from '@/types';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
 import { PortfolioCard } from '@/components/shared/PortfolioCard';
 import { cn } from '@/lib/utils';
 
@@ -24,35 +22,32 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
   const locale = useLocale();
   const [filter, setFilter] = useState<'' | ProjectCategory>('');
 
-  const filtered =
-    filter === ''
-      ? projects
-      : projects.filter((p) => p.category === filter);
+  const filtered = filter === '' ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <>
-      <div className="flex flex-wrap gap-2">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat.value || 'all'}
-            type="button"
-            onClick={() => setFilter(cat.value)}
-            className={cn(
-              'rounded-xl border px-4 py-2 text-sm font-medium transition-colors',
-              filter === cat.value
-                ? 'border-blue-500 bg-blue-500/10 text-blue-400'
-                : 'border-navy-700 text-slate-400 hover:border-navy-600 hover:text-white'
-            )}
-          >
-            {t(cat.key)}
-          </button>
-        ))}
+      <div className="flex flex-wrap gap-2" role="group" aria-label={t('title')}>
+        {CATEGORIES.map((cat) => {
+          const selected = filter === cat.value;
+          return (
+            <button
+              key={cat.value || 'all'}
+              type="button"
+              onClick={() => setFilter(cat.value)}
+              aria-pressed={selected}
+              className={cn(
+                'min-h-11 rounded-full px-4 text-[15px]',
+                selected ? 'bg-ink text-canvas' : 'text-muted hover:text-ink'
+              )}
+            >
+              {t(cat.key)}
+            </button>
+          );
+        })}
       </div>
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((project, i) => (
-          <AnimateOnScroll key={project.slug} variant="fadeUp" delay={i * 0.05}>
-            <PortfolioCard project={project} locale={locale} />
-          </AnimateOnScroll>
+      <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {filtered.map((project) => (
+          <PortfolioCard key={project.slug} project={project} locale={locale} />
         ))}
       </div>
     </>

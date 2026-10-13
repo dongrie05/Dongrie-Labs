@@ -8,8 +8,7 @@ interface SelectOption {
   label: string;
 }
 
-interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
   options: SelectOption[];
@@ -17,19 +16,12 @@ interface SelectProps
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    { label, error, options, placeholder, className, id, ...props },
-    ref
-  ) => {
-    const inputId =
-      id ?? label?.toLowerCase().replace(/\s/g, '-');
+  ({ label, error, options, placeholder, className, id, ...props }, ref) => {
+    const inputId = id ?? label?.toLowerCase().replace(/\s/g, '-');
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="mb-1.5 block text-sm font-medium text-slate-300"
-          >
+          <label htmlFor={inputId} className="mb-2 block text-[15px] font-medium text-ink">
             {label}
           </label>
         )}
@@ -37,13 +29,15 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full min-h-[48px] rounded-xl border border-navy-700 bg-navy-900 px-4 py-3 text-base text-white transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none bg-[length:20px] bg-[right_12px_center] bg-no-repeat [color-scheme:dark]',
-            error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
+            'field appearance-none bg-[length:18px] bg-[right_14px_center] bg-no-repeat pr-10',
+            error && 'border-danger',
             className
           )}
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23cbd5e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23424245'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
           }}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${inputId}-error` : undefined}
           {...props}
         >
           {placeholder && (
@@ -58,7 +52,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ))}
         </select>
         {error && (
-          <p className="mt-1 text-sm text-red-400" role="alert">
+          <p id={`${inputId}-error`} className="mt-2 text-[15px] text-danger" role="alert">
             {error}
           </p>
         )}

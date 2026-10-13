@@ -2,32 +2,8 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import {
-  Smartphone,
-  Brain,
-  Workflow,
-  Rocket,
-  Plug,
-  Code2,
-  Phone,
-  ArrowRight,
-  type LucideIcon,
-} from 'lucide-react';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
-import { ServiceDetailModal } from '@/components/shared/ServiceDetailModal';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import { services } from '@/lib/data/services';
-
-const iconMap: Record<string, LucideIcon> = {
-  Smartphone,
-  Brain,
-  Workflow,
-  Rocket,
-  Plug,
-  Code2,
-  Phone,
-};
+import { ServiceDetailModal } from '@/components/shared/ServiceDetailModal';
 
 const serviceMsgKeys: Record<string, string> = {
   mobile: 'mobileApps',
@@ -45,44 +21,39 @@ export function ServicesListWithModal() {
 
   return (
     <>
-      <div className="mt-16 space-y-12">
-        {services.map((service, i) => {
-          const Icon = iconMap[service.icon] ?? Code2;
+      <ul className="mt-14 border-t border-line">
+        {services.map((service) => {
           const msgKey = serviceMsgKeys[service.id] ?? 'customSoftware';
           return (
-            <AnimateOnScroll key={service.id} variant="fadeUp" delay={i * 0.05}>
-              <Card className="p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
-                  <Icon className="h-7 w-7" />
+            <li key={service.id} className="border-b border-line py-8 md:py-10">
+              <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-10">
+                <div>
+                  <h2 className="text-[24px] font-semibold tracking-[-0.02em]">
+                    {t(`${msgKey}.title`)}
+                  </h2>
+                  <p className="mt-3 max-w-prose text-[17px] leading-relaxed text-muted">
+                    {t(`${msgKey}.description`)}
+                  </p>
+                  <p className="mt-4 text-[15px] text-muted">
+                    {t(`${msgKey}.averageCost`)}
+                    <span className="px-2" aria-hidden>
+                      ·
+                    </span>
+                    {t(`${msgKey}.averageTime`)}
+                  </p>
                 </div>
-                <h2 className="font-heading mt-6 text-2xl font-semibold text-white">
-                  {t(`${msgKey}.title`)}
-                </h2>
-                <p className="mt-4 text-slate-300">
-                  {t(`${msgKey}.description`)}
-                </p>
-                {service.tech && service.tech.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {service.tech.map((tech) => (
-                      <Badge key={tech} variant="tech">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
                 <button
                   type="button"
                   onClick={() => setSelectedServiceId(service.id)}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+                  className="inline-flex min-h-11 items-center text-[17px] text-link hover:underline"
                 >
                   {t('learnMore')}
-                  <ArrowRight className="h-4 w-4" />
                 </button>
-              </Card>
-            </AnimateOnScroll>
+              </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       <ServiceDetailModal
         serviceId={selectedServiceId ?? ''}

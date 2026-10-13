@@ -1,7 +1,6 @@
 import { getTranslations } from 'next-intl/server';
-import { SectionHeading } from '@/components/shared/SectionHeading';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
 import { products } from '@/lib/data/products';
+import { Button } from '@/components/ui/Button';
 
 export async function generateMetadata({
   params,
@@ -10,7 +9,6 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'products' });
-  const tCommon = await getTranslations({ locale, namespace: 'common' });
   return {
     title: t('title'),
     description: t('subtitle'),
@@ -27,48 +25,28 @@ export default async function ProductsPage({
   const isPt = locale === 'pt';
 
   return (
-    <div className="relative px-4 py-16 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
-      <div className="relative mx-auto max-w-4xl">
-        <SectionHeading
-          title={t('title')}
-          subtitle={t('subtitle')}
-          align="center"
-        />
-        <div className="mt-14 space-y-8">
-          {products.map((product, i) => (
-            <AnimateOnScroll key={product.id} variant="fadeUp" delay={i * 0.1}>
-              <article className="overflow-hidden rounded-2xl border border-white/[0.06] bg-navy-900/60 transition-colors hover:border-white/[0.1]">
-                <div className="grid gap-0 md:grid-cols-2">
-                  <div className="flex flex-col justify-center p-8 md:p-10">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
-                      {t('byStudio')}
-                    </p>
-                    <h2 className="font-heading mt-2 text-2xl font-bold text-white md:text-3xl">
-                      {isPt ? product.namePt : product.name}
-                    </h2>
-                    <p className="mt-2 text-lg text-slate-400">
-                      {isPt ? product.taglinePt : product.tagline}
-                    </p>
-                    <p className="mt-4 text-slate-300 leading-relaxed">
-                      {isPt ? product.descriptionPt : product.description}
-                    </p>
-                    <a
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400"
-                    >
-                      {isPt ? product.ctaPt : product.cta}
-                      <span aria-hidden>→</span>
-                    </a>
-                  </div>
-                  <div className="flex min-h-[200px] items-center justify-center bg-navy-800/40 p-8 md:min-h-[280px]">
-                    <span className="text-7xl opacity-60">📞</span>
-                  </div>
-                </div>
-              </article>
-            </AnimateOnScroll>
+    <div className="section-pad">
+      <div className="wrap max-w-3xl">
+        <h1 className="headline">{t('title')}</h1>
+        <p className="lede">{t('subtitle')}</p>
+
+        <div className="mt-16 space-y-16">
+          {products.map((product) => (
+            <article key={product.id} className="border-t border-line pt-10">
+              <p className="text-[15px] text-muted">{t('byStudio')}</p>
+              <h2 className="mt-3 text-[40px] font-semibold tracking-[-0.03em]">
+                {isPt ? product.namePt : product.name}
+              </h2>
+              <p className="mt-3 text-[20px] tracking-[-0.015em] text-muted">
+                {isPt ? product.taglinePt : product.tagline}
+              </p>
+              <p className="mt-6 max-w-prose text-[17px] leading-relaxed text-muted">
+                {isPt ? product.descriptionPt : product.description}
+              </p>
+              <Button href={product.url} external className="mt-8">
+                {isPt ? product.ctaPt : product.cta}
+              </Button>
+            </article>
           ))}
         </div>
       </div>

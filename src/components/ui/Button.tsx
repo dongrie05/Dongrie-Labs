@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { forwardRef } from 'react';
+import { Link } from '@/navigation';
 import { cn } from '@/lib/utils';
 
 type ButtonVariant = 'primary' | 'secondary' | 'whatsapp' | 'ghost';
@@ -17,18 +17,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-blue-500 hover:bg-blue-400 text-white border-0 shadow-lg shadow-blue-500/20',
+    'bg-accent text-on-accent hover:bg-accent-press active:bg-accent-press',
   secondary:
-    'border border-navy-700 hover:border-blue-500 text-white bg-transparent',
-  whatsapp: 'bg-green-500 hover:bg-green-400 text-white border-0',
-  ghost:
-    'border-0 text-slate-300 hover:text-white hover:bg-navy-800/50 bg-transparent',
+    'border border-line bg-transparent text-ink hover:bg-ink/[0.04]',
+  whatsapp: 'bg-[#128C7E] text-white hover:bg-[#0e7468]',
+  ghost: 'bg-transparent text-ink hover:bg-ink/[0.04]',
 };
 
 const sizeStyles = {
-  sm: 'px-4 py-2 text-sm rounded-lg',
-  md: 'px-6 py-3 text-base rounded-xl',
-  lg: 'px-8 py-4 text-lg rounded-xl',
+  sm: 'min-h-11 px-4 text-[15px]',
+  md: 'min-h-11 px-5 text-[17px]',
+  lg: 'min-h-12 px-6 text-[17px]',
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -45,10 +44,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const base =
-      'inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-navy-950 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] hover:scale-[1.02] min-h-[44px]';
     const combined = cn(
-      base,
+      'inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[-0.01em] transition-transform duration-100 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50',
       variantStyles[variant],
       sizeStyles[size],
       className
@@ -62,22 +59,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             target="_blank"
             rel="noopener noreferrer"
             className={combined}
+            onClick={props.onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
           >
             {children}
           </a>
         );
       }
-      return <Link href={href} className={combined}>{children}</Link>;
+      return (
+        <Link href={href} className={combined} onClick={props.onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}>
+          {children}
+        </Link>
+      );
     }
 
     return (
-      <button
-        ref={ref}
-        type="button"
-        className={combined}
-        disabled={disabled}
-        {...props}
-      >
+      <button ref={ref} type="button" className={combined} disabled={disabled} {...props}>
         {children}
       </button>
     );
