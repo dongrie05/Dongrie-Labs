@@ -45,7 +45,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
           );
         })}
       </div>
-      <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-8 lg:grid-cols-3">
         {filtered.map((project) => (
           <PortfolioCard key={project.slug} project={project} locale={locale} />
         ))}

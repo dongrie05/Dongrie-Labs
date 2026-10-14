@@ -40,7 +40,7 @@ export default async function ServicesPage() {
           <p className="lede text-on-warm-muted">{t('pageSubtitle')}</p>
         </div>
       </section>
-      <div className="section-pad">
+      <div className="pb-24 pt-12 md:pt-16">
       <div className="wrap">
         <ServicesListWithModal />
 
