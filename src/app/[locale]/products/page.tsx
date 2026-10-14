@@ -27,23 +27,24 @@ export default async function ProductsPage({
   return (
     <div className="section-pad">
       <div className="wrap max-w-3xl">
+        <div className="mb-5 h-1 w-14 rounded-full bg-warm" aria-hidden />
         <h1 className="headline">{t('title')}</h1>
         <p className="lede">{t('subtitle')}</p>
 
-        <div className="mt-16 space-y-16">
+        <div className="mt-16 space-y-10">
           {products.map((product) => (
-            <article key={product.id} className="border-t border-line pt-10">
-              <p className="text-[15px] text-muted">{t('byStudio')}</p>
-              <h2 className="mt-3 text-[40px] font-semibold tracking-[-0.03em]">
+            <article key={product.id} className="rounded-3xl bg-accent p-8 text-on-accent md:p-12">
+              <p className="text-[15px] text-band-muted">{t('byStudio')}</p>
+              <h2 className="mt-3 text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-none tracking-[-0.034em]">
                 {isPt ? product.namePt : product.name}
               </h2>
-              <p className="mt-3 text-[20px] tracking-[-0.015em] text-muted">
+              <p className="mt-4 text-[20px] tracking-[-0.015em] text-warm-soft">
                 {isPt ? product.taglinePt : product.tagline}
               </p>
-              <p className="mt-6 max-w-prose text-[17px] leading-relaxed text-muted">
+              <p className="mt-6 max-w-prose text-[17px] leading-relaxed text-band-muted">
                 {isPt ? product.descriptionPt : product.description}
               </p>
-              <Button href={product.url} external className="mt-8">
+              <Button href={product.url} external tone="inverse" className="mt-8">
                 {isPt ? product.ctaPt : product.cta}
               </Button>
             </article>

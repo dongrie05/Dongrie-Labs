@@ -56,6 +56,7 @@ export default async function AboutPage() {
             />
           </div>
           <div>
+            <div className="mb-5 h-1 w-14 rounded-full bg-warm" aria-hidden />
             <h1 className="headline">{t('heroTitle')}</h1>
             <p className="lede">{t('heroSubtitle')}</p>
             <p className="mt-6 text-[17px] leading-relaxed text-muted">{t('mission')}</p>

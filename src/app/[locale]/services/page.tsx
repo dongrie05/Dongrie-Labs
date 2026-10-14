@@ -32,11 +32,16 @@ export default async function ServicesPage() {
   const future = [t('future.localAi'), t('future.openClaw'), t('future.miniSaaS')];
 
   return (
-    <div className="section-pad">
+    <div>
+      <section className="bg-warm-band text-on-warm">
+        <div className="wrap pb-16 pt-16 md:pb-20 md:pt-24">
+          <div className="mb-5 h-1 w-14 rounded-full bg-on-warm" aria-hidden />
+          <h1 className="headline max-w-[12ch] text-on-warm">{t('pageTitle')}</h1>
+          <p className="lede text-on-warm-muted">{t('pageSubtitle')}</p>
+        </div>
+      </section>
+      <div className="section-pad">
       <div className="wrap">
-        <h1 className="headline">{t('pageTitle')}</h1>
-        <p className="lede">{t('pageSubtitle')}</p>
-
         <ServicesListWithModal />
 
         <section className="mt-20">
@@ -55,19 +60,22 @@ export default async function ServicesPage() {
           </div>
         </section>
 
-        <section className="mt-20 max-w-xl">
-          <h2 className="text-[28px] font-semibold tracking-[-0.02em]">{t('ctaTitle')}</h2>
-          <p className="mt-3 text-[17px] text-muted">{t('ctaSubtitle')}</p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button href="/contact" variant="primary">
+      </div>
+      </div>
+      <section className="bg-accent text-on-accent section-pad">
+        <div className="wrap max-w-xl">
+          <h2 className="headline text-on-accent">{t('ctaTitle')}</h2>
+          <p className="lede text-band-muted">{t('ctaSubtitle')}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/contact" variant="primary" tone="inverse">
               {tNav('contact')}
             </Button>
-            <Button href="/portfolio" variant="secondary">
+            <Button href="/portfolio" variant="secondary" tone="inverse">
               {tNav('portfolio')}
             </Button>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -28,20 +28,23 @@ export function ServicesOverview() {
           <p className="lede">{t('overviewSubtitle')}</p>
         </div>
 
-        <ul className="mt-14 border-t border-line">
-          {services.map((service) => {
+        <ul className="mt-14 grid gap-4 md:grid-cols-2">
+          {services.map((service, index) => {
             const msgKey = serviceMsgKeys[service.id] ?? 'customSoftware';
             return (
-              <li key={service.id} className="border-b border-line">
+              <li key={service.id}>
                 <button
                   type="button"
                   onClick={() => setSelectedServiceId(service.id)}
-                  className="flex w-full flex-col gap-2 py-6 text-left md:flex-row md:items-baseline md:justify-between md:gap-10 md:py-7"
+                  className="flex h-full w-full flex-col rounded-3xl bg-paper p-6 text-left md:p-8"
                 >
-                  <span className="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+                  <span className="text-[15px] font-semibold tabular-nums text-accent">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="mt-4 text-[22px] font-semibold tracking-[-0.02em] text-ink">
                     {t(`${msgKey}.title`)}
                   </span>
-                  <span className="max-w-md text-[17px] leading-relaxed text-muted md:text-right">
+                  <span className="mt-2 text-[17px] leading-relaxed text-muted">
                     {t(`${msgKey}.shortDesc`)}
                   </span>
                 </button>

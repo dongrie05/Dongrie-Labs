@@ -26,6 +26,7 @@ export default async function PricingPage() {
   return (
     <div className="section-pad">
       <div className="wrap max-w-3xl">
+        <div className="mb-5 h-1 w-14 rounded-full bg-warm" aria-hidden />
         <h1 className="headline">{t('title')}</h1>
         <p className="lede">{t('subtitle')}</p>
 

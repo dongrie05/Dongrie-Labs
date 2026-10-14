@@ -21,14 +21,17 @@ export function ServicesListWithModal() {
 
   return (
     <>
-      <ul className="mt-14 border-t border-line">
-        {services.map((service) => {
+      <ul className="mt-14 grid gap-4">
+        {services.map((service, index) => {
           const msgKey = serviceMsgKeys[service.id] ?? 'customSoftware';
           return (
-            <li key={service.id} className="border-b border-line py-8 md:py-10">
+            <li key={service.id} className="rounded-3xl bg-paper p-6 md:p-8">
               <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-10">
                 <div>
-                  <h2 className="text-[24px] font-semibold tracking-[-0.02em]">
+                  <p className="text-[15px] font-semibold tabular-nums text-accent">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em]">
                     {t(`${msgKey}.title`)}
                   </h2>
                   <p className="mt-3 max-w-prose text-[17px] leading-relaxed text-muted">

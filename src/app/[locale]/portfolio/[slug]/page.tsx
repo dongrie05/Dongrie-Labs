@@ -60,19 +60,19 @@ export default async function ProjectPage({ params }: PageProps) {
           {project.launchDate && <p className="mt-3 text-[15px] text-muted">{project.launchDate}</p>}
         </header>
 
-        <div className="relative mt-10 aspect-video overflow-hidden rounded-3xl bg-paper">
+        <div className="relative mt-10 aspect-[3/4] max-w-sm overflow-hidden rounded-3xl bg-paper">
           {project.image ? (
             <Image
               src={project.image}
               alt={name}
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 768px"
+              className="object-contain p-3"
+              sizes="(max-width: 1024px) 100vw, 384px"
             />
           ) : (
-            <span className="flex h-full items-end p-8 text-[28px] font-semibold tracking-[-0.02em] text-muted">
-              {name}
-            </span>
+            <div className="flex h-full flex-col justify-end bg-warm-band p-8 text-on-warm">
+              <p className="text-[40px] font-semibold leading-none tracking-[-0.03em]">{name}</p>
+            </div>
           )}
         </div>
 

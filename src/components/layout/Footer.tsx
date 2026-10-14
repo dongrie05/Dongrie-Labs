@@ -2,6 +2,7 @@
 
 import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
+import { BrandWord } from './BrandWord';
 import { LanguageToggle } from './LanguageToggle';
 
 const navLinks = [
@@ -24,10 +25,12 @@ export function Footer() {
   const tCommon = useTranslations('common');
 
   return (
-    <footer className="border-t border-line bg-canvas">
+    <footer className="border-t-4 border-warm-band bg-canvas">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:py-20">
         <div>
-          <p className="text-[17px] font-semibold tracking-[-0.02em]">{tCommon('brandName')}</p>
+          <p className="text-[17px] font-semibold tracking-[-0.02em]">
+            <BrandWord name={tCommon('brandName')} />
+          </p>
           <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted">{tFooter('tagline')}</p>
         </div>
 

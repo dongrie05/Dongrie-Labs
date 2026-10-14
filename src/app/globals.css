@@ -3,20 +3,29 @@
 @tailwind utilities;
 
 /*
-  Semantic palette. Roles, not decorative hues.
-  Light accent #0066CC: white text 5.6:1, text on #f5f5f7 is 5.1:1.
-  Dark links use #4DA3FF, 8.3:1 on black. Button fill stays #0066CC so white labels hold.
+  Dongrie Labs color.
+  Cobalt #1634D6 is the primary: white labels 8.4:1, links on #E7ECF6 are 7.1:1.
+  Persimmon #B03410 is the warm secondary: 5.3:1 on the canvas, white labels 6.3:1.
+  Warm type on dark surfaces is #FF9A6A, 9.3:1 on #0C0E16.
+  Apricot #FFB089 sits only on cobalt fields (4.7:1). Light blue #D6DEFF on cobalt is 6.3:1.
+  Cream #FFE8DC on persimmon is 5.3:1.
 */
 @layer base {
   :root {
-    --canvas: 245 245 247;
-    --paper: 255 255 255;
-    --ink: 29 29 31;
-    --muted: 66 66 69;
-    --line: 210 210 215;
-    --accent: 0 102 204;
-    --accent-press: 0 87 173;
-    --link: 0 102 204;
+    --canvas: 231 236 246;
+    --paper: 244 246 251;
+    --ink: 18 21 30;
+    --muted: 62 70 92;
+    --line: 194 204 224;
+    --accent: 22 52 214;
+    --accent-press: 18 40 168;
+    --link: 22 52 214;
+    --warm: 176 52 16;
+    --warm-band: 176 52 16;
+    --warm-soft: 255 176 137;
+    --on-warm: 255 255 255;
+    --on-warm-muted: 255 232 220;
+    --band-muted: 214 222 255;
     --danger: 180 35 24;
     --on-accent: 255 255 255;
     color-scheme: light;
@@ -24,14 +33,20 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --canvas: 0 0 0;
-      --paper: 28 28 30;
-      --ink: 245 245 247;
-      --muted: 174 174 178;
-      --line: 72 72 74;
-      --accent: 0 102 204;
-      --accent-press: 10 122 230;
-      --link: 77 163 255;
+      --canvas: 12 14 22;
+      --paper: 22 26 38;
+      --ink: 244 246 251;
+      --muted: 183 192 210;
+      --line: 58 66 88;
+      --accent: 22 52 214;
+      --accent-press: 18 40 168;
+      --link: 168 184 255;
+      --warm: 255 154 106;
+      --warm-band: 176 52 16;
+      --warm-soft: 255 176 137;
+      --on-warm: 255 255 255;
+      --on-warm-muted: 255 232 220;
+      --band-muted: 214 222 255;
       --danger: 255 138 128;
       --on-accent: 255 255 255;
       color-scheme: dark;
@@ -40,11 +55,13 @@
 
   @media (prefers-contrast: more) {
     :root {
-      --muted: 29 29 31;
-      --line: 29 29 31;
-      --accent: 0 61 153;
-      --accent-press: 0 45 120;
-      --link: 0 61 153;
+      --muted: 18 21 30;
+      --line: 18 21 30;
+      --accent: 15 46 174;
+      --accent-press: 10 36 140;
+      --link: 15 46 174;
+      --warm: 140 47 18;
+      --warm-band: 140 47 18;
     }
   }
 
@@ -52,10 +69,13 @@
     :root {
       --canvas: 0 0 0;
       --paper: 0 0 0;
-      --muted: 245 245 247;
-      --line: 245 245 247;
-      --accent: 0 84 180;
-      --link: 158 206 255;
+      --muted: 244 246 251;
+      --line: 244 246 251;
+      --accent: 18 40 168;
+      --accent-press: 14 32 140;
+      --link: 196 208 255;
+      --warm: 255 208 184;
+      --warm-band: 140 47 18;
       --danger: 255 180 170;
     }
   }
@@ -81,7 +101,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid rgb(var(--accent));
+    outline: 2px solid currentColor;
     outline-offset: 3px;
   }
 
@@ -99,9 +119,9 @@
   }
 
   .display {
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
-    line-height: 1.05;
-    letter-spacing: -0.022em;
+    font-size: clamp(2.75rem, 6.4vw, 4.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.034em;
     font-weight: 600;
     font-optical-sizing: auto;
     color: rgb(var(--ink));
@@ -169,6 +189,19 @@
     outline: none;
     border-color: rgb(var(--accent));
     box-shadow: 0 0 0 3px rgb(var(--accent) / 0.2);
+  }
+
+  .field-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2312151E'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 18px;
+    background-position: right 14px center;
+    background-repeat: no-repeat;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F4F6FB'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    }
   }
 
   .skip-link {

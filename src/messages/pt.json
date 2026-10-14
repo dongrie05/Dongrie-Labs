@@ -40,6 +40,8 @@
     "scroll": "Deslizar",
     "metaTitle": "Dongrie Labs",
     "title": "Construo apps e sistemas de IA em semanas, não meses.",
+    "titleLead": "Construo apps e sistemas de IA",
+    "titleAccent": "em semanas, não meses.",
     "subtitle": "Um estúdio de uma pessoa. Falas com quem escreve o código.",
     "ctaBookCall": "Agendar Chamada",
     "ctaSeeWork": "Ver o Meu Trabalho",
@@ -208,6 +210,8 @@
   "cta": {
     "sectionLabel": "Vamos trabalhar juntos",
     "headline": "Diz-me o que queres construir.",
+    "headlineLead": "Diz-me o que queres",
+    "headlineAccent": "construir.",
     "subtitle": "Uma chamada, uma mensagem ou um orçamento. Normalmente respondo em 30 minutos em dias úteis.",
     "noCommitment": "Sem compromisso. Conta-me a tua ideia e respondo em 30 minutos.",
     "bookCall": "Agendar Chamada",

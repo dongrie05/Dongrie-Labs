@@ -8,6 +8,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { settle } from '@/lib/motion';
 import { Button } from '@/components/ui/Button';
+import { BrandWord } from './BrandWord';
 import { LanguageToggle } from './LanguageToggle';
 
 const navLinks = [
@@ -38,7 +39,7 @@ export function Navbar() {
     <header className="nav-material fixed inset-x-0 top-0 z-50 border-b border-line/80">
       <nav className="mx-auto flex h-14 max-w-[1120px] items-center justify-between px-6">
         <Link href="/" className="text-[17px] font-semibold tracking-[-0.02em] text-ink">
-          {tCommon('brandName')}
+          <BrandWord name={tCommon('brandName')} />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">

@@ -20,7 +20,7 @@ export async function FounderSection() {
           />
         </div>
         <div>
-          <p className="text-[15px] font-medium text-muted">{t('sectionLabel')}</p>
+          <p className="text-[15px] font-semibold text-accent">{t('sectionLabel')}</p>
           <h2 className="headline mt-3">{t('title')}</h2>
           <p className="lede">{t('bio')}</p>
           <Link href="/about" className="mt-8 inline-flex min-h-11 items-center text-[17px] text-link hover:underline">

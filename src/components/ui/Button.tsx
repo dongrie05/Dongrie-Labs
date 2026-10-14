@@ -8,6 +8,7 @@ type ButtonVariant = 'primary' | 'secondary' | 'whatsapp' | 'ghost';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
+  tone?: 'default' | 'inverse';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   children: React.ReactNode;
@@ -15,13 +16,23 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   external?: boolean;
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    'bg-accent text-on-accent hover:bg-accent-press active:bg-accent-press',
-  secondary:
-    'border border-line bg-transparent text-ink hover:bg-ink/[0.04]',
-  whatsapp: 'bg-[#128C7E] text-white hover:bg-[#0e7468]',
-  ghost: 'bg-transparent text-ink hover:bg-ink/[0.04]',
+const variantStyles: Record<ButtonVariant, Record<'default' | 'inverse', string>> = {
+  primary: {
+    default: 'bg-accent text-on-accent hover:bg-accent-press active:bg-accent-press',
+    inverse: 'bg-on-accent text-accent hover:bg-on-accent/90',
+  },
+  secondary: {
+    default: 'border border-line bg-paper text-ink hover:bg-canvas',
+    inverse: 'border border-on-accent/50 bg-transparent text-on-accent hover:bg-on-accent/10',
+  },
+  whatsapp: {
+    default: 'bg-[#128C7E] text-white hover:bg-[#0e7468]',
+    inverse: 'bg-[#128C7E] text-white hover:bg-[#0e7468]',
+  },
+  ghost: {
+    default: 'bg-transparent text-ink hover:bg-ink/[0.04]',
+    inverse: 'bg-transparent text-on-accent hover:bg-on-accent/10',
+  },
 };
 
 const sizeStyles = {
@@ -34,6 +45,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = 'primary',
+      tone = 'default',
       size = 'md',
       href,
       children,
@@ -46,7 +58,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const combined = cn(
       'inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[-0.01em] transition-transform duration-100 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50',
-      variantStyles[variant],
+      variantStyles[variant][tone],
       sizeStyles[size],
       className
     );
