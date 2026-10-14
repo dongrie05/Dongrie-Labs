@@ -1,12 +1,10 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
-import { ScrollProgressBar } from '@/components/shared/ScrollProgressBar';
-import { Preloader } from '@/components/shared/Preloader';
 import { CookieConsent } from '@/components/shared/CookieConsent';
 import { Analytics } from '@/components/shared/Analytics';
 
@@ -24,12 +22,16 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!routing.locales.includes(locale as 'en' | 'pt')) notFound();
   const messages = await getMessages();
+  const t = await getTranslations('common');
   return (
     <NextIntlClientProvider messages={messages}>
-      <Preloader />
-      <ScrollProgressBar />
+      <a href="#main" className="skip-link">
+        {t('skipToContent')}
+      </a>
       <Navbar />
-      <main className="min-h-screen pt-16">{children}</main>
+      <main id="main" className="min-h-screen pt-14">
+        {children}
+      </main>
       <Footer />
       <FloatingWhatsApp />
       <CookieConsent />

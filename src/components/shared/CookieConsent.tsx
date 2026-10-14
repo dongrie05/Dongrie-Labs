@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { settle } from '@/lib/motion';
 
 const CONSENT_KEY = 'dongrielabs-cookie-consent';
 
@@ -11,15 +12,15 @@ export function CookieConsent() {
   const t = useTranslations('cookieConsent');
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     setMounted(true);
-    const consent = typeof window !== 'undefined' ? localStorage.getItem(CONSENT_KEY) : null;
+    const consent = localStorage.getItem(CONSENT_KEY);
     if (!consent) setVisible(true);
   }, []);
 
   const accept = () => {
-    if (typeof window === 'undefined') return;
     localStorage.setItem(CONSENT_KEY, 'accepted');
     setVisible(false);
     window.dispatchEvent(new CustomEvent('cookie-consent-accepted'));
@@ -30,16 +31,16 @@ export function CookieConsent() {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        initial={reduce ? false : { y: 16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 100, opacity: 0 }}
-        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="fixed bottom-0 left-0 right-0 z-[9997] border-t border-white/[0.06] bg-navy-950/95 backdrop-blur-xl p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:p-5"
+        exit={reduce ? undefined : { y: 16, opacity: 0 }}
+        transition={reduce ? { duration: 0.01 } : settle}
+        className="nav-material fixed inset-x-0 bottom-0 z-[60] border-t border-line p-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
       >
-        <div className="mx-auto flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-slate-300 leading-relaxed">
+        <div className="mx-auto flex max-w-[1060px] flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl text-[15px] leading-relaxed text-ink">
             {t('message')}{' '}
-            <Link href="/privacy" className="text-blue-400 underline hover:text-blue-300">
+            <Link href="/privacy" className="text-link underline underline-offset-2">
               {t('privacyPolicy')}
             </Link>
             .
@@ -47,14 +48,14 @@ export function CookieConsent() {
           <div className="flex shrink-0 gap-3">
             <Link
               href="/privacy"
-              className="flex min-h-[44px] items-center justify-center rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
+              className="inline-flex min-h-11 items-center rounded-full border border-line px-4 text-[15px] font-medium text-ink"
             >
               {t('learnMore')}
             </Link>
             <button
               type="button"
               onClick={accept}
-              className="flex min-h-[44px] items-center justify-center rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 active:bg-blue-600"
+              className="inline-flex min-h-11 items-center rounded-full bg-accent px-5 text-[15px] font-medium text-on-accent active:scale-[0.97]"
             >
               {t('accept')}
             </button>

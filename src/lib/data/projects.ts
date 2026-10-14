@@ -13,23 +13,23 @@ export const projects: Project[] = [
     platform: ['web'],
     techStack: ['AI', 'Voice', 'Twilio'],
     description:
-      'AI phone answering SaaS we\'re building at Dongrie Labs. Currently in development—we\'re closing our first clients in Portugal. Never miss a call, 24/7, in Portuguese or English.',
+      'AI phone answering SaaS we\'re building at Dongrie Labs. Currently in development. We\'re closing our first clients in Portugal. Never miss a call, 24/7, in Portuguese or English.',
     descriptionPt:
-      'SaaS de atendimento telefónico por IA que estamos a construir na Dongrie Labs. Em desenvolvimento—estamos a fechar os primeiros clientes em Portugal. Nunca perdas uma chamada, 24/7, em português ou inglês.',
+      'SaaS de atendimento telefónico por IA que estamos a construir na Dongrie Labs. Em desenvolvimento. Estamos a fechar os primeiros clientes em Portugal. Nunca perdas uma chamada, 24/7, em português ou inglês.',
     overview:
-      'Linea is our own product in development: an AI that answers your business phone, qualifies leads, and books appointments. We\'re currently onboarding our first clients—SMEs, clinics, and local businesses who want to stop losing calls. If that\'s you, get in touch.',
+      'Linea is our own product in development: an AI that answers your business phone, qualifies leads, and books appointments. We\'re currently onboarding our first clients: SMEs, clinics, and local businesses who want to stop losing calls. If that\'s you, get in touch.',
     overviewPt:
-      'A Linea é o nosso próprio produto em desenvolvimento: uma IA que atende o teu telefone profissional, qualifica leads e marca consultas. Estamos a integrar os primeiros clientes—PMEs, clínicas e negócios locais que querem deixar de perder chamadas. Se és um deles, fala connosco.',
+      'A Linea é o nosso próprio produto em desenvolvimento: uma IA que atende o teu telefone profissional, qualifica leads e marca consultas. Estamos a integrar os primeiros clientes: PMEs, clínicas e negócios locais que querem deixar de perder chamadas. Se és um deles, fala connosco.',
     features: [
       'AI answers calls 24/7 in Portuguese or English',
       'Lead qualification and appointment booking',
-      'Product in development—closing first clients now',
+      'Product in development. Closing first clients now',
       'Setup in minutes, no code',
     ],
     featuresPt: [
       'IA atende chamadas 24/7 em português ou inglês',
       'Qualificação de leads e marcação de consultas',
-      'Produto em desenvolvimento—a fechar os primeiros clientes',
+      'Produto em desenvolvimento, a fechar os primeiros clientes',
       'Configuração em minutos, sem código',
     ],
     launchDate: '2025',
@@ -122,12 +122,12 @@ export const projects: Project[] = [
     descriptionPt:
       'Jogos de palavras em português e inglês: 300 níveis de sopa de letras e 500 níveis de conexões. Dificuldade progressiva, desafio diário, sistema de dicas e temas personalizáveis.',
     overview:
-      'Verbalis offers two main games—word search and word connections—with hundreds of levels, bilingual support (PT/EN/ES), a daily challenge, and an intelligent hint system. Works offline.',
+      'Verbalis offers two main games, word search and word connections, with hundreds of levels, bilingual support (PT/EN/ES), a daily challenge, and an intelligent hint system. Works offline.',
     overviewPt:
       'Verbalis inclui sopa de letras e conexões de palavras com centenas de níveis, suporte bilingue (PT/EN/ES), desafio diário e sistema de dicas. Funciona offline.',
     features: [
       'Word search: 300 levels, multiple grid sizes',
-      'Word connections: 500 levels, 4–7 lines',
+      'Word connections: 500 levels, 4 to 7 lines',
       'Fully bilingual (Portuguese & English)',
       'Daily challenge & progress calendar',
       'Offline play',
@@ -194,14 +194,14 @@ export const projects: Project[] = [
     descriptionPt:
       'Sistema de produtividade e decisão: um foco claro por dia, entrada conversacional, journaling, tarefas, hábitos e consciência financeira. Coach de IA com memória.',
     overview:
-      'Kairo delivers a daily "Kairo Moment"—one personalised priority—based on emotional check-in, brain dump, gratitude, and 3–5 essential tasks. Includes five journals, habit tracking, expense awareness, and an AI coach with memory.',
+      'Kairo delivers a daily "Kairo Moment", one personalised priority, based on emotional check-in, brain dump, gratitude, and 3 to 5 essential tasks. Includes five journals, habit tracking, expense awareness, and an AI coach with memory.',
     overviewPt:
-      'Kairo entrega um «Kairo Moment» diário—uma prioridade personalizada—com base em check-in emocional, brain dump, gratidão e 3–5 tarefas essenciais. Inclui cinco diários, hábitos, despesas e coach de IA com memória.',
+      'Kairo entrega um «Kairo Moment» diário, uma prioridade personalizada, com base em check-in emocional, brain dump, gratidão e 3 a 5 tarefas essenciais. Inclui cinco diários, hábitos, despesas e coach de IA com memória.',
     features: [
       'Daily ritual: emotional check-in, brain dump, gratitude',
       'One personalised "Kairo Moment" per day',
       'Five journals: gratitude, brain dump, wisdom, life book, reflection',
-      'Smart tasks (3–5 essential per day) & habit tracking',
+      'Smart tasks (3 to 5 essential per day) & habit tracking',
       'AI Coach with memory & financial awareness',
     ],
     featuresPt: [

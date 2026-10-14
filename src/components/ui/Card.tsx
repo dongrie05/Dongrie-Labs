@@ -10,14 +10,13 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ glass, hover = true, className, children, ...props }, ref) => {
+  ({ glass: _glass, hover = false, className, children, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={cn(
-          'rounded-2xl border border-white/[0.06] bg-navy-900 p-6 transition-all duration-300',
-          glass && 'bg-navy-900/60 backdrop-blur-xl',
-          hover && 'card-glow hover:border-white/[0.1] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20',
+          'rounded-2xl border border-line bg-paper p-6',
+          hover && 'transition-colors duration-200 hover:border-ink/20',
           className
         )}
         {...props}
