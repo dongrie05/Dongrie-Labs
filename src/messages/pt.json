@@ -8,7 +8,10 @@
     "pricing": "Preços",
     "recursos": "Recursos",
     "contact": "Contacto",
-    "privacy": "Privacidade"
+    "privacy": "Privacidade",
+    "aiLayer": "AI layer",
+    "apps": "Apps",
+    "more": "Mais"
   },
   "products": {
     "title": "Produtos",
@@ -28,7 +31,7 @@
     "contactWhatsApp": "Contactar no WhatsApp"
   },
   "footer": {
-    "tagline": "Estúdio de software com IA. Apps móveis, sistemas de IA e automações. Rápido. Premium.",
+    "tagline": "AI Layer para equipas que querem atender mais clientes sem perder as pessoas nas decisões.",
     "navigationLabel": "Navegação",
     "contactLabel": "Contacto",
     "copyright": "Todos os direitos reservados.",
@@ -36,12 +39,15 @@
   },
   "hero": {
     "scroll": "Deslizar",
-    "metaTitle": "Dongrie Labs - Estúdio de Software com IA",
-    "title": "Construo apps e sistemas de IA em semanas, não meses.",
-    "subtitle": "Um estúdio solo de software com IA. Resultados de agência a preços acessíveis. Desenvolvimento liderado pelo fundador, execução rápida.",
-    "ctaBookCall": "Agendar Chamada",
-    "ctaSeeWork": "Ver o Meu Trabalho",
-    "badge": "7 apps lançados em 3 meses"
+    "metaTitle": "Dongrie Labs — AI Layer para a tua equipa",
+    "title": "Mais capacidade para a equipa.",
+    "subtitle": "Simplificamos o trabalho repetitivo para que cada pessoa consiga acompanhar mais clientes.",
+    "ctaBookCall": "Falar sobre a AI layer",
+    "ctaSeeWork": "Ver Apps",
+    "badge": "AI Layer",
+    "mascotAlt": "Mascote Dongrie Labs",
+    "painTitle": "A tua equipa perde horas em tarefas repetitivas.",
+    "painSubtitle": "A AI Layer assume o trabalho repetitivo para a equipa ganhar tempo e capacidade."
   },
   "preloader": {
     "buildingComment": "// Dongrie Labs — a construir o teu projeto",
@@ -338,5 +344,95 @@
     "a3": "Trabalho com startups, PMEs e quem precisar de software rápido e de qualidade. Se tens um objetivo claro e orçamento razoável, podemos falar.",
     "q4": "O que acontece após o lançamento?",
     "a4": "Entrego o código e a documentação. Suporte e iterações opcionais podem ser acordados à parte."
+  },
+  "aiLayer": {
+    "problem": {
+      "label": "O problema",
+      "title": "O que atrasa a equipa hoje",
+      "subtitle": "Não é falta de vontade — é volume de tarefas que roubam atenção aos clientes e às decisões que importam.",
+      "pain1": "Respostas e follow-ups repetitivos consomem horas todos os dias.",
+      "pain2": "Cada pessoa só consegue acompanhar um número limitado de clientes em paralelo.",
+      "pain3": "Processos manuais atrasam o atendimento e aumentam o risco de falhas."
+    },
+    "howHelps": {
+      "label": "Como a AI Layer ajuda",
+      "title": "Cenários ilustrativos, não cases inventados",
+      "subtitle": "Exemplos hipotéticos de como a camada de IA pode libertar tempo numa loja ou numa clínica.",
+      "disclaimer": "Estes cenários são ilustrativos. Não representam clientes reais nem resultados garantidos.",
+      "shop": {
+        "eyebrow": "Loja (hipotético)",
+        "title": "Atendimento e stock sem perder o balcão",
+        "body": "Imagina uma loja onde perguntas frequentes, pedidos de disponibilidade e follow-ups de encomenda são tratados por uma camada de IA — a equipa fica livre para vender e acompanhar clientes no espaço físico."
+      },
+      "clinic": {
+        "eyebrow": "Clínica (hipotético)",
+        "title": "Agendamentos e triagem leve",
+        "body": "Numa clínica hipotética, a AI Layer ajuda a organizar pedidos de marcação, lembretes e perguntas recorrentes, para a equipa clínica focar-se no atendimento presencial."
+      }
+    },
+    "impact": {
+      "label": "Impacto na equipa",
+      "goncaloLine": "Mais tempo e capacidade — mantendo as pessoas envolvidas nas decisões que importam.",
+      "attribution": "Gonçalo Dongrie",
+      "estimateNote": "Estimativas projetadas para ilustrar potencial; não são resultados medidos de clientes.",
+      "metric1": {
+        "value": "até 30%",
+        "label": "menos tempo em respostas repetitivas"
+      },
+      "metric2": {
+        "value": "mais clientes",
+        "label": "acompanhados por pessoa, no mesmo horário"
+      },
+      "metric3": {
+        "value": "horas/semana",
+        "label": "recuperadas para trabalho de valor"
+      }
+    },
+    "howToStart": {
+      "label": "Como começar",
+      "title": "Um caminho simples",
+      "subtitle": "Sem formulários longos. Conversamos, mapeamos o que é repetitivo e desenhamos a camada certa.",
+      "mascotCue": "O mascote aponta o caminho — e segue consigo para a oferta.",
+      "step1": {
+        "title": "Conversar",
+        "body": "Uma chamada curta para perceber a equipa, os canais e onde o tempo se perde."
+      },
+      "step2": {
+        "title": "Mapear",
+        "body": "Identificamos tarefas repetitivas com maior impacto e o que deve permanecer humano."
+      },
+      "step3": {
+        "title": "Ativar a AI Layer",
+        "body": "Implementamos a camada, medimos e ajustamos — com a equipa no centro das decisões."
+      }
+    },
+    "offer": {
+      "label": "Também construímos",
+      "title": "Apps, presença web e Línea",
+      "subtitle": "A AI Layer é o fio principal. Em paralelo, há outras formas de trabalhar connosco.",
+      "apps": {
+        "title": "Apps",
+        "body": "Produtos móveis e digitais construídos de raiz — do MVP à app em produção.",
+        "cta": "Ver trabalho"
+      },
+      "web": {
+        "title": "Web · MCP / AIO / GEO",
+        "body": "Sites e presença digital pensados para descoberta por pessoas e por agentes (MCP, AIO, GEO).",
+        "cta": "Ver serviços"
+      },
+      "linea": {
+        "title": "Línea",
+        "body": "Produto em desenvolvimento: atendimento telefónico por IA. Primeiros clientes em curso.",
+        "cta": "Ver produto"
+      }
+    },
+    "aboutContact": {
+      "label": "Sobre e contacto",
+      "title": "Gonçalo Dongrie",
+      "subtitle": "Fundador da Dongrie Labs",
+      "bio": "Construo a AI Layer e software para equipas que querem simplificar processos sem perder o controlo. Disponibilidade real, âmbito claro e execução rápida.",
+      "ctaContact": "Falar comigo",
+      "photoAlt": "Fotografia do fundador Gonçalo Dongrie"
+    }
   }
 }

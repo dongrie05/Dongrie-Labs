@@ -6,12 +6,17 @@ import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
 import { MagneticButton } from '@/components/shared/MagneticButton';
 import { LanguageToggle } from './LanguageToggle';
 
-const navLinks = [
-  { href: '/', key: 'home' },
+/** Primary nav matches hero mockup: AI layer / Apps / Contacto */
+const primaryLinks = [
+  { href: '/#ai-layer', key: 'aiLayer' },
+  { href: '/#apps', key: 'apps' },
+  { href: '/contact', key: 'contact' },
+] as const;
+
+const moreLinks = [
   { href: '/services', key: 'services' },
   { href: '/portfolio', key: 'portfolio' },
   { href: '/products', key: 'products' },
@@ -63,7 +68,7 @@ export function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98], delay: 1.9 }}
+      transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.4 }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled
@@ -73,22 +78,23 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <MagneticButton strength={0.3}>
-          <Link href="/" className="group flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 text-sm font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/30">
-              D
-            </div>
-            <span className="font-heading text-lg font-bold text-white">
-              {tCommon('brandName')}
+          <Link href="/" className="group flex items-baseline gap-1.5">
+            <span className="font-heading text-lg font-bold tracking-wide text-white sm:text-xl">
+              DONGRIE
             </span>
+            <span className="font-heading text-lg font-bold tracking-wide text-lilac sm:text-xl">
+              LABS
+            </span>
+            <span className="sr-only">{tCommon('brandName')}</span>
           </Link>
         </MagneticButton>
 
         <div className="hidden md:flex md:items-center md:gap-1">
-          {navLinks.map(({ href, key }) => (
+          {primaryLinks.map(({ href, key }) => (
             <Link
               key={key}
               href={href}
-              className="link-underline relative rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-white"
+              className="relative rounded-lg px-4 py-2 text-sm font-medium text-white/90 transition-colors duration-200 hover:text-white"
             >
               {t(key)}
             </Link>
@@ -97,11 +103,6 @@ export function Navbar() {
 
         <div className="hidden md:flex md:items-center md:gap-3">
           <LanguageToggle />
-          <MagneticButton strength={0.2}>
-            <Button href="/contact" variant="primary" size="sm">
-              {t('contact')}
-            </Button>
-          </MagneticButton>
         </div>
 
         <div className="flex md:hidden items-center gap-1">
@@ -138,22 +139,33 @@ export function Navbar() {
             className="overflow-hidden border-t border-white/[0.06] bg-navy-950/98 backdrop-blur-2xl md:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-6">
-              {navLinks.map(({ href, key }) => (
+              {primaryLinks.map(({ href, key }) => (
                 <motion.div key={key} variants={menuItemVariants}>
                   <Link
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="flex min-h-[48px] items-center rounded-xl px-4 py-3.5 text-lg font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
+                    className="flex min-h-[48px] items-center rounded-xl px-4 py-3.5 text-lg font-medium text-white transition-colors hover:bg-white/5 active:bg-white/10"
                   >
                     {t(key)}
                   </Link>
                 </motion.div>
               ))}
-              <motion.div variants={menuItemVariants} className="mt-4 pt-4 border-t border-white/[0.06]">
-                <Button href="/contact" variant="primary" className="w-full justify-center" onClick={() => setMobileOpen(false)}>
-                  {t('contact')}
-                </Button>
+              <motion.div variants={menuItemVariants} className="mt-3 border-t border-white/[0.06] pt-3">
+                <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  {t('more')}
+                </p>
               </motion.div>
+              {moreLinks.map(({ href, key }) => (
+                <motion.div key={key} variants={menuItemVariants}>
+                  <Link
+                    href={href}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex min-h-[44px] items-center rounded-xl px-4 py-3 text-base font-medium text-slate-400 transition-colors hover:bg-white/5 hover:text-white active:bg-white/10"
+                  >
+                    {t(key)}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}
