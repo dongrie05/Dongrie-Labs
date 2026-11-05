@@ -32,16 +32,16 @@ export function ContinuousMascot() {
   });
 
   // Progress landmarks (approx section centers along the page track):
-  // 0.00 hero | 0.14 problem | 0.28 how | 0.40 impact
+  // 0.00 hero | 0.16 problem+desk | 0.30 how | 0.42 impact
   // 0.52 how-to-start | 0.62 point | 0.70 fade | 0.78 offers | 0.92 about
 
   const x = useTransform(
     progress,
-    [0, 0.12, 0.22, 0.34, 0.46, 0.56, 0.64, 0.72, 0.82, 0.94, 1],
+    [0, 0.12, 0.2, 0.34, 0.46, 0.56, 0.64, 0.72, 0.82, 0.94, 1],
     [
       '56vw', // hero right
       '58vw',
-      '62vw', // problem — watches from the side
+      '72vw', // problem — watches the desk tidy up
       '64vw', // how helps
       '60vw', // impact
       '48vw', // how-to-start — moves in
@@ -55,11 +55,11 @@ export function ContinuousMascot() {
 
   const y = useTransform(
     progress,
-    [0, 0.12, 0.22, 0.34, 0.46, 0.56, 0.64, 0.72, 0.82, 0.94, 1],
+    [0, 0.12, 0.2, 0.34, 0.46, 0.56, 0.64, 0.72, 0.82, 0.94, 1],
     [
       '16vh',
       '20vh',
-      '26vh',
+      '34vh', // align with sticky desk
       '30vh',
       '32vh',
       '34vh',

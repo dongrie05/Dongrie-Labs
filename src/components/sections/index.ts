@@ -2,6 +2,7 @@ export { HeroSection } from './HeroSection';
 export { HeroAILayer } from './HeroAILayer';
 export { ContinuousMascot } from './ContinuousMascot';
 export { ProblemSection } from './ProblemSection';
+export { DeskDocumentsScene } from './DeskDocumentsScene';
 export { HowAILayerHelps } from './HowAILayerHelps';
 export { TeamImpact } from './TeamImpact';
 export { HowToStart } from './HowToStart';

@@ -352,7 +352,8 @@
       "subtitle": "It is not a lack of will — it is the volume of tasks that steal attention from customers and the decisions that matter.",
       "pain1": "Repetitive replies and follow-ups eat hours every day.",
       "pain2": "Each person can only support a limited number of customers in parallel.",
-      "pain3": "Manual processes delay service and raise the risk of mistakes."
+      "pain3": "Manual processes delay service and raise the risk of mistakes.",
+      "deskHint": "Scroll — documents move from clutter to order."
     },
     "howHelps": {
       "label": "How the AI Layer helps",
@@ -433,6 +434,12 @@
       "bio": "I build the AI Layer and software for teams that want simpler processes without losing control. Real availability, clear scope and fast execution.",
       "ctaContact": "Talk to me",
       "photoAlt": "Photo of founder Gonçalo Dongrie"
+    },
+    "desk": {
+      "aria": "Desk with documents organizing as you scroll",
+      "messy": "Scattered tasks",
+      "tidy": "Organized flow",
+      "docLabel": "Doc"
     }
   }
 }

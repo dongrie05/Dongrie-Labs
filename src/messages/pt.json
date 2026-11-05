@@ -352,7 +352,8 @@
       "subtitle": "Não é falta de vontade — é volume de tarefas que roubam atenção aos clientes e às decisões que importam.",
       "pain1": "Respostas e follow-ups repetitivos consomem horas todos os dias.",
       "pain2": "Cada pessoa só consegue acompanhar um número limitado de clientes em paralelo.",
-      "pain3": "Processos manuais atrasam o atendimento e aumentam o risco de falhas."
+      "pain3": "Processos manuais atrasam o atendimento e aumentam o risco de falhas.",
+      "deskHint": "Faz scroll — os documentos passam do caos à ordem."
     },
     "howHelps": {
       "label": "Como a AI Layer ajuda",
@@ -433,6 +434,12 @@
       "bio": "Construo a AI Layer e software para equipas que querem simplificar processos sem perder o controlo. Disponibilidade real, âmbito claro e execução rápida.",
       "ctaContact": "Falar comigo",
       "photoAlt": "Fotografia do fundador Gonçalo Dongrie"
+    },
+    "desk": {
+      "aria": "Secretária com documentos a organizar-se ao fazer scroll",
+      "messy": "Tarefas espalhadas",
+      "tidy": "Fluxo organizado",
+      "docLabel": "Doc"
     }
   }
 }
