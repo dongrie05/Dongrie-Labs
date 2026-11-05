@@ -51,11 +51,9 @@ export function Footer() {
       >
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 text-sm font-bold text-white">
-                D
-              </div>
-              <p className="font-heading text-lg font-bold text-white">{tCommon('brandName')}</p>
+            <div className="flex items-baseline gap-1.5">
+              <p className="font-heading text-lg font-bold tracking-wide text-white">DONGRIE</p>
+              <p className="font-heading text-lg font-bold tracking-wide text-lilac">LABS</p>
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
               {tFooter('tagline')}

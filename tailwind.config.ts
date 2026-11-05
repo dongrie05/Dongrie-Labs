@@ -16,6 +16,11 @@ const config: Config = {
           700: '#243056',
           600: '#2e3d6b',
         },
+        lilac: {
+          DEFAULT: '#c4b5fd',
+          soft: '#ddd6fe',
+          deep: '#a78bfa',
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

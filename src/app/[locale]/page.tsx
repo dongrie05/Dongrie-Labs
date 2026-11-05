@@ -1,17 +1,13 @@
 import { getTranslations } from 'next-intl/server';
 import {
-  HeroSection,
-  CredibilityBar,
-  ProofStrip,
-  WhoIHelp,
-  TechMarquee,
-  ServicesOverview,
-  PortfolioHighlights,
-  ProcessTimeline,
-  WhyDongrieLabs,
-  FAQSection,
-  FounderSection,
-  CTASection,
+  ContinuousMascot,
+  HeroAILayer,
+  ProblemSection,
+  HowAILayerHelps,
+  TeamImpact,
+  HowToStart,
+  SecondaryOffer,
+  AboutContact,
 } from '@/components/sections';
 
 export async function generateMetadata({
@@ -29,19 +25,15 @@ export async function generateMetadata({
 
 export default function HomePage() {
   return (
-    <>
-      <HeroSection />
-      <CredibilityBar />
-      <ProofStrip />
-      <TechMarquee />
-      <WhoIHelp />
-      <ServicesOverview />
-      <PortfolioHighlights />
-      <ProcessTimeline />
-      <WhyDongrieLabs />
-      <FAQSection />
-      <FounderSection />
-      <CTASection />
-    </>
+    <div className="relative">
+      <ContinuousMascot />
+      <HeroAILayer />
+      <ProblemSection />
+      <HowAILayerHelps />
+      <TeamImpact />
+      <HowToStart />
+      <SecondaryOffer />
+      <AboutContact />
+    </div>
   );
 }
