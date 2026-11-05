@@ -47,35 +47,47 @@ export function HowToStart() {
         </motion.p>
 
         <ol className="mt-12 space-y-8">
-          {steps.map((key, i) => (
-            <motion.li
-              key={key}
-              className="flex gap-5"
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.45, delay: 0.1 * i }}
-            >
-              <span className="font-heading text-2xl font-bold text-lilac/50 tabular-nums">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <p className="text-lg font-semibold text-white">{t(`${key}.title`)}</p>
-                <p className="mt-2 text-base leading-relaxed text-slate-400">
-                  {t(`${key}.body`)}
-                </p>
-              </div>
-            </motion.li>
-          ))}
+          {steps.map((key, i) => {
+            const isLast = i === steps.length - 1;
+            return (
+              <motion.li
+                key={key}
+                id={isLast ? 'mascot-point-target' : undefined}
+                className="flex gap-5"
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.45, delay: 0.1 * i }}
+              >
+                <span className="font-heading text-2xl font-bold text-lilac/50 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p className="text-lg font-semibold text-white">{t(`${key}.title`)}</p>
+                  <p className="mt-2 text-base leading-relaxed text-slate-400">
+                    {t(`${key}.body`)}
+                  </p>
+                </div>
+              </motion.li>
+            );
+          })}
         </ol>
 
+        {/* Gesture end: no CTA button — mascot points here then fades */}
         <motion.p
-          className="mt-14 text-sm italic text-slate-500"
+          id="mascot-end"
+          className="mt-14 inline-flex items-center gap-3 text-sm italic text-slate-500"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ delay: 0.25, duration: 0.7 }}
         >
+          <motion.span
+            className="inline-block h-2 w-2 rounded-full bg-lilac/70"
+            animate={{ scale: [1, 1.35, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+            aria-hidden
+          />
           {t('mascotCue')}
         </motion.p>
       </div>

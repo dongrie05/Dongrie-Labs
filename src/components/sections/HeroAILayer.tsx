@@ -102,28 +102,35 @@ export function HeroAILayer() {
           </motion.div>
         </div>
 
-        <motion.div
-          className="relative mx-auto flex w-full max-w-md items-center justify-center lg:max-w-none lg:justify-end"
-          style={{ y: mascotY, opacity: mascotOpacity }}
-          initial={{ opacity: 0, x: 36, filter: 'blur(12px)' }}
-          animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-          transition={{ delay: 0.35, duration: 0.85, ease: [0.21, 0.47, 0.32, 0.98] }}
-        >
+        {/* <md: in-section mascot. md+: ContinuousMascot owns the character; spacer keeps the split layout */}
+        <div className="relative mx-auto flex w-full max-w-md items-center justify-center lg:max-w-none lg:justify-end">
           <motion.div
-            className="relative aspect-[4/5] w-full max-w-[420px] lg:max-w-[480px]"
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative aspect-[4/5] w-full max-w-[420px] md:hidden"
+            style={{ y: mascotY, opacity: mascotOpacity }}
+            initial={{ opacity: 0, x: 36, filter: 'blur(12px)' }}
+            animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            transition={{ delay: 0.35, duration: 0.85, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <Image
-              src="/images/brand/mascote-dongrie.png"
-              alt={t('mascotAlt')}
-              fill
-              priority
-              className="object-contain drop-shadow-[0_30px_60px_rgba(196,181,253,0.28)]"
-              sizes="(max-width: 1024px) 80vw, 480px"
-            />
+            <motion.div
+              className="absolute inset-0"
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <Image
+                src="/images/brand/mascote-dongrie.png"
+                alt={t('mascotAlt')}
+                fill
+                priority
+                className="object-contain drop-shadow-[0_30px_60px_rgba(196,181,253,0.28)]"
+                sizes="80vw"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
+          <div
+            className="relative hidden aspect-[4/5] w-full max-w-[420px] md:block lg:max-w-[480px]"
+            aria-hidden
+          />
+        </div>
       </div>
 
       <motion.div
