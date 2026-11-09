@@ -62,9 +62,15 @@ body::after {
 /* navegação */
 .nav {
   position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between;
-  padding: calc(16px + env(safe-area-inset-top, 0px)) var(--gut) 16px; mix-blend-mode: difference;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--gut) 14px; align-items: start; pointer-events: none;
 }
-.nav .logo { font-variation-settings: "wdth" 125; font-weight: 900; font-size: 18px; letter-spacing: -.02em; text-transform: uppercase; }
+.nav > * { pointer-events: auto; }
+.nav ul { padding-top: 10px; }
+/* logótipo animado, sem fundo: entrada ao abrir, queda ao sair do início, depois só o robô */
+.brand { display: block; width: clamp(260px, 30vw, 460px); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
+.brand canvas { width: 100%; height: 100%; display: block; }
+.brand.small { transform: scale(.5); }
+.brand video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
 .nav ul { list-style: none; display: flex; gap: 28px; font-size: 14px; }
 .nav ul a { opacity: .75; transition: opacity .2s; }
 .nav ul a:hover { opacity: 1; }
@@ -83,7 +89,7 @@ body::after {
 .hero video.src { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
 .hero .copy {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  display: grid; grid-template-rows: 1fr auto; padding: 108px var(--gut) 40px;
+  display: grid; grid-template-rows: 1fr auto; padding: calc(clamp(260px, 30vw, 460px) * .251 + 44px) var(--gut) 40px;
 }
 .hero h1 { align-self: start; }
 .hero .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; pointer-events: auto; }
@@ -127,12 +133,19 @@ body::after {
 .switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 
 /* 3 · impacto, no azul da marca */
-.impact { background: var(--blue); position: relative; overflow: hidden; padding: clamp(96px, 12vw, 160px) var(--gut); }
-.impact .grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
-.impact video { width: 100%; max-width: 560px; aspect-ratio: 1; justify-self: end; }
-.impact ul { list-style: none; margin-top: 48px; display: grid; gap: 0; border-top: 1px solid rgba(255,255,255,.2); max-width: 40rem; }
-.impact li { display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.2); font-size: 17px; }
-.impact li span { color: rgba(255,255,255,.62); font-size: 15px; text-align: right; }
+/* 3 · impacto: o robô puxa a cortina azul e revela a mensagem */
+.pull { position: relative; height: 300vh; }
+.pull .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
+.pull .msg { position: absolute; inset: 0; display: grid; align-content: center; padding: 0 var(--gut); }
+.pull .msg ul { list-style: none; margin-top: 44px; border-top: 1px solid var(--line); max-width: 46rem; }
+.pull .msg li { display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.pull .msg li span { color: var(--muted); font-size: 15px; text-align: right; }
+.pull .mover { position: absolute; inset: 0; will-change: transform; }
+.pull canvas { position: absolute; left: var(--gut); top: 50%; width: var(--rs); height: var(--rs); transform: translateY(-50%); }
+.pull .curtain { position: absolute; top: 0; bottom: 0; left: calc(var(--gut) + var(--rs) - 2px); right: -4vw; background: var(--blue); }
+.pull .hint { position: absolute; left: var(--gut); top: calc(50% - var(--rs) / 2 - 8px); font-size: 13px; color: var(--muted); }
+.pull { --rs: min(64vh, 44vw); }
+.pull video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
 
 /* 4 · como começar: uma linha que se preenche */
 .start { padding: clamp(110px, 13vw, 180px) var(--gut) clamp(80px, 9vw, 120px); }
@@ -163,8 +176,6 @@ body::after {
 
 /* 6 · contacto */
 .end { padding: 0 var(--gut) 32px; }
-.end .band { border-radius: clamp(20px, 3vw, 40px); overflow: hidden; background: var(--band); }
-.end .band video { width: 100%; aspect-ratio: 1614 / 540; object-fit: cover; display: block; }
 .end .big-link { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(40px, 6vw, 80px) 0; border-bottom: 1px solid var(--line); }
 .end .big-link .wide { font-size: clamp(30px, 6.4vw, 112px); transition: color .3s; }
 .end .big-link:hover .wide { color: var(--accent); }
@@ -177,7 +188,8 @@ body::after {
 @media (max-width: 860px) {
   .nav ul { display: none; }
   .nav button { display: block; }
-  .hero .copy { padding-top: 92px; padding-bottom: 28px; }
+  .hero .copy { padding-top: 100px; padding-bottom: 28px; }
+  .brand { width: 240px; }
   .sort { height: 460vh; }
   .sort .titles { top: 84px; }
   .switch { top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: 50%; transform: translateX(50%); }
@@ -185,10 +197,10 @@ body::after {
   .sort .frag.done { font-size: 10.5px; }
   .sort .frag.done b { display: none; }
   .sort .next { left: var(--gut); bottom: 84px; }
-  .impact .grid, .row { grid-template-columns: 1fr; }
-  .impact video { justify-self: center; max-width: 420px; }
-  .impact li { flex-direction: column; gap: 4px; }
-  .impact li span { text-align: left; }
+  .row { grid-template-columns: 1fr; }
+  .pull { --rs: min(78vw, 46vh); }
+  .pull .msg li { flex-direction: column; gap: 4px; }
+  .pull .msg li span { text-align: left; }
   .track { grid-template-columns: 1fr; gap: 0; }
   .track::before, .track .fill { left: 7px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; transform-origin: top; }
   .track .fill { transform: scaleY(0); }
@@ -202,7 +214,11 @@ body::after {
 </head>
 <body>
 <nav class="nav" aria-label="Principal">
-  <a class="logo" href="#topo" aria-label="Dongrie Labs, início">Dongrie Labs</a>
+  <a class="brand" id="brand" href="#topo" aria-label="Dongrie Labs, início">
+    <canvas id="logoCanvas" aria-hidden="true"></canvas>
+    <video id="logoIntro" src="media/logo-entrada.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+    <video id="logoFall" src="media/logo-queda.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+  </a>
   <ul>
     <li><a href="#como">Como funciona</a></li>
     <li><a href="#setores">Setores</a></li>
@@ -253,17 +269,22 @@ body::after {
   </section>
 
   <!-- 3 · Impacto -->
-  <section class="impact" aria-labelledby="impacto">
-    <div class="grid">
-      <div>
-        <h2 class="wide big" id="impacto">Mais clientes<br>por pessoa.</h2>
+  <section class="pull" id="impacto-s" aria-labelledby="impacto">
+    <div class="stage">
+      <div class="msg" id="pullMsg">
+        <h2 class="wide big" id="impacto">Mais clientes<br><span class="dim">por pessoa.</span></h2>
         <ul>
           <li>Menos tempo à procura <span>o histórico está no cliente certo</span></li>
           <li>Menos trabalho repetido <span>lembretes e respostas chegam preparados</span></li>
-          <li>Mesma equipa <span>a pessoa revê e envia</span></li>
+          <li>A mesma equipa <span>a pessoa revê e envia</span></li>
         </ul>
       </div>
-      <video src="media/robo-corda.mp4" autoplay muted loop playsinline preload="none" aria-label="O robô da Dongrie Labs puxa uma corda"></video>
+      <div class="mover" id="pullMover">
+        <span class="hint">Impacto na equipa</span>
+        <canvas id="ropeCanvas" aria-hidden="true"></canvas>
+        <div class="curtain"></div>
+      </div>
+      <video id="ropeVideo" src="media/robo-corda.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
     </div>
   </section>
 
@@ -301,7 +322,6 @@ body::after {
 
   <!-- 6 · Contacto -->
   <section class="end" id="contacto" aria-label="Contacto">
-    <div class="band"><video src="media/logo-animado.mp4" autoplay muted loop playsinline preload="none" aria-label="Logótipo animado da Dongrie Labs"></video></div>
     <a class="big-link" href="https://calendly.com/goncalo-dongrie05/30min"><span class="wide">Marcar diagnóstico</span><em aria-hidden="true">→</em></a>
     <div class="info">
       <p>Gonçalo Dongrie, fundador.<br>Responde em até 30 minutos em dias úteis.</p>
@@ -553,6 +573,76 @@ body::after {
     fill.style.transform = innerWidth < 860 ? `scaleY(${k})` : `scaleX(${k})`;
   }
 
+  // ---------- remover o fundo azul dos vídeos (WebGL, em tempo real) ----------
+  function keyed(canvas, video, key, lo, hi) {
+    const gl = canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true });
+    if (!gl) return () => {};
+    const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, "attribute vec2 p;varying vec2 uv;void main(){uv=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}"));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, `precision mediump float;varying vec2 uv;uniform sampler2D t;uniform vec3 k;uniform vec2 r;
+      void main(){vec3 c=texture2D(t,uv).rgb;float d=distance(c,k);float a=smoothstep(r.x,r.y,d);
+      float m=max(c.r,c.g);c.b=mix(min(c.b,m+.12),c.b,a);gl_FragColor=vec4(c*a,a);}`));
+    gl.linkProgram(prog); gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
+    [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach((w) => gl.texParameteri(gl.TEXTURE_2D, w, gl.CLAMP_TO_EDGE));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.uniform3f(gl.getUniformLocation(prog, "k"), key[0] / 255, key[1] / 255, key[2] / 255);
+    gl.uniform2f(gl.getUniformLocation(prog, "r"), lo, hi);
+    return (v = video) => {
+      if (v.readyState < 2) return;
+      const w = Math.round(canvas.clientWidth * DPR), h = Math.round(canvas.clientHeight * DPR);
+      if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+      gl.viewport(0, 0, w, h);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+  }
+
+  // logótipo: entrada ao abrir; ao sair do início, a queda; depois fica só o robô
+  const brand = document.getElementById("brand");
+  const intro = document.getElementById("logoIntro"), fall = document.getElementById("logoFall");
+  const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3);
+  let logoVideo = intro, fell = false;
+  if (reduce) { intro.addEventListener("loadedmetadata", () => { intro.currentTime = intro.duration - .05; }, { once: true }); }
+  else intro.play().catch(() => {});
+  function logoFrame() {
+    if (!fell && scrollY > innerHeight * .25) {
+      fell = true;
+      if (reduce) { brand.classList.add("small"); }
+      else {
+        logoVideo = fall; fall.play().catch(() => {});
+        fall.addEventListener("ended", () => brand.classList.add("small"), { once: true });
+      }
+    }
+    drawLogo(logoVideo);
+  }
+
+  // corda: o robô puxa a cortina azul e deixa ver a mensagem
+  const pull = document.querySelector(".pull"), mover = document.getElementById("pullMover");
+  const msg = document.getElementById("pullMsg"), rope = document.getElementById("ropeVideo");
+  const ropeCanvas = document.getElementById("ropeCanvas");
+  const drawRope = keyed(ropeCanvas, rope, [14, 47, 139], .14, .28);
+  let lastPull = -1, idle = 0;
+  function pullFrame() {
+    const r = pull.getBoundingClientRect();
+    const p = clamp(-r.top / (r.height - innerHeight));
+    const curtainLeft = ropeCanvas.offsetLeft + ropeCanvas.offsetWidth;
+    const travel = innerWidth * 1.04;  // a borda direita da cortina vai do ecrã até 0
+    const shift = Math.pow(p, 1.5) * travel;  // começa devagar: vê-se o robô a puxar
+    mover.style.transform = `translateX(${-shift}px)`;
+    // a mensagem só aparece onde a cortina já passou
+    msg.style.clipPath = `inset(0 0 0 ${Math.max(0, travel - shift)}px)`;
+    // o robô só puxa enquanto a página se mexe
+    if (Math.abs(p - lastPull) > .0005 && !reduce) { idle = 0; if (rope.paused) rope.play().catch(() => {}); }
+    else if (++idle > 10 && !rope.paused) rope.pause();
+    lastPull = p;
+    drawRope();
+  }
+
   // ---------- ciclo único ----------
   function frame(t) {
     target = sortProgress();
@@ -563,6 +653,9 @@ body::after {
     const sr = sort.getBoundingClientRect();
     if (sr.top < innerHeight && sr.bottom > 0) sortFrame(t);
     trackFrame();
+    logoFrame();
+    const pr = pull.getBoundingClientRect();
+    if (pr.top < innerHeight && pr.bottom > 0) pullFrame();
     requestAnimationFrame(frame);
   }
 
