@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08091b">
+  <title>Dongrie Labs — Mais contexto. Menos repetição.</title>
+  <meta name="description" content="Uma camada de IA que liga informação, acompanha processos e dá à tua equipa contexto para decidir melhor. Dongrie Labs, por Gonçalo Dongrie.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="revision.css"><link rel="stylesheet" href="hero-3d.css"><link rel="stylesheet" href="motion-pass.css"><link rel="stylesheet" href="secondary-work.css"><link rel="stylesheet" href="story-film.css">
+  <script src="app.js" defer></script><script src="story-flow.js" defer></script><script src="brand-film.js" defer></script><script type="module" src="robot-scene.mjs"></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+<header class="site-header">
+ <a class="brand-home" href="#" aria-label="Dongrie Labs, início"><img src="assets/logo-poster.jpg" alt="Dongrie Labs" width="1614" height="540"><video id="brand-video" muted playsinline preload="auto" aria-hidden="true"><source src="assets/logo-reveal.mp4" type="video/mp4"></video></a>
+ <nav aria-label="Navegação principal" id="main-nav"><a href="#camada">A camada</a><a href="#experimentar">Experimentar</a><a href="#estudio">O estúdio</a></nav>
+ <a class="nav-contact" href="#contacto">Vamos conversar <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a>
+ <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+<main id="conteudo">
+ <section class="hero" aria-labelledby="hero-title">
+  <div class="hero-statement"><h1 id="hero-title">Mais contexto.<br><em>Menos repetição.</em></h1><div class="hero-intro"><p>Uma camada de IA que reúne informação, acompanha o trabalho e dá à tua equipa contexto para decidir melhor.</p><a class="button button-light" href="#camada">Vê como funciona <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a></div></div>
+  <div class="robot-stage" id="robot-stage" tabindex="0" role="img" aria-label="Robô Dongrie em 3D. Arrasta para rodar, ou usa as setas esquerda e direita. Home repõe a posição."><img class="robot-fallback" src="assets/robot.jpg" alt="Robô Dongrie, com acabamento opalescente e olhos azuis" width="1254" height="1254"><span class="robot-hint" aria-hidden="true">Arrasta. Ele acompanha.</span></div>
+  <div class="hero-bottom"><a href="#camada">Descobre a camada <span class="button-icon icon-down" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 3v10m0 0 4-4m-4 4-4-4"/></svg></span></a><button id="motion-toggle" aria-pressed="false">Pausar movimento</button></div>
+ </section>
+
+ <section class="layer-section section-shell" id="camada" aria-labelledby="layer-title">
+  <div class="section-heading"><h2 id="layer-title">O trabalho já existe.<br><span class="text-muted">Faltam as ligações.</span></h2><p>Emails, documentos, chamadas, decisões. A tua informação pode trabalhar em conjunto.</p></div>
+  <div class="demo" id="demo">
+   <div class="demo-toolbar"><div class="scenario-tabs" role="tablist" aria-label="Escolher uma situação"><button role="tab" aria-selected="true" aria-controls="scenario-panel" id="tab-pedido" data-scenario="pedido">Um pedido de cliente</button><button role="tab" aria-selected="false" aria-controls="scenario-panel" id="tab-proposta" data-scenario="proposta" tabindex="-1">Uma proposta</button><button role="tab" aria-selected="false" aria-controls="scenario-panel" id="tab-equipa" data-scenario="equipa" tabindex="-1">Uma passagem de trabalho</button></div></div>
+   <div class="demo-stage" id="scenario-panel" role="tabpanel" aria-labelledby="tab-pedido">
+    <div class="demo-inbox"><div class="source-message"><div class="message-top"><span><strong id="message-name">Maria Lopes</strong><small id="message-time">Cliente · Email recebido</small></span></div><p id="message-copy">“Conseguem dizer-me em que ponto está a reparação? Já enviei as fotografias na semana passada.”</p><span class="attachment" id="message-attachment">↳ 3 fotografias em anexo</span></div><div class="source-stack"><span>Nota da visita</span><span>Histórico do cliente</span><span>Estado do trabalho</span></div></div>
+    <div class="layer-core">
+     <div class="builder-scene" id="builder-scene" data-built="0">
+      <video id="builder-video" muted playsinline preload="metadata" poster="assets/wall-poster.jpg" aria-hidden="true"><source src="assets/robot-wall.mp4" type="video/mp4"></video>
+      <button id="layer-switch" class="layer-switch assembly-toggle" aria-pressed="false" aria-label="Construir a camada de IA"><span class="assembly-band" data-piece="1">Informação</span><span class="assembly-band" data-piece="2">Contexto</span><span class="assembly-band" data-piece="3">Próxima ação</span></button>
+     </div><strong>AI layer</strong><span class="core-caption">Vamos ligar os pontos.</span>
+    </div>
+    <div class="demo-output"><div class="empty-output"><h3>A resposta está<br>nas ligações.</h3><p>Põe o robô a construir.<br>Vê o que a tua equipa passa a saber.</p></div><div class="connected-output" hidden><p class="output-status">Contexto reunido</p><h3 id="output-title">Uma resposta com contexto.</h3><p id="output-copy"></p><div class="result-actions"><button id="view-sources" aria-expanded="false">Ver as fontes <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></button><span>Revisão humana</span></div><div class="sources-detail" id="sources-detail" hidden></div><div class="review-control"><button id="review-result" type="button" aria-pressed="false">Confirmar revisão <span aria-hidden="true">✓</span></button><span id="review-status">A equipa confirma os dados antes de avançar.</span></div><div class="next-step"><small>Próximo passo sugerido</small><strong id="next-step-copy"></strong></div></div></div>
+   </div>
+   <div class="demo-bottom"><p id="demo-status" aria-live="polite">Informação dispersa. Experimenta ligar a camada.</p><button class="button button-lilac" id="activate-layer">Construir a camada <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></button></div>
+  </div>
+  <p class="demo-disclaimer">Exemplo interativo com dados fictícios. Sem ligação a ferramentas ou IA em tempo real.</p>
+ </section>
+
+ <section class="work-story" id="ligar" aria-labelledby="flow-title">
+  <div class="story-film-sticky" id="story-stage" data-step="0" data-client="maria">
+   <div class="story-film-world" aria-hidden="true">
+    <div class="story-film-camera" id="story-camera">
+     <div class="story-film-table">
+      <div class="story-film-papers" id="story-papers"></div>
+      <div class="story-film-folders">
+       <div class="story-film-folder" data-folder="maria"><span>MARIA LOPES</span></div>
+       <div class="story-film-folder" data-folder="oficina"><span>OFICINA NORTE</span></div>
+       <div class="story-film-folder" data-folder="sofia"><span>SOFIA ALMEIDA</span></div>
+      </div>
+      <div class="story-film-bots">
+       <div class="story-film-bot" data-bot="0"><i class="story-film-bot-face"><b></b><b></b></i></div>
+       <div class="story-film-bot" data-bot="1"><i class="story-film-bot-face"><b></b><b></b></i></div>
+       <div class="story-film-bot" data-bot="2"><i class="story-film-bot-face"><b></b><b></b></i></div>
+      </div>
+      <img class="story-film-search-hand" src="assets/searching-hand-cutout.png" alt="" width="2172" height="724">
+      <img class="story-film-request-hand" src="assets/pointing-hand-cutout.png" alt="" width="2172" height="724">
+      <div class="story-film-action-card"><small>PRÓXIMO PASSO</small><strong data-action-title>Confirmar disponibilidade da peça</strong><span data-action-detail>Maria Lopes · Reparação</span></div>
+     </div>
+    </div>
+    <div class="story-film-box-rig" id="story-box">
+     <div class="story-film-box-pose story-film-box-pose--upright"><img src="assets/archive-box-hands-blank.png" alt="" width="1672" height="940"><strong data-box-label>EMAILS</strong></div>
+     <div class="story-film-box-pose story-film-box-pose--tipped"><img src="assets/archive-box-hands-tipped-blank.png" alt="" width="1672" height="940"><strong data-box-label>EMAILS</strong></div>
+    </div>
+    <img class="story-film-robot-front" src="assets/dongrie-robot-cutout.png" alt="" width="1000" height="1200">
+   </div>
+   <header class="story-film-heading"><p>AI LAYER · NA PRÁTICA</p><h2 id="flow-title">Menos tempo à procura.<br><em>Mais tempo com clientes.</em></h2></header>
+   <div class="story-film-caption" aria-live="polite"><span class="story-film-step-count" data-step-count>01 / 12</span><h3 data-step-title>A mesa vazia.</h3><p data-step-copy>A informação ainda não chegou. Há espaço para ver tudo com clareza.</p></div>
+   <div class="story-film-picker" aria-label="Escolhe um processo de exemplo"><button type="button" data-client-pick="maria" aria-pressed="true">Maria Lopes</button><button type="button" data-client-pick="oficina" aria-pressed="false">Oficina Norte</button><button type="button" data-client-pick="sofia" aria-pressed="false">Sofia Almeida</button></div>
+   <div class="story-film-progress" aria-hidden="true"><span data-progress-current>01</span><div><i data-progress-bar></i></div><span>12</span></div>
+   <p class="story-film-hint">Desliza para acompanhar</p><p class="story-film-disclaimer">Exemplo ilustrativo com dados fictícios.</p>
+  </div>
+  <div class="story-film-runway" aria-hidden="true"></div>
+ </section>
+
+ <section class="blueprint-section section-shell" id="experimentar" aria-labelledby="blueprint-title">
+  <div class="blueprint-intro"><h2 id="blueprint-title">Onde é que o<br>trabalho fica <em>preso?</em></h2><p>Escolhe um ponto de partida. Vamos desenhar a primeira ligação.</p><p class="small-print">Um primeiro esboço, preparado no teu navegador.<br>Sem registo. Sem envio dos teus dados.</p></div>
+  <form class="blueprint-form" id="blueprint-form"><fieldset><legend>O trabalho começa com…</legend><div class="choice-group"><label><input type="radio" name="entry" value="Pedidos de clientes" checked><span>Pedidos de clientes</span></label><label><input type="radio" name="entry" value="Tarefas internas"><span>Tarefas internas</span></label><label><input type="radio" name="entry" value="Propostas e orçamentos"><span>Propostas e orçamentos</span></label></div></fieldset>
+   <fieldset><legend>A informação está em…</legend><div class="choice-group"><label><input type="checkbox" name="sources" value="Emails" checked><span>Emails</span></label><label><input type="checkbox" name="sources" value="Documentos" checked><span>Documentos</span></label><label><input type="checkbox" name="sources" value="Folhas de cálculo"><span>Folhas de cálculo</span></label><label><input type="checkbox" name="sources" value="Software da empresa"><span>Software da empresa</span></label></div></fieldset>
+   <fieldset><legend>A equipa precisa de…</legend><div class="choice-group"><label><input type="radio" name="goal" value="Encontrar informação" checked><span>Encontrar informação</span></label><label><input type="radio" name="goal" value="Preparar respostas"><span>Preparar respostas</span></label><label><input type="radio" name="goal" value="Acompanhar processos"><span>Acompanhar processos</span></label></div></fieldset>
+   <label class="task-label" for="repetitive-task">Que tarefa gostavas de deixar de repetir? <span>(opcional)</span></label><textarea id="repetitive-task" name="task" rows="3" maxlength="1200" placeholder="Por exemplo: procurar em vários emails antes de responder ao cliente."></textarea>
+   <p class="form-error" id="plan-error" role="alert" hidden></p><button class="button button-dark" type="submit">Desenhar a minha camada <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></button><div class="form-bottom"><span id="saved-status" aria-live="polite">As escolhas ficam só neste dispositivo.</span><button type="button" id="reset-plan">Limpar</button></div>
+  </form>
+  <div class="plan-result" id="plan-result" hidden tabindex="-1"><div class="plan-heading"><h3>Uma ligação.<br>Um ponto de partida.</h3><p id="plan-summary"></p></div><div id="plan-steps" class="plan-steps"></div><p class="plan-note">Esboço gerado a partir das tuas escolhas, sem IA em tempo real. As integrações, acessos e viabilidade são avaliados contigo.</p><div class="plan-actions"><button class="button button-dark" id="download-plan">Guardar o meu esboço <span class="button-icon icon-down" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 3v10m0 0 4-4m-4 4-4-4"/></svg></span></button><a class="text-link" id="discuss-plan" href="#contacto">Conversar sobre esta ideia <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a></div></div>
+ </section>
+
+ <section class="studio-section section-shell" id="estudio" aria-labelledby="studio-title"><div><h2 id="studio-title">Penso. Desenho.<br><span class="text-muted">Construo contigo.</span></h2></div><div class="studio-copy"><p class="studio-lead">Sou o Gonçalo.<br>A Dongrie Labs é o meu estúdio de software e IA.</p><p>Começamos pelo trabalho real da tua equipa. Percebemos onde a informação se perde, que tarefas se repetem e onde faz falta contexto.</p><p>Depois construímos uma primeira solução, testamos com quem a vai usar e melhoramos a partir daí.</p><a class="text-link" href="#contacto">Contacto direto comigo. Desde o primeiro dia. <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a></div><div class="studio-principles"><span>Um processo concreto de cada vez.</span><span>Informação com origem.</span><span>Pessoas nas decisões.</span></div></section>
+
+ <section class="faq-section section-shell" aria-labelledby="faq-title"><h2 id="faq-title">Antes de começarmos.</h2><div class="faq-list"><details><summary>Tenho de mudar o software que já uso?<span aria-hidden="true">+</span></summary><p>O ponto de partida são as ferramentas e os processos existentes. Avaliamos o que pode ser ligado, através de que acessos e com que limitações. Uma integração depende sempre das possibilidades de cada ferramenta.</p></details><details><summary>A IA vai tomar decisões pela minha equipa?<span aria-hidden="true">+</span></summary><p>O objetivo é dar contexto e retirar trabalho repetitivo. Definimos contigo o que pode ser automatizado, o que exige aprovação e onde a decisão fica sempre nas pessoas.</p></details><details><summary>Como começa um projeto?<span aria-hidden="true">+</span></summary><p>Escolhemos um processo concreto, identificamos fontes de informação e definimos o resultado esperado. Depois avaliamos a viabilidade e construímos uma primeira versão para testar em utilização real.</p></details><details><summary>Como são tratados os dados da empresa?<span aria-hidden="true">+</span></summary><p>Os acessos, o alojamento, as fontes e os limites de utilização são definidos antes de ligar dados reais. Neste site, as demonstrações usam dados fictícios e o configurador guarda as escolhas apenas no teu navegador.</p></details></div></section>
+
+ <section class="other-work section-shell" id="outras-areas" aria-labelledby="other-work-title">
+  <div class="other-work-intro">
+   <h2 id="other-work-title">Há também trabalho para lá da AI layer.</h2>
+   <p>A AI layer é o foco principal. Estas são outras áreas em que a Dongrie Labs também pode ajudar.</p>
+  </div>
+  <div>
+   <div class="other-work-list">
+    <article class="other-work-item"><h3>Apps</h3><p>Aplicações pensadas para resolver tarefas e processos concretos.</p></article>
+    <article class="other-work-item"><h3>Linea</h3><p>Um produto próprio da Dongrie Labs.</p></article>
+    <article class="other-work-item"><h3>Diagnóstico de websites</h3><p>Uma revisão da estrutura, clareza e experiência do teu website, com prioridades práticas de melhoria.</p></article>
+    <article class="other-work-item"><h3>Websites preparados para AI</h3><p>Preparação para interação e descoberta por sistemas de AI, incluindo WebMCP, AEO e GEO.</p></article>
+   </div>
+   <a class="other-work-contact" href="#contacto">Falar sobre uma destas áreas</a>
+  </div>
+ </section>
+
+ <section class="contact-section section-shell" id="contacto" aria-labelledby="contact-title"><h2 id="contact-title">Menos “onde está?”.<br><em>Mais “já está”.</em></h2><div class="contact-bottom"><p>Conta-me onde o trabalho fica preso.<br>Vamos perceber o que podemos pôr a andar.</p><button class="button button-light" id="open-contact">Falar com o Gonçalo <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></button></div><dialog id="contact-dialog" aria-labelledby="contact-dialog-title"><button class="dialog-close" id="close-contact" aria-label="Fechar contacto">×</button><h3 id="contact-dialog-title">Um bom ponto<br>de partida.</h3><p>Conta-me o que gostavas de melhorar. O esboço vai contigo; podes acrescentar contexto antes de abrir o email ou WhatsApp.</p><label for="contact-brief">O teu resumo</label><textarea id="contact-brief" rows="8" maxlength="4000"></textarea><button class="button button-dark" id="copy-brief">Copiar resumo <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></button><p id="copy-status" role="status"></p><div class="contact-channels"><a id="contact-email" class="button button-dark" href="mailto:goncalo.dongrie05@gmail.com">Abrir email <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a><a id="contact-whatsapp" class="button button-outline" href="https://wa.me/351927699882" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span class="button-icon icon-up-right" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M5 4h7v7"/></svg></span></a></div><p class="contact-limitation">Contacto direto com o Gonçalo. A mensagem abre na tua aplicação e és tu que decides enviar.</p></dialog></section>
+
+
+</main>
+<footer><a class="brand-home" href="#" aria-label="Dongrie Labs, início"><img src="assets/logo-poster.jpg" alt="Dongrie Labs" width="1614" height="540"></a><p>Tecnologia com um lado humano.</p><span>© 2026 Dongrie Labs · Portugal</span><button id="privacy-button">Privacidade</button></footer>
+<dialog id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" id="close-privacy" aria-label="Fechar privacidade">×</button><h3 id="privacy-title">Privacidade neste protótipo</h3><p>As demonstrações usam dados fictícios. As escolhas e a descrição do configurador são guardadas em localStorage neste navegador, para poderes continuar noutra visita. Não há IA ativa, envio automático de formulários, cookies de análise ou integrações ligadas.</p><p>Podes apagar as escolhas no botão “Limpar” do configurador. Os dados copiados ou descarregados ficam sob o teu controlo. Se escolheres abrir email ou WhatsApp, o resumo é incluído no rascunho nessa aplicação; o envio depende de ti.</p><button class="button button-dark" id="clear-storage">Apagar escolhas guardadas</button><p id="privacy-status" role="status"></p></dialog>
+<div class="toast" id="toast" role="status"></div>
+</body></html>

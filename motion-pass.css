@@ -1,0 +1,28 @@
+/* Revision 10: motion and controls follow the same physical thread. */
+.button{gap:14px}
+.button:hover{transform:none;box-shadow:none}
+.button:active{transform:translateY(1px)}
+.button .button-icon,.nav-contact .button-icon,.text-link .button-icon{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;flex:0 0 14px;margin:0;font-size:0;line-height:0;color:currentColor}
+.button-icon svg{display:block;width:14px;height:14px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease-out}
+.button:hover .icon-up-right svg{transform:translate(1.5px,-1.5px)}
+.button:hover .icon-left svg{transform:translateX(-1.5px)}
+.button:hover .icon-down svg{transform:translateY(1.5px)}
+.nav-contact{gap:12px}
+.nav-contact .button-icon{width:13px;height:13px;flex-basis:13px}
+.flow-steps article.active{transform:none}
+.pulled-record{transform:none}
+.assembly-band{transition-duration:.28s,.28s,.28s,.28s}
+.robot-stage{cursor:grab}
+.robot-stage.is-dragging{cursor:grabbing}
+.builder-scene{width:270px;height:260px}
+.builder-scene>video{width:450px;left:-240px;top:18px}
+.layer-switch.assembly-toggle{left:135px;top:90px;width:135px;z-index:3}
+.assembly-band{width:135px}
+@media(min-width:761px){
+  .pull-scene>video{width:60%;top:-65px;clip-path:inset(0 calc(var(--pull)*30%) 0 0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .button,.button-icon svg,.flow-steps article,.assembly-band{transition:none!important}
+  .button:hover,.button:active{transform:none}
+  .robot-stage{cursor:default}
+}
