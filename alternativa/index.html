@@ -101,30 +101,53 @@ body::after {
   @keyframes up { to { opacity: 1; transform: none; } }
 }
 
-/* 2 · peça central: do caos às colunas de clientes */
-.sort { position: relative; height: 420vh; }
-.sort .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
-.sort canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.sort .frag {
-  position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 14px; line-height: 1; will-change: transform, opacity;
-  display: flex; align-items: center; gap: 8px; color: var(--ink);
+/* 2 · filme do produto: uma só janela que se transforma, guiada pelo scroll */
+.film { position: relative; height: 560vh; }
+.film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
+.film .titles { position: absolute; left: var(--gut); top: 0; bottom: 0; width: min(44vw, 660px); display: grid; align-content: center; z-index: 2; pointer-events: none; }
+.film .t { grid-area: 1 / 1; }
+.film .t h2 { font-size: clamp(30px, 4.1vw, 74px); }
+.film .t .ln { display: block; overflow: hidden; padding: .18em 0 .08em; margin: -.18em 0 -.08em; }
+.film .t .ln > span { display: block; transform: translateY(135%); transition: transform .8s var(--ease); }
+.film .t .ln + .ln > span { transition-delay: .07s; }
+.film .t.on .ln > span { transform: none; }
+.film .t.out .ln > span { transform: translateY(-135%); transition-delay: 0s; }
+.film .t p { margin-top: 24px; max-width: 25rem; color: var(--muted); font-size: 15px; opacity: 0; transform: translateY(14px); transition: opacity .4s, transform .6s var(--ease); }
+.film .t.on p { opacity: 1; transform: none; transition-delay: .2s; }
+.win {
+  position: absolute; left: 0; top: 0; z-index: 3; transform-origin: 0 0; overflow: hidden; will-change: transform, height;
+  background: #0c0b2b; border: 1px solid rgba(243, 244, 255, .1); border-radius: 22px;
+  box-shadow: 0 50px 120px -50px rgba(8, 43, 140, .9), inset 0 1px 0 rgba(255, 255, 255, .05);
 }
-.sort .frag.done span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-.sort .frag b { font-weight: 500; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
-.sort .titles { position: absolute; left: var(--gut); right: var(--gut); top: 96px; z-index: 3; pointer-events: none; }
-.sort .t { position: absolute; inset: 0 auto auto 0; opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-.sort .t.on { opacity: 1; transform: none; }
-.sort .t .small { display: block; margin-top: 18px; max-width: 28rem; font-size: 15px; }
-.sort .col { position: absolute; z-index: 2; opacity: 0; }
-.sort .col h3 { font-variation-settings: "wdth" 125; font-weight: 800; text-transform: uppercase; font-size: clamp(13px, 1.3vw, 18px); letter-spacing: -.01em; }
-.sort .col span { font-size: 12px; color: var(--faint); }
-.sort .next {
-  position: absolute; z-index: 3; left: 40%; right: var(--gut); bottom: 56px; opacity: 0;
-  display: grid; gap: 14px; pointer-events: none;
-}
-.sort .next .k { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-.sort .next p { font-size: clamp(28px, 4.6vw, 76px); max-width: 18ch; }
-.sort .next p .caret { display: inline-block; width: .08em; height: .8em; background: var(--accent); margin-left: .06em; vertical-align: -.04em; }
+.win .field { position: absolute; left: 14px; right: 14px; top: 14px; height: 50px; border-radius: 14px; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+.win .field .ico { width: 15px; height: 15px; border: 2px solid var(--faint); border-radius: 50%; position: relative; flex: none; }
+.win .field .ico::after { content: ""; position: absolute; width: 6px; height: 2px; background: var(--faint); right: -6px; bottom: -3px; transform: rotate(45deg); }
+.win .qt { white-space: nowrap; line-height: 1.1; letter-spacing: -.02em; transform-origin: 0 50%; }
+.win .qt .ph { color: var(--faint); }
+.win .qt .qx { color: var(--faint); }
+.win .qt .caret { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; vertical-align: -.12em; }
+.win .meta { position: absolute; left: 30px; top: 78px; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.win .r { position: absolute; left: 0; right: 0; top: 0; height: 58px; display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 0 18px; border-top: 1px solid rgba(243, 244, 255, .06); }
+.win .r .src { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.win .r .m { min-width: 0; display: grid; }
+.win .r .m small, .win .r .m span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.win .r .m small { font-size: 11.5px; color: var(--faint); }
+.win .r .m span { font-size: 14px; }
+.win .r .tm { display: grid; justify-items: end; gap: 3px; font-size: 11.5px; color: var(--faint); }
+.win .r .chip { font-size: 10.5px; padding: 2px 8px; border-radius: 99px; border: 1px solid currentColor; color: #ffb86b; }
+.win .r .chip.fin { color: #7ee2b0; }
+.win .r .dot { position: absolute; left: 22px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: var(--accent); transform: scale(0); }
+.win .tl { position: absolute; left: 26px; width: 1px; background: rgba(199, 166, 255, .4); transform-origin: 0 0; transform: scaleY(0); }
+.win .nx { position: absolute; left: 14px; right: 14px; top: 0; padding: 18px; border-radius: 16px; background: rgba(199, 166, 255, .08); border: 1px solid rgba(199, 166, 255, .2); display: grid; gap: 10px; }
+.win .nx .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.win .nx p { font-size: 16.5px; line-height: 1.4; letter-spacing: -.015em; }
+.win .nx p .rest { color: transparent; }
+.win .ok { justify-self: start; position: relative; overflow: hidden; height: 44px; border-radius: 99px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.win .ok span { position: absolute; left: 0; right: 0; top: 0; line-height: 44px; padding: 0 20px; }
+.win .ok .a { position: static; display: block; }
+.win .ok .b { transform: translateY(100%); color: #fff; }
+.cur { position: absolute; left: 0; top: 0; z-index: 5; width: 22px; height: 22px; pointer-events: none; opacity: 0; will-change: transform; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .5)); }
+.ring { position: absolute; left: 0; top: 0; z-index: 4; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 2px solid var(--accent); pointer-events: none; opacity: 0; }
 .switch {
   position: absolute; z-index: 4; right: var(--gut); top: 96px; display: flex; gap: 4px; font-size: 13px;
   border: 1px solid var(--line); border-radius: 999px; padding: 4px;
@@ -165,14 +188,69 @@ body::after {
 .row .what { display: grid; gap: 10px; padding-top: 8px; }
 .row .what .k { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .row .what p { color: var(--muted); max-width: 30rem; }
-.others { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
-.others h2 { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 18px; }
-.others a { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) 24px; gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); align-items: baseline; transition: color .2s; }
-.others a:last-child { border-bottom: 1px solid var(--line); }
-.others a strong { font-weight: 500; font-size: 19px; letter-spacing: -.02em; }
-.others a span { color: var(--muted); font-size: 15px; }
-.others a em { font-style: normal; color: var(--faint); transition: transform .3s var(--ease), color .2s; }
-.others a:hover em { transform: translate(3px, -3px); color: var(--ink); }
+/* 6 · produtos: cards que abrem num painel (a mesma forma cresce) */
+.prods { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
+.prods-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 4vw, 56px); }
+.prods-head .lede { max-width: 24rem; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.card {
+  position: relative; display: grid; grid-template-rows: auto 1fr auto auto; gap: 14px; text-align: left; min-height: 380px; padding: 22px;
+  font: inherit; color: var(--ink); background: #0a0928; border: 1px solid var(--line); border-radius: 22px; cursor: pointer; overflow: hidden;
+  transition: transform .5s var(--ease), border-color .3s, background .3s;
+}
+.card:hover { transform: translateY(-6px); border-color: rgba(199, 166, 255, .35); background: #0e0c33; }
+.card:active { transform: scale(.98); }
+.card .n { font-size: 12px; color: var(--faint); letter-spacing: .1em; }
+.card .mo { align-self: center; justify-self: center; width: 100%; max-width: 200px; height: 140px; color: var(--accent); }
+.card strong { font-size: clamp(22px, 1.9vw, 30px); }
+.card .s { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+.card .open { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--faint); padding-top: 14px; border-top: 1px solid var(--line); transition: color .2s; }
+.card .open i { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease), background .3s, color .3s; }
+.card:hover .open { color: var(--ink); }
+.card:hover .open i { transform: rotate(90deg); background: var(--ink); color: var(--bg); }
+/* motivos: cada produto, uma forma */
+.mo svg { width: 100%; height: 100%; overflow: visible; }
+.mo .bar { transform-box: fill-box; transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover .mo .bar, .sheet .mo .bar { animation: wave 1s var(--ease) infinite alternate; }
+  .mo .bar:nth-child(2) { animation-delay: -.2s } .mo .bar:nth-child(3) { animation-delay: -.45s } .mo .bar:nth-child(4) { animation-delay: -.7s } .mo .bar:nth-child(5) { animation-delay: -.9s }
+  @keyframes wave { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+  .mo .ph2 { transition: transform .6s var(--ease); }
+  .card:hover .mo .ph2 { transform: translate(16px, -8px) rotate(6deg); }
+  .mo .needle { transform-origin: 100px 110px; transform: rotate(-60deg); transition: transform .9s var(--ease); }
+  .card:hover .mo .needle, .sheet .mo .needle { transform: rotate(38deg); }
+  .mo .ping { transform-box: fill-box; transform-origin: center; }
+  .card:hover .mo .ping, .sheet .mo .ping { animation: ping 1.4s var(--ease) infinite; }
+  @keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
+}
+.sheet { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: hidden; }
+.sheet::backdrop { background: rgba(3, 1, 22, .7); backdrop-filter: blur(4px); }
+.sheet .panel {
+  position: absolute; inset: clamp(12px, 3vw, 40px); overflow: auto; overscroll-behavior: contain; background: #0a0928;
+  border: 1px solid rgba(199, 166, 255, .25); border-radius: 26px; transform-origin: 0 0;
+}
+.sheet .x { position: fixed; top: calc(clamp(12px, 3vw, 40px) + 16px); right: calc(clamp(12px, 3vw, 40px) + 16px); z-index: 2; font: inherit; font-size: 14px; color: var(--ink); background: rgba(243, 244, 255, .08); border: 0; border-radius: 99px; min-height: 44px; padding: 0 18px; cursor: pointer; }
+.sheet .x:hover { background: rgba(243, 244, 255, .16); }
+.sheet .body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 5vw, 72px); min-height: 100%; }
+.sheet .body > * { opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .7s var(--ease); }
+.sheet.ready .body > * { opacity: 1; transform: none; }
+.sheet.ready .body > :nth-child(2) { transition-delay: .08s; }
+.sheet .kick { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.sheet h3 { margin: 18px 0 22px; font-size: clamp(40px, 6vw, 104px); }
+.sheet .lead { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.4; letter-spacing: -.02em; max-width: 34rem; }
+.sheet .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 40px 0; }
+.sheet .facts div { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+.sheet .facts b { font-size: 12px; font-weight: 500; color: var(--faint); letter-spacing: .08em; text-transform: uppercase; }
+.sheet .facts span { color: var(--muted); font-size: 15px; }
+.sheet ol { list-style: none; counter-reset: s; display: grid; gap: 0; border-top: 1px solid var(--line); margin-bottom: 40px; }
+.sheet ol li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.sheet ol li::before { content: "0" counter(s); color: var(--accent); font-size: 13px; padding-top: 3px; }
+.sheet .acts { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.sheet .ghost { display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 99px; border: 1px solid var(--line); font-size: 15px; }
+.sheet .ghost:hover { border-color: var(--ink); }
+.sheet .vis { position: sticky; top: 0; align-self: start; aspect-ratio: 1; border-radius: 22px; display: grid; place-items: center; padding: 18%;
+  background: radial-gradient(120% 90% at 30% 20%, #1b3fc4 0%, var(--blue) 45%, #05043a 100%); color: #fff; overflow: hidden; }
+.sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
 
 /* 6 · contacto */
 .end { padding: 0 var(--gut) 32px; }
@@ -185,18 +263,22 @@ body::after {
 .end .info a { color: var(--ink); }
 .end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
 
+@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
   .nav ul { display: none; }
   .nav button { display: block; }
   .hero .copy { padding-top: 100px; padding-bottom: 28px; }
   .brand { width: 240px; }
-  .sort { height: 460vh; }
-  .sort .titles { top: 84px; }
+  .film .titles { width: auto; right: var(--gut); top: 84px; bottom: auto; align-content: start; }
+  .film .t h2 { font-size: clamp(28px, 8.4vw, 44px); }
+  .film .t p { display: none; }
   .switch { top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: 50%; transform: translateX(50%); }
-  .sort .frag { font-size: 11.5px; }
-  .sort .frag.done { font-size: 10.5px; }
-  .sort .frag.done b { display: none; }
-  .sort .next { left: var(--gut); bottom: 84px; }
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: 0; grid-template-columns: 96px 1fr; grid-template-rows: auto; column-gap: 18px; }
+  .card .n { display: none; }
+  .card .mo { grid-row: 1 / 4; height: 80px; }
+  .sheet .body { grid-template-columns: 1fr; }
+  .sheet .vis { position: relative; order: -1; aspect-ratio: 16 / 10; padding: 10% 22%; }
   .row { grid-template-columns: 1fr; }
   .pull { --rs: min(78vw, 46vh); }
   .pull .msg li { flex-direction: column; gap: 4px; }
@@ -205,9 +287,6 @@ body::after {
   .track::before, .track .fill { left: 7px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; transform-origin: top; }
   .track .fill { transform: scaleY(0); }
   .track div { padding: 0 0 36px 40px; }
-  .others a { grid-template-columns: 1fr 24px; }
-  .others a span { grid-column: 1; }
-  .others a em { grid-row: 1; grid-column: 2; }
   .end .info { grid-template-columns: 1fr; gap: 10px; }
 }
 </style>
@@ -249,22 +328,26 @@ body::after {
     </div>
   </header>
 
-  <!-- 2 · Do caos ao próximo passo -->
-  <section class="sort" id="como" aria-label="Como funciona a AI Layer">
+  <!-- 2 · Filme do produto -->
+  <section class="film" id="como" aria-label="Como funciona a AI Layer">
     <div class="stage">
-      <canvas id="trails" aria-hidden="true"></canvas>
       <div class="titles">
-        <div class="t on" data-t="0"><h2 class="wide big">Está tudo aqui.<br><span class="dim">Algures.</span></h2><span class="small" data-k="sub0"></span></div>
-        <div class="t" data-t="1"><h2 class="wide big">Cada coisa<br><span class="dim">no seu cliente.</span></h2><span class="small" data-k="sub1"></span></div>
+        <div class="t on"><h2 class="wide"><span class="ln"><span>Está tudo aqui.</span></span><span class="ln"><span class="dim">Algures.</span></span></h2><p data-k="sub0"></p></div>
+        <div class="t"><h2 class="wide"><span class="ln"><span>Escreva um nome.</span></span><span class="ln"><span class="dim">Aparece tudo.</span></span></h2><p>A AI Layer liga cada email, mensagem e chamada ao cliente certo. Ninguém copia nada.</p></div>
+        <div class="t"><h2 class="wide"><span class="ln"><span>E o próximo passo.</span></span><span class="ln"><span class="dim">Já preparado.</span></span></h2><p>Revê, aprova e segue. Nada sai sem uma pessoa.</p></div>
       </div>
       <div class="switch" role="group" aria-label="Setor">
         <button type="button" aria-pressed="true" data-s="condo">Condomínios</button>
         <button type="button" aria-pressed="false" data-s="conta">Contabilidade</button>
       </div>
-      <div class="col" data-c="0"><h3></h3><span></span></div>
-      <div class="col" data-c="1"><h3></h3><span></span></div>
-      <div class="col" data-c="2"><h3></h3><span></span></div>
-      <div class="next" aria-live="polite"><span class="k">Próximo passo</span><p class="wide"><span class="typed"></span><span class="caret"></span></p></div>
+      <div class="win" id="win" aria-hidden="true">
+        <div class="field"><span class="ico"></span><span class="qt"><span class="q"></span><span class="qx"></span><span class="caret"></span></span></div>
+        <div class="meta"></div>
+        <div class="tl"></div>
+        <div class="nx"><span class="k">Próximo passo · preparado</span><p><span class="typed"></span><span class="rest"></span></p><div class="ok"><span class="a"></span><span class="b"></span></div></div>
+      </div>
+      <span class="ring" id="ring"></span>
+      <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 8.2-6.6 1.6L8.3 18z" fill="#f3f4ff" stroke="#030116" stroke-width="1.4" stroke-linejoin="round"/></svg>
     </div>
   </section>
 
@@ -312,13 +395,17 @@ body::after {
     </div>
   </section>
 
-  <section class="others" aria-labelledby="outras">
-    <h2 id="outras">Também fazemos</h2>
-    <a href="https://wa.me/351927699882?text=Ol%C3%A1%2C%20queria%20saber%20mais%20sobre%20a%20Linea"><strong>Linea</strong><span>Assistente telefónico com IA para clínicas. Atende quando a equipa não consegue, mesmo fora de horas.</span><em aria-hidden="true">↗</em></a>
-    <a href="https://wa.me/351927699882?text=Ol%C3%A1%2C%20queria%20falar%20sobre%20uma%20app"><strong>Apps</strong><span>iOS e Android, com âmbito claro. Sete apps lançadas em três meses.</span><em aria-hidden="true">↗</em></a>
-    <a href="https://wa.me/351927699882?text=Ol%C3%A1%2C%20queria%20um%20diagn%C3%B3stico%20do%20meu%20website"><strong>Diagnóstico de websites</strong><span>O que trava o seu site: velocidade, mensagem e contactos perdidos.</span><em aria-hidden="true">↗</em></a>
-    <a href="https://wa.me/351927699882?text=Ol%C3%A1%2C%20queria%20preparar%20o%20meu%20website%20para%20IA"><strong>Websites para IA</strong><span>WebMCP, AEO e GEO: encontrado e usado por assistentes de IA.</span><em aria-hidden="true">↗</em></a>
+  <!-- 5b · Produtos -->
+  <section class="prods" id="produtos" aria-labelledby="prods-t">
+    <div class="prods-head">
+      <h2 class="wide big" id="prods-t">Também<br><span class="dim">fazemos.</span></h2>
+      <p class="lede">Outros produtos da Dongrie Labs. Abra um card para ver como funciona.</p>
+    </div>
+    <div class="cards" id="cards"></div>
   </section>
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-t">
+    <div class="panel"><button class="x" type="button">Fechar</button><div class="body"></div></div>
+  </dialog>
 
   <!-- 6 · Contacto -->
   <section class="end" id="contacto" aria-label="Contacto">
@@ -436,134 +523,252 @@ body::after {
     hx.fillStyle = fade(0, vr.y + vr.h, 0, vr.y + vr.h - e * .6); hx.fillRect(vr.x, vr.y + vr.h - e * .6, vr.w, e * .6 + 1);
   }
 
-  // ---------- 2 · do caos às colunas de clientes ----------
-  const SECT = {
+  // ---------- 2 · filme do produto: uma janela, do caos ao próximo passo ----------
+  // linhas: [origem, de, assunto, hora, é do cliente?, estado antes, estado depois]
+  const FILM = {
     condo: {
-      sub0: "Emails de condóminos, WhatsApps, chamadas de fornecedores, sistemas. Antes de responder, alguém procura em tudo.",
-      sub1: "A AI Layer liga cada mensagem ao prédio certo, por ordem. Ninguém copia nada.",
-      clients: ["Rua das Flores, 12", "Av. da Liberdade, 140", "Rua do Sol, 7"],
-      next: "Ligar ao canalizador hoje. A visita ao 3.º Esq. ainda não foi confirmada.",
-      frags: [
-        ["Email", "Mancha de humidade no 3.º Esq."], ["WhatsApp", "Já viram a fuga de água?"], ["Chamada", "Canalizador precisa de acesso"],
-        ["Sistema", "Orçamento #231 pedido"], ["Email", "Seguradora: abrir sinistro?"], ["WhatsApp", "Alguma novidade?"],
-        ["Email", "Convocatória da assembleia"], ["Chamada", "Elevador parado desde ontem"], ["Sistema", "Quota de junho em atraso · 2.º D"],
-        ["Email", "Orçamento da pintura"], ["WhatsApp", "Portão da garagem não fecha"], ["Email", "Ata de março por assinar"],
-        ["Sistema", "Seguro multirriscos renova a 30"], ["Chamada", "Limpeza: mudar o dia"], ["Email", "Contador da água avariado"],
-        ["WhatsApp", "Barulho no 5.º Esq."], ["Email", "Fundo comum de reserva"], ["Sistema", "3 quotas em atraso"],
-        ["Chamada", "Técnico do elevador amanhã"], ["Email", "Infiltração na garagem"], ["WhatsApp", "Luz da escada fundida"]
-      ]
+      sub0: "Emails de condóminos, WhatsApps, chamadas de fornecedores. Antes de responder, alguém procura em tudo.",
+      q: "Rua das Flores", qx: ", 12", meta: "24 frações · 4 assuntos ligados",
+      rows: [
+        ["Email", "Ana Costa · Rua das Flores, 3.º Esq.", "Mancha de humidade no teto da sala", "09:12", 1],
+        ["WhatsApp", "Av. da Liberdade, 140", "O elevador voltou a parar", "09:20", 0],
+        ["Chamada", "Canalizador · Rua das Flores", "Preciso de acesso ao 4.º Esq.", "09:34", 1, "por marcar", "marcado"],
+        ["Sistema", "Rua do Sol, 7", "3 quotas em atraso", "10:15", 0],
+        ["Email", "Seguradora · Rua das Flores", "Sinistro 4471: falta uma fotografia", "10:31", 1],
+        ["Email", "Limpezas Brilho", "Mudar o dia da limpeza", "11:05", 0],
+        ["WhatsApp", "Rui Melo · Rua das Flores, 4.º Esq.", "Só estou em casa amanhã de manhã", "11:40", 1]
+      ],
+      next: "Confirmar a visita do canalizador amanhã às 10h. O 4.º Esq. só está em casa de manhã.",
+      ok: "Aprovar e enviar", done: "✓ Enviado ao canalizador · amanhã, 10h"
     },
     conta: {
       sub0: "Faturas por email, extratos em PDF, perguntas por WhatsApp. Antes de fechar o mês, alguém procura o que falta.",
-      sub1: "A AI Layer separa cada documento e cada pergunta por cliente e por mês.",
-      clients: ["Silva & Filhos, Lda", "Café Central", "Marta Rocha, ENI"],
-      next: "Pedir hoje o extrato de outubro do Banco B. O IVA fecha a dia 20.",
-      frags: [
-        ["Email", "Faturas de outubro (3 anexos)"], ["WhatsApp", "Quanto pago de IVA?"], ["Sistema", "e-fatura: 41 por classificar"],
-        ["Email", "Extrato Banco A · outubro"], ["Chamada", "Nova viatura em leasing"], ["Email", "Recibo de renda do armazém"],
-        ["WhatsApp", "Já enviei tudo, não já?"], ["Sistema", "Prazo do IVA: dia 20"], ["Email", "Contrato de um novo funcionário"],
-        ["Chamada", "Dúvida sobre ajudas de custo"], ["Email", "Fatura da máquina de café"], ["WhatsApp", "Mandei o PDF errado"],
-        ["Sistema", "DMR de outubro por entregar"], ["Email", "Recibos verdes de setembro"], ["WhatsApp", "Posso deduzir o portátil?"],
-        ["Email", "Seguro de acidentes de trabalho"], ["Sistema", "Pagamento por conta a 15"], ["Chamada", "Fecho do ano: reunião?"],
-        ["Email", "Despesas de deslocação"], ["WhatsApp", "Fatura sem NIF"], ["Email", "Extrato do cartão"]
-      ]
+      q: "Café Central", qx: ", Lda", meta: "IVA a 20 · 4 assuntos ligados",
+      rows: [
+        ["Email", "Café Central", "Faturas de outubro (3 anexos)", "09:05", 1],
+        ["WhatsApp", "Marta Rocha, ENI", "Posso deduzir o portátil?", "09:18", 0],
+        ["Sistema", "e-fatura · Café Central", "41 faturas por classificar", "09:40", 1],
+        ["Email", "Silva & Filhos, Lda", "Contrato de um novo funcionário", "10:02", 0],
+        ["WhatsApp", "Café Central", "Já enviei tudo, não já?", "10:26", 1],
+        ["Email", "Marta Rocha, ENI", "Recibos verdes de setembro", "10:50", 0],
+        ["Sistema", "Banco B · Café Central", "Extrato de outubro", "11:15", 1, "em falta", "pedido"]
+      ],
+      next: "Pedir hoje o extrato de outubro do Banco B. O IVA fecha a dia 20 e é o único documento em falta.",
+      ok: "Aprovar pedido", done: "✓ Pedido enviado · lembrete a 18"
     }
   };
-  const sort = document.querySelector(".sort"), stage = sort.querySelector(".stage");
-  const tc = document.getElementById("trails"), tx = tc.getContext("2d");
-  const cols = [...sort.querySelectorAll(".col")], titles = [...sort.querySelectorAll(".t")];
-  const nextEl = sort.querySelector(".next"), typed = sort.querySelector(".typed");
-  let sector = "condo", frags = [], S = { W: 0, H: 0 };
+  const film = document.querySelector(".film"), fstage = film.querySelector(".stage");
+  const win = document.getElementById("win"), field = win.querySelector(".field"), qt = win.querySelector(".qt");
+  const qEl = win.querySelector(".q"), qxEl = win.querySelector(".qx"), caret = win.querySelector(".caret");
+  const metaEl = win.querySelector(".meta"), tl = win.querySelector(".tl"), nx = win.querySelector(".nx");
+  const typedEl = nx.querySelector(".typed"), restEl = nx.querySelector(".rest"), ok = nx.querySelector(".ok");
+  const okA = ok.querySelector(".a"), okB = ok.querySelector(".b");
+  const cursor = document.getElementById("cur"), ring = document.getElementById("ring");
+  const titles = [...film.querySelectorAll(".t")];
+  let sector = "condo", rows = [], F = {}, lastTyped = -1, lastQ = -1, phase = 0;
+  const ROW = 58, PH = "Pesquisar emails, mensagens, chamadas…";
 
-  function buildSort() {
-    const d = SECT[sector];
-    sort.querySelectorAll("[data-k]").forEach((el) => el.textContent = d[el.dataset.k]);
-    cols.forEach((c, i) => c.querySelector("h3").textContent = d.clients[i]);
-    frags.forEach((f) => f.el.remove());
-    let seed = 11; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
-    const count = [0, 0, 0];
-    frags = d.frags.map(([src, text], i) => {
+  function buildFilm() {
+    const d = FILM[sector];
+    film.querySelector("[data-k=sub0]").textContent = d.sub0;
+    rows.forEach((r) => r.el.remove());
+    const miss = d.rows.filter((r) => !r[4]).length;
+    let j = 0;
+    rows = d.rows.map(([src, from, text, time, match, s0, s1]) => {
       const el = document.createElement("div");
-      el.className = "frag";
-      el.innerHTML = `<b></b><span></span>`;
-      el.firstChild.textContent = src; el.lastChild.textContent = text;
-      stage.appendChild(el);
-      const c = i % 3;
-      return { el, c, slot: count[c]++, z: rnd(), fx: rnd(), fy: rnd(), vx: rnd() - .5, vy: rnd() - .5, ph: rnd() * 6.28, start: .3 + (i / d.frags.length) * .22 };
+      el.className = "r";
+      el.innerHTML = `<i class="dot"></i><b class="src"></b><div class="m"><small></small><span></span></div><div class="tm"><span></span></div>`;
+      el.querySelector(".src").textContent = src;
+      el.querySelector("small").textContent = from;
+      el.querySelector(".m span").textContent = text;
+      el.querySelector(".tm span").textContent = time;
+      let chip = null;
+      if (s0) { chip = document.createElement("i"); chip.className = "chip"; chip.textContent = s0; el.querySelector(".tm").appendChild(chip); }
+      win.insertBefore(el, tl);
+      // as linhas de outros clientes saem à medida que o nome é escrito
+      const thr = match ? 99 : 1.5 + (j++ / Math.max(1, miss - 1)) * (d.q.length - 4);
+      return { el, match, thr, chip, s0, s1, dot: el.querySelector(".dot") };
     });
-    cols.forEach((c, i) => c.querySelector("span").textContent = `${count[i]} mensagens`);
-    layoutSort();
+    okA.textContent = d.ok; okB.textContent = d.done;
+    lastTyped = lastQ = -1;
+    layoutFilm();
   }
 
-  function layoutSort() {
-    S.W = stage.clientWidth; S.H = stage.clientHeight; S.mobile = S.W < 860;
-    tc.width = S.W * DPR; tc.height = S.H * DPR;
-    const colW = S.mobile ? (S.W - 40) / 3 : Math.min(320, S.W * .24);
-    const gap = S.mobile ? 0 : (S.W - colW * 3) / 4 * .6;
-    const total = colW * 3 + gap * 2, x0 = (S.W - total) / 2;
-    S.colX = [0, 1, 2].map((i) => x0 + i * (colW + gap));
-    S.colW = colW; S.colY = S.mobile ? S.H * .44 : S.H * .5; S.rowH = S.mobile ? 22 : 28;
-    cols.forEach((c, i) => { c.style.left = S.colX[i] + "px"; c.style.top = (S.colY - (S.mobile ? 70 : 56)) + "px"; c.style.width = colW + "px"; });
-    frags.forEach((f) => { f.w = f.el.offsetWidth; });
+  function layoutFilm() {
+    const W = fstage.clientWidth, H = fstage.clientHeight, mobile = W < 860;
+    F = { W, H, mobile };
+    F.ww = mobile ? Math.min(W - 32, 520) : Math.min(540, W * .42);
+    win.style.width = F.ww + "px";
+    // medidas naturais do painel do próximo passo (texto completo reservado)
+    typedEl.textContent = ""; restEl.textContent = FILM[sector].next;
+    F.nxH = nx.offsetHeight;
+    ok.style.width = ""; F.okW = ok.offsetWidth; F.okFull = nx.clientWidth - 36;
+    F.s = mobile ? Math.min(1, (H - 290) / 520) : 1;
+    lastTyped = lastQ = -1;
   }
 
-  let target = 0, cur = 0, lastTyped = -1;
-  function sortProgress() { const r = sort.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+  function filmProgress() { const r = film.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const bump = (p, a, b) => clamp((p - a) / (b - a)) * (1 - clamp((p - b) / (b - a)));
 
-  function sortFrame(t) {
-    const p = cur, { W, H } = S;
-    tx.setTransform(DPR, 0, 0, DPR, 0, 0); tx.clearRect(0, 0, W, H);
-    const chosen = 0;
-    const focus = ease(clamp((p - .7) / .1));   // fase 3: o cliente escolhido destaca-se
-    frags.forEach((f) => {
-      // caos: espalhados em profundidade, a derivar com o scroll e com o tempo
-      const depth = .55 + f.z * .65;
-      const drift = p * 260 * (f.z + .3);
-      let x0 = f.fx * (W - 160) + 20 + f.vx * drift + Math.sin(t / 2400 + f.ph) * 10 * depth;
-      let y0 = (S.mobile ? .4 : .44) * H + f.fy * H * (S.mobile ? .44 : .48) + f.vy * drift * .5 + Math.cos(t / 2800 + f.ph) * 8 * depth;
-      const x1 = S.colX[f.c], y1 = S.colY + f.slot * S.rowH;
-      const k = inOut(clamp((p - f.start) / .1));
-      // percurso em arco: sobe antes de cair na coluna
-      const cx = (x0 + x1) / 2, cy = Math.min(y0, y1) - 120 * (1 - f.z * .5);
-      const q = (a, b, c, s) => (1 - s) * (1 - s) * a + 2 * (1 - s) * s * b + s * s * c;
-      const x = q(x0, cx, x1, k), y = q(y0, cy, y1, k);
-      const scale = depth + (1 - depth) * k;
-      const appear = ease(clamp((p + .04 - f.fy * .06) / .08));
-      let op = (.3 + f.z * .7) * appear;
-      op = op + (1 - op) * k;
-      if (f.c !== chosen) op *= 1 - focus;
-      else if (S.mobile) op *= 1 - focus * .5;
-      f.el.style.opacity = op.toFixed(3);
-      f.el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${scale.toFixed(3)})`;
-      f.el.classList.toggle("done", k > .9);
-      f.el.style.maxWidth = k > .9 ? (S.colW - 8) + "px" : "";
-      f.el.style.color = k > .95 && f.c === chosen && focus > .5 ? "var(--ink)" : "";
-      // rasto visível enquanto voa, a desaparecer depois de chegar
-      const trailA = k > 0 && k < 1 ? .55 : 0;
-      if (trailA) {
-        tx.beginPath();
-        for (let s = 0; s <= k; s += .04) { const px = q(x0, cx, x1, s), py = q(y0, cy, y1, s) + 6; s ? tx.lineTo(px, py) : tx.moveTo(px, py); }
-        tx.lineTo(x, y + 6);
-        const g = tx.createLinearGradient(x0, y0, x, y);
-        g.addColorStop(0, "rgba(199,166,255,0)"); g.addColorStop(1, `rgba(199,166,255,${trailA})`);
-        tx.strokeStyle = g; tx.lineWidth = 1.2; tx.stroke();
-        tx.fillStyle = "rgba(199,166,255,.9)"; tx.beginPath(); tx.arc(x - 6, y + 6, 2.2, 0, 6.29); tx.fill();
-      }
+  function filmFrame(p) {
+    const d = FILM[sector], { W, H, mobile, ww, s } = F;
+    // 1 · escrever o nome (cursor clica na pesquisa)
+    const tf = d.q.length * clamp((p - .17) / .12);
+    const n = Math.floor(tf);
+    if (n !== lastQ) {
+      lastQ = n;
+      qEl.textContent = n ? d.q.slice(0, n) : "";
+      qEl.className = n ? "q" : "q ph";
+      if (!n) qEl.textContent = PH;
+    }
+    // 2 · a pesquisa torna-se a ficha do cliente
+    const k1 = inOut(clamp((p - .31) / .09));
+    const k2 = ease(clamp((p - .37) / .08));
+    // 3 · o próximo passo cresce por baixo
+    const k3 = inOut(clamp((p - .46) / .08));
+    const k4 = inOut(clamp((p - .725) / .06));
+    field.style.background = `rgba(243,244,255,${(.06 * (1 - k1)).toFixed(3)})`;
+    field.style.boxShadow = `inset 0 0 0 1px rgba(243,244,255,${(.1 * (1 - k1)).toFixed(3)})`;
+    field.firstElementChild.style.opacity = 1 - k1;
+    field.firstElementChild.style.marginRight = (-27 * k1) + "px";
+    qt.style.fontSize = lerp(15.5, mobile ? 24 : 28, k1) + "px";
+    qt.style.fontVariationSettings = `"wdth" ${lerp(100, 125, k1).toFixed(1)}`;
+    qt.style.fontWeight = Math.round(lerp(450, 800, k1));
+    qxEl.textContent = k1 > .02 ? d.qx : "";
+    qxEl.style.opacity = k1;
+    caret.style.opacity = p > .14 && p < .33 ? ((performance.now() / 530 | 0) % 2 ? 0 : 1) * (1 - k1) : 0;
+    metaEl.textContent = d.meta;
+    metaEl.style.opacity = k1;
+    metaEl.style.transform = `translateY(${(1 - k1) * 10}px)`;
+    let y = lerp(78, 108, k1), first = null, last = null;
+    rows.forEach((r) => {
+      const vis = r.match ? 1 : 1 - clamp((tf - r.thr) / 2.2);
+      r.el.style.transform = `translate(${(-24 * (1 - vis)).toFixed(1)}px, ${y.toFixed(1)}px)`;
+      r.el.style.opacity = vis.toFixed(3);
+      r.el.style.visibility = vis < .01 ? "hidden" : "";
+      r.el.style.paddingLeft = (18 + 26 * k2) + "px";
+      r.el.style.gridTemplateColumns = `${lerp(74, 0, k2).toFixed(1)}px minmax(0,1fr) auto`;
+      r.el.firstElementChild.nextElementSibling.style.opacity = 1 - k2;
+      if (r.match) { if (first === null) first = y; last = y; r.dot.style.transform = `scale(${ease(clamp(k2 * 1.6 - rows.indexOf(r) * .08))})`; }
+      if (r.chip) { const done = k4 > .5; r.chip.textContent = done ? r.s1 : r.s0; r.chip.classList.toggle("fin", done); }
+      y += ROW * vis;
     });
-    const colIn = ease(clamp((p - .3) / .08));
-    cols.forEach((c, i) => { c.style.opacity = (colIn * (i === chosen ? 1 : 1 - focus)).toFixed(3); });
-    const ph = p < .28 ? 0 : p < .68 ? 1 : 2;
-    titles.forEach((el, i) => el.classList.toggle("on", i === ph));
-    nextEl.style.opacity = focus;
-    const full = SECT[sector].next, n = Math.round(full.length * clamp((p - .74) / .18));
-    if (n !== lastTyped) { typed.textContent = full.slice(0, n); lastTyped = n; }
+    tl.style.top = (first + ROW / 2) + "px";
+    tl.style.height = Math.max(0, last - first) + "px";
+    tl.style.transform = `scaleY(${k2})`;
+    y += 6;
+    // próximo passo: texto a ser escrito, botão que vira confirmação
+    nx.style.top = y + "px";
+    nx.style.opacity = clamp(k3 * 3);
+    nx.style.transform = `translateY(${(1 - k3) * 30}px)`;
+    const full = d.next, m = Math.round(full.length * clamp((p - .52) / .13));
+    if (m !== lastTyped) { lastTyped = m; typedEl.textContent = full.slice(0, m); restEl.textContent = full.slice(m); }
+    const press = 1 - .06 * bump(p, .7, .715);
+    ok.style.width = lerp(F.okW, F.okFull, k4) + "px";
+    ok.style.transform = `scale(${press})`;
+    ok.style.background = `rgb(${lerp(243, 27, k4) | 0},${lerp(244, 68, k4) | 0},${lerp(255, 216, k4) | 0})`;
+    okA.style.transform = `translateY(${-100 * k4}%)`;
+    okB.style.transform = `translateY(${100 - 100 * k4}%)`;
+    const winH = y + F.nxH * k3 + 14 * k3 + 8;
+    win.style.height = winH + "px";
+    // posição: à direita no computador, por baixo do título no telemóvel
+    const wx = mobile ? (W - ww * s) / 2 : W * .5 + (W * .5 - ww) / 2;
+    const wy = mobile ? 200 : (H - winH) / 2 + 10;
+    win.style.transform = `translate(${wx.toFixed(1)}px, ${wy.toFixed(1)}px) scale(${s})`;
+    // cursor: clica na pesquisa, depois no botão
+    const at = (el, fx = .5) => { const r = el.getBoundingClientRect(), o = fstage.getBoundingClientRect(); return { x: r.left - o.left + r.width * fx, y: r.top - o.top + r.height * .5 }; };
+    const off = { x: wx + ww * s + 60, y: wy + 420 * s }, fpt = at(field, .3), park = { x: wx + ww * s - 40, y: wy + 40 }, bpt = at(ok, k4 > 0 ? .5 : .55);
+    const path = [[0, off], [.08, off], [.15, fpt], [.3, fpt], [.42, park], [.6, park], [.69, bpt], [.76, bpt], [.86, { x: bpt.x + 90, y: bpt.y + 140 }]];
+    let c = path[path.length - 1][1];
+    for (let i = 1; i < path.length; i++) if (p < path[i][0]) { const [p0, a] = path[i - 1], [p1, b] = path[i], k = inOut(clamp((p - p0) / (p1 - p0))); c = { x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k) }; break; }
+    const press2 = 1 - .15 * Math.max(bump(p, .145, .16), bump(p, .7, .715));
+    cursor.style.opacity = clamp((p - .07) / .03) * (1 - clamp((p - .8) / .05));
+    cursor.style.transform = `translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) scale(${press2})`;
+    const click = p < .4 ? clamp((p - .155) / .035) : clamp((p - .712) / .035);
+    const clickPt = p < .4 ? fpt : bpt;
+    ring.style.opacity = click > 0 && click < 1 ? (1 - click) * .9 : 0;
+    ring.style.transform = `translate(${clickPt.x}px, ${clickPt.y}px) scale(${.3 + click * 1.2})`;
+    // títulos sobem de dentro da linha
+    const ph = p < .16 ? 0 : p < .45 ? 1 : 2;
+    if (ph !== phase) { phase = ph; titles.forEach((el, i) => { el.classList.toggle("on", i === ph); el.classList.toggle("out", i < ph); }); }
   }
 
   document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
-    sector = b.dataset.s; lastTyped = -1;
+    sector = b.dataset.s;
     document.querySelectorAll(".switch button").forEach((x) => x.setAttribute("aria-pressed", x === b));
-    buildSort();
+    buildFilm();
   }));
+
+  // ---------- 6 · produtos: o card cresce e torna-se o painel ----------
+  // a completar com mais contexto: texto, factos, passos e ligações de cada produto
+  const MO = {
+    linea: `<svg viewBox="0 0 200 140"><g fill="currentColor">${[0, 1, 2, 3, 4].map((i) => `<rect class="bar" x="${36 + i * 28}" y="${[50, 30, 14, 34, 54][i]}" width="16" height="${[40, 80, 112, 72, 32][i]}" rx="8"/>`).join("")}</g></svg>`,
+    apps: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="52" y="10" width="64" height="122" rx="14"/><line x1="74" y1="22" x2="94" y2="22"/><g class="ph2"><rect x="92" y="18" width="64" height="114" rx="14" fill="#0a0928"/><rect x="104" y="40" width="40" height="40" rx="10" fill="currentColor" stroke="none" opacity=".35"/><line x1="104" y1="96" x2="144" y2="96"/><line x1="104" y1="108" x2="130" y2="108"/></g></svg>`,
+    diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
+    ia: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="22" y="14" width="156" height="112" rx="14"/><line x1="22" y1="38" x2="178" y2="38"/><circle cx="36" cy="26" r="3" fill="currentColor"/><circle cx="48" cy="26" r="3" fill="currentColor"/><line x1="42" y1="62" x2="110" y2="62" stroke-linecap="round"/><line x1="42" y1="78" x2="96" y2="78" stroke-linecap="round" opacity=".5"/><line x1="42" y1="94" x2="104" y2="94" stroke-linecap="round" opacity=".5"/><circle cx="142" cy="86" r="10" fill="currentColor" stroke="none"/><circle class="ping" cx="142" cy="86" r="10"/></svg>`
+  };
+  const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
+  const PRODUCTS = [
+    { id: "linea", name: "Linea", short: "Assistente telefónico com IA para clínicas.", kick: "Clínicas",
+      lead: "A Linea atende as chamadas da clínica quando a equipa não consegue, mesmo fora de horas. Nenhum paciente fica sem resposta.",
+      facts: [["Para quem", "Clínicas com chamadas perdidas"], ["Quando", "Fora de horas e em picos"], ["Resultado", "Cada chamada registada"]],
+      steps: ["Atende com a voz e as regras da clínica", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
+      wa: "Olá, queria saber mais sobre a Linea" },
+    { id: "apps", name: "Apps", short: "iOS e Android, com âmbito claro. Sete apps lançadas em três meses.", kick: "Produto",
+      lead: "Apps para iOS e Android, do âmbito à loja. Começamos pelo essencial e lançamos depressa.",
+      facts: [["Plataformas", "iOS e Android"], ["Ritmo", "7 apps em 3 meses"], ["Âmbito", "Fechado antes de começar"]],
+      steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store e no Google Play"],
+      wa: "Olá, queria falar sobre uma app" },
+    { id: "diag", name: "Diagnóstico de websites", short: "O que trava o seu site: velocidade, mensagem e contactos perdidos.", kick: "Websites",
+      lead: "Analisamos o seu site e dizemos o que está a custar contactos: velocidade, mensagem e o caminho até ao contacto.",
+      facts: [["Velocidade", "O que torna o site lento"], ["Mensagem", "Se se percebe o que faz"], ["Contactos", "Onde se perdem pessoas"]],
+      steps: ["Envia o endereço do site", "Analisamos velocidade, texto e percurso", "Recebe a lista do que corrigir primeiro"],
+      wa: "Olá, queria um diagnóstico do meu website" },
+    { id: "ia", name: "Websites para IA", short: "WebMCP, AEO e GEO: encontrado e usado por assistentes de IA.", kick: "Websites",
+      lead: "Cada vez mais pessoas perguntam a um assistente de IA em vez de pesquisar. Preparamos o seu site para ser encontrado e usado por eles.",
+      facts: [["WebMCP", "Assistentes usam o site"], ["AEO", "Respostas diretas"], ["GEO", "Citado por IA generativa"]],
+      steps: ["Vemos como os assistentes leem hoje o seu site", "Estruturamos conteúdo e ações", "Medimos se passa a ser citado e usado"],
+      wa: "Olá, queria preparar o meu website para IA" }
+  ];
+  const cardsEl = document.getElementById("cards"), sheet = document.getElementById("sheet");
+  const panel = sheet.querySelector(".panel"), sbody = sheet.querySelector(".body");
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  cardsEl.innerHTML = PRODUCTS.map((p, i) => `<button class="card" type="button" data-i="${i}" aria-haspopup="dialog">
+    <span class="n">0${i + 1}</span><span class="mo" aria-hidden="true">${MO[p.id]}</span>
+    <strong class="wide">${esc(p.name)}</strong><span class="s">${esc(p.short)}</span>
+    <span class="open">Saber mais <i aria-hidden="true">+</i></span></button>`).join("");
+  let openCard = null;
+  const flip = (from, to) => {
+    const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+    return `translate(${a.left - b.left}px, ${a.top - b.top}px) scale(${a.width / b.width}, ${a.height / b.height})`;
+  };
+  cardsEl.addEventListener("click", (e) => {
+    const card = e.target.closest(".card"); if (!card) return;
+    const p = PRODUCTS[card.dataset.i];
+    sbody.innerHTML = `<div><span class="kick">${esc(p.kick)}</span><h3 class="wide" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
+      <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
+      <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>
+      <div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`;
+    openCard = card;
+    sheet.classList.remove("ready");
+    sheet.showModal();
+    panel.scrollTop = 0;
+    if (reduce) { sheet.classList.add("ready"); return; }
+    panel.animate([{ transform: flip(card, panel), borderRadius: "22px" }, { transform: "none", borderRadius: "26px" }], { duration: 650, easing: "cubic-bezier(.22,1,.36,1)" })
+      .finished.then(() => sheet.classList.add("ready"));
+  });
+  const closeSheet = () => {
+    if (!sheet.open) return;
+    sheet.classList.remove("ready");
+    const done = () => { sheet.close(); openCard && openCard.focus(); };
+    if (reduce || !openCard) return done();
+    panel.animate([{ transform: "none" }, { transform: flip(openCard, panel) }], { duration: 450, easing: "cubic-bezier(.65,0,.35,1)" }).finished.then(done);
+  };
+  sheet.querySelector(".x").addEventListener("click", closeSheet);
+  sheet.addEventListener("cancel", (e) => { e.preventDefault(); closeSheet(); });
+  sheet.addEventListener("click", (e) => { if (e.target === sheet) closeSheet(); });
 
   // ---------- 4 · linha do "como começar" ----------
   const track = document.getElementById("track"), fill = track.querySelector(".fill");
@@ -645,13 +850,13 @@ body::after {
 
   // ---------- ciclo único ----------
   function frame(t) {
-    target = sortProgress();
+    target = filmProgress();
     cur += (target - cur) * (reduce ? 1 : .12);
     if (Math.abs(target - cur) < .0004) cur = target;
     const hr = hc.getBoundingClientRect();
     if (hr.bottom > 0) heroFrame();
-    const sr = sort.getBoundingClientRect();
-    if (sr.top < innerHeight && sr.bottom > 0) sortFrame(t);
+    const fr = film.getBoundingClientRect();
+    if (fr.top < innerHeight && fr.bottom > 0) filmFrame(cur);
     trackFrame();
     logoFrame();
     const pr = pull.getBoundingClientRect();
@@ -659,14 +864,14 @@ body::after {
     requestAnimationFrame(frame);
   }
 
-  function layout() { heroLayout(); layoutSort(); }
+  function layout() { heroLayout(); layoutFilm(); }
   addEventListener("resize", layout);
   if (reduce) hv.removeAttribute("loop");
   hv.play().catch(() => {});
-  buildSort();
-  document.fonts.ready.then(() => { heroLayout(); layoutSort(); });
+  buildFilm();
+  document.fonts.ready.then(() => { heroLayout(); layoutFilm(); });
   heroLayout();
-  cur = target = sortProgress();
+  cur = target = filmProgress();
   requestAnimationFrame(frame);
 })();
 </script>
