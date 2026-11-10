@@ -297,6 +297,7 @@ a.card:hover .open i { transform: none; }
 .plans b { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .plans strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; }
 .plans span { color: var(--muted); font-size: 14px; }
+.plans strong small { margin-left: 3px; font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
 .offer { margin-bottom: 40px; padding-left: 14px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14.5px; max-width: 36rem; }
 .offer strong { color: var(--ink); font-weight: 600; }
 .sheet ol { list-style: none; counter-reset: s; display: grid; gap: 0; border-top: 1px solid var(--line); margin-bottom: 40px; }
@@ -414,7 +415,8 @@ a.card:hover .open i { transform: none; }
   .sheet .vis.lin { min-height: 0; padding: 20px 16px 16px; gap: 20px; }
   .orb { width: 96px; height: 96px; }
   .orbw { margin-top: 4px; }
-  .plans strong { font-size: 26px; }
+  .plans strong { font-size: 26px; white-space: nowrap; }
+  .plans strong small { display: block; margin: 4px 0 0; }
   .nums b { font-size: 44px; }
   .gal { --h: 420px; }
   .appsb .af .acts { justify-content: flex-start; }
@@ -953,7 +955,7 @@ a.card:hover .open i { transform: none; }
     sbody.className = p.apps ? "body appsb" : "body";
     sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
-      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}</strong><span>${m}</span></div>`).join("")}</div><p class="offer">${p.offer}</p>` : ""}
+      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div><p class="offer">${p.offer}</p>` : ""}
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
       <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
         : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
