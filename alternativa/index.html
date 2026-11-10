@@ -1038,7 +1038,7 @@ a.card:hover .open i { transform: none; }
   }
 
   // ---------- remover o fundo azul dos vídeos (WebGL, em tempo real) ----------
-  function keyed(canvas, video, key, lo, hi) {
+  function keyed(canvas, video, key, lo, hi, dpr = DPR) {
     const gl = canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true });
     if (!gl) return () => {};
     const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
@@ -1058,7 +1058,7 @@ a.card:hover .open i { transform: none; }
     gl.uniform2f(gl.getUniformLocation(prog, "r"), lo, hi);
     return (v = video) => {
       if (v.readyState < 2) return;
-      const w = Math.round(canvas.clientWidth * DPR), h = Math.round(canvas.clientHeight * DPR);
+      const w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
       if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
       gl.viewport(0, 0, w, h);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v);
@@ -1070,7 +1070,8 @@ a.card:hover .open i { transform: none; }
   const brand = document.getElementById("brand");
   const nav = document.querySelector(".nav");
   const intro = document.getElementById("logoIntro"), fall = document.getElementById("logoFall");
-  const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3);
+  // o logótipo desenha à resolução real do ecrã (retina incluída): é pequeno e tem de ficar nítido
+  const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3, Math.min(devicePixelRatio || 1, 2));
   let logoVideo = intro, away = false;
   const playFrom0 = (v) => { v.currentTime = 0; v.play().catch(() => {}); };
   if (reduce) intro.addEventListener("loadedmetadata", () => { intro.currentTime = intro.duration - .05; }, { once: true });
