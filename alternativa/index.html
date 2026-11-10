@@ -278,6 +278,14 @@ a.card:hover .open i { transform: none; }
 .sheet .facts div { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
 .sheet .facts b { font-size: 12px; font-weight: 500; color: var(--faint); letter-spacing: .08em; text-transform: uppercase; }
 .sheet .facts span { color: var(--muted); font-size: 15px; }
+/* planos (Linea) */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: -12px 0 16px; }
+.plans div { display: grid; gap: 6px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; }
+.plans b { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.plans strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; }
+.plans span { color: var(--muted); font-size: 14px; }
+.offer { margin-bottom: 40px; padding-left: 14px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14.5px; max-width: 36rem; }
+.offer strong { color: var(--ink); font-weight: 600; }
 .sheet ol { list-style: none; counter-reset: s; display: grid; gap: 0; border-top: 1px solid var(--line); margin-bottom: 40px; }
 .sheet ol li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
 .sheet ol li::before { content: "0" counter(s); color: var(--accent); font-size: 13px; padding-top: 3px; }
@@ -362,6 +370,8 @@ a.card:hover .open i { transform: none; }
   .card .mo { grid-row: 1 / 4; height: 80px; }
   .sheet .body { grid-template-columns: 1fr; }
   .appsb .ah, .appsb .af { grid-template-columns: 1fr; }
+  .plans div { padding: 14px 12px; }
+  .plans strong { font-size: 26px; }
   .nums b { font-size: 44px; }
   .gal { --h: 420px; }
   .appsb .af .acts { justify-content: flex-start; }
@@ -836,10 +846,13 @@ a.card:hover .open i { transform: none; }
   };
   const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
   const PRODUCTS = [
-    { id: "linea", name: "Linea", short: "Assistente telefónico com IA para clínicas.", kick: "Clínicas",
-      lead: "A Linea atende as chamadas da clínica quando a equipa não consegue, mesmo fora de horas. Nenhum paciente fica sem resposta.",
-      facts: [["Para quem", "Clínicas com chamadas perdidas"], ["Quando", "Fora de horas e em picos"], ["Resultado", "Cada chamada registada"]],
-      steps: ["Atende com a voz e as regras da clínica", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
+    { id: "linea", name: "Linea", short: "Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.", kick: "Clínicas e pequenas empresas",
+      lead: "A Linea atende as chamadas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta.",
+      facts: [["Para quem", "Clínicas e pequenas empresas em Portugal"], ["Quando", "Fora de horas e quando a equipa não pode"], ["Porquê clínicas", "Uma chamada perdida costuma ser uma marcação perdida"]],
+      plans: [["Starter", "99 €", "400 minutos"], ["Growth", "199 €", "1000 minutos"], ["Pro", "499 €", "2500 minutos"]],
+      offer: "<strong>Primeiros clientes: 30% de desconto durante 12 meses.</strong> Para experimentar, um piloto de duas semanas com 29 € de caução, devolvidos se avançar.",
+      site: ["Conhecer a Linea", "https://linea.dongrielabs.com/"],
+      steps: ["Atende com a voz e as regras da clínica ou da empresa", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
       wa: "Olá, queria saber mais sobre a Linea" },
     { id: "apps", name: "Apps", short: "6 apps na App Store, de nutrição a jogos. Mais 3 a caminho em 2027.", kick: "Produto", apps: true,
       lead: "Fazemos apps do âmbito à loja. Já construímos 14: 6 estão na App Store, 5 ficaram como protótipos e 3 saem no início de 2027.",
@@ -892,8 +905,10 @@ a.card:hover .open i { transform: none; }
     sbody.className = p.apps ? "body appsb" : "body";
     sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
+      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}</strong><span>${m}</span></div>`).join("")}</div><p class="offer">${p.offer}</p>` : ""}
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
-      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>
+      <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
+        : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
       <div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`;
     openCard = card;
     sheet.classList.remove("ready");
