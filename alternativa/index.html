@@ -247,8 +247,6 @@ body::after {
   .card:hover .mo .bar, .sheet .mo .bar { animation: wave 1s var(--ease) infinite alternate; }
   .mo .bar:nth-child(2) { animation-delay: -.2s } .mo .bar:nth-child(3) { animation-delay: -.45s } .mo .bar:nth-child(4) { animation-delay: -.7s } .mo .bar:nth-child(5) { animation-delay: -.9s }
   @keyframes wave { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
-  .mo .ph2 { transition: transform .6s var(--ease); }
-  .card:hover .mo .ph2 { transform: translate(16px, -8px) rotate(6deg); }
   .mo .needle { transform-origin: 100px 110px; transform: rotate(-60deg); transition: transform .9s var(--ease); }
   .card:hover .mo .needle, .sheet .mo .needle { transform: rotate(38deg); }
   .mo .ping { transform-box: fill-box; transform-origin: center; }
@@ -282,6 +280,23 @@ body::after {
 .sheet .ghost:hover { border-color: var(--ink); }
 .sheet .vis { position: sticky; top: 0; align-self: start; aspect-ratio: 1; border-radius: 22px; display: grid; place-items: center; padding: 18%;
   background: radial-gradient(120% 90% at 30% 20%, #1b3fc4 0%, var(--blue) 45%, #05043a 100%); color: #fff; overflow: hidden; }
+/* apps: ícones verdadeiros, em leque no card e em lista no painel */
+.mo .fan { position: relative; display: block; width: 100%; height: 100%; }
+.mo .fan img { position: absolute; top: 50%; left: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 20px; box-shadow: 0 16px 30px -12px rgba(0, 0, 0, .8); transition: transform .6s var(--ease); }
+.mo .fan img:nth-child(1) { transform: translateX(-50px) rotate(-10deg); }
+.mo .fan img:nth-child(2) { z-index: 1; transform: translateY(-6px); }
+.mo .fan img:nth-child(3) { transform: translateX(50px) rotate(10deg); }
+.card:hover .mo .fan img:nth-child(1) { transform: translateX(-64px) rotate(-14deg); }
+.card:hover .mo .fan img:nth-child(2) { transform: translateY(-14px) scale(1.04); }
+.card:hover .mo .fan img:nth-child(3) { transform: translateX(64px) rotate(14deg); }
+.sheet .vis.apps-vis { aspect-ratio: auto; padding: clamp(14px, 2vw, 24px); place-items: stretch; }
+.applist { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.applist a { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 16px; background: rgba(3, 1, 22, .35); transition: background .3s, transform .4s var(--ease); }
+.applist a:hover { background: rgba(3, 1, 22, .6); transform: translateY(-2px); }
+.applist img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
+.applist span { min-width: 0; }
+.applist b { display: block; font-size: 14.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.applist em { display: block; font-style: normal; font-size: 12.5px; line-height: 1.35; color: rgba(243, 244, 255, .72); }
 .sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
 
 /* 6 · contacto */
@@ -757,9 +772,18 @@ body::after {
 
   // ---------- 6 · produtos: o card cresce e torna-se o painel ----------
   // a completar com mais contexto: texto, factos, passos e ligações de cada produto
+  // as 6 apps publicadas na App Store
+  const APPS = [
+    { f: "smartmeal", n: "SmartMeal", c: "Refeições e lista de compras", u: "https://apps.apple.com/pt/app/smartmeal/id6744840322" },
+    { f: "medclarityai", n: "MedClarityAI", c: "Resume a bula a partir de uma foto", u: "https://apps.apple.com/pt/app/medclarityai/id6754197255" },
+    { f: "kairo", n: "Kairo", c: "Um foco claro por dia", u: "https://apps.apple.com/pt/app/kairo-decide-better/id6757859161" },
+    { f: "andreia-rocha-coach", n: "Andreia Rocha Coach", c: "Planos de nutrição de uma coach", u: "https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365" },
+    { f: "verbalis", n: "Verbalis", c: "Jogos de palavras em português", u: "https://apps.apple.com/pt/app/verbalis/id6752515624" },
+    { f: "crypto-adoption", n: "Crypto Adoption", c: "Jogo de estratégia", u: "https://apps.apple.com/pt/app/crypto-adoption/id6753661731" }
+  ];
   const MO = {
     linea: `<svg viewBox="0 0 200 140"><g fill="currentColor">${[0, 1, 2, 3, 4].map((i) => `<rect class="bar" x="${36 + i * 28}" y="${[50, 30, 14, 34, 54][i]}" width="16" height="${[40, 80, 112, 72, 32][i]}" rx="8"/>`).join("")}</g></svg>`,
-    apps: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="52" y="10" width="64" height="122" rx="14"/><line x1="74" y1="22" x2="94" y2="22"/><g class="ph2"><rect x="92" y="18" width="64" height="114" rx="14" fill="#0a0928"/><rect x="104" y="40" width="40" height="40" rx="10" fill="currentColor" stroke="none" opacity=".35"/><line x1="104" y1="96" x2="144" y2="96"/><line x1="104" y1="108" x2="130" y2="108"/></g></svg>`,
+    apps: `<span class="fan">${APPS.slice(0, 3).map((a) => `<img src="media/apps/${a.f}.jpg" alt="" width="84" height="84" loading="lazy">`).join("")}</span>`,
     diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
     ia: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="22" y="14" width="156" height="112" rx="14"/><line x1="22" y1="38" x2="178" y2="38"/><circle cx="36" cy="26" r="3" fill="currentColor"/><circle cx="48" cy="26" r="3" fill="currentColor"/><line x1="42" y1="62" x2="110" y2="62" stroke-linecap="round"/><line x1="42" y1="78" x2="96" y2="78" stroke-linecap="round" opacity=".5"/><line x1="42" y1="94" x2="104" y2="94" stroke-linecap="round" opacity=".5"/><circle cx="142" cy="86" r="10" fill="currentColor" stroke="none"/><circle class="ping" cx="142" cy="86" r="10"/></svg>`
   };
@@ -770,10 +794,10 @@ body::after {
       facts: [["Para quem", "Clínicas com chamadas perdidas"], ["Quando", "Fora de horas e em picos"], ["Resultado", "Cada chamada registada"]],
       steps: ["Atende com a voz e as regras da clínica", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
       wa: "Olá, queria saber mais sobre a Linea" },
-    { id: "apps", name: "Apps", short: "iOS e Android, com âmbito claro. Sete apps lançadas em três meses.", kick: "Produto",
-      lead: "Apps para iOS e Android, do âmbito à loja. Começamos pelo essencial e lançamos depressa.",
-      facts: [["Plataformas", "iOS e Android"], ["Ritmo", "7 apps em 3 meses"], ["Âmbito", "Fechado antes de começar"]],
-      steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store e no Google Play"],
+    { id: "apps", name: "Apps", short: "6 apps na App Store, de nutrição a jogos. Mais 3 a caminho em 2027.", kick: "Produto", apps: true,
+      lead: "Fazemos apps do âmbito à loja. Já construímos 14: 6 estão na App Store, 5 ficaram como protótipos e 3 saem no início de 2027.",
+      facts: [["Na App Store", "6 apps publicadas"], ["Protótipos", "5 que não chegaram à loja"], ["Início de 2027", "3 em desenvolvimento"]],
+      steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store"],
       wa: "Olá, queria falar sobre uma app" },
     { id: "diag", name: "Diagnóstico de websites", short: "O que trava o seu site: velocidade, mensagem e contactos perdidos.", kick: "Websites",
       lead: "Analisamos o seu site e dizemos o que está a custar contactos: velocidade, mensagem e o caminho até ao contacto.",
@@ -805,7 +829,8 @@ body::after {
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
       <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>
-      <div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`;
+      ${p.apps ? `<div class="vis apps-vis"><ul class="applist">${APPS.map((a) => `<li><a href="${a.u}"><img src="media/apps/${a.f}.jpg" alt="" width="52" height="52"><span><b>${esc(a.n)}</b><em>${esc(a.c)}</em></span></a></li>`).join("")}</ul></div>`
+        : `<div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`}`;
     openCard = card;
     sheet.classList.remove("ready");
     sheet.showModal();
