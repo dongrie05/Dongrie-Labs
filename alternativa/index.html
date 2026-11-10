@@ -111,7 +111,7 @@ body::after {
 }
 
 /* 2 · filme do produto: uma só janela que se transforma, guiada pelo scroll */
-.film { position: relative; height: 780vh; }
+.film { position: relative; height: 680vh; }
 .film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
 .film .titles { position: absolute; left: var(--gut); top: 0; bottom: 0; width: min(44vw, 660px); display: grid; align-content: center; z-index: 2; pointer-events: none; }
 .film .t { grid-area: 1 / 1; }
@@ -186,6 +186,7 @@ body::after {
 .track .fill { background: var(--ink); transform-origin: left; transform: scaleX(0); }
 .track div { position: relative; padding-top: 34px; display: grid; gap: 8px; align-content: start; }
 .track div::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--bg); border: 1px solid var(--ink); }
+.track .dur { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; color: var(--accent); margin-bottom: 6px; }
 .track h3 { font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
 .track p { color: var(--muted); font-size: 15px; max-width: 24rem; }
 .start .act { margin-top: 56px; }
@@ -440,6 +441,8 @@ a.card:hover .open i { transform: none; }
   .card { min-height: 0; grid-template-columns: 96px 1fr; grid-template-rows: auto; column-gap: 18px; }
   .card .n { display: none; }
   .card .mo { grid-row: 1 / 4; height: 80px; }
+  .card .mo .fan { transform: scale(.6); }
+  .card .lmark { width: 72px; height: 72px; }
   .sheet .body { grid-template-columns: 1fr; }
   .appsb .ah, .appsb .af { grid-template-columns: 1fr; }
   .plans div { padding: 14px 12px; }
@@ -539,9 +542,9 @@ a.card:hover .open i { transform: none; }
     <h2 class="soft big" id="comecar-t">Um processo.<br><span class="dim">Quatro semanas.</span></h2>
     <div class="track" id="track">
       <span class="fill" aria-hidden="true"></span>
-      <div><h3>Diagnóstico</h3><p>30 minutos para escolher o processo que mais tempo custa e o número a medir.</p></div>
-      <div><h3>Piloto</h3><p>2 a 4 semanas, a partir do email e de uma pasta partilhada. Preço fechado antes de começar.</p></div>
-      <div><h3>Decisão</h3><p>O antes e o depois com os teus números. Só continuas se valer a pena.</p></div>
+      <div><span class="dur">30 minutos</span><h3>Diagnóstico</h3><p>30 minutos para escolher o processo que mais tempo custa e o número a medir.</p></div>
+      <div><span class="dur">2 a 4 semanas</span><h3>Piloto</h3><p>2 a 4 semanas, a partir do email e de uma pasta partilhada. Preço fechado antes de começar.</p></div>
+      <div><span class="dur">No fim do piloto</span><h3>Decisão</h3><p>O antes e o depois com os teus números. Só continuas se valer a pena.</p></div>
     </div>
     <div class="act"><a class="cta" href="https://calendly.com/goncalo-dongrie05/30min">Marcar diagnóstico <i aria-hidden="true">→</i></a></div>
   </section>
@@ -798,7 +801,7 @@ a.card:hover .open i { transform: none; }
 
   let floodOn = false;
   function filmFrame(P) {
-    const p = clamp(P / .72);  // 72% do scroll: o filme; o resto: o azul enche o ecrã
+    const p = clamp(P / .8);  // 80% do scroll: o filme; o resto: o azul enche o ecrã
     const d = FILM[sector], { W, H, mobile, ww, s } = F;
     // 1 · escrever o nome (cursor clica na pesquisa)
     const tf = d.q.length * clamp((p - .17) / .12);
@@ -880,14 +883,14 @@ a.card:hover .open i { transform: none; }
     const ph = p < .16 ? 0 : p < .45 ? 1 : 2;
     if (ph !== phase) { phase = ph; titles.forEach((el, i) => { el.classList.toggle("on", i === ph); el.classList.toggle("out", i < ph); }); }
     // 4 · o botão azul cresce até ser o ecrã inteiro; o impacto aparece lá dentro
-    const k5 = inOut(clamp((P - .75) / .1));
+    const k5 = inOut(clamp((P - .65) / .1));
     floodOn = k5 > .97;
     if (k5 > 0) {
       const o = fstage.getBoundingClientRect(), br = ok.getBoundingClientRect();
       flood.style.cssText = `opacity:1;left:${lerp(br.left - o.left, 0, k5)}px;top:${lerp(br.top - o.top, 0, k5)}px;width:${lerp(br.width, W, k5)}px;height:${lerp(br.height, H, k5)}px;` +
         `border-radius:${lerp(22, 0, k5)}px;background:rgb(${lerp(27, 8, k5) | 0},${lerp(68, 43, k5) | 0},${lerp(216, 140, k5) | 0})`;
     } else flood.style.opacity = 0;
-    impact.classList.toggle("on", P > .84);
+    impact.classList.toggle("on", P > .72);
   }
 
   document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
