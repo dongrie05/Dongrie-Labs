@@ -65,6 +65,9 @@ body::after {
   padding: calc(14px + env(safe-area-inset-top, 0px)) var(--gut) 14px; align-items: start; pointer-events: none;
 }
 .nav > * { pointer-events: auto; }
+/* ao descer, uma faixa escura protege o menu do conteúdo */
+.nav::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(88px + env(safe-area-inset-top, 0px)); background: linear-gradient(#030116 45%, rgba(3, 1, 22, 0)); opacity: 0; transition: opacity .4s; pointer-events: none; z-index: -1; }
+.nav.solid::before { opacity: 1; }
 .nav ul { padding-top: 10px; }
 /* logótipo animado, sem fundo: entrada ao abrir, queda ao sair do início, depois só o robô */
 .brand { display: block; width: clamp(260px, 30vw, 460px); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
@@ -809,6 +812,7 @@ body::after {
 
   // logótipo: entrada ao abrir; ao sair do início, a queda; depois fica só o robô
   const brand = document.getElementById("brand");
+  const nav = document.querySelector(".nav");
   const intro = document.getElementById("logoIntro"), fall = document.getElementById("logoFall");
   const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3);
   let logoVideo = intro, away = false;
@@ -824,6 +828,7 @@ body::after {
       else { fall.pause(); brand.classList.remove("small"); logoVideo = intro; if (!reduce) playFrom0(intro); }
     }
     drawLogo(logoVideo);
+    nav.classList.toggle("solid", away);
   }
 
   // corda: o robô puxa a cortina azul e deixa ver a mensagem
