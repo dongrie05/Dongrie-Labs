@@ -111,7 +111,7 @@ body::after {
 }
 
 /* 2 · filme do produto: uma só janela que se transforma, guiada pelo scroll */
-.film { position: relative; height: 680vh; }
+.film { position: relative; height: 620vh; }
 .film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
 .film .titles { position: absolute; left: var(--gut); top: 0; bottom: 0; width: min(44vw, 660px); display: grid; align-content: center; z-index: 2; pointer-events: none; }
 .film .t { grid-area: 1 / 1; }
@@ -801,7 +801,7 @@ a.card:hover .open i { transform: none; }
 
   let floodOn = false;
   function filmFrame(P) {
-    const p = clamp(P / .8);  // 80% do scroll: o filme; o resto: o azul enche o ecrã
+    const p = clamp(P / .86);  // 86% do scroll: o filme; o resto: o azul enche o ecrã
     const d = FILM[sector], { W, H, mobile, ww, s } = F;
     // 1 · escrever o nome (cursor clica na pesquisa)
     const tf = d.q.length * clamp((p - .17) / .12);
@@ -883,14 +883,14 @@ a.card:hover .open i { transform: none; }
     const ph = p < .16 ? 0 : p < .45 ? 1 : 2;
     if (ph !== phase) { phase = ph; titles.forEach((el, i) => { el.classList.toggle("on", i === ph); el.classList.toggle("out", i < ph); }); }
     // 4 · o botão azul cresce até ser o ecrã inteiro; o impacto aparece lá dentro
-    const k5 = inOut(clamp((P - .65) / .1));
+    const k5 = inOut(clamp((P - .7) / .09));
     floodOn = k5 > .97;
     if (k5 > 0) {
       const o = fstage.getBoundingClientRect(), br = ok.getBoundingClientRect();
       flood.style.cssText = `opacity:1;left:${lerp(br.left - o.left, 0, k5)}px;top:${lerp(br.top - o.top, 0, k5)}px;width:${lerp(br.width, W, k5)}px;height:${lerp(br.height, H, k5)}px;` +
         `border-radius:${lerp(22, 0, k5)}px;background:rgb(${lerp(27, 8, k5) | 0},${lerp(68, 43, k5) | 0},${lerp(216, 140, k5) | 0})`;
     } else flood.style.opacity = 0;
-    impact.classList.toggle("on", P > .72);
+    impact.classList.toggle("on", P > .77);
   }
 
   document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
