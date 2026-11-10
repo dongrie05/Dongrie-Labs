@@ -650,9 +650,11 @@ a.card:hover .open i { transform: none; }
     // o vídeo (robô à esquerda do quadro, luz à direita) ocupa a metade direita e desce até ao chão
     // no computador, o robô fica sempre abaixo do título
     const hb = document.querySelector(".hero h1").getBoundingClientRect().bottom - hc.getBoundingClientRect().top;
-    const h = mobile ? Math.min(H * .4, W * .7) : Math.min(H * .8, W * .64 / 1.84, (H * .99 - hb - 16) / .9);
+    // no telemóvel, o robô enche o espaço entre o título e o texto de baixo
+    const ft = document.querySelector(".hero .foot").getBoundingClientRect().top - hc.getBoundingClientRect().top;
+    const h = mobile ? Math.min((ft - hb) * .86, W * .64) : Math.min(H * .8, W * .64 / 1.84, (H * .99 - hb - 16) / .9);
     const w = h * 1.84;
-    vr = mobile ? { x: W * .5 - w * .56, y: H * .34, w, h } : { x: W - w * 1.06, y: H * .99 - h, w, h };
+    vr = mobile ? { x: (W - w * .85) / 2 - w * .1, y: hb + (ft - hb - h) / 2 + h * .04, w, h } : { x: W - w * 1.06, y: H * .99 - h, w, h };
     // fragmentos: só onde a luz pode chegar (à direita do robô e no chão)
     wx.setTransform(DPR, 0, 0, DPR, 0, 0);
     wx.clearRect(0, 0, W, H);
