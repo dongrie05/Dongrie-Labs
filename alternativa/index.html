@@ -259,8 +259,8 @@ body::after {
   position: absolute; inset: clamp(12px, 3vw, 40px); overflow: auto; overscroll-behavior: contain; background: #0a0928;
   border: 1px solid rgba(199, 166, 255, .25); border-radius: 26px; transform-origin: 0 0;
 }
-.sheet .x { position: fixed; top: calc(clamp(12px, 3vw, 40px) + 16px); right: calc(clamp(12px, 3vw, 40px) + 16px); z-index: 2; font: inherit; font-size: 14px; color: var(--ink); background: rgba(243, 244, 255, .08); border: 0; border-radius: 99px; min-height: 44px; padding: 0 18px; cursor: pointer; }
-.sheet .x:hover { background: rgba(243, 244, 255, .16); }
+.sheet .x { position: fixed; top: calc(clamp(12px, 3vw, 40px) + 16px); right: calc(clamp(12px, 3vw, 40px) + 16px); z-index: 2; font: inherit; font-size: 14px; color: var(--ink); background: rgba(20, 18, 58, .88); backdrop-filter: blur(8px); border: 0; border-radius: 99px; min-height: 44px; padding: 0 18px; cursor: pointer; }
+.sheet .x:hover { background: rgba(40, 36, 96, .95); }
 .sheet .body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 5vw, 72px); min-height: 100%; }
 .sheet .body > * { opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .7s var(--ease); }
 .sheet.ready .body > * { opacity: 1; transform: none; }
@@ -289,14 +289,44 @@ body::after {
 .card:hover .mo .fan img:nth-child(1) { transform: translateX(-64px) rotate(-14deg); }
 .card:hover .mo .fan img:nth-child(2) { transform: translateY(-14px) scale(1.04); }
 .card:hover .mo .fan img:nth-child(3) { transform: translateX(64px) rotate(14deg); }
-.sheet .vis.apps-vis { aspect-ratio: auto; padding: clamp(14px, 2vw, 24px); place-items: stretch; }
-.applist { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.applist a { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 16px; background: rgba(3, 1, 22, .35); transition: background .3s, transform .4s var(--ease); }
-.applist a:hover { background: rgba(3, 1, 22, .6); transform: translateY(-2px); }
-.applist img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
-.applist span { min-width: 0; }
-.applist b { display: block; font-size: 14.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.applist em { display: block; font-style: normal; font-size: 12.5px; line-height: 1.35; color: rgba(243, 244, 255, .72); }
+.sheet .appsb { grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 3.4vw, 48px); align-content: start; }
+.appsb .ah { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.appsb .ah h3 { margin: 12px 0 16px; font-size: clamp(44px, 4.6vw, 80px); }
+.nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.nums div { display: grid; gap: 8px; align-content: start; border-top: 1px solid var(--line); padding-top: 14px; }
+.nums b { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(48px, 5.4vw, 88px); letter-spacing: -.05em; line-height: .85; }
+.nums div:first-child b { color: var(--accent); }
+.nums span { color: var(--muted); font-size: 14px; line-height: 1.4; }
+.appsb .gh { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: calc(-1 * clamp(10px, 1.6vw, 24px)); font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+.gnav { display: flex; gap: 8px; }
+.gnav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: none; color: var(--ink); font: inherit; cursor: pointer; transition: background .25s, color .25s, transform .2s; }
+.gnav button:hover { background: var(--ink); color: var(--bg); }
+.gnav button:active { transform: scale(.94); }
+.gal { --pad: clamp(28px, 5vw, 72px); display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin: 0 calc(-1 * var(--pad)); padding: 4px var(--pad) 14px; scroll-padding-inline: var(--pad); scrollbar-width: none; }
+.gal::-webkit-scrollbar { display: none; }
+.gal { --h: clamp(320px, calc(100vh - 500px), 511px); }
+.ap { --w: calc(var(--h) * .462); flex: none; width: var(--w); scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start; }
+.ap.land { --w: calc((var(--h) - 10px) * 1.083); }
+.ap .rt { position: absolute; z-index: 1; left: 10px; top: 10px; padding: 4px 9px; border-radius: 99px; background: rgba(3, 1, 22, .78); backdrop-filter: blur(6px); font-size: 12px; font-weight: 600; }
+.ap .shot { position: relative; display: grid; height: var(--h); border-radius: 22px; overflow: hidden; background: #111; }
+.ap .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.ap:hover .shot img { transform: scale(1.03); }
+.ap.land .shot { grid-template-rows: 1fr 1fr; gap: 10px; background: none; border-radius: 0; }
+.ap.land .shot img { border-radius: 18px; }
+.ap .meta { display: flex; align-items: center; gap: 12px; }
+.ap .meta img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+.ap .meta > span { min-width: 0; }
+.ap .meta b { display: block; font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap .meta em { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-style: normal; font-size: 12.5px; color: var(--faint); }
+.ap .meta i { margin-left: auto; font-style: normal; color: var(--faint); transition: transform .3s var(--ease), color .2s; }
+.ap:hover .meta i { transform: translate(3px, -3px); color: var(--ink); }
+.ap .what { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.appsb .af { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.appsb .af ol { margin-bottom: 0; }
+.appsb .af .acts { justify-content: flex-end; }
+.sheet.ready .body > :nth-child(3) { transition-delay: .14s; }
+.sheet.ready .body > :nth-child(4) { transition-delay: .2s; }
 .sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
 
 /* 6 · contacto */
@@ -325,6 +355,10 @@ body::after {
   .card .n { display: none; }
   .card .mo { grid-row: 1 / 4; height: 80px; }
   .sheet .body { grid-template-columns: 1fr; }
+  .appsb .ah, .appsb .af { grid-template-columns: 1fr; }
+  .nums b { font-size: 44px; }
+  .gal { --h: 420px; }
+  .appsb .af .acts { justify-content: flex-start; }
   .sheet .vis { position: relative; order: -1; aspect-ratio: 16 / 10; padding: 10% 22%; }
   .row { grid-template-columns: 1fr; }
   .mini { justify-self: stretch; }
@@ -774,12 +808,18 @@ body::after {
   // a completar com mais contexto: texto, factos, passos e ligações de cada produto
   // as 6 apps publicadas na App Store
   const APPS = [
-    { f: "smartmeal", n: "SmartMeal", c: "Refeições e lista de compras", u: "https://apps.apple.com/pt/app/smartmeal/id6744840322" },
-    { f: "medclarityai", n: "MedClarityAI", c: "Resume a bula a partir de uma foto", u: "https://apps.apple.com/pt/app/medclarityai/id6754197255" },
-    { f: "kairo", n: "Kairo", c: "Um foco claro por dia", u: "https://apps.apple.com/pt/app/kairo-decide-better/id6757859161" },
-    { f: "andreia-rocha-coach", n: "Andreia Rocha Coach", c: "Planos de nutrição de uma coach", u: "https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365" },
-    { f: "verbalis", n: "Verbalis", c: "Jogos de palavras em português", u: "https://apps.apple.com/pt/app/verbalis/id6752515624" },
-    { f: "crypto-adoption", n: "Crypto Adoption", c: "Jogo de estratégia", u: "https://apps.apple.com/pt/app/crypto-adoption/id6753661731" }
+    { f: "smartmeal", n: "SmartMeal", c: "Comida e bebida", r: "5,0", u: "https://apps.apple.com/pt/app/smartmeal/id6744840322",
+      d: "Planeia as refeições da semana e gera a lista de compras sozinha.", s: ["shot-smartmeal"] },
+    { f: "medclarityai", n: "MedClarityAI", c: "Medicina", r: "5,0", u: "https://apps.apple.com/pt/app/medclarityai/id6754197255",
+      d: "Uma foto da bula e recebe o resumo: para que serve, como tomar e efeitos comuns.", s: ["shot-medclarityai"] },
+    { f: "kairo", n: "Kairo", c: "Produtividade", u: "https://apps.apple.com/pt/app/kairo-decide-better/id6757859161",
+      d: "Transforma o caos mental num foco claro por dia, em 5 a 10 minutos.", s: ["shot-kairo"] },
+    { f: "andreia-rocha-coach", n: "Andreia Rocha Coach", c: "Saúde e fitness", r: "5,0", u: "https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365",
+      d: "O acompanhamento da coach Andreia Rocha: planos, suplementos e progresso.", s: ["shot-andreia-rocha-coach"] },
+    { f: "verbalis", n: "Verbalis", c: "Jogos", u: "https://apps.apple.com/pt/app/verbalis/id6752515624",
+      d: "Sopa de letras e conexões de palavras: 800 níveis em português.", s: ["shot-verbalis"] },
+    { f: "crypto-adoption", n: "Crypto Adoption", c: "Jogos", u: "https://apps.apple.com/pt/app/crypto-adoption/id6753661731",
+      d: "Estratégia: levar a adoção de cripto ao mundo inteiro antes dos reguladores.", s: ["shot-crypto-adoption-1", "shot-crypto-adoption-2"] }
   ];
   const MO = {
     linea: `<svg viewBox="0 0 200 140"><g fill="currentColor">${[0, 1, 2, 3, 4].map((i) => `<rect class="bar" x="${36 + i * 28}" y="${[50, 30, 14, 34, 54][i]}" width="16" height="${[40, 80, 112, 72, 32][i]}" rx="8"/>`).join("")}</g></svg>`,
@@ -796,7 +836,7 @@ body::after {
       wa: "Olá, queria saber mais sobre a Linea" },
     { id: "apps", name: "Apps", short: "6 apps na App Store, de nutrição a jogos. Mais 3 a caminho em 2027.", kick: "Produto", apps: true,
       lead: "Fazemos apps do âmbito à loja. Já construímos 14: 6 estão na App Store, 5 ficaram como protótipos e 3 saem no início de 2027.",
-      facts: [["Na App Store", "6 apps publicadas"], ["Protótipos", "5 que não chegaram à loja"], ["Início de 2027", "3 em desenvolvimento"]],
+      facts: [["6", "na App Store"], ["5", "protótipos que não chegaram à loja"], ["3", "a sair no início de 2027"]],
       steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store"],
       wa: "Olá, queria falar sobre uma app" },
     { id: "diag", name: "Diagnóstico de websites", short: "O que trava o seu site: velocidade, mensagem e contactos perdidos.", kick: "Websites",
@@ -817,6 +857,20 @@ body::after {
     <span class="n">0${i + 1}</span><span class="mo" aria-hidden="true">${MO[p.id]}</span>
     <strong class="soft">${esc(p.name)}</strong><span class="s">${esc(p.short)}</span>
     <span class="open">Saber mais <i aria-hidden="true">+</i></span></button>`).join("");
+  // apps: números grandes, os ecrãs verdadeiros lado a lado, e o que é cada uma
+  const appsSheet = (p) => `<div class="ah"><div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p></div>
+      <div class="nums">${p.facts.map(([n, t]) => `<div><b>${n}</b><span>${esc(t)}</span></div>`).join("")}</div></div>
+    <div class="gh"><span>As ${APPS.length} apps na App Store</span><span class="gnav"><button type="button" data-d="-1" aria-label="Apps anteriores">←</button><button type="button" data-d="1" aria-label="Apps seguintes">→</button></span></div>
+    <div class="gal" aria-label="Apps publicadas">${APPS.map((a) => `<a class="ap${a.s.length > 1 ? " land" : ""}" href="${a.u}">
+      <span class="shot">${a.r ? `<span class="rt">★ ${a.r}</span>` : ""}${a.s.map((f) => `<img src="media/apps/${f}.jpg" alt="Ecrã da app ${esc(a.n)}" loading="lazy">`).join("")}</span>
+      <span class="meta"><img src="media/apps/${a.f}.jpg" alt="" width="40" height="40"><span><b>${esc(a.n)}</b><em>${esc(a.c)}</em></span><i aria-hidden="true">↗</i></span>
+      <span class="what">${esc(a.d)}</span></a>`).join("")}</div>
+    <div class="af"><ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar sobre uma app <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>`;
+  sbody.addEventListener("click", (e) => {
+    const b = e.target.closest(".gnav button"); if (!b) return;
+    const g = sbody.querySelector(".gal"); g.scrollBy({ left: b.dataset.d * g.clientWidth * .8, behavior: reduce ? "auto" : "smooth" });
+  });
   let openCard = null;
   const flip = (from, to) => {
     const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
@@ -825,12 +879,12 @@ body::after {
   cardsEl.addEventListener("click", (e) => {
     const card = e.target.closest(".card"); if (!card) return;
     const p = PRODUCTS[card.dataset.i];
-    sbody.innerHTML = `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
+    sbody.className = p.apps ? "body appsb" : "body";
+    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
       <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>
-      ${p.apps ? `<div class="vis apps-vis"><ul class="applist">${APPS.map((a) => `<li><a href="${a.u}"><img src="media/apps/${a.f}.jpg" alt="" width="52" height="52"><span><b>${esc(a.n)}</b><em>${esc(a.c)}</em></span></a></li>`).join("")}</ul></div>`
-        : `<div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`}`;
+      <div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`;
     openCard = card;
     sheet.classList.remove("ready");
     sheet.showModal();
