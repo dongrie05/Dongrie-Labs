@@ -224,7 +224,7 @@ body::after {
 .prods { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
 .prods-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 4vw, 56px); }
 .prods-head .lede { max-width: 24rem; }
-.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .card {
   position: relative; display: grid; grid-template-rows: auto 1fr auto auto; gap: 14px; text-align: left; min-height: 380px; padding: 22px;
   font: inherit; color: var(--ink); background: #0a0928; border: 1px solid var(--line); border-radius: 22px; cursor: pointer; overflow: hidden;
@@ -237,13 +237,16 @@ body::after {
 .card strong { font-size: clamp(22px, 1.9vw, 30px); }
 .card .s { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
 .card .open { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--faint); padding-top: 14px; border-top: 1px solid var(--line); transition: color .2s; }
-.card .open i { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease), background .3s, color .3s; }
+.card .open i { width: 30px; height: 30px; font-size: 13px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease), background .3s, color .3s; }
 .card:hover .open { color: var(--ink); }
 .card:hover .open i { transform: rotate(90deg); background: var(--ink); color: var(--bg); }
+a.card:hover .open i { transform: none; }
 /* motivos: cada produto, uma forma */
 .mo svg { width: 100%; height: 100%; overflow: visible; }
 .mo .bar { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
+  .mo .cell { transition: fill .3s, transform .5s var(--ease); transform-box: fill-box; transform-origin: center; }
+  .card:hover .mo .cell:nth-child(1), .card:hover .mo .cell:nth-child(4), .card:hover .mo .cell:nth-child(5) { fill: currentColor; transform: scale(.9); }
   .card:hover .mo .bar, .sheet .mo .bar { animation: wave 1s var(--ease) infinite alternate; }
   .mo .bar:nth-child(2) { animation-delay: -.2s } .mo .bar:nth-child(3) { animation-delay: -.45s } .mo .bar:nth-child(4) { animation-delay: -.7s } .mo .bar:nth-child(5) { animation-delay: -.9s }
   @keyframes wave { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
@@ -340,7 +343,7 @@ body::after {
 .end .info a { color: var(--ink); }
 .end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
 
-@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
   .nav ul { display: none; }
   .nav button { display: block; }
@@ -825,6 +828,7 @@ body::after {
     linea: `<svg viewBox="0 0 200 140"><g fill="currentColor">${[0, 1, 2, 3, 4].map((i) => `<rect class="bar" x="${36 + i * 28}" y="${[50, 30, 14, 34, 54][i]}" width="16" height="${[40, 80, 112, 72, 32][i]}" rx="8"/>`).join("")}</g></svg>`,
     apps: `<span class="fan">${APPS.slice(0, 3).map((a) => `<img src="media/apps/${a.f}.jpg" alt="" width="84" height="84" loading="lazy">`).join("")}</span>`,
     diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
+    tools: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3">${[0, 1, 2].flatMap((c) => [0, 1].map((r) => `<rect class="cell" x="${40 + c * 44}" y="${26 + r * 48}" width="34" height="38" rx="9"/>`)).join("")}</svg>`,
     ia: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="22" y="14" width="156" height="112" rx="14"/><line x1="22" y1="38" x2="178" y2="38"/><circle cx="36" cy="26" r="3" fill="currentColor"/><circle cx="48" cy="26" r="3" fill="currentColor"/><line x1="42" y1="62" x2="110" y2="62" stroke-linecap="round"/><line x1="42" y1="78" x2="96" y2="78" stroke-linecap="round" opacity=".5"/><line x1="42" y1="94" x2="104" y2="94" stroke-linecap="round" opacity=".5"/><circle cx="142" cy="86" r="10" fill="currentColor" stroke="none"/><circle class="ping" cx="142" cy="86" r="10"/></svg>`
   };
   const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
@@ -848,15 +852,18 @@ body::after {
       lead: "Cada vez mais pessoas perguntam a um assistente de IA em vez de pesquisar. Preparamos o seu site para ser encontrado e usado por eles.",
       facts: [["WebMCP", "Assistentes usam o site"], ["AEO", "Respostas diretas"], ["GEO", "Citado por IA generativa"]],
       steps: ["Vemos como os assistentes leem hoje o seu site", "Estruturamos conteúdo e ações", "Medimos se passa a ser citado e usado"],
-      wa: "Olá, queria preparar o meu website para IA" }
+      wa: "Olá, queria preparar o meu website para IA" },
+    { id: "tools", name: "Ferramentas AI", short: "Diretório de ferramentas de IA para PMEs portuguesas, por setor, com preços verificados.",
+      href: "https://ferramentasai.dongrielabs.com" }
   ];
   const cardsEl = document.getElementById("cards"), sheet = document.getElementById("sheet");
   const panel = sheet.querySelector(".panel"), sbody = sheet.querySelector(".body");
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  cardsEl.innerHTML = PRODUCTS.map((p, i) => `<button class="card" type="button" data-i="${i}" aria-haspopup="dialog">
+  // um card com href abre o site do produto numa nova aba; os outros abrem o painel
+  cardsEl.innerHTML = PRODUCTS.map((p, i) => `${p.href ? `<a class="card" href="${p.href}" target="_blank" rel="noopener">` : `<button class="card" type="button" data-i="${i}" aria-haspopup="dialog">`}
     <span class="n">0${i + 1}</span><span class="mo" aria-hidden="true">${MO[p.id]}</span>
     <strong class="soft">${esc(p.name)}</strong><span class="s">${esc(p.short)}</span>
-    <span class="open">Saber mais <i aria-hidden="true">+</i></span></button>`).join("");
+    <span class="open">Saber mais <i aria-hidden="true">${p.href ? "↗" : "+"}</i></span>${p.href ? "</a>" : "</button>"}`).join("");
   // apps: números grandes, os ecrãs verdadeiros lado a lado, e o que é cada uma
   const appsSheet = (p) => `<div class="ah"><div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p></div>
       <div class="nums">${p.facts.map(([n, t]) => `<div><b>${n}</b><span>${esc(t)}</span></div>`).join("")}</div></div>
@@ -877,7 +884,7 @@ body::after {
     return `translate(${a.left - b.left}px, ${a.top - b.top}px) scale(${a.width / b.width}, ${a.height / b.height})`;
   };
   cardsEl.addEventListener("click", (e) => {
-    const card = e.target.closest(".card"); if (!card) return;
+    const card = e.target.closest("button.card"); if (!card) return;
     const p = PRODUCTS[card.dataset.i];
     sbody.className = p.apps ? "body appsb" : "body";
     sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
