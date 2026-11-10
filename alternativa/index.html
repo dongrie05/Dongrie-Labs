@@ -227,7 +227,7 @@ body::after {
 .prods { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
 .prods-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 4vw, 56px); }
 .prods-head .lede { max-width: 24rem; }
-.cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .card {
   position: relative; display: grid; grid-template-rows: auto 1fr auto auto; gap: 14px; text-align: left; min-height: 380px; padding: 22px;
   font: inherit; color: var(--ink); background: #0a0928; border: 1px solid var(--line); border-radius: 22px; cursor: pointer; overflow: hidden;
@@ -268,9 +268,11 @@ a.card:hover .open i { transform: none; }
   .sheet.ready .call .q { transition-delay: .5s; } .sheet.ready .call .a { transition-delay: 1.3s; } .sheet.ready .call ul { transition-delay: 2s; }
   .mo .needle { transform-origin: 100px 110px; transform: rotate(-60deg); transition: transform .9s var(--ease); }
   .card:hover .mo .needle, .sheet .mo .needle { transform: rotate(38deg); }
-  .mo .ping { transform-box: fill-box; transform-origin: center; }
-  .card:hover .mo .ping, .sheet .mo .ping { animation: ping 1.4s var(--ease) infinite; }
-  @keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
+  /* relatório do diagnóstico: o anel enche-se e os problemas aparecem um a um */
+  .rp .arc { transition: stroke-dashoffset 1.4s var(--ease) .3s; }
+  .rp li { opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .6s var(--ease); }
+  .sheet.ready .rp li { opacity: 1; transform: none; }
+  .sheet.ready .rp li:nth-child(1) { transition-delay: 1s } .sheet.ready .rp li:nth-child(2) { transition-delay: 1.25s } .sheet.ready .rp li:nth-child(3) { transition-delay: 1.5s }
 }
 .sheet { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: hidden; }
 .sheet::backdrop { background: rgba(3, 1, 22, .7); backdrop-filter: blur(4px); }
@@ -364,7 +366,7 @@ a.card:hover .open i { transform: none; }
 .sheet[data-p="linea"] .cta { background: #5b9bf0; color: #0a0c10; }
 .sheet[data-p="linea"] .cta i { background: #0a0c10; color: #5b9bf0; }
 .sheet[data-p="linea"] .plans div, .sheet[data-p="linea"] .facts div { border-color: #1c212b; }
-.sheet .tag { margin: -8px 0 18px; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -.03em; color: #a3c6f5; }
+.sheet .tag { margin: -8px 0 18px; max-width: 34rem; line-height: 1.2; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -.03em; color: #a3c6f5; }
 .sheet .vis.lin { aspect-ratio: auto; min-height: 520px; padding: 36px 28px 28px; place-items: center; align-content: space-between; gap: 32px;
   background: radial-gradient(70% 50% at 50% 28%, rgba(47, 125, 235, .28), transparent 70%), #0f1217; border: 1px solid #1c212b; }
 .orbw { display: grid; place-items: center; margin-top: 28px; }
@@ -382,6 +384,35 @@ a.card:hover .open i { transform: none; }
 .call .a { background: rgba(47, 125, 235, .18); color: #c6f3ff; border-bottom-left-radius: 4px; }
 .call ul { list-style: none; display: grid; gap: 6px; padding-top: 6px; border-top: 1px solid #1c212b; color: #3dd68c; font-size: 13.5px; }
 .call li::before { content: "✓  "; }
+/* Diagnóstico Express: um relatório como o que o cliente recebe */
+.sheet .more { margin-top: 16px; color: var(--muted); font-size: 16px; max-width: 34rem; }
+.upsell { display: grid; gap: 12px; padding: 22px; margin-bottom: 18px; border-radius: 20px; border: 1px solid rgba(199, 166, 255, .25); background: rgba(199, 166, 255, .06); }
+.upsell .uh { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.upsell h4 { font-size: clamp(24px, 2.2vw, 32px); }
+.upsell .uh strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: 26px; letter-spacing: -.03em; white-space: nowrap; }
+.upsell .uh small { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.upsell p { color: var(--muted); font-size: 15px; }
+.sheet .honest { margin-bottom: 36px; font-size: 14px; color: var(--faint); }
+.sheet .vis.rep { aspect-ratio: auto; padding: clamp(18px, 3vw, 36px); place-items: stretch; align-content: center; }
+.rp { display: grid; gap: 16px; padding: 18px; border-radius: 20px; background: #0c0b2b; border: 1px solid rgba(243, 244, 255, .12); box-shadow: 0 30px 80px -40px rgba(0, 0, 0, .8); }
+.rp .url { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 12px; background: rgba(243, 244, 255, .06); font-size: 14px; color: var(--muted); }
+.rp .url > span:nth-child(2) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp .url .ico { width: 13px; height: 13px; border: 2px solid var(--faint); border-radius: 50%; flex: none; }
+.rp .url b { font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 99px; background: var(--ink); color: var(--bg); }
+.rp .sc { display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 16px; position: relative; }
+.rp .sc svg { width: 88px; height: 88px; transform: rotate(-90deg); }
+.rp .sc circle { fill: none; stroke: rgba(243, 244, 255, .1); stroke-width: 7; }
+.rp .sc .arc { stroke: #ffb86b; stroke-linecap: round; stroke-dasharray: 213.6; stroke-dashoffset: 213.6; }
+.sheet.ready .rp .arc { stroke-dashoffset: 81.2; }
+.rp .sc > span { position: absolute; left: 0; width: 88px; text-align: center; font-size: 11px; color: var(--muted); }
+.rp .sc > span strong { display: block; font-variation-settings: "wdth" 112; font-size: 26px; font-weight: 600; color: var(--ink); line-height: 1; }
+.rp .sc p { font-weight: 600; font-size: 15px; display: grid; gap: 4px; }
+.rp .sc em { font-style: normal; font-weight: 400; font-size: 13px; color: var(--muted); }
+.rp ul { list-style: none; display: grid; gap: 8px; }
+.rp li { display: grid; gap: 6px; padding: 12px 12px 12px 30px; border-radius: 14px; background: rgba(243, 244, 255, .04); position: relative; font-size: 14px; }
+.rp li::before { content: ""; position: absolute; left: 12px; top: 17px; width: 8px; height: 8px; border-radius: 50%; background: #ff6b6b; }
+.rp li + li::before { background: #ffb86b; }
+.rp code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: #c7a6ff; overflow-wrap: anywhere; }
 .sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
 
 /* 6 · contacto */
@@ -395,7 +426,7 @@ a.card:hover .open i { transform: none; }
 .end .info a { color: var(--ink); }
 .end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
 
-@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
   .nav ul { display: none; }
   .nav button { display: block; }
@@ -887,7 +918,7 @@ a.card:hover .open i { transform: none; }
     apps: `<span class="fan">${APPS.slice(0, 3).map((a) => `<img src="media/apps/${a.f}.jpg" alt="" width="84" height="84" loading="lazy">`).join("")}</span>`,
     diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
     tools: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3">${[0, 1, 2].flatMap((c) => [0, 1].map((r) => `<rect class="cell" x="${40 + c * 44}" y="${26 + r * 48}" width="34" height="38" rx="9"/>`)).join("")}</svg>`,
-    ia: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect x="22" y="14" width="156" height="112" rx="14"/><line x1="22" y1="38" x2="178" y2="38"/><circle cx="36" cy="26" r="3" fill="currentColor"/><circle cx="48" cy="26" r="3" fill="currentColor"/><line x1="42" y1="62" x2="110" y2="62" stroke-linecap="round"/><line x1="42" y1="78" x2="96" y2="78" stroke-linecap="round" opacity=".5"/><line x1="42" y1="94" x2="104" y2="94" stroke-linecap="round" opacity=".5"/><circle cx="142" cy="86" r="10" fill="currentColor" stroke="none"/><circle class="ping" cx="142" cy="86" r="10"/></svg>`
+
   };
   const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
   const PRODUCTS = [
@@ -909,16 +940,27 @@ a.card:hover .open i { transform: none; }
       facts: [["6", "na App Store"], ["5", "protótipos que não chegaram à loja"], ["3", "a sair no início de 2027"]],
       steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store"],
       wa: "Olá, queria falar sobre uma app" },
-    { id: "diag", name: "Diagnóstico de websites", short: "O que trava o seu site: velocidade, mensagem e contactos perdidos.", kick: "Websites",
-      lead: "Analisamos o seu site e dizemos o que está a custar contactos: velocidade, mensagem e o caminho até ao contacto.",
-      facts: [["Velocidade", "O que torna o site lento"], ["Mensagem", "Se se percebe o que faz"], ["Contactos", "Onde se perdem pessoas"]],
-      steps: ["Envia o endereço do site", "Analisamos velocidade, texto e percurso", "Recebe a lista do que corrigir primeiro"],
-      wa: "Olá, queria um diagnóstico do meu website" },
-    { id: "ia", name: "Websites para IA", short: "WebMCP, AEO e GEO: encontrado e usado por assistentes de IA.", kick: "Websites",
-      lead: "Cada vez mais pessoas perguntam a um assistente de IA em vez de pesquisar. Preparamos o seu site para ser encontrado e usado por eles.",
-      facts: [["WebMCP", "Assistentes usam o site"], ["AEO", "Respostas diretas"], ["GEO", "Citado por IA generativa"]],
-      steps: ["Vemos como os assistentes leem hoje o seu site", "Estruturamos conteúdo e ações", "Medimos se passa a ser citado e usado"],
-      wa: "Olá, queria preparar o meu website para IA" },
+    { id: "diag", name: "Diagnóstico Express", short: "O teu site está visível no Google e nas ferramentas de IA? Análise grátis em menos de um minuto.", kick: "Websites · Google e IA",
+      tag: "O teu site está visível no Google e nas ferramentas de IA?",
+      lead: "Hoje muita gente já não pesquisa só no Google. Pergunta ao ChatGPT, ao Perplexity ou ao Gemini. Se o teu site bloqueia esses robôs, esconde páginas sem saberes ou não diz com clareza o que vendes, não apareces nas respostas.",
+      more: "O Diagnóstico Express analisa o teu site em menos de um minuto, como um robô de pesquisa o vê.",
+      facts: [["Tempo", "Menos de um minuto"], ["Preço", "Grátis"], ["Recebes", "Uma nota geral e os 3 problemas mais graves"]],
+      steps: ["Colas o endereço do teu site.", "Verificamos o robots.txt, a indexação, o sitemap, os dados estruturados e se a informação essencial está visível: o que vendes, preços, localização e como marcar.", "Recebes uma nota geral e os 3 problemas mais graves, cada um com a prova do que encontrámos."],
+      offer: "<strong>É grátis.</strong> Se o teu site estiver bem, dizemos-te isso mesmo. Não inventamos problemas.",
+      extra: `<div class="upsell"><span class="kick">Queres ir mais longe?</span>
+        <div class="uh"><h4 class="soft">Auditoria Visível</h4><strong>120 € <small>+ IVA</small></strong></div>
+        <p>A lista completa, com prioridades e o passo a passo para corrigir cada ponto. Inclui um teste de como a tua marca aparece no Google e em vários chats de IA. Se depois quiseres que sejamos nós a tratar de tudo, os 120 € são descontados na implementação.</p>
+        <p>Se usas um sistema de reservas ou uma agenda online, também vemos se dá para o ligar às ferramentas de IA, para os clientes consultarem a disponibilidade a partir daí.</p></div>
+        <p class="honest">Não prometemos o primeiro lugar no Google. Mostramos o que está a impedir que te encontrem e corrigimos isso.</p>`,
+      site: ["Fazer o diagnóstico grátis", "https://diagnostico.dongrielabs.com/"], wa: "Olá, queria saber mais sobre a Auditoria Visível",
+      vis: `<div class="vis rep" aria-hidden="true"><div class="rp">
+        <div class="url"><span class="ico"></span><span>www.clinica-exemplo.pt</span><b>Analisar</b></div>
+        <div class="sc"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34"/><circle class="arc" cx="40" cy="40" r="34"/></svg><span><strong>62</strong>/100</span>
+          <p>Nota geral<em>Aparece no Google, quase invisível para a IA</em></p></div>
+        <ul><li><b>O robots.txt bloqueia o GPTBot</b><code>User-agent: GPTBot · Disallow: /</code></li>
+          <li><b>Os preços não aparecem na página</b><code>0 de 6 serviços com preço visível</code></li>
+          <li><b>Sem dados estruturados</b><code>nenhum schema LocalBusiness encontrado</code></li></ul></div></div>`
+    },
     { id: "tools", name: "Ferramentas AI", short: "Diretório de ferramentas de IA para PMEs portuguesas, por setor, com preços verificados.",
       href: "https://ferramentasai.dongrielabs.com" }
   ];
@@ -953,10 +995,10 @@ a.card:hover .open i { transform: none; }
     const card = e.target.closest("button.card"); if (!card) return;
     const p = PRODUCTS[card.dataset.i];
     sbody.className = p.apps ? "body appsb" : "body";
-    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>
+    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>${p.more ? `<p class="more">${esc(p.more)}</p>` : ""}
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
-      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div><p class="offer">${p.offer}</p>` : ""}
-      <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div>` : ""}${p.offer ? `<p class="offer">${p.offer}</p>` : ""}
+      <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>${p.extra || ""}
       <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
         : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
       ${p.vis ? p.vis.replace("%LOGO%", MO.linea) : `<div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`}`;
