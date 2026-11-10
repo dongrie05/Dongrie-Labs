@@ -1124,7 +1124,7 @@ a.card:hover .open i { transform: none; }
   function layout() { heroLayout(); layoutFilm(); }
   addEventListener("resize", layout);
   if (reduce) hv.removeAttribute("loop");
-  hv.defaultPlaybackRate = hv.playbackRate = .75;  // mais calmo: 6 s passam a 8 s
+  hv.defaultPlaybackRate = hv.playbackRate = .85;  // um pouco mais calmo que o original
   hv.play().catch(() => {});
   buildFilm();
   document.fonts.ready.then(() => { heroLayout(); layoutFilm(); });
