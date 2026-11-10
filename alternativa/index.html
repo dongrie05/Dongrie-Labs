@@ -25,6 +25,7 @@ html, body { background: #030116; }
   --band: #032d9b;
   --ease: cubic-bezier(.22, 1, .36, 1);
   --gut: max(20px, env(safe-area-inset-left, 0px), 4.4vw);
+  --bw: clamp(260px, 30vw, 460px);  /* largura do logótipo */
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { overflow-x: clip; }
@@ -69,11 +70,13 @@ body::after {
 }
 .nav > * { pointer-events: auto; }
 /* ao descer, uma faixa escura protege o menu do conteúdo */
-.nav::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(88px + env(safe-area-inset-top, 0px)); background: linear-gradient(#030116 45%, rgba(3, 1, 22, 0)); opacity: 0; transition: opacity .4s; pointer-events: none; z-index: -1; }
+.nav::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(84px + env(safe-area-inset-top, 0px)); background: linear-gradient(#030116 calc(100% - 36px), rgba(3, 1, 22, 0)); opacity: 0; transition: opacity .2s, height .6s var(--ease); pointer-events: none; z-index: -1; }
+/* enquanto o logótipo grande cai, a faixa cobre-o todo: nada passa por baixo dele */
+.nav.tall::before { height: calc(var(--bw) * .251 + 56px + env(safe-area-inset-top, 0px)); }
 .nav.solid::before { opacity: 1; }
 .nav ul { padding-top: 10px; }
 /* logótipo animado, sem fundo: entrada ao abrir, queda ao sair do início, depois só o robô */
-.brand { display: block; width: clamp(260px, 30vw, 460px); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
+.brand { display: block; width: var(--bw); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
 .brand canvas { width: 100%; height: 100%; display: block; }
 .brand.small { transform: scale(.5); }
 .brand video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
@@ -95,7 +98,7 @@ body::after {
 .hero video.src { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
 .hero .copy {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  display: grid; grid-template-rows: 1fr auto; padding: calc(clamp(260px, 30vw, 460px) * .251 + 44px) var(--gut) 40px;
+  display: grid; grid-template-rows: 1fr auto; padding: calc(var(--bw) * .251 + 44px) var(--gut) 40px;
 }
 .hero h1 { align-self: start; }
 .hero .foot { display: grid; justify-items: start; gap: 24px; pointer-events: auto; }
@@ -166,7 +169,7 @@ body::after {
 .impact li span { color: rgba(243, 244, 255, .7); font-size: 15px; text-align: right; }
 .impact.on li { opacity: 1; transform: none; }
 .impact.on li:nth-child(1) { transition-delay: .25s } .impact.on li:nth-child(2) { transition-delay: .35s } .impact.on li:nth-child(3) { transition-delay: .45s }
-.nav.onblue::before { background: linear-gradient(#082b8c 45%, rgba(8, 43, 140, 0)); }
+.nav.onblue::before { background: linear-gradient(#082b8c calc(100% - 36px), rgba(8, 43, 140, 0)); }
 .ring { position: absolute; left: 0; top: 0; z-index: 4; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 2px solid var(--accent); pointer-events: none; opacity: 0; }
 .switch {
   position: absolute; z-index: 4; right: var(--gut); top: 96px; display: flex; gap: 4px; font-size: 13px;
@@ -348,7 +351,7 @@ a.card:hover .open i { transform: none; }
   .nav ul { display: none; }
   .nav button { display: block; }
   .hero .copy { padding-top: 100px; padding-bottom: 28px; }
-  .brand { width: 240px; }
+  :root { --bw: 240px; }
   .film .titles { width: auto; right: var(--gut); top: 84px; bottom: auto; align-content: start; }
   .film .t h2 { font-size: clamp(28px, 8.4vw, 44px); }
   .film .t p { display: none; }
@@ -963,7 +966,7 @@ a.card:hover .open i { transform: none; }
   else intro.play().catch(() => {});
   fall.addEventListener("ended", () => { if (away) brand.classList.add("small"); });
   function logoFrame() {
-    const nowAway = scrollY > innerHeight * .25;
+    const nowAway = scrollY > 24;
     if (nowAway !== away) {
       away = nowAway;
       if (away) { intro.pause(); logoVideo = fall; reduce ? brand.classList.add("small") : playFrom0(fall); }
@@ -971,6 +974,7 @@ a.card:hover .open i { transform: none; }
     }
     drawLogo(logoVideo);
     nav.classList.toggle("solid", away);
+    nav.classList.toggle("tall", away && !brand.classList.contains("small"));
     const fb = film.getBoundingClientRect();
     nav.classList.toggle("onblue", floodOn && fb.top < 90 && fb.bottom > 90);
   }
