@@ -246,13 +246,15 @@ body::after {
 a.card:hover .open i { transform: none; }
 /* motivos: cada produto, uma forma */
 .mo svg { width: 100%; height: 100%; overflow: visible; }
-.mo .bar { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
   .mo .cell { transition: fill .3s, transform .5s var(--ease); transform-box: fill-box; transform-origin: center; }
   .card:hover .mo .cell:nth-child(1), .card:hover .mo .cell:nth-child(4), .card:hover .mo .cell:nth-child(5) { fill: currentColor; transform: scale(.9); }
-  .card:hover .mo .bar, .sheet .mo .bar { animation: wave 1s var(--ease) infinite alternate; }
-  .mo .bar:nth-child(2) { animation-delay: -.2s } .mo .bar:nth-child(3) { animation-delay: -.45s } .mo .bar:nth-child(4) { animation-delay: -.7s } .mo .bar:nth-child(5) { animation-delay: -.9s }
-  @keyframes wave { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+  .card:hover .lmark { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(47, 125, 235, .14), 0 0 60px rgba(47, 125, 235, .5); }
+  .sheet.ready .orb { animation: breathe 3.2s ease-in-out infinite; }
+  @keyframes breathe { 0%, 100% { transform: scale(1); border-radius: 50%; } 33% { transform: scale(1.05); border-radius: 48% 52% 50% 50%; } 66% { transform: scale(.97); border-radius: 52% 48% 49% 51%; } }
+  .call > * { opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .6s var(--ease); }
+  .sheet.ready .call > * { opacity: 1; transform: none; }
+  .sheet.ready .call .q { transition-delay: .5s; } .sheet.ready .call .a { transition-delay: 1.3s; } .sheet.ready .call ul { transition-delay: 2s; }
   .mo .needle { transform-origin: 100px 110px; transform: rotate(-60deg); transition: transform .9s var(--ease); }
   .card:hover .mo .needle, .sheet .mo .needle { transform: rotate(38deg); }
   .mo .ping { transform-box: fill-box; transform-origin: center; }
@@ -341,6 +343,31 @@ a.card:hover .open i { transform: none; }
 .appsb .af .acts { justify-content: flex-end; }
 .sheet.ready .body > :nth-child(3) { transition-delay: .14s; }
 .sheet.ready .body > :nth-child(4) { transition-delay: .2s; }
+/* Linea: a identidade dela (fundo #0A0C10, azuis, orbe de voz #C6F3FF) */
+.lmark { display: grid; place-items: center; width: 116px; height: 116px; margin: auto; border-radius: 50%; transition: transform .5s var(--ease), box-shadow .5s; box-shadow: 0 0 40px rgba(47, 125, 235, .3); }
+.lmark svg { width: 100%; height: 100%; display: block; }
+.card .mo:has(.lmark) { display: grid; }
+.sheet[data-p="linea"] { --accent: #5b9bf0; }
+.sheet[data-p="linea"] .panel { background: #0a0c10; border-color: #1c212b; }
+.sheet[data-p="linea"] .cta { background: #5b9bf0; color: #0a0c10; }
+.sheet[data-p="linea"] .cta i { background: #0a0c10; color: #5b9bf0; }
+.sheet[data-p="linea"] .plans div, .sheet[data-p="linea"] .facts div { border-color: #1c212b; }
+.sheet .tag { margin: -8px 0 18px; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -.03em; color: #a3c6f5; }
+.sheet .vis.lin { aspect-ratio: auto; min-height: 520px; padding: 36px 28px 28px; place-items: center; align-content: space-between; gap: 32px;
+  background: radial-gradient(70% 50% at 50% 28%, rgba(47, 125, 235, .28), transparent 70%), #0f1217; border: 1px solid #1c212b; }
+.orb { width: 150px; height: 150px; border-radius: 50%; margin-top: 28px;
+  background: radial-gradient(circle at 36% 32%, #e8fbff 0 5%, #c6f3ff 12%, #5b9bf0 40%, #2f7deb 64%, #123f9c 100%);
+  box-shadow: 0 0 70px rgba(91, 155, 240, .55), inset -10px -14px 30px rgba(10, 12, 16, .35); }
+.call { width: 100%; max-width: 380px; display: grid; gap: 10px; padding: 16px; border-radius: 18px; background: #141821; border: 1px solid #1c212b; font-size: 14.5px; }
+.call .ch { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #f2f4f8; font-weight: 600; }
+.call .ch > span { display: flex; align-items: center; gap: 8px; }
+.call .ch .lmark { width: 24px; height: 24px; margin: 0; box-shadow: none; }
+.call .ch em { font-style: normal; font-weight: 400; font-size: 12.5px; color: #9aa3b5; }
+.call p { max-width: 85%; padding: 9px 13px; border-radius: 14px; line-height: 1.4; }
+.call .q { justify-self: end; background: #1c212b; color: #f2f4f8; border-bottom-right-radius: 4px; }
+.call .a { background: rgba(47, 125, 235, .18); color: #c6f3ff; border-bottom-left-radius: 4px; }
+.call ul { list-style: none; display: grid; gap: 6px; padding-top: 6px; border-top: 1px solid #1c212b; color: #3dd68c; font-size: 13.5px; }
+.call li::before { content: "✓  "; }
 .sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
 
 /* 6 · contacto */
@@ -371,6 +398,8 @@ a.card:hover .open i { transform: none; }
   .sheet .body { grid-template-columns: 1fr; }
   .appsb .ah, .appsb .af { grid-template-columns: 1fr; }
   .plans div { padding: 14px 12px; }
+  .sheet .vis.lin { min-height: 0; padding: 20px 16px 16px; gap: 20px; }
+  .orb { width: 96px; height: 96px; margin-top: 4px; }
   .plans strong { font-size: 26px; }
   .nums b { font-size: 44px; }
   .gal { --h: 420px; }
@@ -838,7 +867,7 @@ a.card:hover .open i { transform: none; }
       d: "Estratégia: levar a adoção de cripto ao mundo inteiro antes dos reguladores.", s: ["shot-crypto-adoption-1", "shot-crypto-adoption-2"] }
   ];
   const MO = {
-    linea: `<svg viewBox="0 0 200 140"><g fill="currentColor">${[0, 1, 2, 3, 4].map((i) => `<rect class="bar" x="${36 + i * 28}" y="${[50, 30, 14, 34, 54][i]}" width="16" height="${[40, 80, 112, 72, 32][i]}" rx="8"/>`).join("")}</g></svg>`,
+    linea: `<span class="lmark"><svg viewBox="0 0 100 100"><defs><radialGradient id="lg1" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#7fb4f6"/><stop offset=".55" stop-color="#2f7deb"/><stop offset="1" stop-color="#1b56b8"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#lg1)"/><path d="M20 53h13l8-17 12 30 9-20 5 7h13" fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`,
     apps: `<span class="fan">${APPS.slice(0, 3).map((a) => `<img src="media/apps/${a.f}.jpg" alt="" width="84" height="84" loading="lazy">`).join("")}</span>`,
     diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
     tools: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3">${[0, 1, 2].flatMap((c) => [0, 1].map((r) => `<rect class="cell" x="${40 + c * 44}" y="${26 + r * 48}" width="34" height="38" rx="9"/>`)).join("")}</svg>`,
@@ -846,7 +875,12 @@ a.card:hover .open i { transform: none; }
   };
   const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
   const PRODUCTS = [
-    { id: "linea", name: "Linea", short: "Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.", kick: "Clínicas e pequenas empresas",
+    { id: "linea", name: "Linea", tag: "Atendemos sempre.",
+      vis: `<div class="vis lin" aria-hidden="true"><span class="orb"></span>
+        <div class="call"><div class="ch"><span>%LOGO%Linea</span><em>21:47 · fora de horas</em></div>
+          <p class="q">Queria marcar uma consulta para quinta.</p>
+          <p class="a">Tenho quinta às 10h. Confirmo?</p>
+          <ul><li>Consulta marcada · quinta, 10h</li><li>SMS de confirmação enviado</li></ul></div></div>`, short: "Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.", kick: "Clínicas e pequenas empresas",
       lead: "A Linea atende as chamadas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta.",
       facts: [["Para quem", "Clínicas e pequenas empresas em Portugal"], ["Quando", "Fora de horas e quando a equipa não pode"], ["Porquê clínicas", "Uma chamada perdida costuma ser uma marcação perdida"]],
       plans: [["Starter", "99 €", "400 minutos"], ["Growth", "199 €", "1000 minutos"], ["Pro", "499 €", "2500 minutos"]],
@@ -903,13 +937,14 @@ a.card:hover .open i { transform: none; }
     const card = e.target.closest("button.card"); if (!card) return;
     const p = PRODUCTS[card.dataset.i];
     sbody.className = p.apps ? "body appsb" : "body";
-    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
+    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
       ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}</strong><span>${m}</span></div>`).join("")}</div><p class="offer">${p.offer}</p>` : ""}
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
       <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
         : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
-      <div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`;
+      ${p.vis ? p.vis.replace("%LOGO%", MO.linea) : `<div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`}`;
+    sheet.dataset.p = p.id;
     openCard = card;
     sheet.classList.remove("ready");
     sheet.showModal();
