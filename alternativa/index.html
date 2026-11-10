@@ -636,8 +636,11 @@ a.card:hover .open i { transform: none; }
   const lit = document.createElement("canvas"), lx = lit.getContext("2d");
   const LOST = ["fatura em falta?", "3.º ESQ.", "quem ficou de ligar?", "orçamento #231", "extrato de outubro",
     "re: re: fwd: infiltração", "ata de março", "anexo (2).pdf", "sinistro 4471", "IVA · dia 20", "WhatsApp (14)",
-    "onde está o email?", "recibo do armazém", "elevador parado", "já enviei tudo?", "fração 4.º D", "quota de junho", "e-fatura · 41"];
-  let vr = { x: 0, y: 0, w: 0, h: 0 };
+    "onde está o email?", "recibo do armazém", "elevador parado", "já enviei tudo?", "fração 4.º D", "quota de junho", "e-fatura · 41",
+    "convocatória", "DMR por entregar", "canalizador?", "orçamento pintura", "fatura sem NIF", "seguro renova a 30", "recibos verdes",
+    "portão da garagem", "mandei o PDF errado", "assembleia · 2.ª conv.", "despesas de outubro", "contador da água", "pagamento por conta",
+    "luz da escada", "extrato Banco B", "chamada perdida (3)", "lembrete enviado?", "fundo de reserva"];
+  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0;
   const BEAM = [[0.494,0.706],[0.5,0.679],[0.502,0.645],[0.502,0.621],[0.508,0.6],[0.512,0.588],[0.518,0.578],[0.523,0.572],[0.526,0.568],[0.533,0.569],[0.54,0.573],[0.546,0.579],[0.554,0.581],[0.556,0.575],[0.566,0.568],[0.569,0.566],[0.577,0.565],[0.585,0.564],[0.596,0.567],[0.604,0.575],[0.613,0.587],[0.622,0.605],[0.633,0.623],[0.64,0.641],[0.652,0.666],[0.666,0.708],[0.677,0.748],[0.683,0.778],[0.684,0.803],[0.687,0.822],[0.689,0.837],[0.692,0.845],[0.694,0.848],[0.701,0.85],[0.706,0.848],[0.713,0.856],[0.72,0.852],[0.725,0.861],[0.732,0.862],[0.734,0.863],[0.737,0.866],[0.74,0.867],[0.739,0.865],[0.74,0.866],[0.74,0.867],[0.738,0.868],[0.735,0.87],[0.731,0.871],[0.724,0.875],[0.716,0.875],[0.71,0.874],[0.706,0.867],[0.701,0.867],[0.702,0.859],[0.706,0.847],[0.712,0.837],[0.717,0.825],[0.722,0.811],[0.728,0.802],[0.739,0.78],[0.744,0.71],[0.751,0.648],[0.757,0.593],[0.761,0.563],[0.763,0.538],[0.764,0.529],[0.765,0.534],[0.765,0.565],[0.758,0.621],[0.75,0.694],[0.746,0.78],[0.731,0.822],[0.721,0.834]];
 
   function heroLayout() {
@@ -649,21 +652,21 @@ a.card:hover .open i { transform: none; }
     const hb = document.querySelector(".hero h1").getBoundingClientRect().bottom - hc.getBoundingClientRect().top;
     const h = mobile ? Math.min(H * .4, W * .7) : Math.min(H * .8, W * .64 / 1.84, (H * .99 - hb - 16) / .9);
     const w = h * 1.84;
-    vr = mobile ? { x: W * .5 - w * .42, y: H * .34, w, h } : { x: W - w * .97, y: H * .99 - h, w, h };
+    vr = mobile ? { x: W * .5 - w * .56, y: H * .34, w, h } : { x: W - w * 1.06, y: H * .99 - h, w, h };
     // fragmentos: só onde a luz pode chegar (à direita do robô e no chão)
     wx.setTransform(DPR, 0, 0, DPR, 0, 0);
     wx.clearRect(0, 0, W, H);
     wx.fillStyle = "#fff"; wx.textBaseline = "middle";
     let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
     // cada fragmento num sítio livre: nunca se sobrepõem
-    const placed = [], pad = mobile ? 10 : 16;
+    const placed = [], pad = mobile ? 4 : 7;
     LOST.forEach((t) => {
-      const size = (mobile ? 12 : 15) + rnd() * (mobile ? 8 : 14);
+      const size = (mobile ? 11 : 14) + rnd() * (mobile ? 7 : 12);
       wx.font = `${rnd() > .5 ? 800 : 500} ${size}px ${FONT}`;
       const tw = wx.measureText(t).width;
-      for (let k = 0; k < 60; k++) {
-        const fx = .55 + rnd() * .43, fy = .1 + rnd() * .82;
-        if (!(fx > .8 || (fy > .66 && fx > .55))) continue; // fora do caminho do robô
+      for (let k = 0; k < 160; k++) {
+        // toda a zona por onde a luz passa, à direita do robô: sem buracos
+        const fx = .6 + rnd() * .5, fy = .3 + rnd() * .64;
         const x = vr.x + fx * vr.w, y = vr.y + fy * vr.h;
         if (x + tw > W - 12) continue;
         const r = { x: x - pad, y: y - size / 2 - pad, w: tw + pad * 2, h: size + pad * 2 };
@@ -698,12 +701,8 @@ a.card:hover .open i { transform: none; }
       lx.globalCompositeOperation = "destination-in";
       lx.setTransform(1, 0, 0, 1, 0, 0);
       lx.drawImage(words, 0, 0);
-      hx.setTransform(1, 0, 0, 1, 0, 0);
-      hx.globalAlpha = a * .07; hx.drawImage(words, 0, 0);  // estão lá, no escuro
-      hx.globalAlpha = a; hx.drawImage(lit, 0, 0);
-      hx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      hx.globalAlpha = 1;
-    }
+      litA = a;
+    } else litA = 0;
     // vinheta: o vídeo funde-se com o fundo
     const g = hx.createRadialGradient(vr.x + vr.w * .5, vr.y + vr.h * .5, vr.h * .35, vr.x + vr.w * .5, vr.y + vr.h * .5, vr.w * .62);
     g.addColorStop(0, "rgba(3,1,22,0)"); g.addColorStop(1, "rgba(3,1,22,1)");
@@ -716,6 +715,14 @@ a.card:hover .open i { transform: none; }
     hx.fillStyle = fade(vr.x + vr.w, 0, vr.x + vr.w - e, 0); hx.fillRect(vr.x + vr.w - e, vr.y, e + 1, vr.h);
     hx.fillStyle = fade(0, vr.y, 0, vr.y + e * .6); hx.fillRect(vr.x, vr.y - 1, vr.w, e * .6);
     hx.fillStyle = fade(0, vr.y + vr.h, 0, vr.y + vr.h - e * .6); hx.fillRect(vr.x, vr.y + vr.h - e * .6, vr.w, e * .6 + 1);
+    // as palavras por cima das vinhetas: a luz revela-as até à borda do ecrã
+    if (litA) {
+      hx.setTransform(1, 0, 0, 1, 0, 0);
+      hx.globalAlpha = litA * .07; hx.drawImage(words, 0, 0);  // estão lá, no escuro
+      hx.globalAlpha = litA; hx.drawImage(lit, 0, 0);
+      hx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      hx.globalAlpha = 1;
+    }
   }
 
   // ---------- 2 · filme do produto: uma janela, do caos ao próximo passo ----------
@@ -1117,7 +1124,7 @@ a.card:hover .open i { transform: none; }
   function layout() { heroLayout(); layoutFilm(); }
   addEventListener("resize", layout);
   if (reduce) hv.removeAttribute("loop");
-  hv.defaultPlaybackRate = hv.playbackRate = .6;  // mais calmo: 6 s passam a 10 s
+  hv.defaultPlaybackRate = hv.playbackRate = .75;  // mais calmo: 6 s passam a 8 s
   hv.play().catch(() => {});
   buildFilm();
   document.fonts.ready.then(() => { heroLayout(); layoutFilm(); });
