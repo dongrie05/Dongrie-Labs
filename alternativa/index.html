@@ -427,8 +427,14 @@ a.card:hover .open i { transform: none; }
 .end .info a { color: var(--ink); }
 .end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
 
+/* ecrãs estreitos (360 px): o título cabe sem cortar */
+@media (max-width: 480px) { .hero h1.mega { font-size: clamp(34px, 11.8vw, 46px); } }
 @media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
+  .win .r .src { display: none; }
+  .win .r { gap: 10px; padding-right: 14px; }
+  .win .ok span { padding: 0 14px; font-size: 13px; }
+  .win .ok .b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .nav ul { display: none; }
   .nav button { display: block; }
   .hero .copy { padding-top: 100px; padding-bottom: 28px; }
@@ -639,9 +645,9 @@ a.card:hover .open i { transform: none; }
     hc.width = words.width = lit.width = W * DPR; hc.height = words.height = lit.height = H * DPR;
     const mobile = W < 860;
     // o vídeo (robô à esquerda do quadro, luz à direita) ocupa a metade direita e desce até ao chão
-    const h = mobile ? Math.min(H * .4, W * .7) : Math.min(H * .8, W * .64 / 1.774);
+    const h = mobile ? Math.min(H * .38, W * 1.3 / 1.774) : Math.min(H * .8, W * .64 / 1.774);
     const w = h * 1.774;
-    vr = mobile ? { x: W * .5 - w * .42, y: H * .34, w, h } : { x: W - w * .97, y: H * .99 - h, w, h };
+    vr = mobile ? { x: W * .48 - w * .5, y: H * .33, w, h } : { x: W - w * .97, y: H * .99 - h, w, h };
     // fragmentos: só onde a luz pode chegar (à direita do robô e no chão)
     wx.setTransform(DPR, 0, 0, DPR, 0, 0);
     wx.clearRect(0, 0, W, H);
@@ -726,7 +732,7 @@ a.card:hover .open i { transform: none; }
         ["WhatsApp", "Rui Melo · Rua das Flores, 4.º Esq.", "Só estou em casa amanhã de manhã", "11:40", 1]
       ],
       next: "Confirmar a visita do canalizador amanhã às 10h. O 4.º Esq. só está em casa de manhã.",
-      ok: "Aprovar e enviar", done: "✓ Enviado ao canalizador · amanhã, 10h"
+      ok: "Aprovar e enviar", done: "✓ Enviado · visita amanhã, 10h"
     },
     conta: {
       sub0: "Faturas por email, extratos em PDF, perguntas por WhatsApp. Antes de fechar o mês, alguém procura o que falta.",
@@ -791,7 +797,7 @@ a.card:hover .open i { transform: none; }
     typedEl.textContent = ""; restEl.textContent = FILM[sector].next;
     F.nxH = nx.offsetHeight;
     ok.style.width = ""; F.okW = ok.offsetWidth; F.okFull = nx.clientWidth - 36;
-    F.s = mobile ? Math.min(1, (H - 290) / 520) : 1;
+    F.s = mobile ? Math.min(1, (H - 300) / 560) : 1;
     lastTyped = lastQ = -1;
   }
 
@@ -838,7 +844,7 @@ a.card:hover .open i { transform: none; }
       r.el.style.opacity = vis.toFixed(3);
       r.el.style.visibility = vis < .01 ? "hidden" : "";
       r.el.style.paddingLeft = (18 + 26 * k2) + "px";
-      r.el.style.gridTemplateColumns = `${lerp(74, 0, k2).toFixed(1)}px minmax(0,1fr) auto`;
+      r.el.style.gridTemplateColumns = mobile ? "minmax(0,1fr) auto" : `${lerp(74, 0, k2).toFixed(1)}px minmax(0,1fr) auto`;
       r.el.firstElementChild.nextElementSibling.style.opacity = 1 - k2;
       if (r.match) { if (first === null) first = y; last = y; r.dot.style.transform = `scale(${ease(clamp(k2 * 1.6 - rows.indexOf(r) * .08))})`; }
       if (r.chip) { const done = k4 > .5; r.chip.textContent = done ? r.s1 : r.s0; r.chip.classList.toggle("fin", done); }
