@@ -1085,7 +1085,7 @@ a.card:hover .open i { transform: none; }
       flood.style.cssText = `opacity:1;left:${lerp(br.left - o.left, 0, k5)}px;top:${lerp(br.top - o.top, 0, k5)}px;width:${lerp(br.width, W, k5)}px;height:${lerp(br.height, H, k5)}px;` +
         `border-radius:${lerp(22, 0, k5)}px;background:rgb(${lerp(27, 8, k5) | 0},${lerp(68, 43, k5) | 0},${lerp(216, 140, k5) | 0})`;
     } else flood.style.opacity = 0;
-    impact.classList.toggle("on", P > .77);
+    impact.classList.toggle("on", P > .745);  // o texto sobe enquanto o azul ainda está a acabar de encher
   }
 
   document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
