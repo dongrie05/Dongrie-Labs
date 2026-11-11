@@ -8,8 +8,8 @@ const nextConfig = {
   // página inicial = site novo da AI Layer (public/home.html); as antigas páginas iniciais por idioma levam lá
   async redirects() {
     return [
-      { source: '/pt', destination: '/', permanent: false },
-      { source: '/en', destination: '/', permanent: false },
+      { source: '/pt', destination: '/', permanent: true },
+      { source: '/en', destination: '/', permanent: true },
     ];
   },
   async rewrites() {
