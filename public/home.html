@@ -794,6 +794,12 @@ a.card:hover .open i { transform: none; }
   const hc = document.getElementById("heroCanvas"), hx = hc.getContext("2d");
   const hv = document.getElementById("heroVideo");
   const wx = document.createElement("canvas").getContext("2d");  // só para medir o texto
+  // a luz é lida do próprio vídeo: um fotograma pequeno por frame, e só os píxeis quentes da lanterna contam
+  const sc = document.createElement("canvas"); sc.width = 96; sc.height = 54;
+  const sx = sc.getContext("2d", { willReadFrequently: true });
+  // onde a luz chega em algum momento do vídeo (48×27, 0–9), medido fotograma a fotograma
+  const COV = "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000224421002200000000000000000000000000000000000000997722339955210000000000000000000000000000000044654432009966220000000000000000000000000000000088883200006577110000000000000000000000000000000024664300007721220000000000000000000000000000000000431100559944000000000000000000000000000000000000001000137744331000002222110000000000000000000000000000007777668899996611000000000000000000000000000000999988884488999966110000000000000000000000000023444477999988772233777754000000000000000000000012779999997732000000000000000000000000000000000000000000234466553200000000";
+  const covAt = (u, v) => +COV[Math.min(26, Math.max(0, v * 27 | 0)) * 48 + Math.min(47, Math.max(0, u * 48 | 0))] || 0;
   const LOST = ["fatura em falta?", "3.º ESQ.", "quem ficou de ligar?", "orçamento #231", "extrato de outubro",
     "re: re: fwd: infiltração", "ata de março", "anexo (2).pdf", "sinistro 4471", "IVA · dia 20", "WhatsApp (14)",
     "onde está o email?", "recibo do armazém", "elevador parado", "já enviei tudo?", "fração 4.º D", "quota de junho", "e-fatura · 41",
@@ -828,9 +834,11 @@ a.card:hover .open i { transform: none; }
       const tw = wx.measureText(t).width;
       for (let k = 0; k < 160; k++) {
         // toda a zona por onde a luz passa, à direita do robô: sem buracos
-        const fx = .6 + rnd() * .45, fy = .5 + rnd() * .44;
+        const fx = .55 + rnd() * .43, fy = .62 + rnd() * .31;
         const x = vr.x + fx * vr.w, y = vr.y + fy * vr.h;
         if (x + tw > W - 12) continue;
+        // só onde a luz do vídeo passa: pelo menos o meio da palavra tem de ser iluminado em algum momento
+        if (covAt((x + tw / 2 - vr.x) / vr.w, (y - vr.y) / vr.h) < 3) continue;
         const r = { x: x - pad, y: y - size / 2 - pad, w: tw + pad * 2, h: size + pad * 2 };
         if (placed.some((q) => r.x < q.x + q.w && q.x < r.x + r.w && r.y < q.y + q.h && q.y < r.y + r.h)) continue;
         placed.push(r); lost.push({ t, x, y, tw, font, glow: 0 }); break;
@@ -868,17 +876,27 @@ a.card:hover .open i { transform: none; }
     hx.fillStyle = fade(0, vr.y, 0, vr.y + e * .6); hx.fillRect(vr.x, vr.y - 1, vr.w, e * .6);
     hx.fillStyle = fade(0, vr.y + vr.h, 0, vr.y + vr.h - e * .6); hx.fillRect(vr.x, vr.y + vr.h - e * .6, vr.w, e * .6 + 1);
     // as palavras por cima das vinhetas: a luz revela-as até à borda do ecrã
-    // cada palavra acende inteira quando o cone de luz lhe chega e apaga devagar quando a luz segue
+    // cada palavra acende inteira só enquanto a luz do vídeo está em cima dela
     if (litA) {
-      const cx = bx + vr.w * .05, rx = vr.w * .15, ry = vr.w * .065;  // o cone estende-se para a frente e é baixo
+      sx.drawImage(hv, 0, 0, 96, 54);
+      const px = sx.getImageData(0, 0, 96, 54).data;
+      const warm = (u, v) => {
+        if (u < 0 || u > 1 || v < 0 || v > 1) return 0;
+        const k = ((v * 53 | 0) * 96 + (u * 95 | 0)) * 4, r = px[k], b = px[k + 2];
+        return clamp((r - b - 8) / 40) * clamp((r - 40) / 80);
+      };
       hx.textBaseline = "middle"; hx.textAlign = "left";
       lost.forEach((o) => {
-        const dx = (Math.max(o.x, Math.min(cx, o.x + o.tw)) - cx) / rx, dy = (o.y - by) / ry;
-        const target = clamp((1.15 - Math.hypot(dx, dy)) * 1.6);
-        o.glow += (target - o.glow) * (target > o.glow ? .22 : .06);
+        let target = 0;
+        for (let q = 0; q <= 4; q++) {
+          const u = (o.x + o.tw * q / 4 - vr.x) / vr.w, v = (o.y - vr.y) / vr.h;
+          target = Math.max(target, warm(u, v), warm(u, v + .02) * .8);
+        }
+        target = clamp(target * 1.6);
+        o.glow += (target - o.glow) * .3;
         const k = ease(clamp(o.glow));
         hx.font = o.font;
-        hx.globalAlpha = litA * (.07 + .93 * k);
+        hx.globalAlpha = litA * (.06 + .94 * k);
         hx.fillStyle = k > .02 ? `rgb(255,${246 - 8 * k | 0},${232 - 22 * k | 0})` : "#fff";
         hx.shadowColor = `rgba(255,214,160,${.55 * k})`; hx.shadowBlur = 14 * k;
         hx.fillText(o.t, o.x, o.y);
