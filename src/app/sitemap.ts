@@ -5,18 +5,22 @@ import { recursosArticles } from '@/lib/data/recursos';
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dongrielabs.com';
 
 const locales = ['en', 'pt'] as const;
-const staticPaths = ['', '/services', '/portfolio', '/products', '/about', '/pricing', '/recursos', '/privacy', '/contact'];
+// a página inicial é a mesma para os dois idiomas (/), por isso não entra por idioma
+const staticPaths = ['/services', '/portfolio', '/products', '/about', '/pricing', '/recursos', '/privacy', '/contact'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
+  const entries: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: `${BASE_URL}/llms.txt`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 },
+  ];
 
   for (const locale of locales) {
     for (const path of staticPaths) {
       entries.push({
-        url: `${BASE_URL}/${locale}${path || ''}`,
+        url: `${BASE_URL}/${locale}${path}`,
         lastModified: new Date(),
-        changeFrequency: path === '' ? 'weekly' : 'monthly',
-        priority: path === '' ? 1 : 0.8,
+        changeFrequency: 'monthly',
+        priority: 0.8,
       });
     }
     for (const project of projects) {

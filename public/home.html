@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dongrie Labs · AI Layer para gestão de condomínios e contabilidade</title>
+<meta name="description" content="A AI Layer da Dongrie Labs arruma emails, WhatsApps, chamadas e sistemas por cliente e prepara o próximo passo. Para gestão de condomínios e contabilidade em Portugal. Piloto de 2 a 4 semanas.">
+<link rel="canonical" href="https://dongrielabs.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Gonçalo Dongrie">
+<meta name="theme-color" content="#030116">
+<meta name="geo.region" content="PT">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dongrie Labs">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:url" content="https://dongrielabs.com/">
+<meta property="og:title" content="Para de procurar. AI Layer para condomínios e contabilidade">
+<meta property="og:description" content="Cada email, mensagem e chamada ligado ao cliente certo, com o próximo passo pronto a aprovar.">
+<meta property="og:image" content="https://dongrielabs.com/media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="O robô da Dongrie Labs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Para de procurar. AI Layer para condomínios e contabilidade">
+<meta name="twitter:description" content="Cada email, mensagem e chamada ligado ao cliente certo, com o próximo passo pronto a aprovar.">
+<meta name="twitter:image" content="https://dongrielabs.com/media/og.jpg">
+<link rel="icon" href="/media/favicon.png">
+<link rel="apple-touch-icon" href="/media/favicon.png">
+<link rel="alternate" type="text/markdown" title="Resumo para assistentes de IA" href="/llms.txt">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dongrielabs.com/#org",
+      "name": "Dongrie Labs",
+      "url": "https://dongrielabs.com/",
+      "logo": "https://dongrielabs.com/media/favicon.png",
+      "image": "https://dongrielabs.com/media/og.jpg",
+      "description": "Estúdio português de software e IA. Faz a AI Layer para gestão de condomínios e contabilidade, a Linea (assistente telefónico com IA), o Diagnóstico Express de visibilidade no Google e em IA, e apps para iOS.",
+      "founder": { "@type": "Person", "@id": "https://dongrielabs.com/#founder", "name": "Gonçalo Dongrie", "jobTitle": "Fundador" },
+      "email": "goncalo.dongrie05@gmail.com",
+      "telephone": "+351927699882",
+      "areaServed": { "@type": "Country", "name": "Portugal" },
+      "address": { "@type": "PostalAddress", "addressCountry": "PT" },
+      "knowsLanguage": ["pt-PT", "en"],
+      "contactPoint": [{ "@type": "ContactPoint", "contactType": "sales", "telephone": "+351927699882", "email": "goncalo.dongrie05@gmail.com", "areaServed": "PT", "availableLanguage": ["Portuguese", "English"] }],
+      "sameAs": ["https://apps.apple.com/pt/developer/goncalo-duarte-dongrie-de-carvalho/id1809496422", "https://linea.dongrielabs.com/", "https://diagnostico.dongrielabs.com/", "https://ferramentasai.dongrielabs.com"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dongrielabs.com/#website",
+      "url": "https://dongrielabs.com/",
+      "name": "Dongrie Labs",
+      "inLanguage": "pt-PT",
+      "publisher": { "@id": "https://dongrielabs.com/#org" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dongrielabs.com/#webpage",
+      "url": "https://dongrielabs.com/",
+      "name": "Dongrie Labs · AI Layer para gestão de condomínios e contabilidade",
+      "inLanguage": "pt-PT",
+      "isPartOf": { "@id": "https://dongrielabs.com/#website" },
+      "about": { "@id": "https://dongrielabs.com/#ailayer" },
+      "primaryImageOfPage": "https://dongrielabs.com/media/og.jpg"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://dongrielabs.com/#ailayer",
+      "name": "AI Layer",
+      "serviceType": "Organização de emails, mensagens e sistemas por cliente com inteligência artificial",
+      "description": "Liga cada email, WhatsApp, chamada e documento ao cliente certo (prédio e fração, ou cliente e mês), junta o histórico e prepara o próximo passo. Uma pessoa revê e aprova antes de qualquer envio.",
+      "provider": { "@id": "https://dongrielabs.com/#org" },
+      "areaServed": { "@type": "Country", "name": "Portugal" },
+      "audience": [
+        { "@type": "BusinessAudience", "name": "Empresas de gestão de condomínios" },
+        { "@type": "BusinessAudience", "name": "Gabinetes de contabilidade" }
+      ],
+      "offers": { "@type": "Offer", "name": "Diagnóstico de 30 minutos e piloto de 2 a 4 semanas", "description": "Preço fechado antes de começar.", "url": "https://calendly.com/goncalo-dongrie05/30min" }
+    },
+    {
+      "@type": "Service",
+      "name": "Linea",
+      "url": "https://linea.dongrielabs.com/",
+      "serviceType": "Assistente telefónico com inteligência artificial",
+      "description": "Atende as chamadas de clínicas e pequenas empresas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta.",
+      "provider": { "@id": "https://dongrielabs.com/#org" },
+      "areaServed": { "@type": "Country", "name": "Portugal" },
+      "offers": [
+        { "@type": "Offer", "name": "Starter · 400 minutos", "price": "99", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99", "priceCurrency": "EUR", "unitText": "mês" } },
+        { "@type": "Offer", "name": "Growth · 1000 minutos", "price": "199", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "EUR", "unitText": "mês" } },
+        { "@type": "Offer", "name": "Pro · 2500 minutos", "price": "499", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "499", "priceCurrency": "EUR", "unitText": "mês" } }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Diagnóstico Express",
+      "url": "https://diagnostico.dongrielabs.com/",
+      "serviceType": "Análise de visibilidade de websites no Google e em ferramentas de IA",
+      "description": "Analisa grátis, em menos de um minuto, robots.txt, indexação, sitemap, dados estruturados e informação essencial visível. Devolve uma nota e os 3 problemas mais graves com prova.",
+      "provider": { "@id": "https://dongrielabs.com/#org" },
+      "offers": [
+        { "@type": "Offer", "name": "Diagnóstico Express", "price": "0", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Auditoria Visível", "price": "120", "priceCurrency": "EUR", "description": "Mais IVA. Descontado na implementação.", "valueAddedTaxIncluded": false }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Apps da Dongrie Labs na App Store",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "MobileApplication", "name": "SmartMeal", "operatingSystem": "iOS", "applicationCategory": "LifestyleApplication", "url": "https://apps.apple.com/pt/app/smartmeal/id6744840322" } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "MobileApplication", "name": "MedClarityAI", "operatingSystem": "iOS", "applicationCategory": "MedicalApplication", "url": "https://apps.apple.com/pt/app/medclarityai/id6754197255" } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "MobileApplication", "name": "Kairo", "operatingSystem": "iOS", "applicationCategory": "BusinessApplication", "url": "https://apps.apple.com/pt/app/kairo-decide-better/id6757859161" } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "MobileApplication", "name": "Andreia Rocha Coach", "operatingSystem": "iOS", "applicationCategory": "HealthApplication", "url": "https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365" } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "MobileApplication", "name": "Verbalis", "operatingSystem": "iOS", "applicationCategory": "GameApplication", "url": "https://apps.apple.com/pt/app/verbalis/id6752515624" } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "MobileApplication", "name": "Crypto Adoption", "operatingSystem": "iOS", "applicationCategory": "GameApplication", "url": "https://apps.apple.com/pt/app/crypto-adoption/id6753661731" } }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dongrielabs.com/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "O que é a AI Layer?", "acceptedAnswer": { "@type": "Answer", "text": "Uma camada de inteligência artificial por cima do email, do WhatsApp, das chamadas e dos sistemas que a equipa já usa. Liga cada mensagem ao cliente certo, junta o histórico e prepara o próximo passo." } },
+        { "@type": "Question", "name": "Para quem é a AI Layer?", "acceptedAnswer": { "@type": "Answer", "text": "Para empresas de gestão de condomínios e gabinetes de contabilidade em Portugal. Nos condomínios começa pelas ocorrências; na contabilidade, pelos documentos em falta." } },
+        { "@type": "Question", "name": "Preciso de trocar de sistema?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O piloto começa a partir do email e de uma pasta partilhada, sem mudar o que a equipa já usa." } },
+        { "@type": "Question", "name": "A IA envia mensagens sozinha?", "acceptedAnswer": { "@type": "Answer", "text": "Não. A AI Layer prepara respostas e lembretes, e uma pessoa revê e aprova antes de qualquer envio. Na contabilidade, nada é submetido sem o contabilista." } },
+        { "@type": "Question", "name": "Como se começa e quanto tempo demora?", "acceptedAnswer": { "@type": "Answer", "text": "Com um diagnóstico de 30 minutos para escolher o processo que mais tempo custa. Segue-se um piloto de 2 a 4 semanas, com preço fechado antes de começar, e no fim uma decisão com o antes e o depois." } }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+html, body { background: #030116; }
+/* Layout: ecrãs inteiros, uma ideia por ecrã; tipografia larga do logótipo como voz da marca. */
+:root {
+  color-scheme: dark;
+  --bg: #030116;
+  --ink: #f3f4ff;
+  --muted: rgba(243, 244, 255, .62);
+  --faint: rgba(243, 244, 255, .36);
+  --line: rgba(243, 244, 255, .12);
+  --accent: #c7a6ff;
+  --blue: #082b8c;
+  --band: #032d9b;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --gut: max(20px, env(safe-area-inset-left, 0px), 4.4vw);
+  --bw: clamp(260px, 30vw, 460px);  /* largura do logótipo */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: clip; }
+body {
+  color: var(--ink); font-family: "Archivo", system-ui, sans-serif; font-variation-settings: "wdth" 100;
+  font-size: 16px; line-height: 1.55; letter-spacing: -.01em; overflow-x: clip;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: rgba(199, 166, 255, .35); }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 90; opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* voz da marca: a letra larga do logótipo */
+.wide { font-variation-settings: "wdth" 125; font-weight: 800; text-transform: uppercase; letter-spacing: -.025em; line-height: .88; }
+.wide .dim { color: var(--faint); }
+.wide .lil { color: var(--accent); }
+/* nas secções de baixo, a mesma família mais leve e em minúsculas */
+.soft { font-variation-settings: "wdth" 112; font-weight: 600; letter-spacing: -.045em; line-height: .95; }
+.soft .dim { color: var(--faint); }
+.mega { font-size: clamp(46px, 9.4vw, 168px); }
+.big { font-size: clamp(38px, 6.6vw, 116px); }
+.small { font-size: 13px; color: var(--muted); }
+.lede { font-size: clamp(16px, 1.3vw, 19px); color: var(--muted); max-width: 30rem; }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 14px; min-height: 52px; padding: 6px 6px 6px 26px;
+  border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 600; font-size: 15px;
+  transition: transform .25s var(--ease);
+}
+.cta i { width: 40px; height: 40px; border-radius: 50%; background: var(--bg); color: var(--ink); display: grid; place-items: center; font-style: normal; transition: transform .35s var(--ease); }
+.cta:hover i { transform: rotate(-45deg); }
+.cta:active { transform: scale(.97); }
+
+/* navegação */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--gut) 14px; align-items: start; pointer-events: none;
+}
+.nav > * { pointer-events: auto; }
+/* ao descer, uma faixa escura protege o menu do conteúdo */
+.nav::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(84px + env(safe-area-inset-top, 0px)); background: linear-gradient(#030116 calc(100% - 36px), rgba(3, 1, 22, 0)); opacity: 0; transition: opacity .2s, height .6s var(--ease); pointer-events: none; z-index: -1; }
+/* enquanto o logótipo grande cai, a faixa cobre-o todo: nada passa por baixo dele */
+.nav.tall::before { height: calc(var(--bw) * .251 + 56px + env(safe-area-inset-top, 0px)); }
+.nav.solid::before { opacity: 1; }
+.nav ul { padding-top: 10px; }
+/* logótipo animado, sem fundo: entrada ao abrir, queda ao sair do início, depois só o robô */
+.brand { display: block; width: var(--bw); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
+.brand canvas { width: 100%; height: 100%; display: block; }
+.brand.small { transform: scale(.5); }
+.brand video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
+.nav ul { list-style: none; display: flex; gap: 28px; font-size: 14px; }
+.nav ul a { opacity: .75; transition: opacity .2s; }
+.nav ul a:hover { opacity: 1; }
+.nav button { display: none; font: inherit; font-size: 14px; color: var(--ink); background: none; border: 0; min-height: 44px; padding: 0 4px; }
+.menu {
+  position: fixed; inset: 0; z-index: 60; background: var(--bg); display: flex; flex-direction: column; justify-content: center;
+  gap: 18px; padding: 0 var(--gut); opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s;
+}
+.menu.open { opacity: 1; visibility: visible; }
+.menu a { font-variation-settings: "wdth" 125; font-weight: 800; text-transform: uppercase; font-size: 34px; letter-spacing: -.02em; }
+.menu .close { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: var(--gut); font: inherit; color: var(--ink); background: none; border: 0; min-height: 44px; }
+
+/* 1 · abertura: a lanterna revela o que anda perdido */
+.hero { position: relative; height: 100vh; height: 100dvh; min-height: 600px; overflow: hidden; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero video.src { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
+.hero .copy {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  display: grid; grid-template-rows: 1fr auto; padding: calc(var(--bw) * .251 + 44px) var(--gut) 40px;
+}
+.hero h1 { align-self: start; }
+.hero .foot { display: grid; justify-items: start; gap: 24px; pointer-events: auto; }
+.hero .foot .lede { max-width: 26rem; }
+.hero .eyebrow { font-size: 13px; color: var(--muted); margin-bottom: 22px; display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  .in1, .in2, .in3 { opacity: 0; transform: translateY(26px); animation: up 1s var(--ease) forwards; }
+  .in2 { animation-delay: .15s } .in3 { animation-delay: .35s }
+  @keyframes up { to { opacity: 1; transform: none; } }
+}
+
+/* 2 · filme do produto: uma só janela que se transforma, guiada pelo scroll */
+.film { position: relative; height: 620vh; }
+.film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
+.film .titles { position: absolute; left: var(--gut); top: 0; bottom: 0; width: min(44vw, 660px); display: grid; align-content: center; z-index: 2; pointer-events: none; }
+.film .t { grid-area: 1 / 1; }
+.film .t h2 { font-size: clamp(30px, 4.1vw, 74px); }
+.film .t .ln { display: block; overflow: hidden; padding: .18em 0 .08em; margin: -.18em 0 -.08em; }
+.film .t .ln > span { display: block; transform: translateY(135%); transition: transform .8s var(--ease); }
+.film .t .ln + .ln > span { transition-delay: .07s; }
+.film .t.on .ln > span { transform: none; }
+.film .t.out .ln > span { transform: translateY(-135%); transition-delay: 0s; }
+.film .t p { margin-top: 24px; max-width: 25rem; color: var(--muted); font-size: 15px; opacity: 0; transform: translateY(14px); transition: opacity .4s, transform .6s var(--ease); }
+.film .t.on p { opacity: 1; transform: none; transition-delay: .2s; }
+.win {
+  position: absolute; left: 0; top: 0; z-index: 3; transform-origin: 0 0; overflow: hidden; will-change: transform, height;
+  background: #0c0b2b; border: 1px solid rgba(243, 244, 255, .1); border-radius: 22px;
+  box-shadow: 0 50px 120px -50px rgba(8, 43, 140, .9), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+.win .field { position: absolute; left: 14px; right: 14px; top: 14px; height: 50px; border-radius: 14px; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+.win .field .ico { width: 15px; height: 15px; border: 2px solid var(--faint); border-radius: 50%; position: relative; flex: none; }
+.win .field .ico::after { content: ""; position: absolute; width: 6px; height: 2px; background: var(--faint); right: -6px; bottom: -3px; transform: rotate(45deg); }
+.win .qt { white-space: nowrap; line-height: 1.1; letter-spacing: -.02em; transform-origin: 0 50%; }
+.win .qt .ph { color: var(--faint); }
+.win .qt .qx { color: var(--faint); }
+.win .qt .caret { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; vertical-align: -.12em; }
+.win .meta { position: absolute; left: 30px; top: 78px; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.win .r { position: absolute; left: 0; right: 0; top: 0; height: 58px; display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 0 18px; border-top: 1px solid rgba(243, 244, 255, .06); }
+.win .r .src { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.win .r .m { min-width: 0; display: grid; }
+.win .r .m small, .win .r .m span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.win .r .m small { font-size: 11.5px; color: var(--faint); }
+.win .r .m span { font-size: 14px; }
+.win .r .tm { display: grid; justify-items: end; gap: 3px; font-size: 11.5px; color: var(--faint); }
+.win .r .chip { font-size: 10.5px; padding: 2px 8px; border-radius: 99px; border: 1px solid currentColor; color: #ffb86b; }
+.win .r .chip.fin { color: #7ee2b0; }
+.win .r .dot { position: absolute; left: 22px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: var(--accent); transform: scale(0); }
+.win .tl { position: absolute; left: 26px; width: 1px; background: rgba(199, 166, 255, .4); transform-origin: 0 0; transform: scaleY(0); }
+.win .nx { position: absolute; left: 14px; right: 14px; top: 0; padding: 18px; border-radius: 16px; background: rgba(199, 166, 255, .08); border: 1px solid rgba(199, 166, 255, .2); display: grid; gap: 10px; }
+.win .nx .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.win .nx p { font-size: 16.5px; line-height: 1.4; letter-spacing: -.015em; }
+.win .nx p .rest { color: transparent; }
+.win .ok { justify-self: start; position: relative; overflow: hidden; height: 44px; border-radius: 99px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.win .ok span { position: absolute; left: 0; right: 0; top: 0; line-height: 44px; padding: 0 20px; }
+.win .ok .a { position: static; display: block; }
+.win .ok .b { transform: translateY(100%); color: #fff; }
+.cur { position: absolute; left: 0; top: 0; z-index: 5; width: 22px; height: 22px; pointer-events: none; opacity: 0; will-change: transform; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .5)); }
+/* 3 · impacto: o botão "enviado" cresce até encher o ecrã */
+.flood { position: absolute; left: 0; top: 0; z-index: 6; opacity: 0; pointer-events: none; }
+.impact { position: absolute; inset: 0; z-index: 7; display: grid; align-content: center; padding: 0 var(--gut); pointer-events: none; visibility: hidden; }
+.impact.on { visibility: visible; }
+.impact .ln { display: block; overflow: hidden; padding: .18em 0 .08em; margin: -.18em 0 -.08em; }
+.impact .ln > span { display: block; transform: translateY(135%); transition: transform .8s var(--ease); }
+.impact .ln + .ln > span { transition-delay: .07s; color: rgba(243, 244, 255, .5); }
+.impact.on .ln > span { transform: none; }
+.impact ul { list-style: none; margin-top: 44px; border-top: 1px solid rgba(243, 244, 255, .22); max-width: 46rem; }
+.impact li { display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(243, 244, 255, .22); font-size: 17px; opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .7s var(--ease); }
+.impact li span { color: rgba(243, 244, 255, .7); font-size: 15px; text-align: right; }
+.impact.on li { opacity: 1; transform: none; }
+.impact.on li:nth-child(1) { transition-delay: .25s } .impact.on li:nth-child(2) { transition-delay: .35s } .impact.on li:nth-child(3) { transition-delay: .45s }
+.nav.onblue::before { background: linear-gradient(#082b8c calc(100% - 36px), rgba(8, 43, 140, 0)); }
+.ring { position: absolute; left: 0; top: 0; z-index: 4; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 2px solid var(--accent); pointer-events: none; opacity: 0; }
+.switch {
+  position: absolute; z-index: 4; right: var(--gut); top: 96px; display: flex; gap: 4px; font-size: 13px;
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px;
+}
+.switch button { font: inherit; color: var(--muted); background: none; border: 0; border-radius: 999px; padding: 8px 14px; min-height: 36px; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+
+/* 4 · como começar: uma linha que se preenche */
+.start { padding: clamp(110px, 13vw, 180px) var(--gut) clamp(80px, 9vw, 120px); }
+.track { position: relative; margin-top: clamp(56px, 7vw, 96px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.track::before, .track .fill { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--line); }
+.track .fill { background: var(--ink); transform-origin: left; transform: scaleX(0); }
+.track div { position: relative; padding-top: 34px; display: grid; gap: 8px; align-content: start; }
+.track div::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--bg); border: 1px solid var(--ink); }
+.track .dur { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; color: var(--accent); margin-bottom: 6px; }
+.track h3 { font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
+.track p { color: var(--muted); font-size: 15px; max-width: 24rem; }
+.start .act { margin-top: 56px; }
+
+/* 5 · setores e outras áreas */
+.rows { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 96px); padding: clamp(48px, 6vw, 88px) 0; border-top: 1px solid var(--line); align-items: center; }
+.row .txt { display: grid; gap: 28px; }
+.row .big { font-size: clamp(34px, 4.8vw, 84px); }
+.row .what { display: grid; gap: 10px; }
+/* um pedaço da AI Layer em cada setor */
+.mini { width: 100%; max-width: 520px; justify-self: end; display: grid; gap: 18px; padding: 22px; background: #0c0b2b; border: 1px solid rgba(243, 244, 255, .1); border-radius: 22px;
+  box-shadow: 0 40px 100px -50px rgba(8, 43, 140, .9); transition: transform .5s var(--ease), border-color .3s; }
+.mini:hover { transform: translateY(-2px); border-color: rgba(199, 166, 255, .3); }
+.mini .mh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.mini .mh b { font-variation-settings: "wdth" 125; font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
+.mini .mh span, .mini em { font-style: normal; font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+.mini .steps { list-style: none; display: grid; position: relative; }
+.mini .steps::before { content: ""; position: absolute; left: 4px; top: 18px; bottom: 18px; width: 1px; background: rgba(199, 166, 255, .3); }
+.mini .steps li { position: relative; display: flex; justify-content: space-between; gap: 12px; padding: 10px 0 10px 26px; font-size: 14.5px; color: var(--muted); }
+.mini .steps li::before { content: ""; position: absolute; left: 0; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); transform: scale(0); transition: transform .5s var(--ease) calc(var(--i) * .14s); }
+.mini.in .steps li::before { transform: none; }
+.mini .steps li.done::before { background: var(--accent); }
+.mini .steps li.now { color: var(--ink); }
+.mini .steps li.now::before { background: var(--ink); border-color: var(--ink); box-shadow: 0 0 0 5px rgba(243, 244, 255, .1); }
+.mini .bar { height: 6px; border-radius: 9px; background: rgba(243, 244, 255, .08); overflow: hidden; }
+.mini .bar i { display: block; height: 100%; width: 93%; border-radius: inherit; background: var(--accent); transform-origin: 0 0; transform: scaleX(0); transition: transform 1.2s var(--ease) .2s; }
+.mini.in .bar i { transform: none; }
+.mini .cnt { font-size: 14px; color: var(--muted); margin-top: -8px; }
+.mini .cnt strong { color: var(--ink); font-weight: 600; }
+.mini .miss { list-style: none; border-top: 1px solid var(--line); }
+.mini .miss li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.mini .miss em { color: #ffb86b; }
+.mini .mx { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 14px; border-radius: 14px; background: rgba(199, 166, 255, .08); border: 1px solid rgba(199, 166, 255, .2); font-size: 13.5px; }
+.mini .mx b { font-size: 12.5px; font-weight: 600; background: var(--ink); color: var(--bg); border-radius: 99px; padding: 7px 14px; }
+.row .what .k { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.row .what p { color: var(--muted); max-width: 30rem; }
+/* 6 · produtos: cards que abrem num painel (a mesma forma cresce) */
+.prods { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
+.prods-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 4vw, 56px); }
+.prods-head .lede { max-width: 24rem; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.card {
+  position: relative; display: grid; grid-template-rows: auto 1fr auto auto; gap: 14px; text-align: left; min-height: 380px; padding: 22px;
+  font: inherit; color: var(--ink); background: #0a0928; border: 1px solid var(--line); border-radius: 22px; cursor: pointer; overflow: hidden;
+  transition: transform .5s var(--ease), border-color .3s, background .3s;
+}
+.card:hover { transform: translateY(-6px); border-color: rgba(199, 166, 255, .35); background: #0e0c33; }
+.card:active { transform: scale(.98); }
+.card .n { font-size: 12px; color: var(--faint); letter-spacing: .1em; }
+.card .mo { align-self: center; justify-self: center; width: 100%; max-width: 200px; height: 140px; color: var(--accent); }
+.card strong { font-size: clamp(22px, 1.9vw, 30px); }
+.card .s { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+.card .open { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--faint); padding-top: 14px; border-top: 1px solid var(--line); transition: color .2s; }
+.card .open i { width: 30px; height: 30px; font-size: 13px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease), background .3s, color .3s; }
+.card:hover .open { color: var(--ink); }
+.card:hover .open i { transform: rotate(90deg); background: var(--ink); color: var(--bg); }
+a.card:hover .open i { transform: none; }
+/* motivos: cada produto, uma forma */
+.mo svg { width: 100%; height: 100%; overflow: visible; }
+@media (prefers-reduced-motion: no-preference) {
+  .mo .cell { transition: fill .3s, transform .5s var(--ease); transform-box: fill-box; transform-origin: center; }
+  .card:hover .mo .cell:nth-child(1), .card:hover .mo .cell:nth-child(4), .card:hover .mo .cell:nth-child(5) { fill: currentColor; transform: scale(.9); }
+  .card:hover .lmark { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(47, 125, 235, .14), 0 0 60px rgba(47, 125, 235, .5); }
+  /* em repouso: a borda ondula e o brilho passeia; ao responder, a orbe pulsa como quem fala */
+  .orb { animation: blob 7s ease-in-out infinite, glow 3.4s ease-in-out infinite; }
+  .orb::before { animation: shine 7s ease-in-out infinite; }
+  .sheet.ready .orbw { animation: talk .34s ease-in-out 1.3s 5 alternate; }
+  @keyframes blob {
+    0%, 100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; transform: rotate(0) scale(1); }
+    25% { border-radius: 54% 46% 51% 49% / 47% 53% 47% 53%; transform: rotate(8deg) scale(1.03); }
+    50% { border-radius: 47% 53% 46% 54% / 53% 47% 52% 48%; transform: rotate(-4deg) scale(.98); }
+    75% { border-radius: 52% 48% 55% 45% / 49% 54% 46% 51%; transform: rotate(5deg) scale(1.02); }
+  }
+  @keyframes glow { 50% { box-shadow: 0 0 56px 14px rgba(47, 125, 235, .55), 0 0 140px 44px rgba(47, 125, 235, .22), inset 0 0 26px rgba(170, 215, 255, .6), inset -8px -12px 26px rgba(16, 50, 140, .45); } }
+  @keyframes shine { 50% { transform: translate(14%, 10%) scale(1.12); opacity: .85; } }
+  @keyframes talk { from { transform: scale(1); } to { transform: scale(1.09); } }
+  .call > * { opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .6s var(--ease); }
+  .sheet.ready .call > * { opacity: 1; transform: none; }
+  .sheet.ready .call .q { transition-delay: .5s; } .sheet.ready .call .a { transition-delay: 1.3s; } .sheet.ready .call ul { transition-delay: 2s; }
+  .mo .needle { transform-origin: 100px 110px; transform: rotate(-60deg); transition: transform .9s var(--ease); }
+  .card:hover .mo .needle, .sheet .mo .needle { transform: rotate(38deg); }
+  /* relatório do diagnóstico: o anel enche-se e os problemas aparecem um a um */
+  .rp .arc { transition: stroke-dashoffset 1.4s var(--ease) .3s; }
+  .rp li { opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .6s var(--ease); }
+  .sheet.ready .rp li { opacity: 1; transform: none; }
+  .sheet.ready .rp li:nth-child(1) { transition-delay: 1s } .sheet.ready .rp li:nth-child(2) { transition-delay: 1.25s } .sheet.ready .rp li:nth-child(3) { transition-delay: 1.5s }
+}
+.sheet { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: hidden; }
+.sheet::backdrop { background: rgba(3, 1, 22, .7); backdrop-filter: blur(4px); }
+.sheet .panel {
+  position: absolute; inset: clamp(12px, 3vw, 40px); overflow: auto; overscroll-behavior: contain; background: #0a0928;
+  border: 1px solid rgba(199, 166, 255, .25); border-radius: 26px; transform-origin: 0 0;
+}
+.sheet .x { position: fixed; top: calc(clamp(12px, 3vw, 40px) + 16px); right: calc(clamp(12px, 3vw, 40px) + 16px); z-index: 2; font: inherit; font-size: 14px; color: var(--ink); background: rgba(20, 18, 58, .88); backdrop-filter: blur(8px); border: 0; border-radius: 99px; min-height: 44px; padding: 0 18px; cursor: pointer; }
+.sheet .x:hover { background: rgba(40, 36, 96, .95); }
+.sheet .body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 5vw, 72px); min-height: 100%; }
+.sheet .body > * { opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .7s var(--ease); }
+.sheet.ready .body > * { opacity: 1; transform: none; }
+.sheet.ready .body > :nth-child(2) { transition-delay: .08s; }
+.sheet .kick { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.sheet h3 { margin: 18px 0 22px; font-size: clamp(40px, 6vw, 104px); }
+.sheet .lead { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.4; letter-spacing: -.02em; max-width: 34rem; }
+.sheet .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 40px 0; }
+.sheet .facts div { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+.sheet .facts b { font-size: 12px; font-weight: 500; color: var(--faint); letter-spacing: .08em; text-transform: uppercase; }
+.sheet .facts span { color: var(--muted); font-size: 15px; }
+/* planos (Linea) */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: -12px 0 16px; }
+.plans div { display: grid; gap: 6px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; }
+.plans b { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.plans strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; }
+.plans span { color: var(--muted); font-size: 14px; }
+.plans strong small { margin-left: 3px; font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.offer { margin-bottom: 40px; padding-left: 14px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14.5px; max-width: 36rem; }
+.offer strong { color: var(--ink); font-weight: 600; }
+.sheet ol { list-style: none; counter-reset: s; display: grid; gap: 0; border-top: 1px solid var(--line); margin-bottom: 40px; }
+.sheet ol li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.sheet ol li::before { content: "0" counter(s); color: var(--accent); font-size: 13px; padding-top: 3px; }
+.sheet .acts { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.sheet .ghost { display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 99px; border: 1px solid var(--line); font-size: 15px; }
+.sheet .ghost:hover { border-color: var(--ink); }
+.sheet .vis { position: sticky; top: 0; align-self: start; aspect-ratio: 1; border-radius: 22px; display: grid; place-items: center; padding: 18%;
+  background: radial-gradient(120% 90% at 30% 20%, #1b3fc4 0%, var(--blue) 45%, #05043a 100%); color: #fff; overflow: hidden; }
+/* apps: ícones verdadeiros, em leque no card e em lista no painel */
+.mo .fan { position: relative; display: block; width: 100%; height: 100%; }
+.mo .fan img { position: absolute; top: 50%; left: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 20px; box-shadow: 0 16px 30px -12px rgba(0, 0, 0, .8); transition: transform .6s var(--ease); }
+.mo .fan img:nth-child(1) { transform: translateX(-50px) rotate(-10deg); }
+.mo .fan img:nth-child(2) { z-index: 1; transform: translateY(-6px); }
+.mo .fan img:nth-child(3) { transform: translateX(50px) rotate(10deg); }
+.card:hover .mo .fan img:nth-child(1) { transform: translateX(-64px) rotate(-14deg); }
+.card:hover .mo .fan img:nth-child(2) { transform: translateY(-14px) scale(1.04); }
+.card:hover .mo .fan img:nth-child(3) { transform: translateX(64px) rotate(14deg); }
+.sheet .appsb { grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 3.4vw, 48px); align-content: start; }
+.appsb .ah { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.appsb .ah h3 { margin: 12px 0 16px; font-size: clamp(44px, 4.6vw, 80px); }
+.nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.nums div { display: grid; gap: 8px; align-content: start; border-top: 1px solid var(--line); padding-top: 14px; }
+.nums b { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(48px, 5.4vw, 88px); letter-spacing: -.05em; line-height: .85; }
+.nums div:first-child b { color: var(--accent); }
+.nums span { color: var(--muted); font-size: 14px; line-height: 1.4; }
+.appsb .gh { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: calc(-1 * clamp(10px, 1.6vw, 24px)); font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+.gnav { display: flex; gap: 8px; }
+.gnav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: none; color: var(--ink); font: inherit; cursor: pointer; transition: background .25s, color .25s, transform .2s; }
+.gnav button:hover { background: var(--ink); color: var(--bg); }
+.gnav button:active { transform: scale(.94); }
+.gal { --pad: clamp(28px, 5vw, 72px); display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin: 0 calc(-1 * var(--pad)); padding: 4px var(--pad) 14px; scroll-padding-inline: var(--pad); scrollbar-width: none; }
+.gal::-webkit-scrollbar { display: none; }
+.gal { --h: clamp(320px, calc(100vh - 500px), 511px); }
+.ap { --w: calc(var(--h) * .462); flex: none; width: var(--w); scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start; }
+.ap.land { --w: calc((var(--h) - 10px) * 1.083); }
+.ap .rt { position: absolute; z-index: 1; left: 10px; top: 10px; padding: 4px 9px; border-radius: 99px; background: rgba(3, 1, 22, .78); backdrop-filter: blur(6px); font-size: 12px; font-weight: 600; }
+.ap .shot { position: relative; display: grid; height: var(--h); border-radius: 22px; overflow: hidden; background: #111; }
+.ap .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.ap:hover .shot img { transform: scale(1.03); }
+.ap.land .shot { grid-template-rows: 1fr 1fr; gap: 10px; background: none; border-radius: 0; }
+.ap.land .shot img { border-radius: 18px; }
+.ap .meta { display: flex; align-items: center; gap: 12px; }
+.ap .meta img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+.ap .meta > span { min-width: 0; }
+.ap .meta b { display: block; font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap .meta em { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-style: normal; font-size: 12.5px; color: var(--faint); }
+.ap .meta i { margin-left: auto; font-style: normal; color: var(--faint); transition: transform .3s var(--ease), color .2s; }
+.ap:hover .meta i { transform: translate(3px, -3px); color: var(--ink); }
+.ap .what { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.appsb .af { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.appsb .af ol { margin-bottom: 0; }
+.appsb .af .acts { justify-content: flex-end; }
+.sheet.ready .body > :nth-child(3) { transition-delay: .14s; }
+.sheet.ready .body > :nth-child(4) { transition-delay: .2s; }
+/* Linea: a identidade dela (fundo #0A0C10, azuis, orbe de voz #C6F3FF) */
+.lmark { display: grid; place-items: center; width: 116px; height: 116px; margin: auto; border-radius: 50%; transition: transform .5s var(--ease), box-shadow .5s; box-shadow: 0 0 40px rgba(47, 125, 235, .3); }
+.lmark svg { width: 100%; height: 100%; display: block; }
+.card .mo:has(.lmark) { display: grid; }
+.sheet[data-p="linea"] { --accent: #5b9bf0; }
+.sheet[data-p="linea"] .panel { background: #0a0c10; border-color: #1c212b; }
+.sheet[data-p="linea"] .cta { background: #5b9bf0; color: #0a0c10; }
+.sheet[data-p="linea"] .cta i { background: #0a0c10; color: #5b9bf0; }
+.sheet[data-p="linea"] .plans div, .sheet[data-p="linea"] .facts div { border-color: #1c212b; }
+.sheet .tag { margin: -8px 0 18px; max-width: 34rem; line-height: 1.2; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -.03em; color: #a3c6f5; }
+.sheet .vis.lin { aspect-ratio: auto; min-height: 520px; padding: 36px 28px 28px; place-items: center; align-content: space-between; gap: 32px;
+  background: radial-gradient(70% 50% at 50% 28%, rgba(47, 125, 235, .28), transparent 70%), #0f1217; border: 1px solid #1c212b; }
+.orbw { display: grid; place-items: center; margin-top: 28px; }
+.orb { position: relative; width: 150px; height: 150px; border-radius: 50%;
+  background: radial-gradient(circle at 44% 40%, #f2f9ff 0, #a9d0ff 9%, #5c9cf3 26%, #3a80ea 48%, #2d6fe0 70%, #2459cc 100%);
+  box-shadow: 0 0 40px 8px rgba(47, 125, 235, .45), 0 0 110px 30px rgba(47, 125, 235, .18), inset 0 0 22px rgba(150, 200, 255, .55), inset -8px -12px 26px rgba(16, 50, 140, .45); }
+.orb::before { content: ""; position: absolute; left: 30%; top: 26%; width: 34%; height: 34%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, .75), rgba(255, 255, 255, 0) 70%); filter: blur(4px); }
+.call { width: 100%; max-width: 380px; display: grid; gap: 10px; padding: 16px; border-radius: 18px; background: #141821; border: 1px solid #1c212b; font-size: 14.5px; }
+.call .ch { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #f2f4f8; font-weight: 600; }
+.call .ch > span { display: flex; align-items: center; gap: 8px; }
+.call .ch .lmark { width: 24px; height: 24px; margin: 0; box-shadow: none; }
+.call .ch em { font-style: normal; font-weight: 400; font-size: 12.5px; color: #9aa3b5; }
+.call p { max-width: 85%; padding: 9px 13px; border-radius: 14px; line-height: 1.4; }
+.call .q { justify-self: end; background: #1c212b; color: #f2f4f8; border-bottom-right-radius: 4px; }
+.call .a { background: rgba(47, 125, 235, .18); color: #c6f3ff; border-bottom-left-radius: 4px; }
+.call ul { list-style: none; display: grid; gap: 6px; padding-top: 6px; border-top: 1px solid #1c212b; color: #3dd68c; font-size: 13.5px; }
+.call li::before { content: "✓  "; }
+/* Diagnóstico Express: um relatório como o que o cliente recebe */
+.sheet .more { margin-top: 16px; color: var(--muted); font-size: 16px; max-width: 34rem; }
+.upsell { display: grid; gap: 12px; padding: 22px; margin-bottom: 18px; border-radius: 20px; border: 1px solid rgba(199, 166, 255, .25); background: rgba(199, 166, 255, .06); }
+.upsell .uh { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.upsell h4 { font-size: clamp(24px, 2.2vw, 32px); }
+.upsell .uh strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: 26px; letter-spacing: -.03em; white-space: nowrap; }
+.upsell .uh small { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.upsell p { color: var(--muted); font-size: 15px; }
+.sheet .honest { margin-bottom: 36px; font-size: 14px; color: var(--faint); }
+.sheet .vis.rep { aspect-ratio: auto; padding: clamp(18px, 3vw, 36px); place-items: stretch; align-content: center; }
+.rp { display: grid; gap: 16px; padding: 18px; border-radius: 20px; background: #0c0b2b; border: 1px solid rgba(243, 244, 255, .12); box-shadow: 0 30px 80px -40px rgba(0, 0, 0, .8); }
+.rp .url { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 12px; background: rgba(243, 244, 255, .06); font-size: 14px; color: var(--muted); }
+.rp .url > span:nth-child(2) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp .url .ico { width: 13px; height: 13px; border: 2px solid var(--faint); border-radius: 50%; flex: none; }
+.rp .url b { font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 99px; background: var(--ink); color: var(--bg); }
+.rp .sc { display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 16px; position: relative; }
+.rp .sc svg { width: 88px; height: 88px; transform: rotate(-90deg); }
+.rp .sc circle { fill: none; stroke: rgba(243, 244, 255, .1); stroke-width: 7; }
+.rp .sc .arc { stroke: #ffb86b; stroke-linecap: round; stroke-dasharray: 213.6; stroke-dashoffset: 213.6; }
+.sheet.ready .rp .arc { stroke-dashoffset: 81.2; }
+.rp .sc > span { position: absolute; left: 0; width: 88px; text-align: center; font-size: 11px; color: var(--muted); }
+.rp .sc > span strong { display: block; font-variation-settings: "wdth" 112; font-size: 26px; font-weight: 600; color: var(--ink); line-height: 1; }
+.rp .sc p { font-weight: 600; font-size: 15px; display: grid; gap: 4px; }
+.rp .sc em { font-style: normal; font-weight: 400; font-size: 13px; color: var(--muted); }
+.rp ul { list-style: none; display: grid; gap: 8px; }
+.rp li { display: grid; gap: 6px; padding: 12px 12px 12px 30px; border-radius: 14px; background: rgba(243, 244, 255, .04); position: relative; font-size: 14px; }
+.rp li::before { content: ""; position: absolute; left: 12px; top: 17px; width: 8px; height: 8px; border-radius: 50%; background: #ff6b6b; }
+.rp li + li::before { background: #ffb86b; }
+.rp code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: #c7a6ff; overflow-wrap: anywhere; }
+.sheet .vis .mo { width: 100%; height: 100%; max-width: none; color: #fff; }
+
+/* perguntas frequentes */
+.faq { padding: 0 var(--gut) clamp(96px, 11vw, 150px); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 96px); align-items: start; }
+.faq .qs { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; padding: 22px 0; font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; letter-spacing: -.02em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--faint); font-size: 22px; line-height: 1; transition: transform .35s var(--ease), color .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); color: var(--accent); }
+.faq summary:hover::after { color: var(--ink); }
+.faq details p { padding: 0 0 22px; max-width: 38rem; color: var(--muted); }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
+/* 6 · contacto */
+.end { padding: 0 var(--gut) 32px; }
+.end .big-link { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(40px, 6vw, 80px) 0; border-bottom: 1px solid var(--line); }
+.end .big-link .soft { font-size: clamp(30px, 6.4vw, 112px); transition: color .3s; }
+.end .big-link:hover .soft { color: var(--accent); }
+.end .big-link em { font-style: normal; font-size: clamp(30px, 5vw, 80px); transition: transform .4s var(--ease); }
+.end .big-link:hover em { transform: translateX(10px); }
+.end .info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 28px 0 48px; font-size: 15px; color: var(--muted); }
+.end .info a { color: var(--ink); }
+.end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
+
+/* ecrãs estreitos (360 px): o título cabe sem cortar */
+@media (max-width: 480px) { .hero h1.mega { font-size: clamp(34px, 11.8vw, 46px); } }
+@media (max-width: 1100px) and (min-width: 861px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .win .r .src { display: none; }
+  .win .r { gap: 10px; padding-right: 14px; }
+  .win .ok span { padding: 0 14px; font-size: 13px; }
+  .win .ok .b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nav ul { display: none; }
+  .nav button { display: block; }
+  .hero .copy { padding-top: 100px; padding-bottom: 28px; }
+  :root { --bw: 240px; }
+  .film .titles { width: auto; right: var(--gut); top: 84px; bottom: auto; align-content: start; }
+  .film .t h2 { font-size: clamp(28px, 8.4vw, 44px); }
+  .film .t p { display: none; }
+  .switch { top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: 50%; transform: translateX(50%); }
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: 0; grid-template-columns: 96px 1fr; grid-template-rows: auto; column-gap: 18px; }
+  .card .n { display: none; }
+  .card .mo { grid-row: 1 / 4; height: 80px; }
+  .card .mo .fan { transform: scale(.6); }
+  .card .lmark { width: 72px; height: 72px; }
+  .sheet .body { grid-template-columns: 1fr; }
+  .appsb .ah, .appsb .af { grid-template-columns: 1fr; }
+  .plans div { padding: 14px 12px; }
+  .sheet .vis.lin { min-height: 0; padding: 20px 16px 16px; gap: 20px; }
+  .orb { width: 96px; height: 96px; }
+  .orbw { margin-top: 4px; }
+  .plans strong { font-size: 26px; white-space: nowrap; }
+  .plans strong small { display: block; margin: 4px 0 0; }
+  .nums b { font-size: 44px; }
+  .gal { --h: 420px; }
+  .appsb .af .acts { justify-content: flex-start; }
+  .sheet .vis { position: relative; order: -1; aspect-ratio: 16 / 10; padding: 10% 22%; }
+  .row { grid-template-columns: 1fr; }
+  .mini { justify-self: stretch; }
+  .impact li { flex-direction: column; gap: 4px; }
+  .impact li span { text-align: left; }
+  .track { grid-template-columns: 1fr; gap: 0; }
+  .track::before, .track .fill { left: 7px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; transform-origin: top; }
+  .track .fill { transform: scaleY(0); }
+  .track div { padding: 0 0 36px 40px; }
+  .end .info { grid-template-columns: 1fr; gap: 10px; }
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Principal">
+  <a class="brand" id="brand" href="#topo" aria-label="Dongrie Labs, início">
+    <canvas id="logoCanvas" aria-hidden="true"></canvas>
+    <video id="logoIntro" src="/media/logo-entrada.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+    <video id="logoFall" src="/media/logo-queda.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+  </a>
+  <ul>
+    <li><a href="#como">Como funciona</a></li>
+    <li><a href="#setores">Setores</a></li>
+    <li><a href="#comecar">Começar</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button type="button" aria-controls="menu" aria-expanded="false">Menu</button>
+</nav>
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="close" type="button">Fechar</button>
+  <a href="#como">Como funciona</a>
+  <a href="#setores">Setores</a>
+  <a href="#comecar">Começar</a>
+  <a href="#contacto">Contacto</a>
+</div>
+
+<main id="topo">
+  <!-- 1 · Abertura -->
+  <header class="hero">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <video class="src" id="heroVideo" src="/media/robo-procura.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video>
+    <div class="copy">
+      <h1 class="wide mega in1"><span class="eyebrow" style="font:inherit;font-size:13px;font-variation-settings:'wdth' 100;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">AI Layer para gestão de condomínios e contabilidade</span>Para de<br>procurar.</h1>
+      <div class="foot">
+        <p class="lede in2">A AI Layer arruma emails, mensagens e sistemas por cliente e mostra o próximo passo. Antes de alguém ter de procurar.</p>
+        <a class="cta in3" href="https://calendly.com/goncalo-dongrie05/30min">Marcar diagnóstico <i aria-hidden="true">→</i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2 · Filme do produto -->
+  <section class="film" id="como" aria-label="Como funciona a AI Layer">
+    <div class="stage">
+      <div class="titles">
+        <div class="t on"><h2 class="wide"><span class="ln"><span>Está tudo aqui.</span></span><span class="ln"><span class="dim">Algures.</span></span></h2><p data-k="sub0"></p></div>
+        <div class="t"><h2 class="wide"><span class="ln"><span>Escreve um nome.</span></span><span class="ln"><span class="dim">Aparece tudo.</span></span></h2><p>A AI Layer liga cada email, mensagem e chamada ao cliente certo. Ninguém copia nada.</p></div>
+        <div class="t"><h2 class="wide"><span class="ln"><span>E o próximo passo.</span></span><span class="ln"><span class="dim">Já preparado.</span></span></h2><p>Revê, aprova e segue. Nada sai sem uma pessoa.</p></div>
+      </div>
+      <div class="switch" role="group" aria-label="Setor">
+        <button type="button" aria-pressed="true" data-s="condo">Condomínios</button>
+        <button type="button" aria-pressed="false" data-s="conta">Contabilidade</button>
+      </div>
+      <div class="win" id="win" aria-hidden="true">
+        <div class="field"><span class="ico"></span><span class="qt"><span class="q"></span><span class="qx"></span><span class="caret"></span></span></div>
+        <div class="meta"></div>
+        <div class="tl"></div>
+        <div class="nx"><span class="k">Próximo passo · preparado</span><p><span class="typed"></span><span class="rest"></span></p><div class="ok"><span class="a"></span><span class="b"></span></div></div>
+      </div>
+      <div class="flood" id="flood" aria-hidden="true"></div>
+      <div class="impact" id="impacto-s">
+        <h2 class="wide big" id="impacto"><span class="ln"><span>Mais clientes</span></span><span class="ln"><span>por pessoa.</span></span></h2>
+        <ul>
+          <li>Menos tempo à procura <span>o histórico está no cliente certo</span></li>
+          <li>Menos trabalho repetido <span>lembretes e respostas chegam preparados</span></li>
+          <li>A mesma equipa <span>a pessoa revê e envia</span></li>
+        </ul>
+      </div>
+      <span class="ring" id="ring"></span>
+      <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 8.2-6.6 1.6L8.3 18z" fill="#f3f4ff" stroke="#030116" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+
+  <!-- 4 · Como começar -->
+  <section class="start" id="comecar" aria-labelledby="comecar-t">
+    <h2 class="soft big" id="comecar-t">Um processo.<br><span class="dim">Quatro semanas.</span></h2>
+    <div class="track" id="track">
+      <span class="fill" aria-hidden="true"></span>
+      <div><span class="dur">30 minutos</span><h3>Diagnóstico</h3><p>30 minutos para escolher o processo que mais tempo custa e o número a medir.</p></div>
+      <div><span class="dur">2 a 4 semanas</span><h3>Piloto</h3><p>2 a 4 semanas, a partir do email e de uma pasta partilhada. Preço fechado antes de começar.</p></div>
+      <div><span class="dur">No fim do piloto</span><h3>Decisão</h3><p>O antes e o depois com os teus números. Só continuas se valer a pena.</p></div>
+    </div>
+    <div class="act"><a class="cta" href="https://calendly.com/goncalo-dongrie05/30min">Marcar diagnóstico <i aria-hidden="true">→</i></a></div>
+  </section>
+
+  <!-- 5 · Setores -->
+  <section class="rows" id="setores" aria-label="Setores">
+    <div class="row">
+      <div class="txt">
+        <h2 class="soft big">Condomínios</h2>
+        <div class="what"><span class="k">Primeira tarefa</span><p>Ocorrências: cada pedido ligado ao prédio e à fração, com o histórico e o próximo passo. Com a Linea, as urgências fora de horas também ficam registadas.</p></div>
+      </div>
+      <div class="mini" aria-hidden="true">
+        <div class="mh"><b>Rua das Flores, 12</b><span>Ocorrência · 3.º Esq.</span></div>
+        <ol class="steps">
+          <li class="done" style="--i:0">Infiltração reportada <em>email · 09:12</em></li>
+          <li class="done" style="--i:1">Seguradora avisada <em>sinistro 4471</em></li>
+          <li class="now" style="--i:2">Visita do canalizador <em>amanhã, 10h</em></li>
+          <li style="--i:3">Aviso aos condóminos <em>depois da visita</em></li>
+        </ol>
+        <div class="mx">Mensagem ao 4.º Esq. preparada <b>Aprovar</b></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="txt">
+        <h2 class="soft big">Contabilidade</h2>
+        <div class="what"><span class="k">Primeira tarefa</span><p>Documentos em falta: por cliente e por mês, o que chegou, o que falta e o lembrete pronto a aprovar. Nada é submetido sem o contabilista.</p></div>
+      </div>
+      <div class="mini" aria-hidden="true">
+        <div class="mh"><b>Café Central, Lda</b><span>Outubro · IVA a 20</span></div>
+        <div class="bar"><i></i></div>
+        <p class="cnt"><strong>38 de 41</strong> documentos recebidos</p>
+        <ul class="miss"><li>Extrato do Banco B <em>em falta</em></li><li>Fatura da eletricidade <em>em falta</em></li><li>Recibo de renda <em>em falta</em></li></ul>
+        <div class="mx">Lembrete ao cliente preparado <b>Aprovar</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5b · Produtos -->
+  <section class="prods" id="produtos" aria-labelledby="prods-t">
+    <div class="prods-head">
+      <h2 class="soft big" id="prods-t">Também<br><span class="dim">fazemos.</span></h2>
+      <p class="lede">Outros produtos da Dongrie Labs. Abre um card para ver como funciona.</p>
+    </div>
+    <div class="cards" id="cards"><button class="card" type="button" data-i="0" aria-haspopup="dialog">
+    <span class="n">01</span><span class="mo" aria-hidden="true"><span class="lmark"><svg viewBox="0 0 100 100"><defs><radialGradient id="lg1" cx=".3" cy=".25" r=".85"><stop offset="0" stop-color="#5ea2f6"></stop><stop offset=".5" stop-color="#2f7deb"></stop><stop offset="1" stop-color="#1e62d4"></stop></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#lg1)"></circle><path d="M15 51H24C30 51 31 33 37.5 33C45 33 54 68 62 68C69 68 70 51 76 51H86" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span>
+    <strong class="soft">Linea</strong><span class="s">Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.</span>
+    <span class="open">Saber mais <i aria-hidden="true">+</i></span></button><button class="card" type="button" data-i="1" aria-haspopup="dialog">
+    <span class="n">02</span><span class="mo" aria-hidden="true"><span class="fan"><img src="/media/apps/smartmeal.jpg" alt="" width="84" height="84" loading="lazy"><img src="/media/apps/medclarityai.jpg" alt="" width="84" height="84" loading="lazy"><img src="/media/apps/kairo.jpg" alt="" width="84" height="84" loading="lazy"></span></span>
+    <strong class="soft">Apps</strong><span class="s">6 apps na App Store, de nutrição a jogos. Mais 3 a caminho em 2027.</span>
+    <span class="open">Saber mais <i aria-hidden="true">+</i></span></button><button class="card" type="button" data-i="2" aria-haspopup="dialog">
+    <span class="n">03</span><span class="mo" aria-hidden="true"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"></path><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"></path><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"></line><circle cx="100" cy="110" r="7" fill="currentColor"></circle></svg></span>
+    <strong class="soft">Diagnóstico Express</strong><span class="s">O teu site está visível no Google e nas ferramentas de IA? Análise grátis em menos de um minuto.</span>
+    <span class="open">Saber mais <i aria-hidden="true">+</i></span></button><a class="card" href="https://ferramentasai.dongrielabs.com" target="_blank" rel="noopener">
+    <span class="n">04</span><span class="mo" aria-hidden="true"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3"><rect class="cell" x="40" y="26" width="34" height="38" rx="9"></rect><rect class="cell" x="40" y="74" width="34" height="38" rx="9"></rect><rect class="cell" x="84" y="26" width="34" height="38" rx="9"></rect><rect class="cell" x="84" y="74" width="34" height="38" rx="9"></rect><rect class="cell" x="128" y="26" width="34" height="38" rx="9"></rect><rect class="cell" x="128" y="74" width="34" height="38" rx="9"></rect></svg></span>
+    <strong class="soft">Ferramentas AI</strong><span class="s">Diretório de ferramentas de IA para PMEs portuguesas, por setor, com preços verificados.</span>
+    <span class="open">Saber mais <i aria-hidden="true">↗</i></span></a></div>
+  </section>
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-t">
+    <div class="panel"><button class="x" type="button">Fechar</button><div class="body"></div></div>
+  </dialog>
+
+  <!-- Perguntas frequentes (também em JSON-LD, para pesquisa e assistentes de IA) -->
+  <section class="faq" id="perguntas" aria-labelledby="faq-t">
+    <h2 class="soft big" id="faq-t">Perguntas<br><span class="dim">frequentes.</span></h2>
+    <div class="qs">
+      <details><summary>O que é a AI Layer?</summary><p>Uma camada de inteligência artificial por cima do email, do WhatsApp, das chamadas e dos sistemas que a equipa já usa. Liga cada mensagem ao cliente certo, junta o histórico e prepara o próximo passo.</p></details>
+      <details><summary>Para quem é a AI Layer?</summary><p>Para empresas de gestão de condomínios e gabinetes de contabilidade em Portugal. Nos condomínios começa pelas ocorrências; na contabilidade, pelos documentos em falta.</p></details>
+      <details><summary>Preciso de trocar de sistema?</summary><p>Não. O piloto começa a partir do email e de uma pasta partilhada, sem mudar o que a equipa já usa.</p></details>
+      <details><summary>A IA envia mensagens sozinha?</summary><p>Não. A AI Layer prepara respostas e lembretes, e uma pessoa revê e aprova antes de qualquer envio. Na contabilidade, nada é submetido sem o contabilista.</p></details>
+      <details><summary>Como se começa e quanto tempo demora?</summary><p>Com um diagnóstico de 30 minutos para escolher o processo que mais tempo custa. Segue-se um piloto de 2 a 4 semanas, com preço fechado antes de começar, e no fim uma decisão com o antes e o depois.</p></details>
+    </div>
+  </section>
+
+  <!-- 6 · Contacto -->
+  <section class="end" id="contacto" aria-label="Contacto">
+    <a class="big-link" href="https://calendly.com/goncalo-dongrie05/30min"><span class="soft">Marcar diagnóstico</span><em aria-hidden="true">→</em></a>
+    <div class="info">
+      <p>Gonçalo Dongrie, fundador.<br>Responde em até 30 minutos em dias úteis.</p>
+      <p>WhatsApp<br><a href="https://wa.me/351927699882">+351 927 699 882</a></p>
+      <p>Email<br><a href="mailto:goncalo.dongrie05@gmail.com">goncalo.dongrie05@gmail.com</a></p>
+    </div>
+    <footer><span>© 2026 Dongrie Labs</span><span>Portugal</span></footer>
+  </section>
+</main>
+
+<script>
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  const inOut = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const DPR = Math.min(devicePixelRatio || 1, 1.5);
+  const FONT = '"Archivo", system-ui, sans-serif';
+
+  // menu
+  const menu = document.getElementById("menu"), mb = document.querySelector(".nav button");
+  const setMenu = (o) => { menu.classList.toggle("open", o); mb.setAttribute("aria-expanded", o); menu.setAttribute("aria-hidden", !o); document.body.style.overflow = o ? "hidden" : ""; };
+  mb.addEventListener("click", () => setMenu(true));
+  menu.querySelector(".close").addEventListener("click", () => setMenu(false));
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  addEventListener("keydown", (e) => e.key === "Escape" && setMenu(false));
+
+  // ---------- 1 · a lanterna revela fragmentos perdidos ----------
+  const hc = document.getElementById("heroCanvas"), hx = hc.getContext("2d");
+  const hv = document.getElementById("heroVideo");
+  const words = document.createElement("canvas"), wx = words.getContext("2d");
+  const lit = document.createElement("canvas"), lx = lit.getContext("2d");
+  const LOST = ["fatura em falta?", "3.º ESQ.", "quem ficou de ligar?", "orçamento #231", "extrato de outubro",
+    "re: re: fwd: infiltração", "ata de março", "anexo (2).pdf", "sinistro 4471", "IVA · dia 20", "WhatsApp (14)",
+    "onde está o email?", "recibo do armazém", "elevador parado", "já enviei tudo?", "fração 4.º D", "quota de junho", "e-fatura · 41",
+    "convocatória", "DMR por entregar", "canalizador?", "orçamento pintura", "fatura sem NIF", "seguro renova a 30", "recibos verdes",
+    "portão da garagem", "mandei o PDF errado", "assembleia · 2.ª conv.", "despesas de outubro", "contador da água", "pagamento por conta",
+    "luz da escada", "extrato Banco B", "chamada perdida (3)", "lembrete enviado?", "fundo de reserva"];
+  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0;
+  const BEAM = [[0.494,0.706],[0.5,0.679],[0.502,0.645],[0.502,0.621],[0.508,0.6],[0.512,0.588],[0.518,0.578],[0.523,0.572],[0.526,0.568],[0.533,0.569],[0.54,0.573],[0.546,0.579],[0.554,0.581],[0.556,0.575],[0.566,0.568],[0.569,0.566],[0.577,0.565],[0.585,0.564],[0.596,0.567],[0.604,0.575],[0.613,0.587],[0.622,0.605],[0.633,0.623],[0.64,0.641],[0.652,0.666],[0.666,0.708],[0.677,0.748],[0.683,0.778],[0.684,0.803],[0.687,0.822],[0.689,0.837],[0.692,0.845],[0.694,0.848],[0.701,0.85],[0.706,0.848],[0.713,0.856],[0.72,0.852],[0.725,0.861],[0.732,0.862],[0.734,0.863],[0.737,0.866],[0.74,0.867],[0.739,0.865],[0.74,0.866],[0.74,0.867],[0.738,0.868],[0.735,0.87],[0.731,0.871],[0.724,0.875],[0.716,0.875],[0.71,0.874],[0.706,0.867],[0.701,0.867],[0.702,0.859],[0.706,0.847],[0.712,0.837],[0.717,0.825],[0.722,0.811],[0.728,0.802],[0.739,0.78],[0.744,0.71],[0.751,0.648],[0.757,0.593],[0.761,0.563],[0.763,0.538],[0.764,0.529],[0.765,0.534],[0.765,0.565],[0.758,0.621],[0.75,0.694],[0.746,0.78],[0.731,0.822],[0.721,0.834]];
+
+  function heroLayout() {
+    const W = hc.clientWidth, H = hc.clientHeight;
+    hc.width = words.width = lit.width = W * DPR; hc.height = words.height = lit.height = H * DPR;
+    const mobile = W < 860;
+    // o vídeo (robô à esquerda do quadro, luz à direita) ocupa a metade direita e desce até ao chão
+    // no computador, o robô fica sempre abaixo do título
+    const hb = document.querySelector(".hero h1").getBoundingClientRect().bottom - hc.getBoundingClientRect().top;
+    // no telemóvel, o robô enche o espaço entre o título e o texto de baixo
+    const ft = document.querySelector(".hero .foot").getBoundingClientRect().top - hc.getBoundingClientRect().top;
+    const h = mobile ? Math.min((ft - hb) * .86, W * .64) : Math.min(H * .8, W * .64 / 1.84, (H * .99 - hb - 16) / .9);
+    const w = h * 1.84;
+    vr = mobile ? { x: (W - w * .85) / 2 - w * .1, y: hb + (ft - hb - h) / 2 + h * .04, w, h } : { x: W - w * 1.06, y: H * .99 - h, w, h };
+    // fragmentos: só onde a luz pode chegar (à direita do robô e no chão)
+    wx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    wx.clearRect(0, 0, W, H);
+    wx.fillStyle = "#fff"; wx.textBaseline = "middle";
+    let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    // cada fragmento num sítio livre: nunca se sobrepõem
+    const placed = [], pad = mobile ? 4 : 7;
+    LOST.forEach((t) => {
+      const size = (mobile ? 11 : 14) + rnd() * (mobile ? 7 : 12);
+      wx.font = `${rnd() > .5 ? 800 : 500} ${size}px ${FONT}`;
+      const tw = wx.measureText(t).width;
+      for (let k = 0; k < 160; k++) {
+        // toda a zona por onde a luz passa, à direita do robô: sem buracos
+        const fx = .6 + rnd() * .5, fy = .3 + rnd() * .64;
+        const x = vr.x + fx * vr.w, y = vr.y + fy * vr.h;
+        if (x + tw > W - 12) continue;
+        const r = { x: x - pad, y: y - size / 2 - pad, w: tw + pad * 2, h: size + pad * 2 };
+        if (placed.some((q) => r.x < q.x + q.w && q.x < r.x + r.w && r.y < q.y + q.h && q.y < r.y + r.h)) continue;
+        placed.push(r); wx.fillText(t, x, y); break;
+      }
+    });
+  }
+
+  function heroFrame() {
+    const W = hc.clientWidth, H = hc.clientHeight;
+    hx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    hx.globalCompositeOperation = "source-over";
+    hx.globalAlpha = 1;
+    hx.fillStyle = "#030116"; hx.fillRect(0, 0, W, H);
+    if (hv.readyState >= 2) {
+      const left = hv.duration ? hv.duration - hv.currentTime : 1;
+      const a = clamp(Math.min(hv.currentTime / .4, left / .4)); // esconde a costura do loop
+      hx.globalAlpha = a;
+      hx.drawImage(hv, vr.x, vr.y, vr.w, vr.h);
+      // fragmentos revelados só onde o feixe da lanterna aponta (posição medida fotograma a fotograma)
+      const fi = (hv.currentTime || 0) * 12, i0 = Math.floor(fi) % BEAM.length, i1 = (i0 + 1) % BEAM.length, fr = fi - Math.floor(fi);
+      const bx = vr.x + (BEAM[i0][0] + (BEAM[i1][0] - BEAM[i0][0]) * fr + .13) * vr.w;
+      const by = vr.y + (BEAM[i0][1] + (BEAM[i1][1] - BEAM[i0][1]) * fr) * vr.h;
+      lx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      lx.globalCompositeOperation = "source-over";
+      lx.clearRect(0, 0, W, H);
+      const rad = vr.w * .15;
+      const lg = lx.createRadialGradient(bx, by, 0, bx, by, rad);
+      lg.addColorStop(0, "rgba(255,248,235,1)"); lg.addColorStop(.55, "rgba(255,248,235,.75)"); lg.addColorStop(1, "rgba(255,248,235,0)");
+      lx.fillStyle = lg; lx.fillRect(bx - rad, by - rad, rad * 2, rad * 2);
+      lx.globalCompositeOperation = "destination-in";
+      lx.setTransform(1, 0, 0, 1, 0, 0);
+      lx.drawImage(words, 0, 0);
+      litA = a;
+    } else litA = 0;
+    // vinheta: o vídeo funde-se com o fundo
+    const g = hx.createRadialGradient(vr.x + vr.w * .5, vr.y + vr.h * .5, vr.h * .35, vr.x + vr.w * .5, vr.y + vr.h * .5, vr.w * .62);
+    g.addColorStop(0, "rgba(3,1,22,0)"); g.addColorStop(1, "rgba(3,1,22,1)");
+    hx.fillStyle = g; hx.fillRect(vr.x - 2, vr.y - 2, vr.w + 4, vr.h + 4);
+    const fade = (x0, y0, x1, y1) => { const l = hx.createLinearGradient(x0, y0, x1, y1); l.addColorStop(0, "rgba(3,1,22,1)"); l.addColorStop(1, "rgba(3,1,22,0)"); return l; };
+    hx.fillStyle = fade(0, H, 0, H * .7); hx.fillRect(0, H * .7, W, H * .3);
+    // bordas do vídeo sempre fundidas com o fundo
+    const e = vr.w * .12;
+    hx.fillStyle = fade(vr.x, 0, vr.x + e, 0); hx.fillRect(vr.x - 1, vr.y, e, vr.h);
+    hx.fillStyle = fade(vr.x + vr.w, 0, vr.x + vr.w - e, 0); hx.fillRect(vr.x + vr.w - e, vr.y, e + 1, vr.h);
+    hx.fillStyle = fade(0, vr.y, 0, vr.y + e * .6); hx.fillRect(vr.x, vr.y - 1, vr.w, e * .6);
+    hx.fillStyle = fade(0, vr.y + vr.h, 0, vr.y + vr.h - e * .6); hx.fillRect(vr.x, vr.y + vr.h - e * .6, vr.w, e * .6 + 1);
+    // as palavras por cima das vinhetas: a luz revela-as até à borda do ecrã
+    if (litA) {
+      hx.setTransform(1, 0, 0, 1, 0, 0);
+      hx.globalAlpha = litA * .07; hx.drawImage(words, 0, 0);  // estão lá, no escuro
+      hx.globalAlpha = litA; hx.drawImage(lit, 0, 0);
+      hx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      hx.globalAlpha = 1;
+    }
+  }
+
+  // ---------- 2 · filme do produto: uma janela, do caos ao próximo passo ----------
+  // linhas: [origem, de, assunto, hora, é do cliente?, estado antes, estado depois]
+  const FILM = {
+    condo: {
+      sub0: "Emails de condóminos, WhatsApps, chamadas de fornecedores. Antes de responder, alguém procura em tudo.",
+      q: "Rua das Flores", qx: ", 12", meta: "24 frações · 4 assuntos ligados",
+      rows: [
+        ["Email", "Ana Costa · Rua das Flores, 3.º Esq.", "Mancha de humidade no teto da sala", "09:12", 1],
+        ["WhatsApp", "Av. da Liberdade, 140", "O elevador voltou a parar", "09:20", 0],
+        ["Chamada", "Canalizador · Rua das Flores", "Preciso de acesso ao 4.º Esq.", "09:34", 1, "por marcar", "marcado"],
+        ["Sistema", "Rua do Sol, 7", "3 quotas em atraso", "10:15", 0],
+        ["Email", "Seguradora · Rua das Flores", "Sinistro 4471: falta uma fotografia", "10:31", 1],
+        ["Email", "Limpezas Brilho", "Mudar o dia da limpeza", "11:05", 0],
+        ["WhatsApp", "Rui Melo · Rua das Flores, 4.º Esq.", "Só estou em casa amanhã de manhã", "11:40", 1]
+      ],
+      next: "Confirmar a visita do canalizador amanhã às 10h. O 4.º Esq. só está em casa de manhã.",
+      ok: "Aprovar e enviar", done: "✓ Enviado · visita amanhã, 10h"
+    },
+    conta: {
+      sub0: "Faturas por email, extratos em PDF, perguntas por WhatsApp. Antes de fechar o mês, alguém procura o que falta.",
+      q: "Café Central", qx: ", Lda", meta: "IVA a 20 · 4 assuntos ligados",
+      rows: [
+        ["Email", "Café Central", "Faturas de outubro (3 anexos)", "09:05", 1],
+        ["WhatsApp", "Marta Rocha, ENI", "Posso deduzir o portátil?", "09:18", 0],
+        ["Sistema", "e-fatura · Café Central", "41 faturas por classificar", "09:40", 1],
+        ["Email", "Silva & Filhos, Lda", "Contrato de um novo funcionário", "10:02", 0],
+        ["WhatsApp", "Café Central", "Já enviei tudo, não já?", "10:26", 1],
+        ["Email", "Marta Rocha, ENI", "Recibos verdes de setembro", "10:50", 0],
+        ["Sistema", "Banco B · Café Central", "Extrato de outubro", "11:15", 1, "em falta", "pedido"]
+      ],
+      next: "Pedir hoje o extrato de outubro do Banco B. O IVA fecha a dia 20 e é o único documento em falta.",
+      ok: "Aprovar pedido", done: "✓ Pedido enviado · lembrete a 18"
+    }
+  };
+  const film = document.querySelector(".film"), fstage = film.querySelector(".stage");
+  const win = document.getElementById("win"), field = win.querySelector(".field"), qt = win.querySelector(".qt");
+  const qEl = win.querySelector(".q"), qxEl = win.querySelector(".qx"), caret = win.querySelector(".caret");
+  const metaEl = win.querySelector(".meta"), tl = win.querySelector(".tl"), nx = win.querySelector(".nx");
+  const typedEl = nx.querySelector(".typed"), restEl = nx.querySelector(".rest"), ok = nx.querySelector(".ok");
+  const okA = ok.querySelector(".a"), okB = ok.querySelector(".b");
+  const cursor = document.getElementById("cur"), ring = document.getElementById("ring");
+  const titles = [...film.querySelectorAll(".t")];
+  const flood = document.getElementById("flood"), impact = document.getElementById("impacto-s");
+  let sector = "condo", rows = [], F = {}, lastTyped = -1, lastQ = -1, phase = 0;
+  const ROW = 58, PH = "Pesquisar emails, mensagens, chamadas…";
+
+  function buildFilm() {
+    const d = FILM[sector];
+    film.querySelector("[data-k=sub0]").textContent = d.sub0;
+    rows.forEach((r) => r.el.remove());
+    const miss = d.rows.filter((r) => !r[4]).length;
+    let j = 0;
+    rows = d.rows.map(([src, from, text, time, match, s0, s1]) => {
+      const el = document.createElement("div");
+      el.className = "r";
+      el.innerHTML = `<i class="dot"></i><b class="src"></b><div class="m"><small></small><span></span></div><div class="tm"><span></span></div>`;
+      el.querySelector(".src").textContent = src;
+      el.querySelector("small").textContent = from;
+      el.querySelector(".m span").textContent = text;
+      el.querySelector(".tm span").textContent = time;
+      let chip = null;
+      if (s0) { chip = document.createElement("i"); chip.className = "chip"; chip.textContent = s0; el.querySelector(".tm").appendChild(chip); }
+      win.insertBefore(el, tl);
+      // as linhas de outros clientes saem à medida que o nome é escrito
+      const thr = match ? 99 : 1.5 + (j++ / Math.max(1, miss - 1)) * (d.q.length - 4);
+      return { el, match, thr, chip, s0, s1, dot: el.querySelector(".dot") };
+    });
+    okA.textContent = d.ok; okB.textContent = d.done;
+    lastTyped = lastQ = -1;
+    layoutFilm();
+  }
+
+  function layoutFilm() {
+    const W = fstage.clientWidth, H = fstage.clientHeight, mobile = W < 860;
+    F = { W, H, mobile };
+    F.ww = mobile ? Math.min(W - 32, 520) : Math.min(540, W * .42);
+    win.style.width = F.ww + "px";
+    // medidas naturais do painel do próximo passo (texto completo reservado)
+    typedEl.textContent = ""; restEl.textContent = FILM[sector].next;
+    F.nxH = nx.offsetHeight;
+    ok.style.width = ""; F.okW = ok.offsetWidth; F.okFull = nx.clientWidth - 36;
+    F.s = mobile ? Math.min(1, (H - 300) / 560) : 1;
+    lastTyped = lastQ = -1;
+  }
+
+  function filmProgress() { const r = film.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const bump = (p, a, b) => clamp((p - a) / (b - a)) * (1 - clamp((p - b) / (b - a)));
+
+  let floodOn = false;
+  function filmFrame(P) {
+    const p = clamp(P / .86);  // 86% do scroll: o filme; o resto: o azul enche o ecrã
+    const d = FILM[sector], { W, H, mobile, ww, s } = F;
+    // 1 · escrever o nome (cursor clica na pesquisa)
+    const tf = d.q.length * clamp((p - .17) / .12);
+    const n = Math.floor(tf);
+    if (n !== lastQ) {
+      lastQ = n;
+      qEl.textContent = n ? d.q.slice(0, n) : "";
+      qEl.className = n ? "q" : "q ph";
+      if (!n) qEl.textContent = PH;
+    }
+    // 2 · a pesquisa torna-se a ficha do cliente
+    const k1 = inOut(clamp((p - .31) / .09));
+    const k2 = ease(clamp((p - .37) / .08));
+    // 3 · o próximo passo cresce por baixo
+    const k3 = inOut(clamp((p - .46) / .08));
+    const k4 = inOut(clamp((p - .725) / .06));
+    field.style.background = `rgba(243,244,255,${(.06 * (1 - k1)).toFixed(3)})`;
+    field.style.boxShadow = `inset 0 0 0 1px rgba(243,244,255,${(.1 * (1 - k1)).toFixed(3)})`;
+    field.firstElementChild.style.opacity = 1 - k1;
+    field.firstElementChild.style.marginRight = (-27 * k1) + "px";
+    qt.style.fontSize = lerp(15.5, mobile ? 24 : 28, k1) + "px";
+    qt.style.fontVariationSettings = `"wdth" ${lerp(100, 125, k1).toFixed(1)}`;
+    qt.style.fontWeight = Math.round(lerp(450, 800, k1));
+    qxEl.textContent = k1 > .02 ? d.qx : "";
+    qxEl.style.opacity = k1;
+    caret.style.opacity = p > .14 && p < .33 ? ((performance.now() / 530 | 0) % 2 ? 0 : 1) * (1 - k1) : 0;
+    metaEl.textContent = d.meta;
+    metaEl.style.opacity = k1;
+    metaEl.style.transform = `translateY(${(1 - k1) * 10}px)`;
+    let y = lerp(78, 108, k1), first = null, last = null;
+    rows.forEach((r) => {
+      const vis = r.match ? 1 : 1 - clamp((tf - r.thr) / 2.2);
+      r.el.style.transform = `translate(${(-24 * (1 - vis)).toFixed(1)}px, ${y.toFixed(1)}px)`;
+      r.el.style.opacity = vis.toFixed(3);
+      r.el.style.visibility = vis < .01 ? "hidden" : "";
+      r.el.style.paddingLeft = (18 + 26 * k2) + "px";
+      r.el.style.gridTemplateColumns = mobile ? "minmax(0,1fr) auto" : `${lerp(74, 0, k2).toFixed(1)}px minmax(0,1fr) auto`;
+      r.el.firstElementChild.nextElementSibling.style.opacity = 1 - k2;
+      if (r.match) { if (first === null) first = y; last = y; r.dot.style.transform = `scale(${ease(clamp(k2 * 1.6 - rows.indexOf(r) * .08))})`; }
+      if (r.chip) { const done = k4 > .5; r.chip.textContent = done ? r.s1 : r.s0; r.chip.classList.toggle("fin", done); }
+      y += ROW * vis;
+    });
+    tl.style.top = (first + ROW / 2) + "px";
+    tl.style.height = Math.max(0, last - first) + "px";
+    tl.style.transform = `scaleY(${k2})`;
+    y += 6;
+    // próximo passo: texto a ser escrito, botão que vira confirmação
+    nx.style.top = y + "px";
+    nx.style.opacity = clamp(k3 * 3);
+    nx.style.transform = `translateY(${(1 - k3) * 30}px)`;
+    const full = d.next, m = Math.round(full.length * clamp((p - .52) / .13));
+    if (m !== lastTyped) { lastTyped = m; typedEl.textContent = full.slice(0, m); restEl.textContent = full.slice(m); }
+    const press = 1 - .06 * bump(p, .7, .715);
+    ok.style.width = lerp(F.okW, F.okFull, k4) + "px";
+    ok.style.transform = `scale(${press})`;
+    ok.style.background = `rgb(${lerp(243, 27, k4) | 0},${lerp(244, 68, k4) | 0},${lerp(255, 216, k4) | 0})`;
+    okA.style.transform = `translateY(${-100 * k4}%)`;
+    okB.style.transform = `translateY(${100 - 100 * k4}%)`;
+    const winH = y + F.nxH * k3 + 14 * k3 + 8;
+    win.style.height = winH + "px";
+    // posição: à direita no computador, por baixo do título no telemóvel
+    const wx = mobile ? (W - ww * s) / 2 : W * .5 + (W * .5 - ww) / 2;
+    const wy = mobile ? 200 : (H - winH) / 2 + 10;
+    win.style.transform = `translate(${wx.toFixed(1)}px, ${wy.toFixed(1)}px) scale(${s})`;
+    // cursor: clica na pesquisa, depois no botão
+    const at = (el, fx = .5) => { const r = el.getBoundingClientRect(), o = fstage.getBoundingClientRect(); return { x: r.left - o.left + r.width * fx, y: r.top - o.top + r.height * .5 }; };
+    const off = { x: wx + ww * s + 60, y: wy + 420 * s }, fpt = at(field, .3), park = { x: wx + ww * s - 40, y: wy + 40 }, bpt = at(ok, k4 > 0 ? .5 : .55);
+    const path = [[0, off], [.08, off], [.15, fpt], [.3, fpt], [.42, park], [.6, park], [.69, bpt], [.76, bpt], [.86, { x: bpt.x + 90, y: bpt.y + 140 }]];
+    let c = path[path.length - 1][1];
+    for (let i = 1; i < path.length; i++) if (p < path[i][0]) { const [p0, a] = path[i - 1], [p1, b] = path[i], k = inOut(clamp((p - p0) / (p1 - p0))); c = { x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k) }; break; }
+    const press2 = 1 - .15 * Math.max(bump(p, .145, .16), bump(p, .7, .715));
+    cursor.style.opacity = clamp((p - .07) / .03) * (1 - clamp((p - .8) / .05));
+    cursor.style.transform = `translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) scale(${press2})`;
+    const click = p < .4 ? clamp((p - .155) / .035) : clamp((p - .712) / .035);
+    const clickPt = p < .4 ? fpt : bpt;
+    ring.style.opacity = click > 0 && click < 1 ? (1 - click) * .9 : 0;
+    ring.style.transform = `translate(${clickPt.x}px, ${clickPt.y}px) scale(${.3 + click * 1.2})`;
+    // títulos sobem de dentro da linha
+    const ph = p < .16 ? 0 : p < .45 ? 1 : 2;
+    if (ph !== phase) { phase = ph; titles.forEach((el, i) => { el.classList.toggle("on", i === ph); el.classList.toggle("out", i < ph); }); }
+    // 4 · o botão azul cresce até ser o ecrã inteiro; o impacto aparece lá dentro
+    const k5 = inOut(clamp((P - .7) / .09));
+    floodOn = k5 > .97;
+    if (k5 > 0) {
+      const o = fstage.getBoundingClientRect(), br = ok.getBoundingClientRect();
+      flood.style.cssText = `opacity:1;left:${lerp(br.left - o.left, 0, k5)}px;top:${lerp(br.top - o.top, 0, k5)}px;width:${lerp(br.width, W, k5)}px;height:${lerp(br.height, H, k5)}px;` +
+        `border-radius:${lerp(22, 0, k5)}px;background:rgb(${lerp(27, 8, k5) | 0},${lerp(68, 43, k5) | 0},${lerp(216, 140, k5) | 0})`;
+    } else flood.style.opacity = 0;
+    impact.classList.toggle("on", P > .77);
+  }
+
+  document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
+    sector = b.dataset.s;
+    document.querySelectorAll(".switch button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    buildFilm();
+  }));
+
+  // ---------- 6 · produtos: o card cresce e torna-se o painel ----------
+  // a completar com mais contexto: texto, factos, passos e ligações de cada produto
+  // as 6 apps publicadas na App Store
+  const APPS = [
+    { f: "smartmeal", n: "SmartMeal", c: "Comida e bebida", r: "5,0", u: "https://apps.apple.com/pt/app/smartmeal/id6744840322",
+      d: "Planeia as refeições da semana e gera a lista de compras sozinha.", s: ["shot-smartmeal"] },
+    { f: "medclarityai", n: "MedClarityAI", c: "Medicina", r: "5,0", u: "https://apps.apple.com/pt/app/medclarityai/id6754197255",
+      d: "Uma foto da bula e recebe o resumo: para que serve, como tomar e efeitos comuns.", s: ["shot-medclarityai"] },
+    { f: "kairo", n: "Kairo", c: "Produtividade", u: "https://apps.apple.com/pt/app/kairo-decide-better/id6757859161",
+      d: "Transforma o caos mental num foco claro por dia, em 5 a 10 minutos.", s: ["shot-kairo"] },
+    { f: "andreia-rocha-coach", n: "Andreia Rocha Coach", c: "Saúde e fitness", r: "5,0", u: "https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365",
+      d: "O acompanhamento da coach Andreia Rocha: planos, suplementos e progresso.", s: ["shot-andreia-rocha-coach"] },
+    { f: "verbalis", n: "Verbalis", c: "Jogos", u: "https://apps.apple.com/pt/app/verbalis/id6752515624",
+      d: "Sopa de letras e conexões de palavras: 800 níveis em português.", s: ["shot-verbalis"] },
+    { f: "crypto-adoption", n: "Crypto Adoption", c: "Jogos", u: "https://apps.apple.com/pt/app/crypto-adoption/id6753661731",
+      d: "Estratégia: levar a adoção de cripto ao mundo inteiro antes dos reguladores.", s: ["shot-crypto-adoption-1", "shot-crypto-adoption-2"] }
+  ];
+  const MO = {
+    linea: `<span class="lmark"><svg viewBox="0 0 100 100"><defs><radialGradient id="lg1" cx=".3" cy=".25" r=".85"><stop offset="0" stop-color="#5ea2f6"/><stop offset=".5" stop-color="#2f7deb"/><stop offset="1" stop-color="#1e62d4"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#lg1)"/><path d="M15 51H24C30 51 31 33 37.5 33C45 33 54 68 62 68C69 68 70 51 76 51H86" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`,
+    apps: `<span class="fan">${APPS.slice(0, 3).map((a) => `<img src="/media/apps/${a.f}.jpg" alt="" width="84" height="84" loading="lazy">`).join("")}</span>`,
+    diag: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 110a70 70 0 0 1 140 0"/><path d="M44 110a56 56 0 0 1 9-30M147 80a56 56 0 0 1 9 30" stroke-width="8" opacity=".35"/><line class="needle" x1="100" y1="110" x2="100" y2="54" stroke-width="4"/><circle cx="100" cy="110" r="7" fill="currentColor"/></svg>`,
+    tools: `<svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="3">${[0, 1, 2].flatMap((c) => [0, 1].map((r) => `<rect class="cell" x="${40 + c * 44}" y="${26 + r * 48}" width="34" height="38" rx="9"/>`)).join("")}</svg>`,
+
+  };
+  const wa = (t) => "https://wa.me/351927699882?text=" + encodeURIComponent(t);
+  const PRODUCTS = [
+    { id: "linea", name: "Linea", tag: "Atendemos sempre.",
+      vis: `<div class="vis lin" aria-hidden="true"><span class="orbw"><span class="orb"></span></span>
+        <div class="call"><div class="ch"><span>%LOGO%Linea</span><em>21:47 · fora de horas</em></div>
+          <p class="q">Queria marcar uma consulta para quinta.</p>
+          <p class="a">Tenho quinta às 10h. Confirmo?</p>
+          <ul><li>Consulta marcada · quinta, 10h</li><li>SMS de confirmação enviado</li></ul></div></div>`, short: "Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.", kick: "Clínicas e pequenas empresas",
+      lead: "A Linea atende as chamadas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta.",
+      facts: [["Para quem", "Clínicas e pequenas empresas em Portugal"], ["Quando", "Fora de horas e quando a equipa não pode"], ["Porquê clínicas", "Uma chamada perdida costuma ser uma marcação perdida"]],
+      plans: [["Starter", "99 €", "400 minutos"], ["Growth", "199 €", "1000 minutos"], ["Pro", "499 €", "2500 minutos"]],
+      offer: "<strong>Primeiros clientes: 30% de desconto durante 12 meses.</strong> Para experimentar, um piloto de duas semanas com 29 € de caução, devolvidos se avançar.",
+      site: ["Conhecer a Linea", "https://linea.dongrielabs.com/"],
+      steps: ["Atende com a voz e as regras da clínica ou da empresa", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
+      wa: "Olá, queria saber mais sobre a Linea" },
+    { id: "apps", name: "Apps", short: "6 apps na App Store, de nutrição a jogos. Mais 3 a caminho em 2027.", kick: "Produto", apps: true,
+      lead: "Fazemos apps do âmbito à loja. Já construímos 14: 6 estão na App Store, 5 ficaram como protótipos e 3 saem no início de 2027.",
+      facts: [["6", "na App Store"], ["5", "protótipos que não chegaram à loja"], ["3", "a sair no início de 2027"]],
+      steps: ["Definimos o âmbito e o que fica de fora", "Desenhamos e construímos por etapas", "Publicamos na App Store"],
+      wa: "Olá, queria falar sobre uma app" },
+    { id: "diag", name: "Diagnóstico Express", short: "O teu site está visível no Google e nas ferramentas de IA? Análise grátis em menos de um minuto.", kick: "Websites · Google e IA",
+      tag: "O teu site está visível no Google e nas ferramentas de IA?",
+      lead: "Hoje muita gente já não pesquisa só no Google. Pergunta ao ChatGPT, ao Perplexity ou ao Gemini. Se o teu site bloqueia esses robôs, esconde páginas sem saberes ou não diz com clareza o que vendes, não apareces nas respostas.",
+      more: "O Diagnóstico Express analisa o teu site em menos de um minuto, como um robô de pesquisa o vê.",
+      facts: [["Tempo", "Menos de um minuto"], ["Preço", "Grátis"], ["Recebes", "Uma nota geral e os 3 problemas mais graves"]],
+      steps: ["Colas o endereço do teu site.", "Verificamos o robots.txt, a indexação, o sitemap, os dados estruturados e se a informação essencial está visível: o que vendes, preços, localização e como marcar.", "Recebes uma nota geral e os 3 problemas mais graves, cada um com a prova do que encontrámos."],
+      offer: "<strong>É grátis.</strong> Se o teu site estiver bem, dizemos-te isso mesmo. Não inventamos problemas.",
+      extra: `<div class="upsell"><span class="kick">Queres ir mais longe?</span>
+        <div class="uh"><h4 class="soft">Auditoria Visível</h4><strong>120 € <small>+ IVA</small></strong></div>
+        <p>A lista completa, com prioridades e o passo a passo para corrigir cada ponto. Inclui um teste de como a tua marca aparece no Google e em vários chats de IA. Se depois quiseres que sejamos nós a tratar de tudo, os 120 € são descontados na implementação.</p>
+        <p>Se usas um sistema de reservas ou uma agenda online, também vemos se dá para o ligar às ferramentas de IA, para os clientes consultarem a disponibilidade a partir daí.</p></div>
+        <p class="honest">Não prometemos o primeiro lugar no Google. Mostramos o que está a impedir que te encontrem e corrigimos isso.</p>`,
+      site: ["Fazer o diagnóstico grátis", "https://diagnostico.dongrielabs.com/"], wa: "Olá, queria saber mais sobre a Auditoria Visível",
+      vis: `<div class="vis rep" aria-hidden="true"><div class="rp">
+        <div class="url"><span class="ico"></span><span>www.clinica-exemplo.pt</span><b>Analisar</b></div>
+        <div class="sc"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34"/><circle class="arc" cx="40" cy="40" r="34"/></svg><span><strong>62</strong>/100</span>
+          <p>Nota geral<em>Aparece no Google, quase invisível para a IA</em></p></div>
+        <ul><li><b>O robots.txt bloqueia o GPTBot</b><code>User-agent: GPTBot · Disallow: /</code></li>
+          <li><b>Os preços não aparecem na página</b><code>0 de 6 serviços com preço visível</code></li>
+          <li><b>Sem dados estruturados</b><code>nenhum schema LocalBusiness encontrado</code></li></ul></div></div>`
+    },
+    { id: "tools", name: "Ferramentas AI", short: "Diretório de ferramentas de IA para PMEs portuguesas, por setor, com preços verificados.",
+      href: "https://ferramentasai.dongrielabs.com" }
+  ];
+  const cardsEl = document.getElementById("cards"), sheet = document.getElementById("sheet");
+  const panel = sheet.querySelector(".panel"), sbody = sheet.querySelector(".body");
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  // um card com href abre o site do produto numa nova aba; os outros abrem o painel
+  cardsEl.innerHTML = PRODUCTS.map((p, i) => `${p.href ? `<a class="card" href="${p.href}" target="_blank" rel="noopener">` : `<button class="card" type="button" data-i="${i}" aria-haspopup="dialog">`}
+    <span class="n">0${i + 1}</span><span class="mo" aria-hidden="true">${MO[p.id]}</span>
+    <strong class="soft">${esc(p.name)}</strong><span class="s">${esc(p.short)}</span>
+    <span class="open">Saber mais <i aria-hidden="true">${p.href ? "↗" : "+"}</i></span>${p.href ? "</a>" : "</button>"}`).join("");
+  // apps: números grandes, os ecrãs verdadeiros lado a lado, e o que é cada uma
+  const appsSheet = (p) => `<div class="ah"><div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p></div>
+      <div class="nums">${p.facts.map(([n, t]) => `<div><b>${n}</b><span>${esc(t)}</span></div>`).join("")}</div></div>
+    <div class="gh"><span>As ${APPS.length} apps na App Store</span><span class="gnav"><button type="button" data-d="-1" aria-label="Apps anteriores">←</button><button type="button" data-d="1" aria-label="Apps seguintes">→</button></span></div>
+    <div class="gal" aria-label="Apps publicadas">${APPS.map((a) => `<a class="ap${a.s.length > 1 ? " land" : ""}" href="${a.u}">
+      <span class="shot">${a.r ? `<span class="rt">★ ${a.r}</span>` : ""}${a.s.map((f) => `<img src="/media/apps/${f}.jpg" alt="Ecrã da app ${esc(a.n)}" loading="lazy">`).join("")}</span>
+      <span class="meta"><img src="/media/apps/${a.f}.jpg" alt="" width="40" height="40"><span><b>${esc(a.n)}</b><em>${esc(a.c)}</em></span><i aria-hidden="true">↗</i></span>
+      <span class="what">${esc(a.d)}</span></a>`).join("")}</div>
+    <div class="af"><ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar sobre uma app <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>`;
+  sbody.addEventListener("click", (e) => {
+    const b = e.target.closest(".gnav button"); if (!b) return;
+    const g = sbody.querySelector(".gal"); g.scrollBy({ left: b.dataset.d * g.clientWidth * .8, behavior: reduce ? "auto" : "smooth" });
+  });
+  let openCard = null;
+  const flip = (from, to) => {
+    const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+    return `translate(${a.left - b.left}px, ${a.top - b.top}px) scale(${a.width / b.width}, ${a.height / b.height})`;
+  };
+  cardsEl.addEventListener("click", (e) => {
+    const card = e.target.closest("button.card"); if (!card) return;
+    const p = PRODUCTS[card.dataset.i];
+    sbody.className = p.apps ? "body appsb" : "body";
+    sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>${p.more ? `<p class="more">${esc(p.more)}</p>` : ""}
+      <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
+      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div>` : ""}${p.offer ? `<p class="offer">${p.offer}</p>` : ""}
+      <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>${p.extra || ""}
+      <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
+        : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
+      ${p.vis ? p.vis.replace("%LOGO%", MO.linea) : `<div class="vis" aria-hidden="true"><span class="mo">${MO[p.id]}</span></div>`}`;
+    sheet.dataset.p = p.id;
+    openCard = card;
+    sheet.classList.remove("ready");
+    sheet.showModal();
+    panel.scrollTop = 0;
+    if (reduce) { sheet.classList.add("ready"); return; }
+    panel.animate([{ transform: flip(card, panel), borderRadius: "22px" }, { transform: "none", borderRadius: "26px" }], { duration: 650, easing: "cubic-bezier(.22,1,.36,1)" })
+      .finished.then(() => sheet.classList.add("ready"));
+  });
+  const closeSheet = () => {
+    if (!sheet.open) return;
+    sheet.classList.remove("ready");
+    const done = () => { sheet.close(); openCard && openCard.focus(); };
+    if (reduce || !openCard) return done();
+    panel.animate([{ transform: "none" }, { transform: flip(openCard, panel) }], { duration: 450, easing: "cubic-bezier(.65,0,.35,1)" }).finished.then(done);
+  };
+  sheet.querySelector(".x").addEventListener("click", closeSheet);
+  sheet.addEventListener("cancel", (e) => { e.preventDefault(); closeSheet(); });
+  sheet.addEventListener("click", (e) => { if (e.target === sheet) closeSheet(); });
+
+  // os pedaços do produto nos setores animam ao entrar no ecrã
+  const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: .35 });
+  document.querySelectorAll(".mini").forEach((m) => io.observe(m));
+
+  // ---------- 4 · linha do "como começar" ----------
+  const track = document.getElementById("track"), fill = track.querySelector(".fill");
+  function trackFrame() {
+    const r = track.getBoundingClientRect();
+    const k = clamp((innerHeight * .85 - r.top) / (innerHeight * .6));
+    fill.style.transform = innerWidth < 860 ? `scaleY(${k})` : `scaleX(${k})`;
+  }
+
+  // ---------- remover o fundo azul dos vídeos (WebGL, em tempo real) ----------
+  function keyed(canvas, video, key, lo, hi, dpr = DPR) {
+    const gl = canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true });
+    if (!gl) return () => {};
+    const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, "attribute vec2 p;varying vec2 uv;void main(){uv=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}"));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, `precision mediump float;varying vec2 uv;uniform sampler2D t;uniform vec3 k;uniform vec2 r;
+      void main(){vec3 c=texture2D(t,uv).rgb;float d=distance(c,k);float a=smoothstep(r.x,r.y,d);
+      float m=max(c.r,c.g);c.b=mix(min(c.b,m+.12),c.b,a);gl_FragColor=vec4(c*a,a);}`));
+    gl.linkProgram(prog); gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.bindTexture(gl.TEXTURE_2D, gl.createTexture());
+    [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach((w) => gl.texParameteri(gl.TEXTURE_2D, w, gl.CLAMP_TO_EDGE));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.uniform3f(gl.getUniformLocation(prog, "k"), key[0] / 255, key[1] / 255, key[2] / 255);
+    gl.uniform2f(gl.getUniformLocation(prog, "r"), lo, hi);
+    return (v = video) => {
+      if (v.readyState < 2) return;
+      const w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+      if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+      gl.viewport(0, 0, w, h);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, v);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+  }
+
+  // logótipo: entrada ao abrir; ao sair do início, a queda; depois fica só o robô
+  const brand = document.getElementById("brand");
+  const nav = document.querySelector(".nav");
+  const intro = document.getElementById("logoIntro"), fall = document.getElementById("logoFall");
+  // o logótipo desenha à resolução real do ecrã (retina incluída): é pequeno e tem de ficar nítido
+  const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3, Math.min(devicePixelRatio || 1, 2));
+  let logoVideo = intro, away = false;
+  const playFrom0 = (v) => { v.currentTime = 0; v.play().catch(() => {}); };
+  if (reduce) intro.addEventListener("loadedmetadata", () => { intro.currentTime = intro.duration - .05; }, { once: true });
+  else intro.play().catch(() => {});
+  fall.addEventListener("ended", () => { if (away) brand.classList.add("small"); });
+  function logoFrame() {
+    const nowAway = scrollY > 24;
+    if (nowAway !== away) {
+      away = nowAway;
+      if (away) { intro.pause(); logoVideo = fall; reduce ? brand.classList.add("small") : playFrom0(fall); }
+      else { fall.pause(); brand.classList.remove("small"); logoVideo = intro; if (!reduce) playFrom0(intro); }
+    }
+    drawLogo(logoVideo);
+    nav.classList.toggle("solid", away);
+    nav.classList.toggle("tall", away && !brand.classList.contains("small"));
+    const fb = film.getBoundingClientRect();
+    nav.classList.toggle("onblue", floodOn && fb.top < 90 && fb.bottom > 90);
+  }
+
+
+  // ---------- ciclo único ----------
+  function frame(t) {
+    target = filmProgress();
+    cur += (target - cur) * (reduce ? 1 : .12);
+    if (Math.abs(target - cur) < .0004) cur = target;
+    const hr = hc.getBoundingClientRect();
+    if (hr.bottom > 0) heroFrame();
+    const fr = film.getBoundingClientRect();
+    if (fr.top < innerHeight && fr.bottom > 0) filmFrame(cur);
+    trackFrame();
+    logoFrame();
+    requestAnimationFrame(frame);
+  }
+
+  function layout() { heroLayout(); layoutFilm(); }
+  addEventListener("resize", layout);
+  if (reduce) hv.removeAttribute("loop");
+  hv.defaultPlaybackRate = hv.playbackRate = .85;  // um pouco mais calmo que o original
+  hv.play().catch(() => {});
+  buildFilm();
+  document.fonts.ready.then(() => { heroLayout(); layoutFilm(); });
+  heroLayout();
+  cur = target = filmProgress();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+# Dongrie Labs
+
+> Dongrie Labs é um estúdio português de software e IA, fundado por Gonçalo Dongrie. O produto principal é a AI Layer, que organiza emails, mensagens e sistemas por cliente e mostra o próximo passo, para empresas de gestão de condomínios e gabinetes de contabilidade em Portugal.
+
+- Site: https://dongrielabs.com
+- WhatsApp: +351 927 699 882
+- Email: goncalo.dongrie05@gmail.com
+- Marcar diagnóstico (30 min): https://calendly.com/goncalo-dongrie05/30min
+- Idioma: português (Portugal). País: Portugal.
+
+## AI Layer
+
+Uma camada de IA por cima do email, do WhatsApp, das chamadas e dos sistemas que a equipa já usa. Liga cada mensagem ao cliente certo (o prédio e a fração, ou o cliente e o mês), junta o histórico e prepara o próximo passo. Uma pessoa revê e aprova antes de qualquer envio.
+
+- Gestão de condomínios: a primeira tarefa são as ocorrências. Cada pedido fica ligado ao prédio e à fração, com o histórico e o próximo passo. Com a Linea, as urgências fora de horas também ficam registadas.
+- Contabilidade: a primeira tarefa são os documentos em falta. Por cliente e por mês: o que chegou, o que falta e o lembrete pronto a aprovar. Nada é submetido sem o contabilista.
+- Como começar: diagnóstico de 30 minutos para escolher o processo que mais tempo custa e o número a medir; piloto de 2 a 4 semanas a partir do email e de uma pasta partilhada, com preço fechado antes de começar; no fim, decisão com o antes e o depois.
+- Impacto: menos tempo à procura, menos trabalho repetido, mais clientes por pessoa com a mesma equipa.
+
+## Linea
+
+Assistente telefónico com inteligência artificial para clínicas e pequenas empresas em Portugal. Atende as chamadas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta. Começou pelas clínicas, porque uma chamada perdida costuma ser uma marcação perdida.
+
+- Planos mensais: Starter 99 €/mês (400 minutos), Growth 199 €/mês (1000 minutos), Pro 499 €/mês (2500 minutos).
+- Primeiros clientes: 30% de desconto durante 12 meses.
+- Piloto de duas semanas com 29 € de caução, devolvidos se o cliente avançar.
+- Site: https://linea.dongrielabs.com/
+
+## Diagnóstico Express
+
+Análise grátis, em menos de um minuto, de como o Google e as ferramentas de IA (ChatGPT, Perplexity, Gemini) veem um site: robots.txt, indexação, sitemap, dados estruturados e se a informação essencial está visível (o que vende, preços, localização, como marcar). Devolve uma nota geral e os 3 problemas mais graves, cada um com a prova do que foi encontrado.
+
+- Auditoria Visível: 120 € + IVA. Lista completa com prioridades e passo a passo, mais um teste de como a marca aparece no Google e em vários chats de IA. Os 120 € são descontados se a Dongrie Labs fizer a implementação.
+- Também verifica se um sistema de reservas ou agenda online pode ser ligado às ferramentas de IA.
+- Não promete o primeiro lugar no Google.
+- Site: https://diagnostico.dongrielabs.com/
+
+## Apps
+
+A Dongrie Labs construiu 14 apps: 6 publicadas na App Store, 5 protótipos e 3 a lançar no início de 2027.
+
+- [SmartMeal](https://apps.apple.com/pt/app/smartmeal/id6744840322): planeamento de refeições e lista de compras.
+- [MedClarityAI](https://apps.apple.com/pt/app/medclarityai/id6754197255): resumo da bula de um medicamento a partir de uma foto.
+- [Kairo](https://apps.apple.com/pt/app/kairo-decide-better/id6757859161): um foco claro por dia.
+- [Andreia Rocha Coach](https://apps.apple.com/pt/app/andreia-rocha-coach/id6755403365): acompanhamento nutricional personalizado.
+- [Verbalis](https://apps.apple.com/pt/app/verbalis/id6752515624): jogos de palavras em português.
+- [Crypto Adoption](https://apps.apple.com/pt/app/crypto-adoption/id6753661731): jogo de estratégia.
+
+## Ferramentas AI
+
+Diretório de ferramentas de IA para PMEs portuguesas, por setor, com preços verificados: https://ferramentasai.dongrielabs.com
+
+## Perguntas frequentes
+
+- O que é a AI Layer? Uma camada de IA que arruma emails, mensagens e sistemas por cliente e mostra o próximo passo, para que ninguém tenha de procurar.
+- Para quem é? Empresas de gestão de condomínios e gabinetes de contabilidade em Portugal.
+- Preciso de trocar de sistema? Não. O piloto começa a partir do email e de uma pasta partilhada.
+- A IA envia mensagens sozinha? Não. Prepara respostas e lembretes; uma pessoa revê e aprova.
+- Quanto tempo demora a começar? Um diagnóstico de 30 minutos e um piloto de 2 a 4 semanas, com preço fechado antes de começar.

@@ -5,6 +5,16 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  // página inicial = site novo da AI Layer (public/home.html); as antigas páginas iniciais por idioma levam lá
+  async redirects() {
+    return [
+      { source: '/pt', destination: '/', permanent: false },
+      { source: '/en', destination: '/', permanent: false },
+    ];
+  },
+  async rewrites() {
+    return { beforeFiles: [{ source: '/', destination: '/home.html' }] };
+  },
 };
 
 module.exports = withNextIntl(nextConfig);
