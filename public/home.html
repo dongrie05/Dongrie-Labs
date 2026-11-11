@@ -793,20 +793,25 @@ a.card:hover .open i { transform: none; }
   // ---------- 1 · a lanterna revela fragmentos perdidos ----------
   const hc = document.getElementById("heroCanvas"), hx = hc.getContext("2d");
   const hv = document.getElementById("heroVideo");
-  const words = document.createElement("canvas"), wx = words.getContext("2d");
-  const lit = document.createElement("canvas"), lx = lit.getContext("2d");
+  const wx = document.createElement("canvas").getContext("2d");  // só para medir o texto
+  // a luz é lida do próprio vídeo: um fotograma pequeno por frame, e só os píxeis quentes da lanterna contam
+  const sc = document.createElement("canvas"); sc.width = 96; sc.height = 54;
+  const sx = sc.getContext("2d", { willReadFrequently: true });
+  // onde a luz chega em algum momento do vídeo (48×27, 0–9), medido fotograma a fotograma
+  const COV = "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000224421002200000000000000000000000000000000000000997722339955210000000000000000000000000000000044654432009966220000000000000000000000000000000088883200006577110000000000000000000000000000000024664300007721220000000000000000000000000000000000431100559944000000000000000000000000000000000000001000137744331000002222110000000000000000000000000000007777668899996611000000000000000000000000000000999988884488999966110000000000000000000000000023444477999988772233777754000000000000000000000012779999997732000000000000000000000000000000000000000000234466553200000000";
+  const covAt = (u, v) => +COV[Math.min(26, Math.max(0, v * 27 | 0)) * 48 + Math.min(47, Math.max(0, u * 48 | 0))] || 0;
   const LOST = ["fatura em falta?", "3.º ESQ.", "quem ficou de ligar?", "orçamento #231", "extrato de outubro",
     "re: re: fwd: infiltração", "ata de março", "anexo (2).pdf", "sinistro 4471", "IVA · dia 20", "WhatsApp (14)",
     "onde está o email?", "recibo do armazém", "elevador parado", "já enviei tudo?", "fração 4.º D", "quota de junho", "e-fatura · 41",
     "convocatória", "DMR por entregar", "canalizador?", "orçamento pintura", "fatura sem NIF", "seguro renova a 30", "recibos verdes",
     "portão da garagem", "mandei o PDF errado", "assembleia · 2.ª conv.", "despesas de outubro", "contador da água", "pagamento por conta",
     "luz da escada", "extrato Banco B", "chamada perdida (3)", "lembrete enviado?", "fundo de reserva"];
-  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0;
+  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0, bx = 0, by = 0, lost = [];
   const BEAM = [[0.668,0.793],[0.664,0.791],[0.659,0.794],[0.649,0.806],[0.625,0.822],[0.605,0.833],[0.555,0.798],[0.509,0.753],[0.479,0.707],[0.464,0.662],[0.505,0.648],[0.571,0.676],[0.637,0.707],[0.7,0.729],[0.714,0.726],[0.672,0.694],[0.636,0.664],[0.598,0.638],[0.561,0.618],[0.606,0.65],[0.637,0.692],[0.645,0.732],[0.644,0.77],[0.64,0.804],[0.603,0.806],[0.574,0.802],[0.566,0.8],[0.567,0.799],[0.575,0.8],[0.586,0.804],[0.59,0.811],[0.589,0.819],[0.584,0.828],[0.573,0.834],[0.563,0.837],[0.569,0.834],[0.578,0.827],[0.584,0.817],[0.59,0.808],[0.591,0.799],[0.583,0.794],[0.577,0.791],[0.58,0.791],[0.589,0.79],[0.608,0.79],[0.632,0.791],[0.656,0.794],[0.68,0.799],[0.699,0.805],[0.709,0.811],[0.716,0.814],[0.718,0.816],[0.717,0.816],[0.715,0.815],[0.712,0.814],[0.709,0.814],[0.712,0.816],[0.714,0.817],[0.711,0.816],[0.708,0.814],[0.705,0.812],[0.698,0.809],[0.693,0.806],[0.693,0.805],[0.693,0.804],[0.692,0.803],[0.691,0.803],[0.691,0.802],[0.69,0.802],[0.69,0.802],[0.69,0.802],[0.682,0.8],[0.674,0.797]];
 
   function heroLayout() {
     const W = hc.clientWidth, H = hc.clientHeight;
-    hc.width = words.width = lit.width = W * DPR; hc.height = words.height = lit.height = H * DPR;
+    hc.width = W * DPR; hc.height = H * DPR;
     const mobile = W < 860;
     // o vídeo (robô à esquerda do quadro, luz à direita) ocupa a metade direita e desce até ao chão
     // no computador, o robô fica sempre abaixo do título
@@ -818,24 +823,25 @@ a.card:hover .open i { transform: none; }
     const w = h * 1.774;
     vr = mobile ? { x: (W - w * .82) / 2 - w * .04, y: hb + (ft - hb - h) / 2 + h * .06, w, h } : { x: W - w * 1.0, y: H * .99 - h, w, h };
     // fragmentos: só onde a luz pode chegar (à direita do robô e no chão)
-    wx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    wx.clearRect(0, 0, W, H);
-    wx.fillStyle = "#fff"; wx.textBaseline = "middle";
+    lost = [];
     let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
     // cada fragmento num sítio livre: nunca se sobrepõem
     const placed = [], pad = mobile ? 4 : 7;
     LOST.forEach((t) => {
       const size = (mobile ? 11 : 14) + rnd() * (mobile ? 7 : 12);
-      wx.font = `${rnd() > .5 ? 800 : 500} ${size}px ${FONT}`;
+      const font = `${rnd() > .5 ? 800 : 500} ${size}px ${FONT}`;
+      wx.font = font;
       const tw = wx.measureText(t).width;
       for (let k = 0; k < 160; k++) {
         // toda a zona por onde a luz passa, à direita do robô: sem buracos
-        const fx = .6 + rnd() * .45, fy = .5 + rnd() * .44;
+        const fx = .55 + rnd() * .43, fy = .62 + rnd() * .31;
         const x = vr.x + fx * vr.w, y = vr.y + fy * vr.h;
         if (x + tw > W - 12) continue;
+        // só onde a luz do vídeo passa: pelo menos o meio da palavra tem de ser iluminado em algum momento
+        if (covAt((x + tw / 2 - vr.x) / vr.w, (y - vr.y) / vr.h) < 3) continue;
         const r = { x: x - pad, y: y - size / 2 - pad, w: tw + pad * 2, h: size + pad * 2 };
         if (placed.some((q) => r.x < q.x + q.w && q.x < r.x + r.w && r.y < q.y + q.h && q.y < r.y + r.h)) continue;
-        placed.push(r); wx.fillText(t, x, y); break;
+        placed.push(r); lost.push({ t, x, y, tw, font, glow: 0 }); break;
       }
     });
   }
@@ -853,18 +859,8 @@ a.card:hover .open i { transform: none; }
       hx.drawImage(hv, vr.x, vr.y, vr.w, vr.h);
       // fragmentos revelados só onde o feixe da lanterna aponta (posição medida fotograma a fotograma)
       const fi = (hv.currentTime || 0) * 12, i0 = Math.floor(fi) % BEAM.length, i1 = (i0 + 1) % BEAM.length, fr = fi - Math.floor(fi);
-      const bx = vr.x + (BEAM[i0][0] + (BEAM[i1][0] - BEAM[i0][0]) * fr) * vr.w;
-      const by = vr.y + (BEAM[i0][1] + (BEAM[i1][1] - BEAM[i0][1]) * fr) * vr.h;
-      lx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      lx.globalCompositeOperation = "source-over";
-      lx.clearRect(0, 0, W, H);
-      const rad = vr.w * .15;
-      const lg = lx.createRadialGradient(bx, by, 0, bx, by, rad);
-      lg.addColorStop(0, "rgba(255,248,235,1)"); lg.addColorStop(.55, "rgba(255,248,235,.75)"); lg.addColorStop(1, "rgba(255,248,235,0)");
-      lx.fillStyle = lg; lx.fillRect(bx - rad, by - rad, rad * 2, rad * 2);
-      lx.globalCompositeOperation = "destination-in";
-      lx.setTransform(1, 0, 0, 1, 0, 0);
-      lx.drawImage(words, 0, 0);
+      bx = vr.x + (BEAM[i0][0] + (BEAM[i1][0] - BEAM[i0][0]) * fr) * vr.w;
+      by = vr.y + (BEAM[i0][1] + (BEAM[i1][1] - BEAM[i0][1]) * fr) * vr.h;
       litA = a;
     } else litA = 0;
     // vinheta: o vídeo funde-se com o fundo
@@ -880,12 +876,32 @@ a.card:hover .open i { transform: none; }
     hx.fillStyle = fade(0, vr.y, 0, vr.y + e * .6); hx.fillRect(vr.x, vr.y - 1, vr.w, e * .6);
     hx.fillStyle = fade(0, vr.y + vr.h, 0, vr.y + vr.h - e * .6); hx.fillRect(vr.x, vr.y + vr.h - e * .6, vr.w, e * .6 + 1);
     // as palavras por cima das vinhetas: a luz revela-as até à borda do ecrã
+    // cada palavra acende inteira só enquanto a luz do vídeo está em cima dela
     if (litA) {
-      hx.setTransform(1, 0, 0, 1, 0, 0);
-      hx.globalAlpha = litA * .07; hx.drawImage(words, 0, 0);  // estão lá, no escuro
-      hx.globalAlpha = litA; hx.drawImage(lit, 0, 0);
-      hx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      hx.globalAlpha = 1;
+      sx.drawImage(hv, 0, 0, 96, 54);
+      const px = sx.getImageData(0, 0, 96, 54).data;
+      const warm = (u, v) => {
+        if (u < 0 || u > 1 || v < 0 || v > 1) return 0;
+        const k = ((v * 53 | 0) * 96 + (u * 95 | 0)) * 4, r = px[k], b = px[k + 2];
+        return clamp((r - b - 8) / 40) * clamp((r - 40) / 80);
+      };
+      hx.textBaseline = "middle"; hx.textAlign = "left";
+      lost.forEach((o) => {
+        let target = 0;
+        for (let q = 0; q <= 4; q++) {
+          const u = (o.x + o.tw * q / 4 - vr.x) / vr.w, v = (o.y - vr.y) / vr.h;
+          target = Math.max(target, warm(u, v), warm(u, v + .02) * .8);
+        }
+        target = clamp(target * 1.6);
+        o.glow += (target - o.glow) * .3;
+        const k = ease(clamp(o.glow));
+        hx.font = o.font;
+        hx.globalAlpha = litA * (.06 + .94 * k);
+        hx.fillStyle = k > .02 ? `rgb(255,${246 - 8 * k | 0},${232 - 22 * k | 0})` : "#fff";
+        hx.shadowColor = `rgba(255,214,160,${.55 * k})`; hx.shadowBlur = 14 * k;
+        hx.fillText(o.t, o.x, o.y);
+      });
+      hx.shadowBlur = 0; hx.globalAlpha = 1;
     }
   }
 
