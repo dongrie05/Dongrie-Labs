@@ -806,7 +806,7 @@ a.card:hover .open i { transform: none; }
     "convocatória", "DMR por entregar", "canalizador?", "orçamento pintura", "fatura sem NIF", "seguro renova a 30", "recibos verdes",
     "portão da garagem", "mandei o PDF errado", "assembleia · 2.ª conv.", "despesas de outubro", "contador da água", "pagamento por conta",
     "luz da escada", "extrato Banco B", "chamada perdida (3)", "lembrete enviado?", "fundo de reserva"];
-  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0, bx = 0, by = 0, lost = [];
+  let vr = { x: 0, y: 0, w: 0, h: 0 }, litA = 0, bx = 0, by = 0, lost = [], lastT = 0;
   const BEAM = [[0.668,0.793],[0.664,0.791],[0.659,0.794],[0.649,0.806],[0.625,0.822],[0.605,0.833],[0.555,0.798],[0.509,0.753],[0.479,0.707],[0.464,0.662],[0.505,0.648],[0.571,0.676],[0.637,0.707],[0.7,0.729],[0.714,0.726],[0.672,0.694],[0.636,0.664],[0.598,0.638],[0.561,0.618],[0.606,0.65],[0.637,0.692],[0.645,0.732],[0.644,0.77],[0.64,0.804],[0.603,0.806],[0.574,0.802],[0.566,0.8],[0.567,0.799],[0.575,0.8],[0.586,0.804],[0.59,0.811],[0.589,0.819],[0.584,0.828],[0.573,0.834],[0.563,0.837],[0.569,0.834],[0.578,0.827],[0.584,0.817],[0.59,0.808],[0.591,0.799],[0.583,0.794],[0.577,0.791],[0.58,0.791],[0.589,0.79],[0.608,0.79],[0.632,0.791],[0.656,0.794],[0.68,0.799],[0.699,0.805],[0.709,0.811],[0.716,0.814],[0.718,0.816],[0.717,0.816],[0.715,0.815],[0.712,0.814],[0.709,0.814],[0.712,0.816],[0.714,0.817],[0.711,0.816],[0.708,0.814],[0.705,0.812],[0.698,0.809],[0.693,0.806],[0.693,0.805],[0.693,0.804],[0.692,0.803],[0.691,0.803],[0.691,0.802],[0.69,0.802],[0.69,0.802],[0.69,0.802],[0.682,0.8],[0.674,0.797]];
 
   function heroLayout() {
@@ -886,14 +886,18 @@ a.card:hover .open i { transform: none; }
         return clamp((r - b - 8) / 40) * clamp((r - 40) / 80);
       };
       hx.textBaseline = "middle"; hx.textAlign = "left";
+      // o vídeo recomeçou: as palavras voltam ao escuro e o robô volta a encontrá-las
+      if (hv.currentTime < lastT - .5) lost.forEach((o) => { o.on = false; o.glow = 0; });
+      lastT = hv.currentTime;
       lost.forEach((o) => {
         let target = 0;
         for (let q = 0; q <= 4; q++) {
           const u = (o.x + o.tw * q / 4 - vr.x) / vr.w, v = (o.y - vr.y) / vr.h;
           target = Math.max(target, warm(u, v), warm(u, v + .02) * .8);
         }
-        target = clamp(target * 1.6);
-        o.glow += (target - o.glow) * .3;
+        // a palavra liga quando a luz passa mesmo à frente dela, e fica ligada: foi encontrada
+        if (target > .45) o.on = true;
+        o.glow += ((o.on ? 1 : 0) - o.glow) * .12;
         const k = ease(clamp(o.glow));
         hx.font = o.font;
         hx.globalAlpha = litA * (.06 + .94 * k);
@@ -1085,7 +1089,7 @@ a.card:hover .open i { transform: none; }
       flood.style.cssText = `opacity:1;left:${lerp(br.left - o.left, 0, k5)}px;top:${lerp(br.top - o.top, 0, k5)}px;width:${lerp(br.width, W, k5)}px;height:${lerp(br.height, H, k5)}px;` +
         `border-radius:${lerp(22, 0, k5)}px;background:rgb(${lerp(27, 8, k5) | 0},${lerp(68, 43, k5) | 0},${lerp(216, 140, k5) | 0})`;
     } else flood.style.opacity = 0;
-    impact.classList.toggle("on", P > .77);
+    impact.classList.toggle("on", P > .745);  // o texto sobe enquanto o azul ainda está a acabar de encher
   }
 
   document.querySelectorAll(".switch button").forEach((b) => b.addEventListener("click", () => {
