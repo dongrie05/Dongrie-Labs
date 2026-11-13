@@ -8,6 +8,15 @@
 - Marcar diagnóstico (30 min): https://calendly.com/goncalo-dongrie05/30min
 - Idioma: português (Portugal). País: Portugal.
 
+## Páginas principais
+
+- [AI Layer para administração de condomínios](https://dongrielabs.com/condominios): ocorrências ligadas ao prédio e à fração, com histórico e próximo passo.
+- [AI Layer para gabinetes de contabilidade](https://dongrielabs.com/contabilidade): documentos em falta por cliente e por mês.
+- [Artigos](https://dongrielabs.com/artigos)
+  - [Como organizar as ocorrências de um condomínio sem perder emails nem WhatsApps](https://dongrielabs.com/artigos/organizar-ocorrencias-condominio)
+  - [IA na administração de condomínios: o que já dá para automatizar e o que não](https://dongrielabs.com/artigos/ia-administracao-condominios)
+  - [Documentos em falta: como pedir aos clientes sem perder horas todos os meses](https://dongrielabs.com/artigos/documentos-em-falta-contabilidade)
+
 ## AI Layer
 
 Uma camada de IA por cima do email, do WhatsApp, das chamadas e dos sistemas que a equipa já usa. Liga cada mensagem ao cliente certo (o prédio e a fração, ou o cliente e o mês), junta o histórico e prepara o próximo passo. Uma pessoa revê e aprova antes de qualquer envio.

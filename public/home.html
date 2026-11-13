@@ -241,7 +241,8 @@ body::after {
 .film .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
 .film .titles { position: absolute; left: var(--gut); top: 0; bottom: 0; width: min(44vw, 660px); display: grid; align-content: center; z-index: 2; pointer-events: none; }
 .film .t { grid-area: 1 / 1; }
-.film .t h2 { font-size: clamp(30px, 4.1vw, 74px); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.film .t h3 { font-size: clamp(30px, 4.1vw, 74px); }
 .film .t .ln { display: block; overflow: hidden; padding: .18em 0 .08em; margin: -.18em 0 -.08em; }
 .film .t .ln > span { display: block; transform: translateY(135%); transition: transform .8s var(--ease); }
 .film .t .ln + .ln > span { transition-delay: .07s; }
@@ -350,6 +351,9 @@ body::after {
 .mini .mx b { font-size: 12.5px; font-weight: 600; background: var(--ink); color: var(--bg); border-radius: 99px; padding: 7px 14px; }
 .row .what .k { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .row .what p { color: var(--muted); max-width: 30rem; }
+.k-eyebrow { display: block; margin-bottom: 18px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.row .more { justify-self: start; margin-top: 6px; font-size: 15px; color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(243, 244, 255, .3); padding-bottom: 2px; transition: border-color .2s, color .2s; }
+.row .more:hover { color: var(--accent); border-color: var(--accent); }
 /* 6 · produtos: cards que abrem num painel (a mesma forma cresce) */
 .prods { padding: 0 var(--gut) clamp(96px, 11vw, 150px); }
 .prods-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 4vw, 56px); }
@@ -563,6 +567,9 @@ a.card:hover .open i { transform: none; }
 .end .info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 28px 0 48px; font-size: 15px; color: var(--muted); }
 .end .info a { color: var(--ink); }
 .end footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--faint); }
+.end .fl { display: flex; flex-wrap: wrap; gap: 18px; }
+.end .fl a { color: var(--muted); transition: color .2s; }
+.end .fl a:hover { color: var(--ink); }
 
 /* ecrãs estreitos (360 px): o título cabe sem cortar */
 @media (max-width: 480px) { .hero h1.mega { font-size: clamp(34px, 11.8vw, 46px); } }
@@ -577,7 +584,7 @@ a.card:hover .open i { transform: none; }
   .hero .copy { padding-top: 100px; padding-bottom: 28px; }
   :root { --bw: 240px; }
   .film .titles { width: auto; right: var(--gut); top: 84px; bottom: auto; align-content: start; }
-  .film .t h2 { font-size: clamp(28px, 8.4vw, 44px); }
+  .film .t h3 { font-size: clamp(28px, 8.4vw, 44px); }
   .film .t p { display: none; }
   .switch { top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: 50%; transform: translateX(50%); }
   .cards { grid-template-columns: 1fr; }
@@ -650,10 +657,11 @@ a.card:hover .open i { transform: none; }
   <!-- 2 · Filme do produto -->
   <section class="film" id="como" aria-label="Como funciona a AI Layer">
     <div class="stage">
+      <h2 class="sr">Como funciona a AI Layer: emails, WhatsApp e chamadas organizados por cliente, com o próximo passo preparado</h2>
       <div class="titles">
-        <div class="t on"><h2 class="wide"><span class="ln"><span>Está tudo aqui.</span></span><span class="ln"><span class="dim">Algures.</span></span></h2><p data-k="sub0"></p></div>
-        <div class="t"><h2 class="wide"><span class="ln"><span>Escreve um nome.</span></span><span class="ln"><span class="dim">Aparece tudo.</span></span></h2><p>A AI Layer liga cada email, mensagem e chamada ao cliente certo. Ninguém copia nada.</p></div>
-        <div class="t"><h2 class="wide"><span class="ln"><span>E o próximo passo.</span></span><span class="ln"><span class="dim">Já preparado.</span></span></h2><p>Revê, aprova e segue. Nada sai sem uma pessoa.</p></div>
+        <div class="t on"><h3 class="wide"><span class="ln"><span>Está tudo aqui.</span></span><span class="ln"><span class="dim">Algures.</span></span></h3><p data-k="sub0"></p></div>
+        <div class="t"><h3 class="wide"><span class="ln"><span>Escreve um nome.</span></span><span class="ln"><span class="dim">Aparece tudo.</span></span></h3><p>A AI Layer liga cada email, mensagem e chamada ao cliente certo. Ninguém copia nada.</p></div>
+        <div class="t"><h3 class="wide"><span class="ln"><span>E o próximo passo.</span></span><span class="ln"><span class="dim">Já preparado.</span></span></h3><p>Revê, aprova e segue. Nada sai sem uma pessoa.</p></div>
       </div>
       <div class="switch" role="group" aria-label="Setor">
         <button type="button" aria-pressed="true" data-s="condo">Condomínios</button>
@@ -682,6 +690,7 @@ a.card:hover .open i { transform: none; }
 
   <!-- 4 · Como começar -->
   <section class="start" id="comecar" aria-labelledby="comecar-t">
+    <span class="k-eyebrow">Como começar com a AI Layer</span>
     <h2 class="soft big" id="comecar-t">Um processo.<br><span class="dim">Quatro semanas.</span></h2>
     <div class="track" id="track">
       <span class="fill" aria-hidden="true"></span>
@@ -697,7 +706,7 @@ a.card:hover .open i { transform: none; }
     <div class="row">
       <div class="txt">
         <h2 class="soft big">Condomínios</h2>
-        <div class="what"><span class="k">Primeira tarefa</span><p>Ocorrências: cada pedido ligado ao prédio e à fração, com o histórico e o próximo passo. Com a Linea, as urgências fora de horas também ficam registadas.</p></div>
+        <div class="what"><span class="k">Primeira tarefa</span><p>Ocorrências: cada pedido ligado ao prédio e à fração, com o histórico e o próximo passo. Com a Linea, as urgências fora de horas também ficam registadas.</p><a class="more" href="/condominios">AI Layer para administração de condomínios →</a></div>
       </div>
       <div class="mini" aria-hidden="true">
         <div class="mh"><b>Rua das Flores, 12</b><span>Ocorrência · 3.º Esq.</span></div>
@@ -713,7 +722,7 @@ a.card:hover .open i { transform: none; }
     <div class="row">
       <div class="txt">
         <h2 class="soft big">Contabilidade</h2>
-        <div class="what"><span class="k">Primeira tarefa</span><p>Documentos em falta: por cliente e por mês, o que chegou, o que falta e o lembrete pronto a aprovar. Nada é submetido sem o contabilista.</p></div>
+        <div class="what"><span class="k">Primeira tarefa</span><p>Documentos em falta: por cliente e por mês, o que chegou, o que falta e o lembrete pronto a aprovar. Nada é submetido sem o contabilista.</p><a class="more" href="/contabilidade">AI Layer para gabinetes de contabilidade →</a></div>
       </div>
       <div class="mini" aria-hidden="true">
         <div class="mh"><b>Café Central, Lda</b><span>Outubro · IVA a 20</span></div>
@@ -769,7 +778,7 @@ a.card:hover .open i { transform: none; }
       <p>WhatsApp<br><a href="https://wa.me/351927699882">+351 927 699 882</a></p>
       <p>Email<br><a href="mailto:goncalo.dongrie05@gmail.com">goncalo.dongrie05@gmail.com</a></p>
     </div>
-    <footer><span>© 2026 Dongrie Labs</span><span>Portugal</span></footer>
+    <footer><span>© 2026 Dongrie Labs · Portugal</span><nav class="fl" aria-label="Rodapé"><a href="/condominios">Condomínios</a><a href="/contabilidade">Contabilidade</a><a href="/artigos">Artigos</a><a href="https://linea.dongrielabs.com/">Linea</a><a href="https://diagnostico.dongrielabs.com/">Diagnóstico Express</a><a href="/pt/privacy">Privacidade</a></nav></footer>
   </section>
 </main>
 
