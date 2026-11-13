@@ -1,14 +1,9 @@
 import { getTranslations } from 'next-intl/server';
 import {
   HeroSection,
-  CredibilityBar,
-  ProofStrip,
-  WhoIHelp,
-  TechMarquee,
   ServicesOverview,
   PortfolioHighlights,
   ProcessTimeline,
-  WhyDongrieLabs,
   FAQSection,
   FounderSection,
   CTASection,
@@ -31,16 +26,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <CredibilityBar />
-      <ProofStrip />
-      <TechMarquee />
-      <WhoIHelp />
-      <ServicesOverview />
       <PortfolioHighlights />
+      <ServicesOverview />
       <ProcessTimeline />
-      <WhyDongrieLabs />
-      <FAQSection />
       <FounderSection />
+      <FAQSection />
       <CTASection />
     </>
   );

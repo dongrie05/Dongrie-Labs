@@ -1,4 +1,3 @@
-import { ChevronRight } from 'lucide-react';
 import { Link } from '@/navigation';
 
 export type BreadcrumbItem = {
@@ -15,24 +14,16 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   if (items.length === 0) return null;
 
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className={`flex flex-wrap items-center gap-1 text-sm text-slate-400 ${className}`}
-    >
+    <nav aria-label="Breadcrumb" className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-[15px] text-muted ${className}`}>
       {items.map((item, i) => (
-        <span key={i} className="flex items-center gap-1">
-          {i > 0 && (
-            <ChevronRight className="h-4 w-4 shrink-0 text-slate-500" aria-hidden />
-          )}
+        <span key={i} className="flex items-center gap-2">
+          {i > 0 && <span aria-hidden>/</span>}
           {item.href != null ? (
-            <Link
-              href={item.href}
-              className="hover:text-white transition-colors"
-            >
+            <Link href={item.href} className="text-link hover:underline">
               {item.label}
             </Link>
           ) : (
-            <span className="text-white font-medium" aria-current="page">
+            <span className="text-ink" aria-current="page">
               {item.label}
             </span>
           )}

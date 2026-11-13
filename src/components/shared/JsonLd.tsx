@@ -71,7 +71,7 @@ export function LocalBusinessJsonLd() {
       opens: '09:00',
       closes: '18:00',
     },
-    priceRange: '€2k – €10k',
+    priceRange: '€2k to €10k',
   };
 
   return (

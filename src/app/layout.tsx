@@ -1,26 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, Sora } from 'next/font/google';
 import './globals.css';
 import {
   OrganizationJsonLd,
   WebSiteJsonLd,
   LocalBusinessJsonLd,
 } from '@/components/shared/JsonLd';
-import { SmoothScroll } from '@/components/shared/SmoothScroll';
-import { CustomCursor } from '@/components/shared/CustomCursor';
-import { GrainOverlay } from '@/components/shared/GrainOverlay';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-sora',
-  display: 'swap',
-});
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dongrielabs.com';
 
@@ -45,16 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body className="font-sans antialiased bg-navy-950 text-white min-h-screen">
+    <html lang="en">
+      <body className="min-h-screen bg-canvas font-sans text-ink antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <LocalBusinessJsonLd />
-        <CustomCursor />
-        <GrainOverlay />
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );

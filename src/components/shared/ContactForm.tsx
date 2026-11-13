@@ -59,7 +59,7 @@ export function ContactForm() {
     setStatus('sending');
 
     const projectTypeLabel = projectTypeOptions.find((o) => o.value === data.projectType)?.label ?? data.projectType;
-    const budgetLabel = data.budget ? (budgetOptions.find((o) => o.value === data.budget)?.label ?? data.budget) : '–';
+    const budgetLabel = data.budget ? (budgetOptions.find((o) => o.value === data.budget)?.label ?? data.budget) : '';
 
     const lines = [
       t('whatsAppIntro'),
@@ -80,8 +80,8 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-8 text-center text-green-400">
-        <p className="text-lg font-medium">{t('success')}</p>
+      <div className="rounded-3xl bg-paper px-8 py-10" role="status">
+        <p className="text-[17px] leading-relaxed text-ink">{t('success')}</p>
       </div>
     );
   }
@@ -90,12 +90,15 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <Input
         label={t('name')}
+        autoComplete="name"
         {...register('name')}
         error={errors.name?.message}
       />
       <Input
         label={t('email')}
         type="email"
+        autoComplete="email"
+        inputMode="email"
         {...register('email')}
         error={errors.email?.message}
       />
@@ -118,7 +121,7 @@ export function ContactForm() {
         error={errors.message?.message}
       />
       {status === 'error' && (
-        <p className="text-sm text-red-400">{t('error')}</p>
+        <p className="text-[15px] text-danger" role="alert">{t('error')}</p>
       )}
       <Button
         type="submit"

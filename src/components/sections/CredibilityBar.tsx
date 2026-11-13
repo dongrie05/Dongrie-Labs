@@ -14,7 +14,7 @@ const stats: Array<{
   { value: 7, key: 'appsLaunched', isNumber: true },
   { value: 3, key: 'months', isNumber: true },
   { value: '5 + 2', key: 'platforms' },
-  { value: '€2k–€10k', key: 'projectRange' },
+  { value: '€2k to €10k', key: 'projectRange' },
 ];
 
 const containerVariants = {
