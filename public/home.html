@@ -203,7 +203,11 @@ body::after {
 .nav ul { padding-top: 10px; }
 /* logótipo animado, sem fundo: entrada ao abrir, queda ao sair do início, depois só o robô */
 .brand { display: block; width: var(--bw); aspect-ratio: 1600 / 402; transform-origin: 0 0; transition: transform .8s var(--ease); }
-.brand canvas { width: 100%; height: 100%; display: block; }
+.brand canvas { width: 100%; height: 100%; display: block; position: relative; }
+/* se o telemóvel não deixar tocar vídeos (modo de poupança de bateria), fica a imagem fixa */
+.brand .still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: left top; pointer-events: none; }
+.brand.playing .still { display: none; }
+.brand:not(.playing) canvas { visibility: hidden; }
 .brand.small { transform: scale(.5); }
 .brand video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
 .nav ul { list-style: none; display: flex; gap: 28px; font-size: 14px; }
@@ -620,6 +624,7 @@ a.card:hover .open i { transform: none; }
 <body>
 <nav class="nav" aria-label="Principal">
   <a class="brand" id="brand" href="#topo" aria-label="Dongrie Labs, início">
+    <img class="still" id="logoStill" src="/media/logo-poster.png" alt="" aria-hidden="true">
     <canvas id="logoCanvas" aria-hidden="true"></canvas>
     <video id="logoIntro" src="/media/logo-entrada.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
     <video id="logoFall" src="/media/logo-queda.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
@@ -802,6 +807,8 @@ a.card:hover .open i { transform: none; }
   // ---------- 1 · a lanterna revela fragmentos perdidos ----------
   const hc = document.getElementById("heroCanvas"), hx = hc.getContext("2d");
   const hv = document.getElementById("heroVideo");
+  const heroStill = new Image(); heroStill.src = "/media/robo-procura-poster.jpg";
+  let heroPlaying = false; hv.addEventListener("playing", () => { heroPlaying = true; });
   // as palavras vivem numa camada própria; a luz é a do próprio vídeo, usada como máscara
   const words = document.createElement("canvas"), wx = words.getContext("2d");
   const lit = document.createElement("canvas"), lx = lit.getContext("2d");
@@ -865,7 +872,10 @@ a.card:hover .open i { transform: none; }
     hx.globalCompositeOperation = "source-over";
     hx.globalAlpha = 1;
     hx.fillStyle = "#030116"; hx.fillRect(0, 0, W, H);
-    if (hv.readyState >= 2) {
+    if (!heroPlaying && heroStill.complete && heroStill.naturalWidth) {
+      hx.drawImage(heroStill, vr.x, vr.y, vr.w, vr.h);  // o telemóvel bloqueou o vídeo: fica o robô parado
+      litA = 0;
+    } else if (hv.readyState >= 2) {
       const left = hv.duration ? hv.duration - hv.currentTime : 1;
       const a = clamp(Math.min(hv.currentTime / .4, left / .4)); // esconde a costura do loop
       hx.globalAlpha = a;
@@ -1281,14 +1291,17 @@ a.card:hover .open i { transform: none; }
   const drawLogo = keyed(document.getElementById("logoCanvas"), intro, [3, 46, 151], .16, .3, Math.min(devicePixelRatio || 1, 2));
   let logoVideo = intro, away = false;
   const playFrom0 = (v) => { v.currentTime = 0; v.play().catch(() => {}); };
-  if (reduce) intro.addEventListener("loadedmetadata", () => { intro.currentTime = intro.duration - .05; }, { once: true });
+  const still = document.getElementById("logoStill");
+  [intro, fall].forEach((v) => v.addEventListener("playing", () => brand.classList.add("playing")));
+  if (reduce) intro.addEventListener("loadedmetadata", () => { intro.currentTime = intro.duration - .05; brand.classList.add("playing"); }, { once: true });
   else intro.play().catch(() => {});
   fall.addEventListener("ended", () => { if (away) brand.classList.add("small"); });
   function logoFrame() {
     const nowAway = scrollY > 24;
     if (nowAway !== away) {
       away = nowAway;
-      if (away) { intro.pause(); logoVideo = fall; reduce ? brand.classList.add("small") : playFrom0(fall); }
+      still.src = away ? "/media/logo-small-poster.png" : "/media/logo-poster.png";
+      if (away) { intro.pause(); logoVideo = fall; if (reduce || !brand.classList.contains("playing")) brand.classList.add("small"); else playFrom0(fall); }
       else { fall.pause(); brand.classList.remove("small"); logoVideo = intro; if (!reduce) playFrom0(intro); }
     }
     drawLogo(logoVideo);
@@ -1318,6 +1331,8 @@ a.card:hover .open i { transform: none; }
   if (reduce) hv.removeAttribute("loop");
   hv.defaultPlaybackRate = hv.playbackRate = .85;  // um pouco mais calmo que o original
   hv.play().catch(() => {});
+  const retry = () => { if (!heroPlaying) hv.play().catch(() => {}); if (!brand.classList.contains("playing")) (away ? fall : intro).play().catch(() => {}); };
+  ["touchstart", "pointerdown", "scroll"].forEach((e) => addEventListener(e, retry, { passive: true, once: true }));
   buildFilm();
   document.fonts.ready.then(() => { heroLayout(); layoutFilm(); });
   heroLayout();
