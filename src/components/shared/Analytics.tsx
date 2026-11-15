@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 const CONSENT_KEY = 'dongrielabs-cookie-consent';
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GTM_ID = 'GTM-W737S83Q';
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 function hasConsent(): boolean {
@@ -26,6 +27,10 @@ export function Analytics() {
 
   return (
     <>
+      <Script id="gtm" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} dataLayer.push({'gtm.start': Date.now(), event: 'gtm.js'}); gtag('js', new Date());`}
+      </Script>
+      <Script src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} strategy="afterInteractive" />
       {GA_ID && (
         <>
           <Script
