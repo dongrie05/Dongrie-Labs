@@ -12,6 +12,8 @@
 
 - [AI Layer para administração de condomínios](https://dongrielabs.com/condominios): ocorrências ligadas ao prédio e à fração, com histórico e próximo passo.
 - [AI Layer para gabinetes de contabilidade](https://dongrielabs.com/contabilidade): documentos em falta por cliente e por mês.
+- [Apps](https://dongrielabs.com/apps): desenvolvimento de apps para iPhone; 6 publicadas na App Store.
+- [Websites](https://diagnostico.dongrielabs.com/): visibilidade no Google e em ferramentas de IA (Diagnóstico Express, Auditoria Visível, implementação).
 - [Artigos](https://dongrielabs.com/artigos)
   - [Como organizar as ocorrências de um condomínio sem perder emails nem WhatsApps](https://dongrielabs.com/artigos/organizar-ocorrencias-condominio)
   - [IA na administração de condomínios: o que já dá para automatizar e o que não](https://dongrielabs.com/artigos/ia-administracao-condominios)

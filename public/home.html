@@ -778,7 +778,7 @@ a.card:hover .open i { transform: none; }
       <p>WhatsApp<br><a href="https://wa.me/351927699882">+351 927 699 882</a></p>
       <p>Email<br><a href="mailto:goncalo.dongrie05@gmail.com">goncalo.dongrie05@gmail.com</a></p>
     </div>
-    <footer><span>© 2026 Dongrie Labs · Portugal</span><nav class="fl" aria-label="Rodapé"><a href="/condominios">Condomínios</a><a href="/contabilidade">Contabilidade</a><a href="/artigos">Artigos</a><a href="https://linea.dongrielabs.com/">Linea</a><a href="https://diagnostico.dongrielabs.com/">Diagnóstico Express</a><a href="/pt/privacy">Privacidade</a></nav></footer>
+    <footer><span>© 2026 Dongrie Labs · Portugal</span><nav class="fl" aria-label="Rodapé"><a href="/condominios">Condomínios</a><a href="/contabilidade">Contabilidade</a><a href="/apps">Apps</a><a href="https://diagnostico.dongrielabs.com/">Websites</a><a href="/artigos">Artigos</a><a href="https://linea.dongrielabs.com/">Linea</a><a href="https://diagnostico.dongrielabs.com/">Diagnóstico Express</a><a href="/pt/privacy">Privacidade</a></nav></footer>
   </section>
 </main>
 
@@ -1191,7 +1191,7 @@ a.card:hover .open i { transform: none; }
       <span class="meta"><img src="/media/apps/${a.f}.jpg" alt="" width="40" height="40"><span><b>${esc(a.n)}</b><em>${esc(a.c)}</em></span><i aria-hidden="true">↗</i></span>
       <span class="what">${esc(a.d)}</span></a>`).join("")}</div>
     <div class="af"><ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
-      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar sobre uma app <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>`;
+      <div class="acts"><a class="cta" href="${wa(p.wa)}">Falar sobre uma app <i aria-hidden="true">→</i></a><a class="ghost" href="/apps">Ver a página das apps</a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a></div></div>`;
   sbody.addEventListener("click", (e) => {
     const b = e.target.closest(".gnav button"); if (!b) return;
     const g = sbody.querySelector(".gal"); g.scrollBy({ left: b.dataset.d * g.clientWidth * .8, behavior: reduce ? "auto" : "smooth" });

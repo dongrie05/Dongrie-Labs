@@ -7,7 +7,7 @@ const locales = ['en', 'pt'] as const;
 // a página inicial é a mesma para os dois idiomas (/), por isso não entra por idioma
 // as páginas do estúdio antigo redirecionam para as novas e já não entram
 const staticPaths = ['/privacy', '/contact'];
-const CONTENT = ['/condominios', '/contabilidade', '/artigos', '/artigos/organizar-ocorrencias-condominio', '/artigos/ia-administracao-condominios', '/artigos/documentos-em-falta-contabilidade'];
+const CONTENT = ['/condominios', '/contabilidade', '/apps', '/artigos', '/artigos/organizar-ocorrencias-condominio', '/artigos/ia-administracao-condominios', '/artigos/documentos-em-falta-contabilidade'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
