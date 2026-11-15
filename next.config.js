@@ -15,7 +15,7 @@ const nextConfig = {
       { source: '/:locale(pt|en)/portfolio/:slug', destination: '/', permanent: true },
       { source: '/:locale(pt|en)/recursos', destination: '/artigos', permanent: true },
       // cópias técnicas em .html apontam para o endereço limpo
-      { source: '/:page(condominios|contabilidade|apps|websites|artigos).html', destination: '/:page', permanent: true },
+      { source: '/:page(condominios|contabilidade|apps|artigos).html', destination: '/:page', permanent: true },
       { source: '/artigos/:slug.html', destination: '/artigos/:slug', permanent: true },
     ];
   },
@@ -23,7 +23,7 @@ const nextConfig = {
     return {
       beforeFiles: [
         { source: '/', destination: '/home.html' },
-        { source: '/:page(condominios|contabilidade|apps|websites|artigos)', destination: '/:page.html' },
+        { source: '/:page(condominios|contabilidade|apps|artigos)', destination: '/:page.html' },
         { source: '/artigos/:slug', destination: '/artigos/:slug.html' },
       ],
     };
