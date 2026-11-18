@@ -50,7 +50,7 @@ export default async function ContactPage() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <AnimateOnScroll variant="slideLeft">
-            <ContactForm />
+            <ContactForm source="contact" />
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="slideRight" delay={0.1}>
