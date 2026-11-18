@@ -1,6 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import { SectionHeading } from '@/components/shared/SectionHeading';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
 
 export async function FAQSection() {
@@ -9,15 +7,17 @@ export async function FAQSection() {
     { question: t('q1'), answer: t('a1') },
     { question: t('q2'), answer: t('a2') },
     { question: t('q3'), answer: t('a3') },
+    { question: t('q4'), answer: t('a4') },
   ];
+
   return (
-    <AnimateOnScroll>
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeading title={t('title')} align="center" />
+    <section className="bg-paper section-pad">
+      <div className="wrap max-w-3xl">
+        <h2 className="headline">{t('title')}</h2>
         <div className="mt-10">
           <FAQAccordion items={items} />
         </div>
-      </section>
-    </AnimateOnScroll>
+      </div>
+    </section>
   );
 }

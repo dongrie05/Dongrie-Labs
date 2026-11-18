@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { settle } from '@/lib/motion';
 
 interface FAQItem {
   question: string;
@@ -16,46 +16,47 @@ interface FAQAccordionProps {
 }
 
 export function FAQAccordion({ items, className }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const reduce = useReducedMotion();
 
   return (
-    <div className={cn('space-y-3', className)}>
+    <div className={cn('border-t border-line', className)}>
       {items.map((item, i) => {
         const isOpen = openIndex === i;
+        const panelId = `faq-panel-${i}`;
+        const buttonId = `faq-button-${i}`;
         return (
-          <div
-            key={i}
-            className={cn(
-              'rounded-2xl border bg-navy-900/60 overflow-hidden transition-colors duration-300',
-              isOpen ? 'border-white/[0.08]' : 'border-white/[0.04]'
-            )}
-          >
+          <div key={item.question} className="border-b border-line">
             <button
+              id={buttonId}
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors duration-200 hover:bg-white/[0.02]"
+              className="flex min-h-11 w-full items-center justify-between gap-6 py-5 text-left"
               aria-expanded={isOpen}
+              aria-controls={panelId}
             >
-              <span className="font-medium text-white pr-4">{item.question}</span>
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <ChevronDown className="h-5 w-5 shrink-0 text-slate-500" />
-              </motion.div>
+              <span className="text-[17px] font-medium tracking-[-0.011em] text-ink">
+                {item.question}
+              </span>
+              <span className="text-[20px] leading-none text-muted" aria-hidden>
+                {isOpen ? '-' : '+'}
+              </span>
             </button>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  initial={reduce ? false : { height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                  transition={reduce ? { duration: 0.01 } : settle}
                   className="overflow-hidden"
                 >
-                  <div className="border-t border-white/[0.04] px-6 py-5 text-slate-400 leading-relaxed">
+                  <p className="max-w-prose pb-6 text-[17px] leading-relaxed text-muted">
                     {item.answer}
-                  </div>
+                  </p>
                 </motion.div>
               )}
             </AnimatePresence>

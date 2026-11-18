@@ -3,7 +3,6 @@
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { useTransition } from 'react';
-import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const locales = [
@@ -26,37 +25,28 @@ export function LanguageToggle({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn(
-        'relative inline-flex rounded-xl border border-white/[0.08] bg-navy-900/80 p-1 backdrop-blur-sm',
-        className
-      )}
-      role="tablist"
-      aria-label="Select language"
+      className={cn('inline-flex items-center rounded-full p-0.5', className)}
+      role="group"
+      aria-label="Language"
     >
-      <motion.div
-        className="absolute top-1 bottom-1 rounded-lg bg-blue-500"
-        layout
-        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-        style={{
-          left: locale === 'en' ? 4 : '50%',
-          width: 'calc(50% - 4px)',
-        }}
-      />
-      {locales.map(({ code, label }) => (
-        <button
-          key={code}
-          role="tab"
-          aria-selected={locale === code}
-          onClick={() => switchLocale(code)}
-          disabled={isPending}
-          className={cn(
-            'relative z-10 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-200',
-            locale === code ? 'text-white' : 'text-slate-400 hover:text-slate-200'
-          )}
-        >
-          {label}
-        </button>
-      ))}
+      {locales.map(({ code, label }) => {
+        const selected = locale === code;
+        return (
+          <button
+            key={code}
+            type="button"
+            aria-pressed={selected}
+            onClick={() => switchLocale(code)}
+            disabled={isPending}
+            className={cn(
+              'min-h-11 min-w-11 rounded-full px-2 text-[15px] font-medium',
+              selected ? 'text-ink' : 'text-muted hover:text-ink'
+            )}
+          >
+            {label}
+          </button>
+        );
+      })}
     </div>
   );
 }

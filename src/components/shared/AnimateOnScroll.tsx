@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { settle } from '@/lib/motion';
 
 type AnimateVariant = 'fadeUp' | 'fadeIn' | 'scale' | 'slideLeft' | 'slideRight';
 
@@ -14,48 +15,27 @@ interface AnimateOnScrollProps {
   variant?: AnimateVariant;
 }
 
-const variants: Record<AnimateVariant, Variants> = {
-  fadeUp: {
-    hidden: { opacity: 0, y: 30, filter: 'blur(6px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  },
-  fadeIn: {
-    hidden: { opacity: 0, filter: 'blur(4px)' },
-    visible: { opacity: 1, filter: 'blur(0px)' },
-  },
-  scale: {
-    hidden: { opacity: 0, scale: 0.92, filter: 'blur(6px)' },
-    visible: { opacity: 1, scale: 1, filter: 'blur(0px)' },
-  },
-  slideLeft: {
-    hidden: { opacity: 0, x: -40, filter: 'blur(4px)' },
-    visible: { opacity: 1, x: 0, filter: 'blur(0px)' },
-  },
-  slideRight: {
-    hidden: { opacity: 0, x: 40, filter: 'blur(4px)' },
-    visible: { opacity: 1, x: 0, filter: 'blur(0px)' },
-  },
-};
-
 export function AnimateOnScroll({
   children,
   className,
   delay = 0,
   once = true,
-  amount = 0.15,
+  amount = 0.2,
   variant = 'fadeUp',
 }: AnimateOnScrollProps) {
+  const reduce = useReducedMotion();
+  const travel = variant === 'fadeIn' || variant === 'scale' ? 0 : 12;
+
+  if (reduce) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: travel }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount }}
-      variants={variants[variant]}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
+      transition={{ ...settle, delay }}
       className={cn(className)}
     >
       {children}

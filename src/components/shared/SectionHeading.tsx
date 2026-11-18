@@ -5,31 +5,21 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: 'left' | 'center';
   className?: string;
+  as?: 'h1' | 'h2';
 }
 
 export function SectionHeading({
   title,
   subtitle,
-  align = 'center',
+  align = 'left',
   className,
+  as = 'h2',
 }: SectionHeadingProps) {
+  const Tag = as;
   return (
-    <div
-      className={cn(
-        'mb-12 md:mb-16',
-        align === 'center' && 'text-center mx-auto max-w-3xl',
-        align === 'left' && 'max-w-2xl',
-        className
-      )}
-    >
-      <h2 className="font-heading text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-4 text-lg text-slate-300 leading-relaxed">
-          {subtitle}
-        </p>
-      )}
+    <div className={cn(align === 'center' && 'mx-auto max-w-prose text-center', className)}>
+      <Tag className="headline">{title}</Tag>
+      {subtitle && <p className={cn('lede', align === 'center' && 'mx-auto')}>{subtitle}</p>}
     </div>
   );
 }
