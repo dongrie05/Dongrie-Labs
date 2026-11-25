@@ -91,7 +91,7 @@
       "areaServed": { "@type": "Country", "name": "Portugal" },
       "offers": [
         { "@type": "Offer", "name": "Starter · 400 minutos", "price": "99", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99", "priceCurrency": "EUR", "unitText": "mês" } },
-        { "@type": "Offer", "name": "Growth · 1000 minutos", "price": "199", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "EUR", "unitText": "mês" } },
+        { "@type": "Offer", "name": "Growth · 1000 minutos", "price": "249", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "249", "priceCurrency": "EUR", "unitText": "mês" } },
         { "@type": "Offer", "name": "Pro · 2500 minutos", "price": "499", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "499", "priceCurrency": "EUR", "unitText": "mês" } }
       ]
     },
@@ -434,6 +434,7 @@ a.card:hover .open i { transform: none; }
 .plans b { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .plans strong { font-variation-settings: "wdth" 112; font-weight: 600; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -.04em; line-height: 1; }
 .plans span { color: var(--muted); font-size: 14px; }
+.plans s { color: var(--faint); font-size: 13px; text-decoration-thickness: 1px; }
 .plans strong small { margin-left: 3px; font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
 .offer { margin-bottom: 40px; padding-left: 14px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14.5px; max-width: 36rem; }
 .offer strong { color: var(--ink); font-weight: 600; }
@@ -1150,8 +1151,8 @@ a.card:hover .open i { transform: none; }
           <ul><li>Consulta marcada · quinta, 10h</li><li>SMS de confirmação enviado</li></ul></div></div>`, short: "Assistente telefónico com IA para clínicas e pequenas empresas. Atende mesmo fora de horas.", kick: "Clínicas e pequenas empresas",
       lead: "A Linea atende as chamadas quando a equipa não consegue, mesmo fora de horas, para que nenhum cliente fique sem resposta.",
       facts: [["Para quem", "Clínicas e pequenas empresas em Portugal"], ["Quando", "Fora de horas e quando a equipa não pode"], ["Porquê clínicas", "Uma chamada perdida costuma ser uma marcação perdida"]],
-      plans: [["Starter", "99 €", "400 minutos"], ["Growth", "199 €", "1000 minutos"], ["Pro", "499 €", "2500 minutos"]],
-      offer: "<strong>Primeiros clientes: 30% de desconto durante 12 meses.</strong> Para experimentar, um piloto de duas semanas com 29 € de caução, devolvidos se avançar.",
+      plans: [["Starter", "99 €", "74 €", "400 minutos"], ["Growth", "249 €", "189 €", "1000 minutos"], ["Pro", "499 €", "374 €", "2500 minutos"]],
+      offer: "<strong>Preço especial nos primeiros 3 meses.</strong> Experimente a Linea durante 2 semanas, com uma caução de 29 €, 89 € ou 179 €, conforme o plano, devolvida se avançar. Cada minuto extra custa 0,30 € no Starter e 0,25 € no Growth e no Pro.",
       site: ["Conhecer a Linea", "https://linea.dongrielabs.com/"],
       steps: ["Atende com a voz e as regras da clínica ou da empresa", "Responde, marca ou anota o pedido", "A equipa recebe o resumo e o próximo passo"],
       wa: "Olá, queria saber mais sobre a Linea" },
@@ -1217,7 +1218,7 @@ a.card:hover .open i { transform: none; }
     sbody.className = p.apps ? "body appsb" : "body";
     sbody.innerHTML = p.apps ? appsSheet(p) : `<div><span class="kick">${esc(p.kick)}</span><h3 class="soft" id="sheet-t">${esc(p.name)}</h3>${p.tag ? `<p class="tag">${esc(p.tag)}</p>` : ""}<p class="lead">${esc(p.lead)}</p>${p.more ? `<p class="more">${esc(p.more)}</p>` : ""}
       <div class="facts">${p.facts.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
-      ${p.plans ? `<div class="plans">${p.plans.map(([n, v, m]) => `<div><b>${n}</b><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div>` : ""}${p.offer ? `<p class="offer">${p.offer}</p>` : ""}
+      ${p.plans ? `<div class="plans">${p.plans.map(([n, was, v, m]) => `<div><b>${n}</b><s>${was}/mês</s><strong>${v}<small>/mês</small></strong><span>${m}</span></div>`).join("")}</div>` : ""}${p.offer ? `<p class="offer">${p.offer}</p>` : ""}
       <ol>${p.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>${p.extra || ""}
       <div class="acts">${p.site ? `<a class="cta" href="${p.site[1]}" target="_blank" rel="noopener">${esc(p.site[0])} <i aria-hidden="true">↗</i></a><a class="ghost" href="${wa(p.wa)}">Falar no WhatsApp</a>`
         : `<a class="cta" href="${wa(p.wa)}">Falar no WhatsApp <i aria-hidden="true">→</i></a><a class="ghost" href="https://calendly.com/goncalo-dongrie05/30min">Marcar conversa</a>`}</div></div>
