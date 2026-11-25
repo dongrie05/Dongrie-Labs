@@ -6,7 +6,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dongrielabs.com';
 const locales = ['en', 'pt'] as const;
 // a página inicial é a mesma para os dois idiomas (/), por isso não entra por idioma
 // as páginas do estúdio antigo redirecionam para as novas e já não entram
-const staticPaths = ['/privacy', '/contact'];
+const staticPaths = ['/contact'];
+const LEGAL = ['/privacidade', '/termos', '/cookies', '/protecao-de-dados'];
 const CONTENT = ['/condominios', '/contabilidade', '/apps', '/artigos', '/artigos/organizar-ocorrencias-condominio', '/artigos/ia-administracao-condominios', '/artigos/documentos-em-falta-contabilidade'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,6 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   for (const path of CONTENT) {
     entries.push({ url: `${BASE_URL}${path}`, lastModified: new Date('2026-11-13'), changeFrequency: 'monthly', priority: path.startsWith('/artigos/') ? 0.7 : 0.9 });
+  }
+
+  for (const path of LEGAL) {
+    entries.push({ url: `${BASE_URL}${path}`, lastModified: new Date('2026-11-25'), changeFrequency: 'yearly', priority: 0.3 });
   }
 
   for (const locale of locales) {

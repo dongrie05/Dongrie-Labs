@@ -46,6 +46,9 @@ article a { color: var(--accent); text-underline-offset: 3px; }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); margin: 0; }
 .steps li::before { content: "0" counter(s); color: var(--accent); font-size: 13px; padding-top: 4px; }
 .note { margin: 28px 0; padding: 18px 20px; border-left: 2px solid var(--accent); background: rgba(199, 166, 255, .06); border-radius: 0 14px 14px 0; color: var(--muted); }
+article code { font-size: .9em; padding: 1px 6px; border-radius: 6px; background: rgba(243, 244, 255, .08); color: var(--ink); }
+button.btn { border: 0; cursor: pointer; font-family: inherit; }
+button.btn.ghost { border: 1px solid rgba(243, 244, 255, .4); }
 
 .faq { margin-top: 56px; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
