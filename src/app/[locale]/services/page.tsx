@@ -1,7 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import { SectionHeading } from '@/components/shared/SectionHeading';
-import { AnimateOnScroll } from '@/components/shared/AnimateOnScroll';
-import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
 import { ServicesListWithModal } from '@/components/sections/ServicesListWithModal';
@@ -32,64 +29,53 @@ export default async function ServicesPage() {
     { question: tFaq('q4'), answer: tFaq('a4') },
   ];
 
+  const future = [t('future.localAi'), t('future.openClaw'), t('future.miniSaaS')];
+
   return (
-    <div className="relative px-4 py-16 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <SectionHeading
-          title={t('pageTitle')}
-          subtitle={t('pageSubtitle')}
-          align="center"
-        />
-
+    <div>
+      <section className="bg-warm-band text-on-warm">
+        <div className="wrap pb-16 pt-16 md:pb-20 md:pt-24">
+          <div className="mb-5 h-1 w-14 rounded-full bg-on-warm" aria-hidden />
+          <h1 className="headline max-w-[12ch] text-on-warm">{t('pageTitle')}</h1>
+          <p className="lede text-on-warm-muted">{t('pageSubtitle')}</p>
+        </div>
+      </section>
+      <div className="pb-24 pt-12 md:pt-16">
+      <div className="wrap">
         <ServicesListWithModal />
 
-        <AnimateOnScroll>
-          <section className="mt-24">
-            <h2 className="font-heading text-2xl font-semibold text-white">
-              {t('comingSoon')}
-            </h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {['future.localAi', 'future.openClaw', 'future.miniSaaS'].map((key, i) => (
-                <AnimateOnScroll key={key} variant="fadeUp" delay={i * 0.08}>
-                  <Card hover={false} className="opacity-60 border-dashed">
-                    <p className="font-medium text-slate-400">{t(key)}</p>
-                  </Card>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </section>
-        </AnimateOnScroll>
+        <section className="mt-20">
+          <h2 className="text-[22px] font-semibold tracking-[-0.02em]">{t('comingSoon')}</h2>
+          <ul className="mt-4 space-y-2 text-[17px] text-muted">
+            {future.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
 
-        <AnimateOnScroll>
-          <section className="mt-24">
-            <h2 className="font-heading text-2xl font-semibold text-white">
-              {tFaq('title')}
-            </h2>
-            <div className="mt-6 max-w-3xl">
-              <FAQAccordion items={faqItems} />
-            </div>
-          </section>
-        </AnimateOnScroll>
+        <section className="mt-20 max-w-3xl">
+          <h2 className="text-[22px] font-semibold tracking-[-0.02em]">{tFaq('title')}</h2>
+          <div className="mt-6">
+            <FAQAccordion items={faqItems} />
+          </div>
+        </section>
 
-        <AnimateOnScroll>
-          <section className="mt-24 card-glow rounded-2xl border border-white/[0.06] bg-navy-900/60 p-8 text-center sm:p-12">
-            <h2 className="font-heading text-2xl font-semibold text-white">
-              {t('ctaTitle')}
-            </h2>
-            <p className="mt-2 text-slate-400">{t('ctaSubtitle')}</p>
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <Button href="/contact" variant="primary">
-                {tNav('contact')}
-              </Button>
-              <Button href="/portfolio" variant="secondary">
-                {tNav('portfolio')}
-              </Button>
-            </div>
-          </section>
-        </AnimateOnScroll>
       </div>
+      </div>
+      <section className="bg-accent text-on-accent section-pad">
+        <div className="wrap max-w-xl">
+          <h2 className="headline text-on-accent">{t('ctaTitle')}</h2>
+          <p className="lede text-band-muted">{t('ctaSubtitle')}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/contact" variant="primary" tone="inverse">
+              {tNav('contact')}
+            </Button>
+            <Button href="/portfolio" variant="secondary" tone="inverse">
+              {tNav('portfolio')}
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

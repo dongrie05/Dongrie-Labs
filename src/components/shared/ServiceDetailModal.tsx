@@ -1,10 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { X } from 'lucide-react';
 import { Link } from '@/navigation';
-import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { settle } from '@/lib/motion';
 
 const serviceMsgKeys: Record<string, string> = {
   mobile: 'mobileApps',
@@ -22,13 +22,12 @@ interface ServiceDetailModalProps {
   onClose: () => void;
 }
 
-export function ServiceDetailModal({
-  serviceId,
-  open,
-  onClose,
-}: ServiceDetailModalProps) {
+export function ServiceDetailModal({ serviceId, open, onClose }: ServiceDetailModalProps) {
   const t = useTranslations('services');
+  const tCommon = useTranslations('common');
   const msgKey = serviceMsgKeys[serviceId] ?? 'customSoftware';
+  const panelRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     if (!open) return;
@@ -36,122 +35,104 @@ export function ServiceDetailModal({
       if (e.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', handleEscape);
+    const previous = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    panelRef.current?.focus();
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
+      document.body.style.overflow = previous;
     };
   }, [open, onClose]);
 
   return (
     <AnimatePresence>
       {open && (
-        <div
-          key="service-modal"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="service-modal-title"
-        >
+        <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-6" role="presentation">
           <motion.button
             type="button"
             onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            aria-label="Close"
-            initial={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/40"
+            aria-label={tCommon('close')}
+            initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: reduce ? 0.01 : 0.2 }}
           />
           <motion.div
-            className="relative z-10 w-full max-w-lg rounded-2xl border border-navy-700 bg-navy-900 p-6 shadow-xl"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.96 }}
-            transition={{ duration: 0.2 }}
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="service-modal-title"
+            tabIndex={-1}
+            className="relative z-10 max-h-[85vh] w-full overflow-y-auto rounded-t-3xl bg-paper p-6 shadow-2xl sm:max-w-lg sm:rounded-3xl sm:p-8"
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: 16 }}
+            transition={reduce ? { duration: 0.01 } : settle}
           >
-        <div className="flex items-start justify-between gap-4">
-          <h2
-            id="service-modal-title"
-            className="font-heading text-xl font-semibold text-white"
-          >
-            {t(`${msgKey}.title`)}
-          </h2>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-navy-800 hover:text-white"
-            aria-label="Close"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        <div className="mt-6 space-y-5">
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-              {t('modalWhat')}
-            </h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-300">
-              {t(`${msgKey}.description`)}
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-              {t('modalHow')}
-            </h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-300">
-              {t(`${msgKey}.howItWorks`)}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-6">
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-                {t('modalCost')}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-white">
-                {t(`${msgKey}.averageCost`)}
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-                {t('modalTime')}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-white">
-                {t(`${msgKey}.averageTime`)}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          {msgKey === 'smeAutomation' ? (
-            <>
-              <Link
-                href="/products"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-400"
+            <div className="flex items-start justify-between gap-4">
+              <h2 id="service-modal-title" className="text-[24px] font-semibold tracking-[-0.02em]">
+                {t(`${msgKey}.title`)}
+              </h2>
+              <button
+                type="button"
                 onClick={onClose}
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-[15px] text-muted hover:text-ink"
+                aria-label={tCommon('close')}
               >
-                {t('smeAutomation.ctaLinea')}
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
-                onClick={onClose}
-              >
-                {t('smeAutomation.ctaCustom')}
-              </Link>
-            </>
-          ) : (
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-400"
-              onClick={onClose}
-            >
-              {t('modalCta')}
-            </Link>
-          )}
-        </div>
+                {tCommon('close')}
+              </button>
+            </div>
+
+            <div className="mt-6 space-y-6">
+              <div>
+                <h3 className="text-[15px] font-medium text-ink">{t('modalWhat')}</h3>
+                <p className="mt-2 text-[17px] leading-relaxed text-muted">{t(`${msgKey}.description`)}</p>
+              </div>
+              <div>
+                <h3 className="text-[15px] font-medium text-ink">{t('modalHow')}</h3>
+                <p className="mt-2 text-[17px] leading-relaxed text-muted">{t(`${msgKey}.howItWorks`)}</p>
+              </div>
+              <dl className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <dt className="text-[15px] font-medium text-ink">{t('modalCost')}</dt>
+                  <dd className="mt-1 text-[17px] text-muted">{t(`${msgKey}.averageCost`)}</dd>
+                </div>
+                <div>
+                  <dt className="text-[15px] font-medium text-ink">{t('modalTime')}</dt>
+                  <dd className="mt-1 text-[17px] text-muted">{t(`${msgKey}.averageTime`)}</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              {msgKey === 'smeAutomation' ? (
+                <>
+                  <Link
+                    href="/products"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 text-[17px] font-medium text-on-accent"
+                    onClick={onClose}
+                  >
+                    {t('smeAutomation.ctaLinea')}
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-line px-5 text-[17px] font-medium text-ink"
+                    onClick={onClose}
+                  >
+                    {t('smeAutomation.ctaCustom')}
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 text-[17px] font-medium text-on-accent"
+                  onClick={onClose}
+                >
+                  {t('modalCta')}
+                </Link>
+              )}
+            </div>
           </motion.div>
         </div>
       )}

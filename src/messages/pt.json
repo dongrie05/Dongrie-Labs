@@ -12,7 +12,7 @@
   },
   "products": {
     "title": "Produtos",
-    "subtitle": "Construímos e operamos os nossos próprios produtos. Não somos só um estúdio—também lançamos SaaS.",
+    "subtitle": "Produtos que construímos e operamos.",
     "byStudio": "Por Dongrie Labs"
   },
   "cookieConsent": {
@@ -25,10 +25,12 @@
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
     "brandName": "Dongrie Labs",
-    "contactWhatsApp": "Contactar no WhatsApp"
+    "contactWhatsApp": "Contactar no WhatsApp",
+    "skipToContent": "Saltar para o conteúdo",
+    "close": "Fechar"
   },
   "footer": {
-    "tagline": "Estúdio de software com IA. Apps móveis, sistemas de IA e automações. Rápido. Premium.",
+    "tagline": "Apps, sistemas de IA e automações. Feito por Gonçalo Dongrie.",
     "navigationLabel": "Navegação",
     "contactLabel": "Contacto",
     "copyright": "Todos os direitos reservados.",
@@ -36,16 +38,18 @@
   },
   "hero": {
     "scroll": "Deslizar",
-    "metaTitle": "Dongrie Labs - Estúdio de Software com IA",
+    "metaTitle": "Dongrie Labs",
     "title": "Construo apps e sistemas de IA em semanas, não meses.",
-    "subtitle": "Um estúdio solo de software com IA. Resultados de agência a preços acessíveis. Desenvolvimento liderado pelo fundador, execução rápida.",
+    "titleLead": "Construo apps e sistemas de IA",
+    "titleAccent": "em semanas, não meses.",
+    "subtitle": "Um estúdio de uma pessoa. Falas com quem escreve o código.",
     "ctaBookCall": "Agendar Chamada",
     "ctaSeeWork": "Ver o Meu Trabalho",
     "badge": "7 apps lançados em 3 meses"
   },
   "preloader": {
-    "buildingComment": "// Dongrie Labs — a construir o teu projeto",
-    "readyComment": "// Pronto. A abrir o site..."
+    "buildingComment": "// Dongrie Labs. A construir o teu projeto",
+    "readyComment": "// Pronto. A abrir o site."
   },
   "credibility": {
     "appsLaunched": "Apps Lançados",
@@ -56,10 +60,10 @@
   "services": {
     "sectionLabel": "Serviços",
     "overviewTitle": "O Que Construo",
-    "overviewSubtitle": "De apps móveis a integrações de IA e automação empresarial. Entrega rápida, âmbito claro.",
+    "overviewSubtitle": "Apps móveis, IA e o trabalho à volta.",
     "exploreAll": "Ver Todos os Serviços",
     "pageTitle": "O Que Construo",
-    "pageSubtitle": "Desenvolvimento full-stack com IA no centro. Cada projeto tem âmbito definido, é entregue a tempo e feito para durar.",
+    "pageSubtitle": "Cada projeto tem âmbito, prazo e um orçamento fixo.",
     "comingSoon": "Em Breve",
     "ctaTitle": "Vamos falar do teu projeto",
     "ctaSubtitle": "Conta-me a tua ideia. Respondo em até 24 horas.",
@@ -74,56 +78,56 @@
       "shortDesc": "Apps iOS e Android com React Native. Um código, duas lojas.",
       "description": "Apps móveis com experiência nativa para iOS e Android a partir de um único código. De MVPs a apps prontas para produção com notificações, compras in-app e desempenho fluido.",
       "howItWorks": "Definimos âmbito e ecrãs e construímos em React Native para um único código em iOS e Android. Recebes builds regulares para testar; no fim preparamos as listagens nas lojas e apoio na submissão.",
-      "averageCost": "€3k – €8k",
-      "averageTime": "3–6 semanas"
+      "averageCost": "€3k a €8k",
+      "averageTime": "3 a 6 semanas"
     },
     "aiIntegration": {
       "title": "Integração de IA",
       "shortDesc": "Integrar LLMs, visão e automação no teu produto ou fluxos de trabalho.",
       "description": "Levar IA ao teu produto ou ferramentas internas. Integrações à medida com OpenAI, Claude ou modelos open-source. Chatbots, processamento de documentos e automação inteligente.",
       "howItWorks": "Escolhemos o modelo e API adequados e construímos a integração (chat, embeddings ou automação). Ficas com a funcionalidade a funcionar, documentação e notas de manutenção.",
-      "averageCost": "€2k – €6k",
-      "averageTime": "2–4 semanas"
+      "averageCost": "€2k a €6k",
+      "averageTime": "2 a 4 semanas"
     },
     "businessAutomation": {
       "title": "Automação Empresarial",
       "shortDesc": "Fluxos de trabalho, scripts e ferramentas que poupam horas por semana.",
       "description": "Automatizar tarefas repetitivas e ligar as tuas ferramentas. Scripts personalizados, pipelines low-code e integrações que escalam com o negócio.",
       "howItWorks": "Mapeamos as tarefas a automatizar e as ferramentas que usas e construímos scripts ou pipelines (ex.: Python, fluxos tipo Zapier) que correm em agendamento ou por trigger. Ficas com algo que podes operar e ajustar.",
-      "averageCost": "€2k – €5k",
-      "averageTime": "2–4 semanas"
+      "averageCost": "€2k a €5k",
+      "averageTime": "2 a 4 semanas"
     },
     "mvpDevelopment": {
       "title": "Desenvolvimento de MVP",
       "shortDesc": "Ter um produto funcional em semanas para validar e iterar.",
       "description": "Lançar um produto mínimo viável depressa. Âmbito claro, prazo fixo e base sólida para evoluir. Ideal para fundadores e startups em fase inicial.",
       "howItWorks": "Fechamos um conjunto pequeno de funcionalidades e um prazo e construímos em ciclos curtos para testares com utilizadores reais. Recebes um produto deployável e um caminho claro para evoluir.",
-      "averageCost": "€2,5k – €7k",
-      "averageTime": "2–5 semanas"
+      "averageCost": "€2,5k a €7k",
+      "averageTime": "2 a 5 semanas"
     },
     "apiIntegration": {
       "title": "Integrações de API",
       "shortDesc": "Ligar a tua app a pagamentos, CRM ou qualquer API de terceiros.",
       "description": "Stripe, Twilio, Slack ou APIs custom. Integrações fiáveis com tratamento de erros e documentação.",
       "howItWorks": "Integramos as APIs que precisas (pagamentos, mensagens, CRM, etc.) com autenticação, tratamento de erros e retries. Ficas com endpoints a funcionar e documentação para a equipa manter ou estender.",
-      "averageCost": "€1,5k – €5k",
-      "averageTime": "1–3 semanas"
+      "averageCost": "€1,5k a €5k",
+      "averageTime": "1 a 3 semanas"
     },
     "customSoftware": {
       "title": "Ferramentas de Software à Medida",
       "shortDesc": "Ferramentas web ou desktop adaptadas ao teu fluxo.",
       "description": "Dashboards internos, painéis de administração ou ferramentas de nicho. Feitas para a tua equipa e o teu processo.",
       "howItWorks": "Desenhamos e construímos uma ferramenta à volta do teu fluxo (web ou desktop). Ficas com algo que a equipa pode usar no dia a dia, com responsabilidade clara e ajustes opcionais depois.",
-      "averageCost": "€2,5k – €8k",
-      "averageTime": "3–6 semanas"
+      "averageCost": "€2,5k a €8k",
+      "averageTime": "3 a 6 semanas"
     },
     "smeAutomation": {
       "title": "Automação com IA para PMEs",
       "shortDesc": "Atendimento telefónico por IA e automação de processos para PMEs tradicionais.",
-      "description": "A Linea (o nosso produto em desenvolvimento) atende o teu telefone com IA, 24/7, em português ou inglês—estamos a fechar os primeiros clientes. Também construímos automações à medida: captação de leads, agendamentos e tarefas de back-office para te focares no negócio.",
-      "howItWorks": "Para atendimento telefónico: a Linea está em desenvolvimento—estamos a integrar os primeiros clientes; fala connosco se quiseres ser um deles. Para soluções à medida (CRM, fluxos, integrações): definimos o âmbito e construímos uma automação adaptada.",
+      "description": "A Linea (o nosso produto em desenvolvimento) atende o teu telefone com IA, 24/7, em português ou inglês. Estamos a fechar os primeiros clientes. Também construímos automações à medida: captação de leads, agendamentos e tarefas de back-office para te focares no negócio.",
+      "howItWorks": "Para atendimento telefónico: a Linea está em desenvolvimento. Estamos a integrar os primeiros clientes; fala connosco se quiseres ser um deles. Para soluções à medida (CRM, fluxos, integrações): definimos o âmbito e construímos uma automação adaptada.",
       "averageCost": "A partir de €1,5k (à medida) ou Linea quando disponível",
-      "averageTime": "Em curso (acesso antecipado Linea) ou 2–4 semanas (à medida)",
+      "averageTime": "Em curso (acesso antecipado Linea) ou 2 a 4 semanas (à medida)",
       "ctaLinea": "Falar sobre a Linea (chamadas)",
       "ctaCustom": "Solução à medida"
     },
@@ -136,7 +140,7 @@
   "portfolio": {
     "sectionLabel": "Trabalho",
     "title": "Portfólio",
-    "subtitle": "Projetos reais, resultados reais. 7 apps em 3 meses.",
+    "subtitle": "Sete apps lançadas em três meses.",
     "viewFull": "Ver Portfólio Completo",
     "viewProject": "Ver Projeto",
     "all": "Todos",
@@ -150,7 +154,7 @@
   "process": {
     "sectionLabel": "Processo",
     "title": "Como Trabalho",
-    "subtitle": "Processo simples e transparente. Sem surpresas.",
+    "subtitle": "Acordamos o âmbito. Depois construo.",
     "step1Title": "Chamada de Descoberta",
     "step1Desc": "Falamos dos teus objetivos, prazo e orçamento. Faço perguntas para definir o âmbito do projeto.",
     "step2Title": "Âmbito e Orçamento",
@@ -164,7 +168,7 @@
   "why": {
     "sectionLabel": "Porquê nós",
     "title": "Porquê Dongrie Labs",
-    "subtitle": "Estúdio solo, execução de agência.",
+    "subtitle": "Trabalhas com uma pessoa, da primeira chamada ao lançamento.",
     "tabAccountability": "Responsabilidade",
     "tabAiPowered": "Com IA",
     "tabWeeksNotMonths": "Velocidade",
@@ -183,14 +187,14 @@
     },
     "pricing": {
       "title": "Preços para Startups",
-      "desc": "Projetos tipicamente entre €2k–€10k. Orçamentos transparentes, sem surpresas."
+      "desc": "Projetos tipicamente de €2k a €10k. Orçamentos transparentes, sem surpresas."
     }
   },
   "founder": {
     "sectionLabel": "Fundador",
     "title": "A pessoa por trás do código",
     "subtitle": "Gonçalo Dongrie. Fundador solo, construtor e entusiasta de IA.",
-    "bio": "O meu objetivo de vida é simplificar a vida das pessoas—no dia a dia e nos negócios—e reduzir o tempo e o preço do software em Portugal. Penso no teu produto como se fosse meu e respondo em até 30 minutos em dias úteis para te sentires sempre ouvido.",
+    "bio": "Quero simplificar o dia a dia e a gestão de um negócio, e reduzir o tempo e o preço do software em Portugal. Trato o teu produto como se fosse meu. Em dias úteis respondo em 30 minutos.",
     "moreAbout": "Mais Sobre Mim"
   },
   "proofStrip": {
@@ -201,12 +205,14 @@
   },
   "whoIHelp": {
     "label": "Com quem trabalho",
-    "text": "Fundadores, startups e PMEs que querem apps, automações ou IA—sem preços de agência nem esperas longas. Se tens uma ideia e um objetivo claro, podemos concretizar."
+    "text": "Fundadores, startups e PMEs que querem apps, automações ou IA, sem preços de agência nem esperas longas. Se tens uma ideia e um objetivo claro, podemos concretizar."
   },
   "cta": {
     "sectionLabel": "Vamos trabalhar juntos",
-    "headline": "Pronto para construir algo incrível?",
-    "subtitle": "Agenda uma chamada, envia mensagem ou pede orçamento. Normalmente respondo em até 30 minutos em dias úteis.",
+    "headline": "Diz-me o que queres construir.",
+    "headlineLead": "Diz-me o que queres",
+    "headlineAccent": "construir.",
+    "subtitle": "Uma chamada, uma mensagem ou um orçamento. Normalmente respondo em 30 minutos em dias úteis.",
     "noCommitment": "Sem compromisso. Conta-me a tua ideia e respondo em 30 minutos.",
     "bookCall": "Agendar Chamada",
     "whatsApp": "WhatsApp",
@@ -215,14 +221,14 @@
   "about": {
     "title": "Sobre",
     "heroTitle": "Olá, sou o Gonçalo",
-    "heroSubtitle": "Fundador da Dongrie Labs. Construo software e sistemas de IA que chegam ao mercado.",
-    "mission": "O meu objetivo de vida—aquilo para que vivo—é simplificar a vida das pessoas, no dia a dia e nos seus negócios. Criei a Dongrie Labs para reduzir o tempo e o preço do software em Portugal.",
+    "heroSubtitle": "Fundador da Dongrie Labs. Construo software e sistemas de IA, e entrego.",
+    "mission": "Aquilo para que vivo é simplificar a vida das pessoas, no dia a dia e nos seus negócios. Criei a Dongrie Labs para reduzir o tempo e o preço do software em Portugal.",
     "storyTitle": "Porque faço isto",
-    "story": "Motivo-me por saber que consegui ajudar pessoas a simplificar a sua vida. Quero ajudar toda a gente que queira—não só porque quero criar software para todos, mas porque acredito que todos merecemos ter acesso às melhores ferramentas. Não deves ficar de fora só porque não sabes por onde começar.",
+    "story": "Motivo-me por saber que consegui ajudar pessoas a simplificar a sua vida. Quero ajudar toda a gente que queira, não só porque quero criar software para todos, mas porque acredito que todos merecemos ter acesso às melhores ferramentas. Não deves ficar de fora só porque não sabes por onde começar.",
     "proofTitle": "Impacto real",
     "proof": "A SmartMeal passou os 3.000 downloads nos primeiros três meses. Os utilizadores dizem que as minhas apps realmente os ajudam. É isso que me move.",
     "commitmentTitle": "Como trabalho contigo",
-    "commitment": "A disponibilidade para mim é super importante. Posso prometer que, em dias úteis, exceto em casos extremos, respondo às mensagens em até 30 minutos—porque gosto que as pessoas se sintam ouvidas e percebidas. Estou disponível com bastante flexibilidade para o projeto ficar ótimo para ambos.",
+    "commitment": "A disponibilidade para mim é super importante. Posso prometer que, em dias úteis, exceto em casos extremos, respondo às mensagens em até 30 minutos, porque gosto que as pessoas se sintam ouvidas e percebidas. Estou disponível com bastante flexibilidade para o projeto ficar ótimo para ambos.",
     "howIWorkTitle": "A minha abordagem",
     "howIWork": "Penso no produto como se fosse meu. O meu objetivo é que, depois da primeira chamada, sintas que percebi exatamente o que queres.",
     "philosophyTitle": "O que podes esperar",
@@ -234,7 +240,7 @@
       "aiFirst": "IA nos momentos certos"
     },
     "personalTitle": "Para além do código",
-    "personal": "Fui atleta de competição e estou a acabar o meu curso. Essas experiências ajudaram-me a gerir melhor o tempo e a ter uma visão diferente das coisas—algo que trago para cada projeto.",
+    "personal": "Fui atleta de competição e estou a acabar o meu curso. Essas experiências ajudaram-me a gerir melhor o tempo e a ter uma visão diferente das coisas, algo que trago para cada projeto.",
     "techTitle": "Tecnologias e ferramentas",
     "techSubtitle": "Stack que uso no dia a dia para apps, automações e IA.",
     "techLanguages": "Linguagens",
@@ -249,8 +255,8 @@
   },
   "contact": {
     "title": "Contacto",
-    "subtitle": "Entra em contacto. Normalmente respondo em até 30 minutos em dias úteis.",
-    "trustStrip": "Respondo em até 30 minutos em dias úteis. Projetos a partir de €2k—podemos encontrar uma opção que funcione para ti.",
+    "subtitle": "Normalmente respondo em 30 minutos em dias úteis.",
+    "trustStrip": "Respondo em até 30 minutos em dias úteis. Projetos a partir de €2k. Podemos encontrar uma opção que funcione para ti.",
     "whatsAppDefaultMessage": "Olá! Encontrei a Dongrie Labs e gostaria de falar sobre um projeto.",
     "form": {
       "name": "Nome",
@@ -259,7 +265,7 @@
       "budget": "Orçamento estimado",
       "message": "Fala-me do teu projeto",
       "submit": "Abrir no WhatsApp",
-      "sending": "A abrir...",
+      "sending": "A abrir",
       "success": "O WhatsApp vai abrir com a tua mensagem. Envia a partir daí.",
       "whatsAppIntro": "Novo contacto do site",
       "error": "Algo correu mal. Usa o botão WhatsApp em baixo."
@@ -273,8 +279,8 @@
     },
     "budgetOptions": {
       "under2k": "Abaixo de €2k",
-      "2k5k": "€2k – €5k",
-      "5k10k": "€5k – €10k",
+      "2k5k": "€2k a €5k",
+      "5k10k": "€5k a €10k",
       "over10k": "Acima de €10k"
     },
     "info": {
@@ -331,9 +337,9 @@
   "faq": {
     "title": "Perguntas frequentes",
     "q1": "Quanto tempo demora um projeto típico?",
-    "a1": "A maioria dos projetos é entregue em 2–6 semanas, consoante o âmbito. Definimos o prazo antes de começar.",
+    "a1": "A maioria dos projetos é entregue em 2 a 6 semanas, consoante o âmbito. Definimos o prazo antes de começar.",
     "q2": "Quanto custa um projeto?",
-    "a2": "A faixa típica é €2k–€10k. Recebes um orçamento fixo após a chamada de descoberta—sem surpresas.",
+    "a2": "A faixa típica é €2k a €10k. Recebes um orçamento fixo após a chamada de descoberta. Sem surpresas.",
     "q3": "Trabalhas só com startups?",
     "a3": "Trabalho com startups, PMEs e quem precisar de software rápido e de qualidade. Se tens um objetivo claro e orçamento razoável, podemos falar.",
     "q4": "O que acontece após o lançamento?",

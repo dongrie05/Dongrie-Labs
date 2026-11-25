@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import { SectionHeading } from '@/components/shared/SectionHeading';
 
 export async function generateMetadata({
   params,
@@ -28,25 +27,20 @@ export default async function PrivacyPage() {
   const t = await getTranslations('privacy');
 
   return (
-    <div className="relative px-4 py-16 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
-      <div className="relative mx-auto max-w-2xl">
-        <SectionHeading title={t('title')} align="center" />
-        <p className="text-sm text-slate-500 text-center mt-2">
+    <div className="section-pad">
+      <div className="wrap max-w-2xl">
+        <h1 className="headline">{t('title')}</h1>
+        <p className="mt-4 text-[15px] text-muted">
           {t('lastUpdated')}: March 2025
         </p>
-        <p className="mt-8 text-slate-300 leading-relaxed">
-          {t('intro')}
-        </p>
+        <p className="mt-8 text-[17px] leading-relaxed text-muted">{t('intro')}</p>
         <div className="mt-12 space-y-10">
           {SECTIONS.map((section) => {
             if ('bodyKeys' in section) {
               return (
                 <section key={section.titleKey}>
-                  <h2 className="font-heading text-xl font-semibold text-white">
-                    {t(section.titleKey)}
-                  </h2>
-                  <div className="mt-3 space-y-3 text-slate-400 leading-relaxed">
+                  <h2 className="text-[22px] font-semibold tracking-[-0.02em]">{t(section.titleKey)}</h2>
+                  <div className="mt-3 space-y-3 text-[17px] leading-relaxed text-muted">
                     {section.bodyKeys.map((key) => (
                       <p key={key}>{t(key)}</p>
                     ))}
@@ -56,12 +50,8 @@ export default async function PrivacyPage() {
             }
             return (
               <section key={section.titleKey}>
-                <h2 className="font-heading text-xl font-semibold text-white">
-                  {t(section.titleKey)}
-                </h2>
-                <p className="mt-3 text-slate-400 leading-relaxed">
-                  {t(section.bodyKey)}
-                </p>
+                <h2 className="text-[22px] font-semibold tracking-[-0.02em]">{t(section.titleKey)}</h2>
+                <p className="mt-3 text-[17px] leading-relaxed text-muted">{t(section.bodyKey)}</p>
               </section>
             );
           })}
