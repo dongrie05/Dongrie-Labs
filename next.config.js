@@ -14,8 +14,10 @@ const nextConfig = {
       { source: '/:locale(pt|en)/:page(services|products|pricing|about|portfolio)', destination: '/', permanent: true },
       { source: '/:locale(pt|en)/portfolio/:slug', destination: '/', permanent: true },
       { source: '/:locale(pt|en)/recursos', destination: '/artigos', permanent: true },
+      // a política antiga em Next.js deu lugar às páginas legais estáticas
+      { source: '/:locale(pt|en)/privacy', destination: '/privacidade', permanent: true },
       // cópias técnicas em .html apontam para o endereço limpo
-      { source: '/:page(condominios|contabilidade|apps|artigos).html', destination: '/:page', permanent: true },
+      { source: '/:page(condominios|contabilidade|apps|artigos|privacidade|termos|cookies|protecao-de-dados).html', destination: '/:page', permanent: true },
       { source: '/artigos/:slug.html', destination: '/artigos/:slug', permanent: true },
     ];
   },
@@ -23,7 +25,7 @@ const nextConfig = {
     return {
       beforeFiles: [
         { source: '/', destination: '/home.html' },
-        { source: '/:page(condominios|contabilidade|apps|artigos)', destination: '/:page.html' },
+        { source: '/:page(condominios|contabilidade|apps|artigos|privacidade|termos|cookies|protecao-de-dados)', destination: '/:page.html' },
         { source: '/artigos/:slug', destination: '/artigos/:slug.html' },
       ],
     };

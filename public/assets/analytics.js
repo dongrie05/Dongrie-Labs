@@ -1,5 +1,5 @@
 // Google tag (contentor GTM-W737S83Q). Só carrega depois de o visitante aceitar os cookies,
-// como diz a Política de Privacidade. Usa a mesma chave de consentimento das páginas em Next.js.
+// como dizem a Política de Privacidade e a Política de Cookies. Usa a mesma chave de consentimento das páginas em Next.js.
 (function () {
   var KEY = "dongrielabs-cookie-consent", ID = "GTM-W737S83Q", loaded = false;
 
@@ -28,7 +28,7 @@
       "display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;box-shadow:0 20px 60px -20px rgba(0,0,0,.8)";
     var btn = "min-height:44px;padding:0 18px;border-radius:99px;font:600 14px Archivo,system-ui,sans-serif;cursor:pointer;";
     b.innerHTML = '<p style="margin:0;flex:1 1 260px;color:rgba(243,244,255,.8)">Usamos cookies só para perceber como o site é usado. ' +
-      '<a href="/pt/privacy" style="color:#c7a6ff">Política de Privacidade</a></p>' +
+      '<a href="/cookies" style="color:#c7a6ff">Política de Cookies</a></p>' +
       '<span style="display:flex;gap:8px"><button type="button" data-c="declined" style="' + btn + 'background:none;color:#f3f4ff;border:1px solid rgba(243,244,255,.3)">Recusar</button>' +
       '<button type="button" data-c="accepted" style="' + btn + 'background:#f3f4ff;color:#030116;border:0">Aceitar</button></span>';
     b.addEventListener("click", function (e) {
