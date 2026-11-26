@@ -16,6 +16,14 @@ const nextConfig = {
       { source: '/:locale(pt|en)/recursos', destination: '/artigos', permanent: true },
       // a política antiga em Next.js deu lugar às páginas legais estáticas
       { source: '/:locale(pt|en)/privacy', destination: '/privacidade', permanent: true },
+      // os 3 artigos antigos do estúdio eram sobre apps: levam à página de Apps
+      { source: '/:locale(pt|en)/recursos/:slug', destination: '/apps', permanent: true },
+      // o resto do site antigo em Next.js (contacto incluído) leva à página inicial, que tem o contacto.
+      // Assim o Google deixa de encontrar páginas antigas cheias de links que redirecionam.
+      { source: '/:locale(pt|en)/:path*', destination: '/', permanent: true },
+      { source: '/contact', destination: '/', permanent: true },
+      // a página /websites saiu a 15 nov; a oferta vive no Diagnóstico Express
+      { source: '/websites', destination: 'https://diagnostico.dongrielabs.com/', permanent: true },
       // cópias técnicas em .html apontam para o endereço limpo
       { source: '/:page(condominios|contabilidade|apps|artigos|privacidade|termos|cookies|protecao-de-dados).html', destination: '/:page', permanent: true },
       { source: '/artigos/:slug.html', destination: '/artigos/:slug', permanent: true },

@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Sora } from 'next/font/google';
 import './globals.css';
-import {
-  OrganizationJsonLd,
-  WebSiteJsonLd,
-  LocalBusinessJsonLd,
-} from '@/components/shared/JsonLd';
 import { SmoothScroll } from '@/components/shared/SmoothScroll';
 import { CustomCursor } from '@/components/shared/CustomCursor';
 import { GrainOverlay } from '@/components/shared/GrainOverlay';
@@ -27,15 +22,14 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dongrielabs.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Dongrie Labs - Fast AI-Powered Software Studio',
+    default: 'Dongrie Labs · AI Layer para gestão de condomínios e contabilidade',
     template: '%s | Dongrie Labs',
   },
   description:
-    'Build mobile apps, AI systems and automations in weeks. Solo studio by Gonçalo Dongrie.',
+    'A AI Layer da Dongrie Labs arruma emails, WhatsApps e chamadas por cliente e prepara o próximo passo. Para gestão de condomínios e contabilidade em Portugal.',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    alternateLocale: 'pt_PT',
+    locale: 'pt_PT',
   },
 };
 
@@ -45,11 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="pt-PT" className={`${inter.variable} ${sora.variable}`}>
       <body className="font-sans antialiased bg-navy-950 text-white min-h-screen">
-        <OrganizationJsonLd />
-        <WebSiteJsonLd />
-        <LocalBusinessJsonLd />
         <CustomCursor />
         <GrainOverlay />
         <SmoothScroll>
